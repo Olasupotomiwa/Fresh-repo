@@ -61,6 +61,7 @@ const CarouselCard = ({ content, interval }) => {
           top="50%"
           transform="translateY(-50%)"
           zIndex="2"
+          fontSize={28}
         />
 
         <IconButton
@@ -72,6 +73,7 @@ const CarouselCard = ({ content, interval }) => {
           top="50%"
           transform="translateY(-50%)"
           zIndex="2"
+          fontSize={28}
         />
 
         <Image
@@ -102,7 +104,10 @@ const CarouselCard = ({ content, interval }) => {
               display="inline-block"
             ></Box>
           ))}
-          <Link href="">
+          <Link
+            href="https://wa.me/2349030883078?text=Hi%2C%20I%27m%20interested%20in%20the%20Sigma%20________
+"
+          >
             <Button position="absolute" right={5} bottom={3} px={4}>
               Buy
             </Button>
@@ -138,7 +143,7 @@ const ShortsCard = () => {
     },
   ];
 
-  const interval = 1000; // Transition interval in milliseconds
+  const interval = 2000; // Transition interval in milliseconds
 
   return <CarouselCard content={content} interval={interval} />;
 };
