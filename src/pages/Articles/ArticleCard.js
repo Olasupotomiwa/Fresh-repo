@@ -19,7 +19,7 @@ const Blog = ({ image, title, article, id, Date, Time }) => {
         direction={{ sm: "column", md: "row" }}
         overflow="hidden"
         shadow="md"
-        bg="teal.100"
+        bg="blue.50"
         mb={9}
         rounded="xl"
       >
