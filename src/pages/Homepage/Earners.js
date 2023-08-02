@@ -31,8 +31,8 @@ const Card = ({ header, content, icon }) => {
           orientation="vertical"
         />
 
-        <Box mt={3} width="100%">
-          <Box w={8} h={8} borderRadius="md" marginRight={4} mt={0}>
+        <Box mt={5} width="100%">
+          <Box w={8} h={8} borderRadius="md" marginRight={4}>
             <iconify-icon
               icon={icon}
               style={{ color: "#808080" }}
@@ -45,7 +45,7 @@ const Card = ({ header, content, icon }) => {
               as="h2"
               size="md"
               display="flex"
-              mt={8}
+              mt={6}
               mb={1}
               color="white"
               fontWeight="500"

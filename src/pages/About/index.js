@@ -21,6 +21,7 @@ const Homepage = () => {
           mt={8}
           fontWeight={600}
           fontSize="32px"
+          fontFamily="Clash Grotesk"
         >
           Our offers <span style={{ color: "#CB29BE" }}>for Earners</span>
         </Heading>
@@ -28,7 +29,13 @@ const Homepage = () => {
       </Box>
 
       <Box pt={3} px={{ base: "6", md: "6" }} mt={-6} fontSize="32px">
-        <Heading textAlign="center" color="white" fontWeight={600}fontSize='32px'>
+        <Heading
+          textAlign="center"
+          color="white"
+          fontWeight={600}
+          fontSize="32px"
+          fontFamily="Clash Grotesk"
+        >
           Our offers <span style={{ color: "#CB29BE" }}>for Businesses</span>
         </Heading>
         <Business />
@@ -40,6 +47,7 @@ const Homepage = () => {
           color="white"
           fontWeight={600}
           fontSize="32px"
+          fontFamily="Clash Grotesk"
         >
           Our offers <span style={{ color: "#CB29BE" }}>for Individuals</span>
         </Heading>

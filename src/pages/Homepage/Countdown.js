@@ -11,7 +11,7 @@ import { EmailIcon } from "@chakra-ui/icons";
 
 const Countdown = () => {
   return (
-    <Box py={4} px={4}>
+    <Box py={4} px={{base: '1', md: '3'}}>
       <Flex
         direction={{ base: "column", md: "row" }}
         justifyContent="space-around"
@@ -50,6 +50,7 @@ const Countdown = () => {
             <FormControl
               borderRadius="full"
               borderWidth="1px"
+              borderColor='#808080'
               display="flex"
               width={{ base: "100%", md: "100%" }}
               m={{ base: "auto", md: "0" }}
@@ -57,7 +58,7 @@ const Countdown = () => {
               <InputGroup variant="unstyled">
                 <InputLeftElement pointerEvents="none">
                   <EmailIcon
-                    color="gray.500"
+                    color="#808080"
                     position="absolute"
                     left={4}
                     top={2.5}

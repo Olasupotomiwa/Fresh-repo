@@ -31,16 +31,13 @@ const Card = ({ header, content, icon }) => {
           orientation="vertical"
         />
 
-        <Box mt={3} width="100%">
-          <Box
-           
-            w={8}
-            h={8}
-            borderRadius="md"
-            marginRight={4}
-            mt={0}
-          >
-            <ion-icon name={icon}></ion-icon>
+        <Box mt={5} width="100%">
+          <Box w={8} h={8} borderRadius="md" marginRight={4} mt={0}>
+            <iconify-icon
+              icon={icon}
+              style={{ color: "#808080" }}
+              width="22"
+            ></iconify-icon>
           </Box>
 
           <Box>
@@ -48,13 +45,12 @@ const Card = ({ header, content, icon }) => {
               as="h2"
               size="md"
               display="flex"
-              mt={8}
+              mt={6}
               mb={1}
               color="white"
               fontWeight="500"
               fontFamily="Clash Grotesk"
             >
-              
               {header}
             </Heading>
             <Text fontSize="sm" py={0} color="#808080">
@@ -86,20 +82,20 @@ const ResponsiveCardCarousel = () => {
       header: "Advertise",
       content:
         "Post ads and other content that you want users to promote on their social media accounts. You can also post surveys & lots more!",
-      icon: "heart",
+      icon: "bi:phone-vibrate-fill",
     },
     {
       header: "Get engagement",
       content:
         "Grow your business accounts organically by getting real users to follow and engage with your content.",
-      icon: "heart",
+      icon: "fluent:people-20-filled",
     },
     {
       header: "Sell",
       content:
         "Advertise and sell your products in our marketplace. Our users can also help you sell your products for a small cut on each sale.",
 
-      icon: "heart",
+      icon: "ic:round-sell",
     },
 
     {
@@ -107,7 +103,7 @@ const ResponsiveCardCarousel = () => {
       content:
         "Achieve your social media goals quickly and efficiently by purchasing real and authentic followers and engagement!",
 
-      icon: "heart",
+      icon: "icon8:buy",
     },
   ];
 

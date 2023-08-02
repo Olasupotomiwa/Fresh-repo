@@ -93,7 +93,7 @@ return (
       </Box>
 
       <Box fontFamily="Clash Grotesk" mb={5}>
-        <Box>
+        <Box textDecoration='none'>
           <Heading color="white" fontSize="18px" fontWeight={400} mb={2}>
             For Earners
           </Heading>
@@ -182,14 +182,14 @@ return (
       px={4}
     >
       <Box color="#CB29BE" fontSize="sm" fontFamily="Clash Grotesk">
-        <Flex textDecoration="underline">
+        <Flex textDecoration="underline" fontSize="sm">
           <Link>
             {" "}
-            <Text mx={2}>Privacy Policy</Text>
+            <Text mx={1}>Privacy Policy</Text>
           </Link>
           <Link>
             {" "}
-            <Text mx={2}>Terms of service</Text>
+            <Text mx={1}>Terms of service</Text>
           </Link>
           <Link>
             {" "}

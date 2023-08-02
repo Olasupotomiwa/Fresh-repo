@@ -40,7 +40,7 @@ const AccordionComponent = () => {
       >
         Frequently Asked Questions
       </Heading>
-      <Accordion allowMultiple borderColor='"#808080"'>
+      <Accordion allowMultiple borderColor='#808080'>
         {accordionData.map((item, index) => (
           <AccordionItem key={index}>
             {({ isExpanded }) => (
@@ -48,9 +48,9 @@ const AccordionComponent = () => {
                 <h2>
                   <AccordionButton>
                     {isExpanded ? (
-                      <MinusIcon fontSize="12px" color="#CB29BE" />
+                      <MinusIcon fontSize="14px" color="#CB29BE" />
                     ) : (
-                      <AddIcon fontSize="12px" color="#CB29BE" />
+                      <AddIcon fontSize="14px" color="#CB29BE" />
                     )}
                     <Box
                       as="span"

@@ -63,7 +63,12 @@ const logos = [
 const LogoCardComponent = () => {
   return (
     <Box my={10}>
-      <Heading fontWeight="400" textAlign='center' color="white">
+      <Heading
+        fontWeight="400"
+        textAlign="center"
+        color="white"
+        fontFamily="Clash Grotesk"
+      >
         Platforms we support
       </Heading>
       <Flex align="center" justify="center" flexWrap="wrap" mx={15}>
@@ -76,8 +81,8 @@ const LogoCardComponent = () => {
             overflow="hidden"
             m={2}
             p={4}
-            width="130px"
-            height="80px"
+            width="120px"
+            height="70px"
             textAlign="center"
           >
             <Flex
@@ -90,7 +95,7 @@ const LogoCardComponent = () => {
                 src={logo.url}
                 boxSize="100px"
                 objectFit="contain"
-                width="35px"
+                width="32px"
               />
               <Text color="#808080" fontSize="14px">
                 {logo.name}

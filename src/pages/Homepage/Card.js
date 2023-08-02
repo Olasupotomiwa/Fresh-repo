@@ -30,7 +30,7 @@ const Card = ({ icon, header, content }) => {
       p={4}
       shadow="md"
       borderRadius="md"
-      width={{ base: "90%", md: "335px" }}
+      width={{ base: "80%", md: "335px" }}
       height="250px"
       mx={4}
       my={4}
@@ -82,7 +82,7 @@ const Card = ({ icon, header, content }) => {
 
 const CardsSection = () => {
   return (
-    <Box>
+    <Box my={5}>
       <Heading textAlign="center" color="white" fontFamily="Clash Grotesk">
         {" "}
         Who is Trendit<sup>3</sup> for{" "}
