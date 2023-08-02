@@ -103,7 +103,7 @@ const ResponsiveCardCarousel = () => {
       content:
         "Achieve your social media goals quickly and efficiently by purchasing real and authentic followers and engagement!",
 
-      icon: "buy:cart-fill",
+      icon: "solar:cart-plus-linear",
     },
   ];
 
