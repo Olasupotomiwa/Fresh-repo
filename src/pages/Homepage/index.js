@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "@chakra-ui/react";
-import "../Homepage/Homepage.css";
 import Card from "../Homepage/Card";
 import Faqs from "../Homepage/Faqs";
 import Countdown from "../Homepage/Countdown";
