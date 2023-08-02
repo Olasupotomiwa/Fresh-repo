@@ -9,7 +9,7 @@ const Notes = () => {
       <Flex
         direction={{ base: "column", md: "row" }}
         pt={30}
-        py={{ base: "5", md: "8" }}
+        py={{ base: "4", md: "8" }}
         fontFamily="Clash Grotesk"
       >
         <Box flex="1" mb={2} px={{ base: "5", md: "8" }}>
