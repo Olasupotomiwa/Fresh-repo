@@ -4,7 +4,7 @@ import Aboutpage from "./pages/About";
 import Advertspage from './pages/Packages/Adverts'
 import BuyFollowers from './pages/Packages/BuyFollowers'
 import { Routes, Route } from "react-router-dom";
-import "./app.css";
+import "./App.css";
 
 function App() {
   return (
