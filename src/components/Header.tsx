@@ -44,10 +44,6 @@ const NAV_ITEMS: NavItem[] = [
     href: "/packages",
     subItems: [
       {
-        label: "Social media tasks",
-        href: "/social-media-tasks",
-      },
-      {
         label: "Social media adverts",
         href: "/social-media-adverts",
       },
