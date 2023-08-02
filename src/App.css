@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+
+
+body,
+html{
+     
+    font-family: 'Clash Grotesk'
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.active{
+  color: #CB29BE;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* styles.css */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Custom style for carousel indicators (dots) */
+.custom-dot-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  list-style: none;
+  padding-top: 20px;
+ 
 }
 
-.App-link {
-  color: #61dafb;
+.custom-dot {
+  height: 55px;
+  width: 5px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-dot-list li {
+  margin: 10px 2px;
+}
+
+/* Active dot style */
+.custom-dot-list .react-multi-carousel-dot--active button {
+  background-color: white; /* Set the active bullet to white */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+
+ion-icon {
+ 
+            color: white;
+           position: relative;
+           top: 50%;
+           left: 50%;
+            transform: translate(-50%, -50%);
 }
