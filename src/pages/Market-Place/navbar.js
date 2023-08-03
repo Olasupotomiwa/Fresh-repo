@@ -52,13 +52,14 @@ const Navbar = ({ onNavLinkClick }) => {
 
         <Spacer />
         {/* Search Box */}
-        <Box>
+
           <InputGroup
             w={["full", "auto"]}
             maxW={["full", "xs"]}
             borderColor="#808080"
             ml={3}
             bg="black"
+            pr={{base: '3', md: '0'}}
           >
             <Input
               type="text"
