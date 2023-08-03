@@ -175,3 +175,5 @@ const Individuals = () => {
 };
 
 export default Individuals;
+
+
