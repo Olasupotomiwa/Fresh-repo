@@ -26,7 +26,7 @@ const Market = () => {
             Here you'll find a variety of products and services posted by
             different businesses. As a user you can either post a product, buy a
             product or resell a product and earn a commission fee for each sale
-            you make
+            you make.
           </Text>
         </Box>
       </Box>
