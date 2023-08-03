@@ -25,7 +25,7 @@ const Navbar = ({ onNavLinkClick }) => {
     <Box
       as="nav"
       py={1}
-      px={2}
+      px={{base: '4', md: '2'}}
       boxShadow="md"
       bg="#121212"
       color="#808080"
@@ -52,14 +52,12 @@ const Navbar = ({ onNavLinkClick }) => {
 
         <Spacer />
         {/* Search Box */}
-
+            
           <InputGroup
-            w={["full", "auto"]}
-            maxW={["full", "xs"]}
+          width={{base: '100%', md: 'auto'}}
             borderColor="#808080"
-            ml={3}
             bg="black"
-            pr={{base: '3', md: '0'}}
+           
           >
             <Input
               type="text"
@@ -71,7 +69,7 @@ const Navbar = ({ onNavLinkClick }) => {
               <SearchIcon color="#808080" />
             </InputLeftElement>
           </InputGroup>
-        </Box>
+       
       </Flex>
       {/* Mobile Navigation Links */}
       <Box mt={4} display={["block", "block", "none"]}>
@@ -80,6 +78,7 @@ const Navbar = ({ onNavLinkClick }) => {
             <Box
               key={link.id}
               px={3}
+              py={{base: '3', md: '0'}}
               whiteSpace="nowrap"
               fontSize="sm"
               cursor="pointer"
