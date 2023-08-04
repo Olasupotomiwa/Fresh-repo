@@ -21,8 +21,8 @@ const Filter = () => {
       color="white"
       fontFamily="clash grotesk"
       paddingY={2}
-      mt={3}
-      mb={2}
+      pt={3}
+      pb={2}
     >
       <Flex justify="space-between" px={5}>
         <Text>Your location : N/A</Text>

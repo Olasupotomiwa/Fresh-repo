@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react";
+
 import React from "react";
 import {
   Box,
@@ -13,7 +13,7 @@ import shirts from "assets/Markets/shirts.png";
 
 const Products = () => {
   return (
-    <Container maxW="100%" bg="#121212" py={5}>
+    <Box w="100%" bg="#121212" py={5} px={3}>
       <Box
         maxW="298px"
         borderRadius="lg"
@@ -112,7 +112,7 @@ const Products = () => {
           </Text>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 export default Products;

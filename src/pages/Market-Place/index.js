@@ -11,9 +11,8 @@ const Market = () => {
       px={0}
       fontFamily="clash grotesk"
       bg="black"
-      height="100vh"
     >
-      <Box pt={10}>
+      <Box pt={5}>
         <Heading
           textAlign="center"
           fontFamily="clash grotesk"
