@@ -109,6 +109,7 @@ const DesktopNav = () => {
         >
           Log in
         </Button>
+        <Link to='/sign-up'>
         <Button
           bg="#CB29BE"
           rounded="full"
@@ -119,9 +120,12 @@ const DesktopNav = () => {
           px="15px"
           py={5}
           fontWeight="400"
+         
+        
         >
           Create account
         </Button>
+        </Link>
       </Stack>
     </Stack>
   );
@@ -282,11 +286,14 @@ const MobileNav = ({
             variant="ghost"
             fontWeight="400"
              _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out",  opacity: "0.9" }}
-             
+             onClick={onClose}
           >
             Login
           </Button>
+           
           <Button
+           as={Link}
+           to='/sign-up'
             background="#CB29BE"
             rounded="full"
             ml="auto"
@@ -296,9 +303,12 @@ const MobileNav = ({
               bg: "#CB29BE",
               opacity: "0.9",
             }}
+            onClick={onClose}
+            
           >
             Create account
           </Button>
+         
         </Stack>
       )}
     </Stack>

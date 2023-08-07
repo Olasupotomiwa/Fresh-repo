@@ -30,7 +30,6 @@ const Products = () => {
             px={0}
             color="#CB29BE"
             fontSize="sm"
-           
           >
             <Text color="#808080">#Fashion</Text>
 
@@ -40,7 +39,6 @@ const Products = () => {
                 icon="healthicons:money-bag"
                 style={{ color: "#CB29BE" }}
                 width="18"
-               
               ></iconify-icon>
             </Box>
           </Flex>
@@ -93,7 +91,7 @@ const Products = () => {
               fontSize="sm"
               rounded="10px"
             >
-             Buy this product
+              Buy this product
             </Button>
             <Button
               mt={2}
@@ -103,12 +101,13 @@ const Products = () => {
               fontSize="sm"
               rounded="10px"
             >
-             Resell this product
+              Resell this product
             </Button>
           </Box>
 
           <Text mt={4} textAlign="center" fontSize="sm" color="#808080">
-            Earn $2.50 commission if you resell this product
+            Earn <span style={{ color: "#CB29BE", fontWeight: '500' }}> $2.50 </span>{" "}
+            commission if you resell this product
           </Text>
         </Box>
       </Box>
