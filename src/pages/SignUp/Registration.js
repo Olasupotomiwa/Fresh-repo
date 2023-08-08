@@ -11,6 +11,7 @@ import {
   Image,
   Container,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
 import { Center, Heading } from "@chakra-ui/react";
@@ -250,7 +251,7 @@ function SignUpComponent() {
               <FormControl>
                 <Text
                   textAlign="center"
-                  color="white"
+                  color="#808080"
                   fontFamily="clash grotesk"
                   mb={8}
                 >
@@ -355,7 +356,8 @@ function SignUpComponent() {
                 width={{ base: "80%", md: "400px" }}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
-               
+                as={Link}
+                to="/verified"
               >
                 Verify & Create account
               </Button>

@@ -28,11 +28,11 @@ const Tasks = () => {
             mb={5}
             px={{ base: "5", md: "10" }}
           >
-            Our advert package is a win-win for both earners and businesses.
-            With our user-friendly interface, business owners are able to post
-            ads and other content, select the social media platform they want
-            the ads shared to, set their and sit back while our users reposts
-            their ads and content to wider audience
+            Create social media tasks to help you achieve your social media
+            goals, and post for our users to carry out. <br />
+            Social media tasks on our platform will help you get followers, get
+            likes, get comments, get suscribers, get app reviews on the app
+            store or playstore, get people to join your groups and so much more!
           </Text>
 
           <Button
@@ -44,7 +44,7 @@ const Tasks = () => {
             variant="unstyled"
             width={{ base: "60%", md: "350px" }}
           >
-           Create Tasks <ArrowForwardIcon ml={3} />
+            Create Tasks <ArrowForwardIcon ml={3} />
           </Button>
         </Box>
         <Logos />

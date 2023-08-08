@@ -3,7 +3,8 @@
 body,
 html{
      
-    font-family: 'Clash Grotesk'
+    font-family: 'Clash Grotesk';
+    outline: none
 }
 
 .active{

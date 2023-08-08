@@ -106,6 +106,8 @@ const DesktopNav = () => {
           variant="ghost"
            _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out",  opacity: "0.9" }}
           fontWeight="400"
+           as={Link}
+                to="/log-in"
         >
           Log in
         </Button>
@@ -287,6 +289,8 @@ const MobileNav = ({
             fontWeight="400"
              _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out",  opacity: "0.9" }}
              onClick={onClose}
+               as={Link}
+                to="/log-in"
           >
             Login
           </Button>

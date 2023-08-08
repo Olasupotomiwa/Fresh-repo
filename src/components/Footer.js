@@ -35,7 +35,7 @@ return (
         <Box>
           <img src={LogoJPG} alt="" width="100px" />
           <Text>
-            A dynamic and innovative social finaance platform for users and
+            A dynamic and innovative social finance platform for users and
             businesses
           </Text>
         </Box>

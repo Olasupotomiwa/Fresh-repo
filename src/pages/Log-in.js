@@ -2,24 +2,22 @@ import React from "react";
 import {
   Container,
   Grid,
-  Center,
+ 
   Image,
   Heading,
   Text,
   Box,
-  Button,
+
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+
 import Onboard from "assets/images/onboard.png";
 import Footer from "components/Footer";
 
-const Verified = () => {
+const Login = () => {
   return (
     <Container maxWidth="100vw" bg="black" px={0}>
       <Grid
         templateColumns={{ base: "1fr", md: "2.6fr 7.4fr" }}
-      
         fontFamily="clash grotesk"
       >
         <Image
@@ -35,45 +33,22 @@ const Verified = () => {
           bg="black"
           textAlign="center"
           mx="auto"
-          my={100}
+          my={20}
           fontFamily="clash grotesk"
           width={{ base: "80%", md: "400px" }}
         >
-          <iconify-icon
-            icon="solar:verified-check-bold"
-            style={{ color: "#CB29BE" }}
-            width="120"
-          ></iconify-icon>
           <Heading
             textAlign="center"
             fontFamily="clash grotesk"
             fontWeight="500"
           >
-            Account verified
+           Welcome back
+            
           </Heading>
           <Text fontSize="sm" color="#808080" textAlign="center" mt={2}>
-            Your account has been verified successfully
+           This page is under development, check back later
           </Text>
-          <Center>
-            <Button
-              bg="#CB29BE"
-              color="white"
-              fontWeight={500}
-              rounded="25px"
-              px={10}
-              width={{ base: "80%", md: "400px" }}
-              mt={8}
-              mb={2}
-              _hover={{ bg: "#CB29BE", opacity: "0.9" }}
-              fontFamily="clash grotesk"
-              display="flex"
-              justifyContent="center"
-              as={Link}
-              to='/log-in'
-            >
-              Go to profile <ArrowForwardIcon ml={3} />
-            </Button>
-          </Center>
+         
         </Box>
       </Grid>
 
@@ -82,6 +57,4 @@ const Verified = () => {
   );
 };
 
-export default Verified;
-
-
+export default Login;

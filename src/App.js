@@ -7,6 +7,7 @@ import MarketPlace from './pages/Market-Place'
 import BuyFollowers from './pages/Packages/BuyFollowers'
 import SignUp from "./pages/SignUp";
 import Verified from "./pages/SignUp/Verified";
+import LoginPage from "./pages/Log-in";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/market-place" element={<MarketPlace />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/verified" element={<Verified />} />
+        <Route path="/log-in" element={<LoginPage />} />
       </Routes>
     </>
   );
