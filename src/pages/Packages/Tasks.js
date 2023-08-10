@@ -20,7 +20,7 @@ const Tasks = () => {
             fontWeight="500"
             fontFamily="clash grotesk"
           >
-            Social media adverts
+            Social media tasks
           </Heading>
           <Text
             color={"#808080"}

@@ -71,13 +71,13 @@ const Hero=()=>{
                       color="#808080"
                       position="absolute"
                       left={4}
-                      top={2.5}
+                      top='11px'
                     />
                   </InputLeftElement>
                   <Input
                     type="email"
                     placeholder="Enter your email address"
-                    fontSize="sm"
+                    fontSize={{base: '12px', md: 'sm'}}
                     pl="2.5rem" // To make space for the icon on the left
                     borderTopRightRadius={0}
                     borderBottomRightRadius={0}
@@ -88,9 +88,10 @@ const Hero=()=>{
                   borderRadius="full"
                   rounded="full"
                   color="black"
-                  px={10}
+                  px={{base: '7', md: '10'}}
+                  fontSize='sm'
                   fontWeight="400"
-                  py={1}
+                  py='10px'
                 >
                   Create account
                 </Button>

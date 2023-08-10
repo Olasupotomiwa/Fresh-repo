@@ -14,7 +14,7 @@ import {
   Container,
   useDisclosure,
   Button,
-  chakra
+  chakra,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -43,7 +43,7 @@ const NAV_ITEMS: NavItem[] = [
     label: "Our packages",
     href: "/packages",
     subItems: [
-       {
+      {
         label: "Social media tasks",
         href: "/create-tasks",
       },
@@ -69,7 +69,7 @@ const DesktopNav = () => {
     <Stack direction="row" align="center" spacing={0} pr={0} mr="30">
       <Center>
         {NAV_ITEMS.map((navItem, index) => (
-          <Box key={navItem.label} px={0} mr="10">
+          <Box key={navItem.label} px={0} ml={{base: '10', md: '8', lg: '-2'}}  mr={{base: '0', md: '0', lg: '8'}}>
             {index !== 0 && <Box />}
             {navItem.subItems ? (
               <DesktopDropdownNavItem
@@ -80,8 +80,13 @@ const DesktopNav = () => {
               <Popover trigger="hover" placement="bottom-start">
                 <PopoverTrigger>
                   <NavLink to={navItem.href} className="Navlink">
-                     <chakra.span _hover={{color: '#CB29BE',  transition: "color 0.3s ease-in-out"}}>
-                    {navItem.label}
+                    <chakra.span
+                      _hover={{
+                        color: "#CB29BE",
+                        transition: "color 0.3s ease-in-out",
+                      }}
+                    >
+                      {navItem.label}
                     </chakra.span>
                   </NavLink>
                 </PopoverTrigger>
@@ -97,36 +102,37 @@ const DesktopNav = () => {
       <Stack
         spacing={0}
         direction="row"
-      
         display={{ base: "none", md: "flex" }}
         position="absolute"
-        right="5px"
+        right="10px"
       >
         <Button
           variant="ghost"
-           _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out",  opacity: "0.9" }}
+          _hover={{
+            color: "#CB29BE",
+            transition: "color 0.3s ease-in-out",
+            opacity: "0.9",
+          }}
           fontWeight="400"
-           as={Link}
-                to="/log-in"
+          as={Link}
+          to="/log-in"
         >
           Log in
         </Button>
-        <Link to='/sign-up'>
-        <Button
-          bg="#CB29BE"
-          rounded="full"
-          _hover={{
-            bg: "#CB29BE",
-            opacity: "0.9",
-          }}
-          px="15px"
-          py={5}
-          fontWeight="400"
-         
-        
-        >
-          Create account
-        </Button>
+        <Link to="/sign-up">
+          <Button
+            bg="#CB29BE"
+            rounded="full"
+            _hover={{
+              bg: "#CB29BE",
+              opacity: "0.9",
+            }}
+            px="15px"
+            py={5}
+            fontWeight="400"
+          >
+            Create account
+          </Button>
         </Link>
       </Stack>
     </Stack>
@@ -150,7 +156,12 @@ const DesktopDropdownNavItem = ({
   return (
     <Box as="div" onClick={handleNavItemClick}>
       <Flex align="center" _hover={{ textDecoration: "none" }}>
-        <Text cursor="pointer" _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out" }}>{label}</Text>
+        <Text
+          cursor="pointer"
+          _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out" }}
+        >
+          {label}
+        </Text>
         <Box
           as={ChevronDownIcon}
           ml={0.5}
@@ -168,8 +179,13 @@ const DesktopDropdownNavItem = ({
         >
           {subItems.map((subItem) => (
             <NavLink key={subItem.label} to={subItem.href}>
-               <chakra.span _hover={{color: '#CB29BE',  transition: "color 0.3s ease-in-out"}}>
-              {subItem.label}
+              <chakra.span
+                _hover={{
+                  color: "#CB29BE",
+                  transition: "color 0.3s ease-in-out",
+                }}
+              >
+                {subItem.label}
               </chakra.span>
             </NavLink>
           ))}
@@ -215,7 +231,14 @@ const MobileNavItem = ({
               textDecoration: "none",
             }}
           >
-            <Text _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out" }}>{label}</Text>
+            <Text
+              _hover={{
+                color: "#CB29BE",
+                transition: "color 0.3s ease-in-out",
+              }}
+            >
+              {label}
+            </Text>
             <Box
               as={subItemsIcon.base}
               ml={0.5}
@@ -229,10 +252,14 @@ const MobileNavItem = ({
                   key={subItem.label}
                   to={subItem.href}
                   onClick={onClose}
-                 
                 >
-                  <chakra.span _hover={{color: '#CB29BE',  transition: "color 0.3s ease-in-out"}}>
-                  {subItem.label}
+                  <chakra.span
+                    _hover={{
+                      color: "#CB29BE",
+                      transition: "color 0.3s ease-in-out",
+                    }}
+                  >
+                    {subItem.label}
                   </chakra.span>
                 </NavLink>
               ))}
@@ -287,17 +314,21 @@ const MobileNav = ({
           <Button
             variant="ghost"
             fontWeight="400"
-             _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out",  opacity: "0.9" }}
-             onClick={onClose}
-               as={Link}
-                to="/log-in"
+            _hover={{
+              color: "#CB29BE",
+              transition: "color 0.3s ease-in-out",
+              opacity: "0.9",
+            }}
+            onClick={onClose}
+            as={Link}
+            to="/log-in"
           >
             Login
           </Button>
-           
+
           <Button
-           as={Link}
-           to='/sign-up'
+            as={Link}
+            to="/sign-up"
             background="#CB29BE"
             rounded="full"
             ml="auto"
@@ -308,11 +339,9 @@ const MobileNav = ({
               opacity: "0.9",
             }}
             onClick={onClose}
-            
           >
             Create account
           </Button>
-         
         </Stack>
       )}
     </Stack>
@@ -323,7 +352,13 @@ const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Container maxW="full" bg="black" color="white" fontFamily="Clash Grotesk" px={5}>
+    <Container
+      maxW="full"
+      bg="black"
+      color="white"
+      fontFamily="Clash Grotesk"
+      px={5}
+    >
       <Box py={2}>
         <Flex
           color="white.600"
@@ -332,8 +367,8 @@ const Header = () => {
           justify="space-around"
           bg="black"
         >
-          <Flex flex={{ base: 0 }} align="space-around">
-            <Box display={{ base: "none", md: "flex" }} width="150px">
+          <Flex flex={{ base: 0 }}>
+            <Box display={{ base: "none", md: "flex" }} width={{base: '150px', md: '100px', lg: '360px'}}>
               <Link to="/">
                 <Image src={LogoJPG} width="100px" alt="trendit3 logo" />
               </Link>
@@ -347,7 +382,6 @@ const Header = () => {
                 width="100px"
                 alt="trendit3 logo"
                 display={{ base: "flex", md: "none" }}
-               
               />
             </Link>
 
