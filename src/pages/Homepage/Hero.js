@@ -5,6 +5,7 @@ import {
   InputLeftElement,
   Button,
   FormControl,
+  import { Link } from "react-router-dom";
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import Dashboard from "assets/dashboard.png";
@@ -71,13 +72,13 @@ const Hero=()=>{
                       color="#808080"
                       position="absolute"
                       left={4}
-                      top='11px'
+                      top="11px"
                     />
                   </InputLeftElement>
                   <Input
                     type="email"
                     placeholder="Enter your email address"
-                    fontSize={{base: '12px', md: 'sm'}}
+                    fontSize={{ base: "12px", md: "14px", lg: "17px" }}
                     pl="2.5rem" // To make space for the icon on the left
                     borderTopRightRadius={0}
                     borderBottomRightRadius={0}
@@ -88,10 +89,12 @@ const Hero=()=>{
                   borderRadius="full"
                   rounded="full"
                   color="black"
-                  px={{base: '7', md: '10'}}
-                  fontSize='sm'
+                  px={{ base: "7", md: "10" }}
+                  fontSize="sm"
                   fontWeight="400"
-                  py='10px'
+                  py="10px"
+                  as={Link}
+                  to="sign-up"
                 >
                   Create account
                 </Button>

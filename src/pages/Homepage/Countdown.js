@@ -8,10 +8,11 @@ import {
   FormControl,
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 const Countdown = () => {
   return (
-    <Box py={4} px={{base: '1', md: '3'}}>
+    <Box py={4} px={{ base: "1", md: "3" }}>
       <Flex
         direction={{ base: "column", md: "row" }}
         justifyContent="space-around"
@@ -19,21 +20,21 @@ const Countdown = () => {
         fontFamily="Clash Grotesk"
       >
         <Box color="white" mb={8} mx={4}>
-          <Heading fontFamily="Clash Grotesk" fontWeight="400">
+          <Heading fontFamily="Clash Grotesk" fontWeight="500">
             100+
           </Heading>
           <Text fontSize="sm">Businesses</Text>
         </Box>
 
         <Box color="white" mb={8} mx={4}>
-          <Heading fontFamily="Clash Grotesk" fontWeight="400">
+          <Heading fontFamily="Clash Grotesk" fontWeight="500">
             500+
           </Heading>
           <Text fontSize="sm">Earners</Text>
         </Box>
 
         <Box color="white" mb={8} mx={4}>
-          <Heading fontFamily="Clash Grotesk" fontWeight="400">
+          <Heading fontFamily="Clash Grotesk" fontWeight="500">
             $10k+
           </Heading>
           <Text fontSize="sm">Made</Text>
@@ -50,7 +51,7 @@ const Countdown = () => {
             <FormControl
               borderRadius="full"
               borderWidth="1px"
-              borderColor='#808080'
+              borderColor="#808080"
               display="flex"
               width={{ base: "100%", md: "100%" }}
               m={{ base: "auto", md: "0" }}
@@ -80,6 +81,8 @@ const Countdown = () => {
                 px={10}
                 fontWeight="400"
                 py={1}
+                as={Link}
+                to="sign-up"
               >
                 Create account
               </Button>

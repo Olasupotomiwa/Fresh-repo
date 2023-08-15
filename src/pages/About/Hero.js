@@ -16,7 +16,7 @@ const Notes = () => {
           <Heading
             fontFamily="Clash Grotesk"
             fontSize="32px"
-            lineHeight="30px"
+            lineHeight="40px"
             fontWeight={700}
             textAlign={{ base: "center", md: "left" }}
             color="white"

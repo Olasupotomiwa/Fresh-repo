@@ -180,8 +180,8 @@ function SignUpComponent() {
                   value={selectedOption}
                   onChange={handleOptionChange}
                 >
-                  <option value="us">Nigeria</option>
-                  <option value="ca">Kenya</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Kenya">Kenya</option>
                   {/* Add more options */}
                 </Select>
               </FormControl>
@@ -194,8 +194,8 @@ function SignUpComponent() {
                   value={selectedOption}
                   onChange={handleOptionChange}
                 >
-                  <option value="en">Lagos</option>
-                  <option value="es">Oyo</option>
+                  <option value="Lagos">Lagos</option>
+                  <option value="Oyo">Oyo</option>
                   {/* Add more options */}
                 </Select>
               </FormControl>
@@ -208,8 +208,8 @@ function SignUpComponent() {
                   value={selectedOption}
                   onChange={handleOptionChange}
                 >
-                  <option value="us">Eti-Osa East</option>
-                  <option value="ca">VGC</option>
+                  <option value="Eti-Osa">Eti-Osa East</option>
+                  <option value="VGC">VGC</option>
                   {/* Add more options */}
                 </Select>
                 <Text color="#808080" fontSize="14px">
@@ -365,7 +365,10 @@ function SignUpComponent() {
           </Box>
           <Text textAlign="center" color="white" fontFamily="clash grotesk">
             Already have an account ?{" "}
-            <span style={{ color: "#CB29BE" }}> Log in </span>
+            <Button variant='unstyled' style={{ color: "#CB29BE" }} as={Link} to="/log-in">
+              {" "}
+              Log in{" "}
+            </Button>
           </Text>
         </Box>
       </Grid>

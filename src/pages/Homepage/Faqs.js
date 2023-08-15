@@ -48,9 +48,9 @@ const AccordionComponent = () => {
                 <h2>
                   <AccordionButton>
                     {isExpanded ? (
-                      <MinusIcon fontSize="14px" color="#CB29BE" />
+                      <MinusIcon fontSize="16px" color="#CB29BE" />
                     ) : (
-                      <AddIcon fontSize="14px" color="#CB29BE" />
+                      <AddIcon fontSize="16px" color="#CB29BE" />
                     )}
                     <Box
                       as="span"

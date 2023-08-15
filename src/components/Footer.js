@@ -93,7 +93,7 @@ return (
       </Box>
 
       <Box fontFamily="Clash Grotesk" mb={5}>
-        <Box textDecoration='none'>
+        <Box textDecoration="none">
           <Heading color="white" fontSize="18px" fontWeight={400} mb={2}>
             For Earners
           </Heading>
@@ -151,7 +151,7 @@ return (
                 <Input
                   type="email"
                   placeholder="Enter your email address"
-                  fontSize="sm"
+                  fontSize="13px"
                   pl="2.5rem" // To make space for the icon on the left
                   borderTopRightRadius={0}
                   borderBottomRightRadius={0}

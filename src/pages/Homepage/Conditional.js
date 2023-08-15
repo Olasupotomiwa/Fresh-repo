@@ -9,6 +9,7 @@ import {
   chakra,
   Container,
 } from "@chakra-ui/react";
+
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import Business from "./Business";
 import Earners from "../Homepage/Earners";
@@ -52,6 +53,9 @@ const OffersForEarners = () => {
       align="center"
       justify="center"
       p={{ base: "0", md: "4" }}
+     
+   
+    
     >
       <Text fontSize="xl" fontWeight="400" mb={1} color="white">
         Our Offers for
@@ -68,21 +72,37 @@ const OffersForEarners = () => {
           <MenuList
             color="#808080"
             bg="black"
-            fontSize="sm"
+            fontSize="18px"
             fontFamily="clash grotesk"
+            border="none"
           >
-            <MenuItem onClick={() => handleOptionSelect("Earners")} bg="black">
+            <MenuItem
+              onClick={() => handleOptionSelect("Earners")}
+              bg="black"
+              _hover={{
+                color: "#CB29BE",
+                transition: "color 0.3s ease-in-out",
+              }}
+            >
               Earners
             </MenuItem>
             <MenuItem
               onClick={() => handleOptionSelect("Businesses")}
               bg="black"
+              _hover={{
+                color: "#CB29BE",
+                transition: "color 0.3s ease-in-out",
+              }}
             >
               Businesses
             </MenuItem>
             <MenuItem
               onClick={() => handleOptionSelect("Individual")}
               bg="black"
+              _hover={{
+                color: "#CB29BE",
+                transition: "color 0.3s ease-in-out",
+              }}
             >
               Individual
             </MenuItem>

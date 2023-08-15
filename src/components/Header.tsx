@@ -69,12 +69,13 @@ const DesktopNav = () => {
     <Stack direction="row" align="center" spacing={0} pr={0} mr="30">
       <Center>
         {NAV_ITEMS.map((navItem, index) => (
-          <Box key={navItem.label} px={0} ml={{base: '10', md: '8', lg: '-2'}}  mr={{base: '0', md: '0', lg: '8'}}>
+          <Box key={navItem.label} px={0} ml={{base: '10', md: '6', lg: '-2'}}  mr={{base: '0', md: '0', lg: '8'}}>
             {index !== 0 && <Box />}
             {navItem.subItems ? (
               <DesktopDropdownNavItem
                 label={navItem.label}
                 subItems={navItem.subItems}
+              
               />
             ) : (
               <Popover trigger="hover" placement="bottom-start">
@@ -159,6 +160,7 @@ const DesktopDropdownNavItem = ({
         <Text
           cursor="pointer"
           _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out" }}
+           
         >
           {label}
         </Text>
@@ -166,6 +168,7 @@ const DesktopDropdownNavItem = ({
           as={ChevronDownIcon}
           ml={0.5}
           transform={isOpen ? "rotate(180deg)" : "none"}
+          
         />
       </Flex>
       {isOpen && (
@@ -176,6 +179,7 @@ const DesktopDropdownNavItem = ({
           zIndex={1}
           position="absolute"
           mt={2}
+            bg='black'
         >
           {subItems.map((subItem) => (
             <NavLink key={subItem.label} to={subItem.href}>
@@ -184,6 +188,7 @@ const DesktopDropdownNavItem = ({
                   color: "#CB29BE",
                   transition: "color 0.3s ease-in-out",
                 }}
+               
               >
                 {subItem.label}
               </chakra.span>
@@ -322,6 +327,7 @@ const MobileNav = ({
             onClick={onClose}
             as={Link}
             to="/log-in"
+           
           >
             Login
           </Button>
@@ -368,7 +374,7 @@ const Header = () => {
           bg="black"
         >
           <Flex flex={{ base: 0 }}>
-            <Box display={{ base: "none", md: "flex" }} width={{base: '150px', md: '100px', lg: '360px'}}>
+            <Box display={{ base: "none", md: "flex" }} width={{base: '150px', md: '90px', lg: '360px'}}>
               <Link to="/">
                 <Image src={LogoJPG} width="100px" alt="trendit3 logo" />
               </Link>
