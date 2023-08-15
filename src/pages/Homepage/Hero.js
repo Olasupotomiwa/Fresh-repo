@@ -5,8 +5,9 @@ import {
   InputLeftElement,
   Button,
   FormControl,
-  import { Link } from "react-router-dom";
+ 
 } from "@chakra-ui/react";
+ import { Link } from "react-router-dom";
 import { EmailIcon } from "@chakra-ui/icons";
 import Dashboard from "assets/dashboard.png";
 import Sparkle from 'assets/images/highlights.png'
