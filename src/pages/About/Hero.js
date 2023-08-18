@@ -22,7 +22,7 @@ const Notes = () => {
             color="white"
             mt={5}
           >
-            We help bridge the gap between
+            We help bridge the gap between ;
             <span style={{ color: "#CB29BE" }}> businesses </span>and{" "}
             <span style={{ color: "#CB29BE" }}> customers </span>
           </Heading>

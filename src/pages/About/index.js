@@ -20,7 +20,7 @@ const Homepage = () => {
           color="white"
           mt={8}
           fontWeight={500}
-          fontSize="28px"
+          fontSize={{ base: "24px", md: "28px" }}
           fontFamily="Clash Grotesk"
         >
           Our offers <span style={{ color: "#CB29BE" }}>for Earners</span>
@@ -33,7 +33,7 @@ const Homepage = () => {
           textAlign="center"
           color="white"
           fontWeight={500}
-          fontSize="28px"
+          fontSize={{ base: "24px", md: "28px" }}
           fontFamily="Clash Grotesk"
         >
           Our offers <span style={{ color: "#CB29BE" }}>for Businesses</span>
@@ -46,7 +46,7 @@ const Homepage = () => {
           textAlign="center"
           color="white"
           fontWeight={500}
-          fontSize="28px"
+          fontSize={{ base: "24px", md: "28px" }}
           fontFamily="Clash Grotesk"
         >
           Our offers <span style={{ color: "#CB29BE" }}>for Individuals</span>
