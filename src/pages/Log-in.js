@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+
 
 import {
   FormControl,
@@ -16,6 +18,7 @@ import {
   CheckCircleIcon,
   CloseIcon,
 } from "@chakra-ui/icons";
+import { Spinner } from "@chakra-ui/react";
 
 import Onboard from "assets/images/onboard.png";
 import Footer from "components/Footer";
@@ -24,9 +27,11 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isUsernameVerified, setIsUsernameVerified] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Add this line
   const [showPassword, setShowPassword] = useState(false);
 
   const toast = useToast();
+  const navigate = useNavigate();
 
   // Simulated username verification function
   const verifyUsername = (inputUsername) => {
@@ -54,7 +59,14 @@ const LoginPage = () => {
     if (username === "Trendit3" && password === "Trendit3") {
       // Successful login
       console.log("Login successful!");
-    } else {
+       setIsLoading(true); // Start loading
+      setTimeout(() => {
+        // Simulate loading for 2 seconds
+        navigate("/about");
+      }, 2000);
+    }
+   
+     else {
       // Incorrect username or password
       toast({
         title: "Error",
@@ -156,7 +168,7 @@ const LoginPage = () => {
               rounded="25px"
               width="full"
             >
-              Log in
+              {isLoading ? <Spinner size="sm" color="white" /> : "Log in"}
             </Button>
           </Box>
         </Box>
