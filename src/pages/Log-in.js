@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 import {
@@ -10,6 +11,7 @@ import {
   InputGroup,
   InputRightElement,
   Button,
+  Text,
   useToast,
 } from "@chakra-ui/react";
 import {
@@ -62,7 +64,7 @@ const LoginPage = () => {
        setIsLoading(true); // Start loading
       setTimeout(() => {
         // Simulate loading for 2 seconds
-        navigate("/about");
+        navigate("/dashboard");
       }, 2000);
     }
    
@@ -97,10 +99,10 @@ const LoginPage = () => {
           bg="black"
           textAlign="center"
           mx="auto"
-          my={20}
+          my={10}
           fontFamily="clash grotesk"
           width={{ base: "80%", md: "400px" }}
-          height="100vh"
+          height={{ base: "100vh", md: "auto" }}
         >
           <Heading
             textAlign="center"
@@ -111,7 +113,7 @@ const LoginPage = () => {
           </Heading>
           <Box p={0} my={15}>
             <FormControl>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Email address</FormLabel>
               <InputGroup>
                 <Input
                   type="text"
@@ -120,6 +122,9 @@ const LoginPage = () => {
                   pr={isUsernameVerified ? "2.5rem" : "0.5rem"}
                   borderColor="#808080"
                   borderRadius="12px"
+                  color="white"
+                  placeholder="E.g Dezfoods"
+                  fontFamily="clash grotesk"
                 />
                 {isUsernameVerified ? (
                   <InputRightElement
@@ -159,9 +164,18 @@ const LoginPage = () => {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
+            <Text
+              fontSize="14px"
+              mt={2}
+              textAlign="right"
+              color="#CB29BE"
+              fontFamily="clash grotesk"
+            >
+              Forgot password ?
+            </Text>
 
             <Button
-              mt={6}
+              my="35px"
               bg="#CB29BE"
               onClick={handleSubmit}
               _hover={{ bg: "#CB29BE", opacity: "0.9" }}
@@ -170,6 +184,23 @@ const LoginPage = () => {
             >
               {isLoading ? <Spinner size="sm" color="white" /> : "Log in"}
             </Button>
+            <Text
+              textAlign="center"
+              color="white"
+              fontFamily="clash grotesk"
+              fontSize="14px"
+            >
+              Not registered ?{" "}
+              <Button
+                variant="unstyled"
+                style={{ color: "#CB29BE" }}
+                fontSize="14px"
+                as={Link}
+                to="/sign-up"
+              >
+                Register now
+              </Button>
+            </Text>
           </Box>
         </Box>
       </Grid>

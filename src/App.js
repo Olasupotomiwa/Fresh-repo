@@ -8,6 +8,8 @@ import BuyFollowers from './pages/Packages/BuyFollowers'
 import SignUp from "./pages/SignUp";
 import Verified from "./pages/SignUp/Verified";
 import LoginPage from "./pages/Log-in";
+
+import Dashboard from "./Dahboard/dashboard";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -25,6 +27,8 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/verified" element={<Verified />} />
         <Route path="/log-in" element={<LoginPage />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );
