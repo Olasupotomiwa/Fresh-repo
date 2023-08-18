@@ -25,20 +25,29 @@ const Filter = () => {
       pb={2}
     >
       <Flex justify="space-between" px={5}>
-        <Text>Your location : N/A</Text>
+        <Text fontSize={{ base: "12px", md: "sm" }}>Your location : N/A</Text>
 
         <Menu>
           <MenuButton>
             {selectedOption} <ChevronDownIcon />
           </MenuButton>
-          <MenuList color="#CB29BE">
-            <MenuItem onClick={() => handleOptionSelect("Most recent")}>
+          <MenuList color="#CB29BE" fontSize={{ base: "12px", md: "sm" }}>
+            <MenuItem
+              onClick={() => handleOptionSelect("Most recent")}
+              fontSize={{ base: "12px", md: "sm" }}
+            >
               Most recent
             </MenuItem>
-            <MenuItem onClick={() => handleOptionSelect("High to low price")}>
+            <MenuItem
+              onClick={() => handleOptionSelect("High to low price")}
+              fontSize={{ base: "12px", md: "sm" }}
+            >
               High to low price
             </MenuItem>
-            <MenuItem onClick={() => handleOptionSelect(" Low to high price")}>
+            <MenuItem
+              onClick={() => handleOptionSelect(" Low to high price")}
+              fontSize={{ base: "12px", md: "sm" }}
+            >
               Low to high price
             </MenuItem>
           </MenuList>
