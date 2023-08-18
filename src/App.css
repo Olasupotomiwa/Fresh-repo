@@ -11,7 +11,22 @@ html{
 Button{
   box-shadow: none;
    outline: none;
-  
+   border: none 
+
+}
+
+
+Button:hover{
+  box-shadow: none;
+   outline: none;
+   border: none 
+
+}
+
+Button:focus{
+  box-shadow: none;
+   outline: none;
+   border: none 
 
 }
 
