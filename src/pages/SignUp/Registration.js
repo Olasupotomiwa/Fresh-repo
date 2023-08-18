@@ -365,7 +365,13 @@ function SignUpComponent() {
           </Box>
           <Text textAlign="center" color="white" fontFamily="clash grotesk">
             Already have an account ?{" "}
-            <Button variant='unstyled' style={{ color: "#CB29BE" }} as={Link} to="/log-in">
+            <Button
+              variant="unstyled"
+              style={{ color: "#CB29BE" }}
+              as={Link}
+              to="/log-in"
+              fontWeight="400"
+            >
               {" "}
               Log in{" "}
             </Button>

@@ -8,6 +8,13 @@ html{
      textDecoration: none
 }
 
+Button{
+  box-shadow: none;
+   outline: none;
+  
+
+}
+
 .active{
   color: #CB29BE;
   font-weight: bold;

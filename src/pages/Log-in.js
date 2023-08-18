@@ -181,6 +181,7 @@ const LoginPage = () => {
               _hover={{ bg: "#CB29BE", opacity: "0.9" }}
               rounded="25px"
               width="full"
+              fontWeight="400"
             >
               {isLoading ? <Spinner size="sm" color="white" /> : "Log in"}
             </Button>
@@ -197,6 +198,7 @@ const LoginPage = () => {
                 fontSize="14px"
                 as={Link}
                 to="/sign-up"
+                fontWeight="400"
               >
                 Register now
               </Button>
