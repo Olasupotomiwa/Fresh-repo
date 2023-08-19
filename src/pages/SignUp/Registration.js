@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import locationData from "./LocationArray";
 import {
   Button,
   FormControl,
@@ -26,17 +27,183 @@ import Onboard from "assets/images/onboard.png";
 function SignUpComponent() {
   const [currentStep, setCurrentStep] = useState(1);
 
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
+
+  // Add error state variables
+  const [usernameError, setUsernameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  // Function to clear error messages after a delay
+  const clearErrors = () => {
+    setTimeout(() => {
+      setUsernameError("");
+      setEmailError("");
+      setPasswordError("");
+      
+    }, 3000); // 3000 milliseconds (3 seconds)
+  };
+
   const handleNextStep = () => {
-    setCurrentStep(currentStep + 1);
+    if (currentStep === 1) {
+      // Check for empty fields
+      if (!username || !email || !password1 || !password2) {
+        // Display a generic error if any field is empty
+        setUsernameError(!username ? "Please fill in this field." : "");
+        setEmailError(!email ? "Please fill in this field." : "");
+        setPasswordError(!password1 ? "Please fill in this field." : "");
+
+        // Clear errors after 3 seconds
+        clearErrors();
+        return;
+      }
+
+      // Add authentication and error handling for username and email
+      if (!isValidUsername(username)) {
+        setUsernameError("Username is not available.");
+        // Clear errors after 3 seconds
+        clearErrors();
+      } else if (!isValidEmail(email)) {
+        setEmailError("Invalid email address.");
+        // Clear errors after 3 seconds
+        clearErrors();
+      } else if (!isValidPassword(password1)) {
+        setPasswordError(
+          "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
+        );
+        // Clear errors after 3 seconds
+        clearErrors();
+      } else if (password1 !== password2) {
+        setPasswordError("Passwords do not match.");
+        // Clear errors after 3 seconds
+        clearErrors();
+      } 
+        setCurrentStep(currentStep + 1);
+      
+    } 
+    
+    if (currentStep === 2) {
+     
+   
+     
+     if (!selectedGender) {
+       setgenderError("Please select your gender.");
+       return;
+     }
+
+       if (!selectedCountry) {
+         setCountryError("Please select a country.");
+         return;
+       }
+
+       if (!selectedState) {
+         setStateError("Please select a state.");
+         return;
+       }
+       
+     if (!selectedCity) {
+       setCityError("Please select a city.");
+       return;
+     }
+     // Validation for Step 1 passed; proceed to Step 2
+     setCurrentStep(currentStep + 1); 
+       
+     
+    
+  }
   };
 
   const handlePreviousStep = () => {
     setCurrentStep(currentStep - 1);
   };
-  const [selectedOption, setSelectedOption] = useState("");
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+
+  // Define the allowed username
+  const allowedUsername = "Trendit3";
+
+  // Function to simulate username validation
+  const isValidUsername = (username) => {
+    if (username !== allowedUsername) {
+      setUsernameError("Username is not allowed.");
+      return false;
+    }
+    return true;
   };
+
+  const isValidEmail = (email) => {
+    // Implement your email validation logic here
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    return emailPattern.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    // Implement your password validation logic here
+    // Return true if valid, false otherwise
+    return (
+      password.length >= 8 &&
+      /[A-Z]/.test(password) &&
+      /[a-z]/.test(password) &&
+      /\d/.test(password)
+    );
+  };
+
+ 
+
+  const [selectedCountry, setSelectedCountry] = useState(""); // State to store the selected country
+  const [selectedState, setSelectedState] = useState(""); // State to store the selected state
+   const [selectedCity, setSelectedCity] = useState("");
+    const [selectedGender, setSelectedGender] = useState("");
+  const [countryError, setCountryError] = useState("");
+  const [stateError, setStateError] = useState("");
+  const [cityError, setCityError] = useState("");
+   const [genderError, setgenderError] = useState("");
+
+
+   
+    // Function to handle gender selection
+    const handleGenderChange = (event) => {
+      setSelectedGender(event.target.value);
+      setgenderError(""); // Reset the Gender error
+    };
+
+  const handleCountryChange = (event) => {
+    const selectedCountry = event.target.value;
+    setSelectedCountry(selectedCountry);
+    setSelectedState(""); // Reset selected state when changing the country
+    setSelectedCity(""); // Reset selected city when changing the country
+    setCountryError(""); // Reset the country error
+  };
+
+  const handleStateChange = (event) => {
+    setSelectedState(event.target.value);
+    setSelectedCity(""); // Reset selected city when changing the country
+    setStateError(""); // Reset the state error
+  };
+
+   const handleCityChange = (event) => {
+     setSelectedCity(event.target.value);
+     setCityError(""); // Reset the city error
+   };
+
+  // Create arrays of countries, states, and cities based on the selected values
+  const countries = locationData.map((data) => data.country);
+  const states =
+    locationData
+      .find((data) => data.country === selectedCountry)
+      ?.states.map((state) => state.state) || [];
+  const cities =
+    locationData
+      .find((data) => data.country === selectedCountry)
+      ?.states.find((state) => state.state === selectedState)?.cities || [];
+
+  // Define CSS styles for the dropdown options
+  const dropdownOptionStyles = {
+  
+    color: "#121212", // Change the text color as needed
+  };
+
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
@@ -59,7 +226,11 @@ function SignUpComponent() {
                 >
                   Step 1 out of 3
                 </Text>
-                <Heading fontWeight={500} fontFamily="clash grotesk" fontSize='30px'>
+                <Heading
+                  fontWeight={500}
+                  fontFamily="clash grotesk"
+                  fontSize="30px"
+                >
                   Create account
                 </Heading>
               </Box>
@@ -72,7 +243,14 @@ function SignUpComponent() {
                   borderRadius="12px"
                   placeholder="E.g Dezfoods"
                   fontFamily="clash grotesk"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
+
+                {/* Display username error */}
+                <Text color="#CB29BE" fontSize="14px">
+                  {usernameError}
+                </Text>
               </FormControl>
               <FormControl fontFamily="clash grotesk">
                 <FormLabel color="#808080">Email Address</FormLabel>
@@ -81,7 +259,13 @@ function SignUpComponent() {
                   borderColor="#808080"
                   borderRadius="12px"
                   placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
+                {/* Display email error */}
+                <Text color="#CB29BE" fontSize="14px">
+                  {emailError}
+                </Text>
               </FormControl>
               <FormControl fontFamily="clash grotesk">
                 <FormLabel color="#808080">Password</FormLabel>
@@ -91,6 +275,8 @@ function SignUpComponent() {
                     borderColor="#808080"
                     borderRadius="12px"
                     placeholder="Enter your password"
+                    value={password1}
+                    onChange={(e) => setPassword1(e.target.value)}
                   />
                   <InputRightElement width="4.5rem">
                     <Button
@@ -106,6 +292,10 @@ function SignUpComponent() {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+                {/* Display password error */}
+                <Text color="#CB29BE" fontSize="14px">
+                  {passwordError}
+                </Text>
               </FormControl>
               <FormControl fontFamily="clash grotesk">
                 <FormLabel color="#808080">Confirm Password</FormLabel>
@@ -115,6 +305,8 @@ function SignUpComponent() {
                     borderColor="#808080"
                     borderRadius="12px"
                     placeholder="Confirm your password"
+                    value={password2}
+                    onChange={(e) => setPassword2(e.target.value)}
                   />
                   <InputRightElement width="4.5rem">
                     <Button
@@ -130,6 +322,10 @@ function SignUpComponent() {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+                {/* Display password error */}
+                <Text color="#CB29BE" fontSize="14px">
+                  {passwordError}
+                </Text>
               </FormControl>
             </VStack>
           </Flex>
@@ -161,61 +357,82 @@ function SignUpComponent() {
 
               <FormControl>
                 <FormLabel color="#808080">Gender</FormLabel>
-                <Select
-                  borderColor="#808080"
-                  borderRadius="12px"
-                  value={selectedOption}
-                  onChange={handleOptionChange}
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  {/* Add more options */}
+                <Select value={selectedGender} onChange={handleGenderChange}>
+                  <option value="">Select Gender</option>
+                  <option value="male" style={dropdownOptionStyles}>
+                    Male
+                  </option>
+                  <option value="female" style={dropdownOptionStyles}>
+                    Female
+                  </option>
+                  {/* Add more gender options as needed */}
                 </Select>
+                {genderError && <Text color="#CB29BE">{genderError}</Text>}
               </FormControl>
               <FormControl fontFamily="clash grotesk">
-                <FormLabel color="#808080">Country</FormLabel>
+                <FormLabel>Country:</FormLabel>
                 <Select
                   borderColor="#808080"
                   borderRadius="12px"
-                  value={selectedOption}
-                  onChange={handleOptionChange}
+                  value={selectedCountry}
+                  onChange={handleCountryChange}
                 >
-                  <option value="Nigeria">Nigeria</option>
-                  <option value="Kenya">Kenya</option>
-                  {/* Add more options */}
+                  <option value="">Select Country</option>
+                  {countries.map((country) => (
+                    <option
+                      key={country}
+                      value={country}
+                      style={dropdownOptionStyles}
+                    >
+                      {country}
+                    </option>
+                  ))}
                 </Select>
+                {countryError && <Text color="#CB29BE">{countryError}</Text>}
               </FormControl>
 
               <FormControl>
-                <FormLabel color="#808080">State</FormLabel>
+                <FormLabel>State:</FormLabel>
                 <Select
                   borderColor="#808080"
                   borderRadius="12px"
-                  value={selectedOption}
-                  onChange={handleOptionChange}
+                  value={selectedState}
+                  onChange={handleStateChange}
                 >
-                  <option value="Lagos">Lagos</option>
-                  <option value="Oyo">Oyo</option>
-                  {/* Add more options */}
+                  <option value="">Select State</option>
+                  {states.map((state) => (
+                    <option
+                      key={state}
+                      value={state}
+                      style={dropdownOptionStyles}
+                    >
+                      {state}
+                    </option>
+                  ))}
                 </Select>
+                {stateError && <Text color="#CB29BE">{stateError}</Text>}
               </FormControl>
 
               <FormControl>
                 <FormLabel color="#808080">Local Government Area</FormLabel>
-                <Select
-                  borderColor="#808080"
-                  borderRadius="12px"
-                  value={selectedOption}
-                  onChange={handleOptionChange}
-                >
-                  <option value="Eti-Osa">Eti-Osa East</option>
-                  <option value="VGC">VGC</option>
-                  {/* Add more options */}
+                <Select>
+                  <option value="">Select City</option>
+                  {cities.map((city) => (
+                    <option
+                      key={city}
+                      onChange={handleCityChange}
+                      value={selectedCity}
+                      style={dropdownOptionStyles}
+                    >
+                      {city}
+                    </option>
+                  ))}
                 </Select>
                 <Text color="#808080" fontSize="14px">
                   This helps us match you with vendors close to your market
                   place
                 </Text>
+                {cityError && <Text color="#CB29BE">{cityError}</Text>}
               </FormControl>
             </VStack>
           </Flex>
@@ -383,3 +600,4 @@ function SignUpComponent() {
 }
 
 export default SignUpComponent;
+
