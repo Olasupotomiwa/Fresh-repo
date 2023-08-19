@@ -26,9 +26,9 @@ import Onboard from "assets/images/onboard.png";
 import Footer from "components/Footer";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState("");
+  const [emailaddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [isUsernameVerified, setIsUsernameVerified] = useState(false);
+  const [isEmailAddressVerified, setIsEmailAddressVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Add this line
   const [showPassword, setShowPassword] = useState(false);
 
@@ -36,15 +36,15 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   // Simulated username verification function
-  const verifyUsername = (inputUsername) => {
-    const correctUsername = "Trendit3"; // Change this to the correct username
-    return inputUsername === correctUsername;
+  const verifyEmailAddress = (inputEmailAddress) => {
+    const correctEmailAddress = "Trendit3@gmail.com"; // Change this to the correct username
+    return inputEmailAddress === correctEmailAddress;
   };
 
-  const handleUsernameChange = (event) => {
-    const newUsername = event.target.value;
-    setUsername(newUsername);
-    setIsUsernameVerified(verifyUsername(newUsername));
+  const handleEmailAddressChange = (event) => {
+    const newEmailAddress = event.target.value;
+    setEmailAddress(newEmailAddress);
+    setIsEmailAddressVerified(verifyEmailAddress(newEmailAddress));
     // Reset username verification
   };
 
@@ -58,7 +58,7 @@ const LoginPage = () => {
 
   const handleSubmit = () => {
     // Handle form submission here
-    if (username === "Trendit3" && password === "Trendit3") {
+    if (emailaddress === "Trendit3@gmail.com" && password === "Trendit3") {
       // Successful login
       console.log("Login successful!");
        setIsLoading(true); // Start loading
@@ -79,6 +79,8 @@ const LoginPage = () => {
       });
     }
   };
+
+  
 
   return (
     <Container maxWidth="100vw" bg="black" px={0}>
@@ -117,21 +119,21 @@ const LoginPage = () => {
               <InputGroup>
                 <Input
                   type="text"
-                  value={username}
-                  onChange={handleUsernameChange}
-                  pr={isUsernameVerified ? "2.5rem" : "0.5rem"}
+                  value={emailaddress}
+                  onChange={handleEmailAddressChange}
+                  pr={isEmailAddressVerified ? "2.5rem" : "0.5rem"}
                   borderColor="#808080"
                   borderRadius="12px"
                   color="white"
-                  placeholder="E.g Dezfoods"
+                  placeholder="E.g Trendit3@gmail.com"
                   fontFamily="clash grotesk"
                 />
-                {isUsernameVerified ? (
+                {isEmailAddressVerified ? (
                   <InputRightElement
                     children={<CheckCircleIcon color="#CB29BE" />}
                   />
                 ) : (
-                  username && (
+                 emailaddress && (
                     <InputRightElement
                       children={<CloseIcon color="#CB29BE" />}
                     />

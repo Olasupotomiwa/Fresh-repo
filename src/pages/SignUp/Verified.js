@@ -34,8 +34,9 @@ const Verified = () => {
           color="white"
           bg="black"
           textAlign="center"
+        
           mx="auto"
-          my={100}
+          my={200}
           fontFamily="clash grotesk"
           width={{ base: "80%", md: "400px" }}
         >

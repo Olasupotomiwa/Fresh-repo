@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import locationData from "./LocationArray";
+import { useNavigate } from "react-router-dom";
+
 import {
   Button,
   FormControl,
@@ -21,6 +23,7 @@ import { PinInput, PinInputField } from "@chakra-ui/react";
 
 import { Box, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { Spinner } from "@chakra-ui/react";
 
 import Onboard from "assets/images/onboard.png";
 
@@ -55,16 +58,16 @@ function SignUpComponent() {
         setUsernameError(!username ? "Please fill in this field." : "");
         setEmailError(!email ? "Please fill in this field." : "");
         setPasswordError(!password1 ? "Please fill in this field." : "");
-         // Check if password2 is empty and display an error
-       if (!password2) {
-        setPasswordError("Please fill in this field.");
-      }
-  
+        // Check if password2 is empty and display an error
+        if (!password2) {
+          setPasswordError("Please fill in this field.");
+        }
+
         // Clear errors after 3 seconds
         clearErrors();
         return;
       }
-  
+
       // Add authentication and error handling for username and email
       if (!isValidUsername(username)) {
         console.log("Invalid username.");
@@ -94,7 +97,6 @@ function SignUpComponent() {
       }
     }
 
-    
     if (currentStep === 2) {
       if (!selectedGender) {
         setgenderError("Please select your gender.");
@@ -203,18 +205,69 @@ function SignUpComponent() {
     color: "#121212", // Change the text color as needed
   };
 
-  const [verificationCodes, setVerificationCodes] = useState([
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ]);
-  const handleVerificationCodeChange = (e, index) => {
-    const updatedCodes = [...verificationCodes];
-    updatedCodes[index] = e.target.value;
-    setVerificationCodes(updatedCodes);
+  const navigate = useNavigate();
+  const [pin, setPin] = useState(["", "", "", "", "", ""]);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isResending, setIsResending] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState(false);
+
+
+  // Define the specific six-digit PIN that should be matched
+  const correctPin = "123456"; // Replace with your specific PIN
+
+  const handlePinChange = (e, index) => {
+    const updatedPin = [...pin];
+    updatedPin[index] = e.target.value;
+    setPin(updatedPin);
+    setError("");
+  };
+
+   // Function to check if the PIN input is filled
+   const isPinFilled = () => {
+    return pin.every((digit) => digit.trim() !== "");
+  };
+
+  const handleButtonClick = () => {
+    const enteredPin = pin.join(""); // Combine the array into a string
+    if (enteredPin === correctPin) {
+      setIsLoading(true); // Activate the loading spinner
+      setTimeout(() => {
+        // Simulate some asynchronous operation (e.g., API call)
+        setIsLoading(false); // Deactivate the loading spinner
+        navigate("/verified"); // Navigate to the success page using useNavigate
+        logInputs()
+        
+      }, 2000); // Simulate a 2-second delay
+    } else {
+      setError("Incorrect PIN. Please try again."); // Display an error message
+    }
+  };
+
+  const handleResendClick = () => {
+    // Implement your resend logic here
+    setIsResending(true); // Activate the loading spinner for resend
+    setTimeout(() => {
+      // Simulate a resend process (e.g., sending a new code)
+      setIsResending(false); // Deactivate the loading spinner for resend
+      setResendSuccess(true); // Set resend success to true
+     // Start the countdown timer
+    }, 2000); // Simulate a 2-second resend process
+  };
+
+  // Function to collect and log step 1 and step 2 input values
+  const logInputs = () => {
+    console.log("Step 1 Inputs:");
+    console.log("Username:", username);
+    console.log("Email:", email);
+    console.log("Password1:", password1);
+    console.log("Password2:", password2);
+
+    console.log("Step 2 Inputs:");
+    console.log("Gender:", selectedGender);
+    console.log("Country:", selectedCountry);
+    console.log("State:", selectedState);
+    console.log("City:", selectedCity);
   };
 
   const renderStepContent = () => {
@@ -229,6 +282,8 @@ function SignUpComponent() {
             justifyContent="center"
             mt="40px"
             fontFamily="clash grotesk"
+           
+            
           >
             <VStack spacing={6} width={{ base: "80%", md: "400px" }}>
               <Box>
@@ -490,19 +545,17 @@ function SignUpComponent() {
                   mb={8}
                 >
                   We've sent an email with your account activation code to
-                  <span style={{ color: "#CB29BE" }}> dezfood@gmail.com</span>
+                  <span style={{ color: "#CB29BE" }}> {email}</span>
                 </Text>
                 <Center>
                   <HStack>
-                    <PinInput fontFamily="clash grotesk" mt={4}>
-                      {verificationCodes.map((code, index) => (
+                    <PinInput size="lg" autoFocus>
+                      {pin.map((digit, index) => (
                         <PinInputField
                           key={index}
+                          value={digit}
+                          onChange={(e) => handlePinChange(e, index)}
                           color="white"
-                          value={code}
-                          onChange={(e) =>
-                            handleVerificationCodeChange(e, index)
-                          }
                         />
                       ))}
                     </PinInput>
@@ -512,11 +565,32 @@ function SignUpComponent() {
                   textAlign="center"
                   color="white"
                   fontFamily="clash grotesk"
+                  mt={5}
                 >
                   Didn't receive a code ?{" "}
-                  <span style={{ color: "#CB29BE" }}> Resend </span>
+                  <Button
+                  variant='unstyled'
+                    style={{ color: "#CB29BE" }}
+                    onClick={handleResendClick}
+                    disabled={isResending || resendSuccess}
+                    fontWeight='400'
+                  >
+                     {isResending ? <Spinner size="sm" color="white" /> : 'Resend'}
+                  </Button>
                 </Text>
               </FormControl>
+
+              {resendSuccess && (
+        <Text color='#cb29be'>
+          New code sent to your email. Please Check
+        </Text>
+      )}
+
+              {error && (
+                <Text textAlign="center" color="#CB29BE">
+                  {error}
+                </Text>
+              )}
             </Stack>
           </Flex>
         );
@@ -548,14 +622,15 @@ function SignUpComponent() {
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
           width="full"
-          height="100%"
+         
         />
-        <Box mb={40}>
+        <Box mt={{base: '5', md: '20'}} >
           {renderStepContent()}
           <Box
             display="flex"
             justifyContent="center"
             fontFamily="clash grotesk"
+            
           >
             {currentStep > 1 && (
               <ArrowBackIcon
@@ -594,15 +669,15 @@ function SignUpComponent() {
                 width={{ base: "80%", md: "400px" }}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
-                as={Link}
-                to="/verified"
-                disabled={verificationCodes.some((code) => code === "")} // Disable the button if any field is empty
+                onClick={handleButtonClick}
+                disabled={!isPinFilled()}
+               
               >
-                Verify & Create account
+                {isLoading ? "Authenticating...." : "Verify & create account"}
               </Button>
             )}
           </Box>
-          <Text textAlign="center" color="white" fontFamily="clash grotesk">
+          <Text textAlign="center" color="white" fontFamily="clash grotesk" mb={40}>
             Already have an account ?{" "}
             <Button
               variant="unstyled"

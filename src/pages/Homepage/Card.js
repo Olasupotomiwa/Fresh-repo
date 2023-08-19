@@ -4,7 +4,7 @@ import { Box, Flex, Text, Heading } from "@chakra-ui/react";
 
 const cardContent = [
   {
-    icon: "fluent:money-20-filled",
+    icon: "solar:hand-money-bold",
     header: "Earners",
     content:
       "Our platform features a variety of income-generating strategies for users by having them carry out simple social media activities.",
