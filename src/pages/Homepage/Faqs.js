@@ -11,8 +11,8 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const accordionData = [
   {
-    title: "Section 1 title",
-    content: "Content for Section 1 goes here.",
+    title: "How can I make money on Trendit &#179 ?",
+    content: "You can make money on our platform by selling your products, reselling products from other vendors, reposting ads for businesses, carrying out engagement tasks such as following an account, liking a post and so much more!",
   },
   {
     title: "Section 2 title",

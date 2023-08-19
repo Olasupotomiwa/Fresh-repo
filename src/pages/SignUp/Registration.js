@@ -43,7 +43,6 @@ function SignUpComponent() {
       setUsernameError("");
       setEmailError("");
       setPasswordError("");
-      
     }, 3000); // 3000 milliseconds (3 seconds)
   };
 
@@ -51,69 +50,70 @@ function SignUpComponent() {
     if (currentStep === 1) {
       // Check for empty fields
       if (!username || !email || !password1 || !password2) {
+        console.log("Empty field detected.");
         // Display a generic error if any field is empty
         setUsernameError(!username ? "Please fill in this field." : "");
         setEmailError(!email ? "Please fill in this field." : "");
         setPasswordError(!password1 ? "Please fill in this field." : "");
-
+  
         // Clear errors after 3 seconds
         clearErrors();
         return;
       }
-
+  
       // Add authentication and error handling for username and email
       if (!isValidUsername(username)) {
+        console.log("Invalid username.");
         setUsernameError("Username is not available.");
         // Clear errors after 3 seconds
         clearErrors();
       } else if (!isValidEmail(email)) {
+        console.log("Invalid email.");
         setEmailError("Invalid email address.");
         // Clear errors after 3 seconds
         clearErrors();
       } else if (!isValidPassword(password1)) {
+        console.log("Invalid password.");
         setPasswordError(
           "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
         );
         // Clear errors after 3 seconds
         clearErrors();
       } else if (password1 !== password2) {
+        console.log("Passwords do not match.");
         setPasswordError("Passwords do not match.");
         // Clear errors after 3 seconds
         clearErrors();
-      } 
+      } else {
+        console.log("Validation passed. Proceeding to the next step.");
         setCurrentStep(currentStep + 1);
-      
-    } 
+      }
+    }
+
     
     if (currentStep === 2) {
-     
-   
-     
-     if (!selectedGender) {
-       setgenderError("Please select your gender.");
-       return;
-     }
+      if (!selectedGender) {
+        setgenderError("Please select your gender.");
+        return;
+      }
 
-       if (!selectedCountry) {
-         setCountryError("Please select a country.");
-         return;
-       }
+      if (!selectedCountry) {
+        setCountryError("Please select a country.");
+        return;
+      }
 
-       if (!selectedState) {
-         setStateError("Please select a state.");
-         return;
-       }
+      if (!selectedState) {
+        setStateError("Please select a state.");
+        return;
+      }
 
-     if (!selectedCity) {
-       setCityError("Please select a city.");
-       return;
-     }
-     // Validation for Step 1 passed; proceed to Step 2
-     setCurrentStep(currentStep + 1); 
-       
-     
-    
-  }
+      if (!selectedCity) {
+        setCityError("Please select a city.");
+        return;
+      }
+      // Validation for Step 1 passed; proceed to Step 2
+      setCurrentStep(currentStep + 1);
+    }
   };
 
   const handlePreviousStep = () => {
@@ -149,24 +149,20 @@ function SignUpComponent() {
     );
   };
 
- 
-
   const [selectedCountry, setSelectedCountry] = useState(""); // State to store the selected country
   const [selectedState, setSelectedState] = useState(""); // State to store the selected state
-   const [selectedCity, setSelectedCity] = useState("");
-    const [selectedGender, setSelectedGender] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
   const [countryError, setCountryError] = useState("");
   const [stateError, setStateError] = useState("");
   const [cityError, setCityError] = useState("");
-   const [genderError, setgenderError] = useState("");
+  const [genderError, setgenderError] = useState("");
 
-
-   
-    // Function to handle gender selection
-    const handleGenderChange = (event) => {
-      setSelectedGender(event.target.value);
-      setgenderError(""); // Reset the Gender error
-    };
+  // Function to handle gender selection
+  const handleGenderChange = (event) => {
+    setSelectedGender(event.target.value);
+    setgenderError(""); // Reset the Gender error
+  };
 
   const handleCountryChange = (event) => {
     const selectedCountry = event.target.value;
@@ -182,10 +178,10 @@ function SignUpComponent() {
     setStateError(""); // Reset the state error
   };
 
-   const handleCityChange = (event) => {
-     setSelectedCity(event.target.value);
-     setCityError(""); // Reset the city error
-   };
+  const handleCityChange = (event) => {
+    setSelectedCity(event.target.value);
+    setCityError(""); // Reset the city error
+  };
 
   // Create arrays of countries, states, and cities based on the selected values
   const countries = locationData.map((data) => data.country);
@@ -200,10 +196,8 @@ function SignUpComponent() {
 
   // Define CSS styles for the dropdown options
   const dropdownOptionStyles = {
-  
     color: "#121212", // Change the text color as needed
   };
-
 
   const [verificationCodes, setVerificationCodes] = useState([
     "",
@@ -218,8 +212,6 @@ function SignUpComponent() {
     updatedCodes[index] = e.target.value;
     setVerificationCodes(updatedCodes);
   };
-
-
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -626,4 +618,3 @@ function SignUpComponent() {
 }
 
 export default SignUpComponent;
-
