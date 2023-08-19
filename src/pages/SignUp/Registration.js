@@ -55,6 +55,10 @@ function SignUpComponent() {
         setUsernameError(!username ? "Please fill in this field." : "");
         setEmailError(!email ? "Please fill in this field." : "");
         setPasswordError(!password1 ? "Please fill in this field." : "");
+         // Check if password2 is empty and display an error
+       if (!password2) {
+        setPasswordError("Please fill in this field.");
+      }
   
         // Clear errors after 3 seconds
         clearErrors();
