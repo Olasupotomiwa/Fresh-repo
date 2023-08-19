@@ -103,7 +103,7 @@ function SignUpComponent() {
          setStateError("Please select a state.");
          return;
        }
-       
+
      if (!selectedCity) {
        setCityError("Please select a city.");
        return;
@@ -415,12 +415,11 @@ function SignUpComponent() {
 
               <FormControl>
                 <FormLabel color="#808080">Local Government Area</FormLabel>
-                <Select>
+                <Select onChange={handleCityChange}>
                   <option value="">Select City</option>
                   {cities.map((city) => (
                     <option
                       key={city}
-                      onChange={handleCityChange}
                       value={selectedCity}
                       style={dropdownOptionStyles}
                     >
