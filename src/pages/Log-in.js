@@ -101,17 +101,19 @@ const LoginPage = () => {
           bg="black"
           textAlign="center"
           mx="auto"
-          my={10}
+          my={150}
           fontFamily="clash grotesk"
           width={{ base: "80%", md: "400px" }}
-          height={{ base: "100vh", md: "auto" }}
+         
+          
         >
           <Heading
             textAlign="center"
             fontFamily="clash grotesk"
             fontWeight="500"
+            mb={10}
           >
-            Welcome back
+            Welcome back <iconify-icon icon="noto:waving-hand"></iconify-icon>
           </Heading>
           <Box p={0} my={15}>
             <FormControl>
