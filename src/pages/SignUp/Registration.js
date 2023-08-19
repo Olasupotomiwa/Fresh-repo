@@ -204,6 +204,23 @@ function SignUpComponent() {
     color: "#121212", // Change the text color as needed
   };
 
+
+  const [verificationCodes, setVerificationCodes] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
+  const handleVerificationCodeChange = (e, index) => {
+    const updatedCodes = [...verificationCodes];
+    updatedCodes[index] = e.target.value;
+    setVerificationCodes(updatedCodes);
+  };
+
+
+
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
@@ -415,12 +432,17 @@ function SignUpComponent() {
 
               <FormControl>
                 <FormLabel color="#808080">Local Government Area</FormLabel>
-                <Select onChange={handleCityChange}>
+                <Select
+                  borderColor="#808080"
+                  borderRadius="12px"
+                  value={selectedCity}
+                  onChange={handleCityChange}
+                >
                   <option value="">Select City</option>
                   {cities.map((city) => (
                     <option
                       key={city}
-                      value={selectedCity}
+                      value={city}
                       style={dropdownOptionStyles}
                     >
                       {city}
@@ -477,12 +499,16 @@ function SignUpComponent() {
                 <Center>
                   <HStack>
                     <PinInput fontFamily="clash grotesk" mt={4}>
-                      <PinInputField color="white" />
-                      <PinInputField color="white" />
-                      <PinInputField color="white" />
-                      <PinInputField color="white" />
-                      <PinInputField color="white" />
-                      <PinInputField color="white" />
+                      {verificationCodes.map((code, index) => (
+                        <PinInputField
+                          key={index}
+                          color="white"
+                          value={code}
+                          onChange={(e) =>
+                            handleVerificationCodeChange(e, index)
+                          }
+                        />
+                      ))}
                     </PinInput>
                   </HStack>
                 </Center>
@@ -574,6 +600,7 @@ function SignUpComponent() {
                 fontFamily="clash grotesk"
                 as={Link}
                 to="/verified"
+                disabled={verificationCodes.some((code) => code === "")} // Disable the button if any field is empty
               >
                 Verify & Create account
               </Button>
