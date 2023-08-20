@@ -85,7 +85,7 @@ const LoginPage = () => {
   return (
     <Container maxWidth="100vw" bg="black" px={0}>
       <Grid
-        templateColumns={{ base: "1fr", md: "2.6fr 7.4fr" }}
+        templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
       >
         <Image
@@ -93,19 +93,19 @@ const LoginPage = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          width="full"
-          height="100%"
+          height='full'
+         
         />
         <Box
           color="white"
           bg="black"
           textAlign="center"
           mx="auto"
-          my={150}
+          my={100}
           fontFamily="clash grotesk"
-          width={{ base: "80%", md: "400px" }}
+          width={{ base: "80%", md: "500px" }}
          
-          
+
         >
           <Heading
             textAlign="center"
@@ -115,7 +115,7 @@ const LoginPage = () => {
           >
             Welcome back <iconify-icon icon="noto:waving-hand"></iconify-icon>
           </Heading>
-          <Box p={0} my={15}>
+          <Box p={0} my={{base: '5', md: '15'}}>
             <FormControl>
               <FormLabel>Email address</FormLabel>
               <InputGroup>

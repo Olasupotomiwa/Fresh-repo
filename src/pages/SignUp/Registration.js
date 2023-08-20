@@ -49,6 +49,8 @@ function SignUpComponent() {
     }, 3000); // 3000 milliseconds (3 seconds)
   };
 
+
+  // Function to proceed to the next registration step
   const handleNextStep = () => {
     if (currentStep === 1) {
       // Check for empty fields
@@ -122,9 +124,16 @@ function SignUpComponent() {
     }
   };
 
+
+
+
+// Function to go back to the previous step
+
   const handlePreviousStep = () => {
     setCurrentStep(currentStep - 1);
   };
+
+
 
   // Define the allowed username
   const allowedUsername = "Trendit3";
@@ -138,6 +147,8 @@ function SignUpComponent() {
     return true;
   };
 
+
+  // Function to validate password
   const isValidEmail = (email) => {
     // Implement your email validation logic here
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -155,6 +166,8 @@ function SignUpComponent() {
     );
   };
 
+
+  // States to handle the second step
   const [selectedCountry, setSelectedCountry] = useState(""); // State to store the selected country
   const [selectedState, setSelectedState] = useState(""); // State to store the selected state
   const [selectedCity, setSelectedCity] = useState("");
@@ -205,6 +218,8 @@ function SignUpComponent() {
     color: "#121212", // Change the text color as needed
   };
 
+
+  // States to handle the code verificaation step
   const navigate = useNavigate();
   const [pin, setPin] = useState(["", "", "", "", "", ""]);
   const [error, setError] = useState("");
@@ -228,6 +243,10 @@ function SignUpComponent() {
     return pin.every((digit) => digit.trim() !== "");
   };
 
+
+
+
+  // Function to check if the pin matches before verying users
   const handleButtonClick = () => {
     const enteredPin = pin.join(""); // Combine the array into a string
     if (enteredPin === correctPin) {
@@ -244,6 +263,8 @@ function SignUpComponent() {
     }
   };
 
+
+  // Function to handle resending of code
   const handleResendClick = () => {
     // Implement your resend logic here
     setIsResending(true); // Activate the loading spinner for resend
@@ -255,7 +276,9 @@ function SignUpComponent() {
     }, 2000); // Simulate a 2-second resend process
   };
 
-  // Function to collect and log step 1 and step 2 input values
+
+
+  // Function to collect and log step 1 and step 2 input values into console
   const logInputs = () => {
     console.log("Step 1 Inputs:");
     console.log("Username:", username);
@@ -273,6 +296,8 @@ function SignUpComponent() {
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
+
+    //First registration step. Uesernmae, email and password
         return (
           <Flex
             color="white"
@@ -281,11 +306,9 @@ function SignUpComponent() {
             alignItems="center"
             justifyContent="center"
             mt="40px"
-            fontFamily="clash grotesk"
-           
-            
+            fontFamily="clash grotesk"  
           >
-            <VStack spacing={6} width={{ base: "80%", md: "400px" }}>
+            <VStack spacing={6} width={{ base: "80%", md: "500px" }}>
               <Box>
                 <Text
                   textAlign="left"
@@ -399,6 +422,8 @@ function SignUpComponent() {
           </Flex>
         );
 
+
+          //Second registration step. Gender, country and states
       case 2:
         return (
           <Flex
@@ -409,7 +434,7 @@ function SignUpComponent() {
             mt="40px"
             fontFamily="clash grotesk"
           >
-            <VStack spacing={6} width={{ base: "80%", md: "400px" }}>
+            <VStack spacing={6} width={{ base: "80%", md: "500px" }}>
               <Box>
                 <Text textAlign="left" fontSize="13px">
                   Step 2 out of 3
@@ -510,6 +535,8 @@ function SignUpComponent() {
           </Flex>
         );
 
+
+   //Third registration ste. Verification of email
       case 3:
         return (
           <Flex justify={"center"}>
@@ -613,7 +640,7 @@ function SignUpComponent() {
   return (
     <Container maxWidth="100vw" bg="black" px={0}>
       <Grid
-        templateColumns={{ base: "1fr", md: "2.6fr 7.4fr" }}
+        templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
       >
         <Image
@@ -621,7 +648,8 @@ function SignUpComponent() {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          width="full"
+          height='full'
+         
          
         />
         <Box mt={{base: '5', md: '20'}} >
@@ -651,7 +679,7 @@ function SignUpComponent() {
                 fontWeight={500}
                 rounded="25px"
                 px={10}
-                width={{ base: "80%", md: "400px" }}
+                width={{ base: "80%", md: "500px" }}
                 mt={8}
                 mb={2}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
@@ -666,7 +694,7 @@ function SignUpComponent() {
                 fontWeight={500}
                 rounded="25px"
                 px={10}
-                width={{ base: "80%", md: "400px" }}
+                width={{ base: "80%", md: "500px" }}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
                 onClick={handleButtonClick}

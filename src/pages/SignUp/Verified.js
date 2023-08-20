@@ -18,7 +18,7 @@ const Verified = () => {
   return (
     <Container maxWidth="100vw" bg="black" px={0}>
       <Grid
-        templateColumns={{ base: "1fr", md: "2.6fr 7.4fr" }}
+        templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
       
         fontFamily="clash grotesk"
       >
@@ -27,8 +27,8 @@ const Verified = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          width="full"
-          height="100%"
+          height='full'
+         
         />
         <Box
           color="white"
@@ -36,9 +36,10 @@ const Verified = () => {
           textAlign="center"
         
           mx="auto"
-          my={200}
+          mb={200}
+          mt={100}
           fontFamily="clash grotesk"
-          width={{ base: "80%", md: "400px" }}
+          width={{ base: "80%", md: "500px" }}
         >
           <iconify-icon
             icon="solar:verified-check-bold"
@@ -62,7 +63,7 @@ const Verified = () => {
               fontWeight={500}
               rounded="25px"
               px={10}
-              width={{ base: "80%", md: "400px" }}
+              width={{ base: "80%", md: "500px" }}
               mt={8}
               mb={2}
               _hover={{ bg: "#CB29BE", opacity: "0.9" }}
