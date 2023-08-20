@@ -214,6 +214,7 @@ const ForgotPasswordPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   borderColor="#808080"
+                  placeholder="enter your registed email"
                   borderRadius="12px"
                 />
               </FormControl>
