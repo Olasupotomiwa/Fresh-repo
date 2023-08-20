@@ -3,7 +3,6 @@ import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 import {
   FormControl,
   FormLabel,
@@ -20,7 +19,7 @@ import {
   CheckCircleIcon,
   CloseIcon,
 } from "@chakra-ui/icons";
-import { Spinner } from "@chakra-ui/react";
+import Loader from "../Loader";
 
 import Onboard from "assets/images/onboard.png";
 import Footer from "components/Footer";
@@ -29,7 +28,8 @@ const LoginPage = () => {
   const [emailaddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailAddressVerified, setIsEmailAddressVerified] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Add this line
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoginError, setIsLoginError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const toast = useToast();
@@ -45,6 +45,7 @@ const LoginPage = () => {
     const newEmailAddress = event.target.value;
     setEmailAddress(newEmailAddress);
     setIsEmailAddressVerified(verifyEmailAddress(newEmailAddress));
+    setIsLoginError(false)
     // Reset username verification
   };
 
@@ -57,30 +58,40 @@ const LoginPage = () => {
   };
 
   const handleSubmit = () => {
-    // Handle form submission here
-    if (emailaddress === "Trendit3@gmail.com" && password === "Trendit3") {
-      // Successful login
-      console.log("Login successful!");
-       setIsLoading(true); // Start loading
-      setTimeout(() => {
-        // Simulate loading for 2 seconds
-        navigate("/dashboard");
-      }, 2000);
-    }
-   
-     else {
-      // Incorrect username or password
+    if (emailaddress.trim() === "" || password.trim() === "") {
       toast({
         title: "Error",
-        description: "Invalid username or password.",
+        description: "Please fill in both email address and password.",
         status: "error",
         duration: 5000,
         isClosable: true,
       });
+      setIsLoading(false); // Stop loading
+      return; // Stop further execution
     }
-  };
+    // Handle form submission here
+    setIsLoading(true); // Start loading
 
-  
+    // Simulate loading for 2 seconds
+    setTimeout(() => {
+      if (emailaddress === "Trendit3@gmail.com" && password === "Trendit3") {
+        // Successful login
+        console.log("Login successful!");
+        navigate("/dashboard");
+      } else {
+        // Incorrect username or password
+        toast({
+          title: "Error",
+          description: "Invalid username or password.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+        setIsLoading(false); // Stop loading on error
+        setIsLoginError("Username or password does not match any account"); // Set login error state
+      }
+    }, 2000);
+  };
 
   return (
     <Container maxWidth="100vw" bg="black" px={0}>
@@ -93,8 +104,7 @@ const LoginPage = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height='100vh'
-         
+          height="100vh"
         />
         <Box
           color="white"
@@ -104,8 +114,6 @@ const LoginPage = () => {
           my={100}
           fontFamily="clash grotesk"
           width={{ base: "80%", md: "500px" }}
-         
-
         >
           <Heading
             textAlign="center"
@@ -115,7 +123,7 @@ const LoginPage = () => {
           >
             Welcome back <iconify-icon icon="noto:waving-hand"></iconify-icon>
           </Heading>
-          <Box p={0} my={{base: '5', md: '15'}}>
+          <Box p={0} my={{ base: "5", md: "15" }}>
             <FormControl>
               <FormLabel>Email address</FormLabel>
               <InputGroup>
@@ -126,6 +134,7 @@ const LoginPage = () => {
                   pr={isEmailAddressVerified ? "2.5rem" : "0.5rem"}
                   borderColor="#808080"
                   borderRadius="12px"
+                  bg='black'
                   color="white"
                   placeholder="E.g Trendit3@gmail.com"
                   fontFamily="clash grotesk"
@@ -135,7 +144,7 @@ const LoginPage = () => {
                     children={<CheckCircleIcon color="#CB29BE" />}
                   />
                 ) : (
-                 emailaddress && (
+                  emailaddress && (
                     <InputRightElement
                       children={<CloseIcon color="#CB29BE" />}
                     />
@@ -143,6 +152,15 @@ const LoginPage = () => {
                 )}
               </InputGroup>
             </FormControl>
+
+
+
+            {isLoginError && (
+                <Text textAlign="center" color="#CB29BE">
+                  {isLoginError}
+                </Text>
+              )}
+
 
             <FormControl mt={4}>
               <FormLabel>Password</FormLabel>
@@ -167,6 +185,7 @@ const LoginPage = () => {
                   </Button>
                 </InputRightElement>
               </InputGroup>
+             
             </FormControl>
             <Text
               fontSize="14px"
@@ -176,7 +195,6 @@ const LoginPage = () => {
               fontFamily="clash grotesk"
               as={Link}
               to="/forgot-password"
-            
             >
               Forgot password ?
             </Text>
@@ -190,7 +208,14 @@ const LoginPage = () => {
               width="full"
               fontWeight="400"
             >
-              {isLoading ? <Spinner size="sm" color="white" /> : "Log in"}
+              {isLoading ? (
+                <>
+                  <Loader />
+                  Checking credentials.....
+                </>
+              ) : (
+                "Log in"
+              )}
             </Button>
             <Text
               textAlign="center"

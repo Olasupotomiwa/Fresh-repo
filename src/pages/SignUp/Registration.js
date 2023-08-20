@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import locationData from "./LocationArray";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,8 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 
 import { Center, Heading } from "@chakra-ui/react";
 import { Stack, HStack } from "@chakra-ui/react";
-import { PinInput, PinInputField } from "@chakra-ui/react";
+import Loader from "../../Loader";
+
 
 import { Box, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -233,8 +234,25 @@ function SignUpComponent() {
   const handlePinChange = (e, index) => {
     const updatedPin = [...pin];
     updatedPin[index] = e.target.value;
+
+    // Check if the input exceeds a length of 1
+    const inputValue = e.target.value;
+    if (inputValue.length > 1) {
+      // If it does, only take the first character
+      updatedPin[index] = inputValue.charAt(0);
+    } else {
+      updatedPin[index] = inputValue;
+    }
     setPin(updatedPin);
     setError("");
+    setResendSuccess(false);
+
+    // Automatically focus on the next input if available
+    if (index < 5 && e.target.value !== "") {
+      document.getElementById(`pin${index + 1}`).focus();
+    } else if (index > 0 && e.target.value === "") {
+      document.getElementById(`pin${index - 1}`).focus();
+    }
   };
 
    // Function to check if the PIN input is filled
@@ -242,26 +260,36 @@ function SignUpComponent() {
     return pin.every((digit) => digit.trim() !== "");
   };
 
-
+  useEffect(() => {
+    // This effect runs after each render
+    if (resendSuccess) {
+      console.log("Resend successful. Clearing PIN input.");
+      // Clear the PIN input if resendSuccess is true
+      setPin(["", "", "", "", "", ""]);
+    }
+  }, [resendSuccess]);
 
 // Define the specific six-digit PIN that should be matched
 const correctPin = "123456"; // Replace with your specific PIN
   // Function to check if the pin matches before verying users
-  const handleButtonClick = () => {
+  const handleVerifyButton = () => {
     const enteredPin = pin.join(""); // Combine the array into a string
-    if (enteredPin === correctPin) {
-      setIsLoading(true); // Activate the loading spinner
-      setTimeout(() => {
-        // Simulate some asynchronous operation (e.g., API call)
+    setError(""); // Clear any previous error
+    setIsLoading(true); // Set isLoading to true
+  
+    // Simulate some asynchronous operation (e.g., API call)
+    setTimeout(() => {
+      if (enteredPin === correctPin) {
         setIsLoading(false); // Deactivate the loading spinner
-        navigate("/verified"); // Navigate to the success page using useNavigate
-        logInputs()
-        
-      }, 2000); // Simulate a 2-second delay
-    } else {
-      setError("Incorrect PIN. Please try again."); // Display an error message
-    }
+       navigate('/verified')
+       logInputs()
+      } else {
+        setError("Incorrect PIN. Please try again.");
+        setIsLoading(false); // Deactivate the loading spinner
+      }
+    }, 2000); // Simulate a 2-second delay
   };
+  
 
 
   // Function to handle resending of code
@@ -272,6 +300,9 @@ const correctPin = "123456"; // Replace with your specific PIN
       // Simulate a resend process (e.g., sending a new code)
       setIsResending(false); // Deactivate the loading spinner for resend
       setResendSuccess(true); // Set resend success to true
+      setPin(["", "", "", "", "", ""]); // Clear the PIN input
+      setError("");
+     
      // Start the countdown timer
     }, 2000); // Simulate a 2-second resend process
   };
@@ -575,18 +606,24 @@ const correctPin = "123456"; // Replace with your specific PIN
                   <span style={{ color: "#CB29BE" }}> {email}</span>
                 </Text>
                 <Center>
-                  <HStack>
-                    <PinInput size="lg" autoFocus>
-                      {pin.map((digit, index) => (
-                        <PinInputField
-                          key={index}
-                          value={digit}
-                          rounded='15px'
-                          onChange={(e) => handlePinChange(e, index)}
-                          color="white"
-                        />
-                      ))}
-                    </PinInput>
+                <HStack spacing={2}>
+                    {[0, 1, 2, 3, 4, 5].map((index) => (
+                      <Input
+                        key={index}
+                        type="number"
+                        id={`pin${index}`}
+                        value={pin[index]}
+                        onChange={(e) => handlePinChange(e, index)}
+                        maxLength={1} // Allow only one digit per input
+                        borderColor="#808080"
+                        borderRadius="12px"
+                        width={{ base: "50px", md: "60px" }}
+                        height={{ base: "50px", md: "60px" }}
+                        textAlign="center"
+                        color="white"
+                        autoFocus={index === 0} // Autofocus on the first input
+                      />
+                    ))}
                   </HStack>
                 </Center>
                 <Text
@@ -698,11 +735,18 @@ const correctPin = "123456"; // Replace with your specific PIN
                 width={{ base: "80%", md: "500px" }}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
-                onClick={handleButtonClick}
+                onClick={handleVerifyButton}
                 isDisabled={!isPinFilled()}
                
               >
-                {isLoading ? "Authenticating...." : "Verify & create account"}
+                 {isLoading ? (
+                <>
+                  <Loader />
+                  Authenticating code....
+                </>
+              ) : (
+                "Verify & create account"
+              )}
               </Button>
             )}
           </Box>
