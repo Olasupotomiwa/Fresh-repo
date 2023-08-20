@@ -8,6 +8,7 @@ import BuyFollowers from './pages/Packages/BuyFollowers'
 import SignUp from "./pages/SignUp";
 import Verified from "./pages/SignUp/Verified";
 import LoginPage from "./pages/Log-in";
+import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
 
 import Dashboard from "./Dahboard/dashboard";
 import { Routes, Route } from "react-router-dom";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/verified" element={<Verified />} />
         <Route path="/log-in" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>

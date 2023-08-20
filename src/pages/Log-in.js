@@ -93,7 +93,7 @@ const LoginPage = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height='full'
+          height='100vh'
          
         />
         <Box
@@ -174,6 +174,9 @@ const LoginPage = () => {
               textAlign="right"
               color="#CB29BE"
               fontFamily="clash grotesk"
+              as={Link}
+              to="/forgot-password"
+            
             >
               Forgot password ?
             </Text>

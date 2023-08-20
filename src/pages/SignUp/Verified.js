@@ -27,7 +27,7 @@ const Verified = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height='full'
+          height='100vh'
          
         />
         <Box

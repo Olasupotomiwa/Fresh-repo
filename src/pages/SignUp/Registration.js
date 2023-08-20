@@ -228,8 +228,7 @@ function SignUpComponent() {
   const [resendSuccess, setResendSuccess] = useState(false);
 
 
-  // Define the specific six-digit PIN that should be matched
-  const correctPin = "123456"; // Replace with your specific PIN
+  
 
   const handlePinChange = (e, index) => {
     const updatedPin = [...pin];
@@ -245,7 +244,8 @@ function SignUpComponent() {
 
 
 
-
+// Define the specific six-digit PIN that should be matched
+const correctPin = "123456"; // Replace with your specific PIN
   // Function to check if the pin matches before verying users
   const handleButtonClick = () => {
     const enteredPin = pin.join(""); // Combine the array into a string
@@ -536,7 +536,7 @@ function SignUpComponent() {
         );
 
 
-   //Third registration ste. Verification of email
+   //Third registration step. Verification of email
       case 3:
         return (
           <Flex justify={"center"}>
@@ -581,6 +581,7 @@ function SignUpComponent() {
                         <PinInputField
                           key={index}
                           value={digit}
+                          rounded='15px'
                           onChange={(e) => handlePinChange(e, index)}
                           color="white"
                         />
@@ -599,7 +600,7 @@ function SignUpComponent() {
                   variant='unstyled'
                     style={{ color: "#CB29BE" }}
                     onClick={handleResendClick}
-                    disabled={isResending || resendSuccess}
+                    isDisabled={isResending || resendSuccess}
                     fontWeight='400'
                   >
                      {isResending ? <Spinner size="sm" color="white" /> : 'Resend'}
@@ -638,7 +639,7 @@ function SignUpComponent() {
   };
 
   return (
-    <Container maxWidth="100vw" bg="black" px={0}>
+    <Container maxWidth="100vw"  bg="black" px={0}>
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
@@ -648,7 +649,7 @@ function SignUpComponent() {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height='full'
+          height="full"
          
          
         />
@@ -698,7 +699,7 @@ function SignUpComponent() {
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
                 onClick={handleButtonClick}
-                disabled={!isPinFilled()}
+                isDisabled={!isPinFilled()}
                
               >
                 {isLoading ? "Authenticating...." : "Verify & create account"}
