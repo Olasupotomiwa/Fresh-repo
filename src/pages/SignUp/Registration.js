@@ -20,7 +20,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Center, Heading } from "@chakra-ui/react";
 import { Stack, HStack } from "@chakra-ui/react";
 import Loader from "../../Loader";
-
+import Footer from "components/Footer";
 
 import { Box, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -617,8 +617,8 @@ const correctPin = "123456"; // Replace with your specific PIN
                         maxLength={1} // Allow only one digit per input
                         borderColor="#808080"
                         borderRadius="12px"
-                        width={{ base: "50px", md: "60px" }}
-                        height={{ base: "50px", md: "60px" }}
+                        width={{ base: "45px", md: "60px" }}
+                        height={{ base: "45px", md: "60px" }}
                         textAlign="center"
                         color="white"
                         autoFocus={index === 0} // Autofocus on the first input
@@ -765,6 +765,7 @@ const correctPin = "123456"; // Replace with your specific PIN
           </Text>
         </Box>
       </Grid>
+      <Footer />
     </Container>
   );
 }

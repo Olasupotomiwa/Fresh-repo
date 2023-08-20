@@ -14,10 +14,12 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
+import Footer from "components/Footer";
 import { Center, HStack } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {  ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 import Loader from "../../Loader";
 
@@ -103,13 +105,12 @@ const ForgotPasswordPage = () => {
   // Define the specific six-digit PIN that should be matched
   const correctPin = "123456"; // Replace with your specific PIN
 
-
   // Function to check if the pin matches before verying users
   const handleVerifyButton = () => {
     const enteredPin = pin.join(""); // Combine the array into a string
     setError(""); // Clear any previous error
     setIsLoading(true); // Set isLoading to true
-  
+
     // Simulate some asynchronous operation (e.g., API call)
     setTimeout(() => {
       if (enteredPin === correctPin) {
@@ -121,10 +122,6 @@ const ForgotPasswordPage = () => {
       }
     }, 2000); // Simulate a 2-second delay
   };
-  
-
-  
-  const [isPasswordValid, setPasswordValid] = useState(true); //
 
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -137,28 +134,42 @@ const ForgotPasswordPage = () => {
     setShowPassword2(!showPassword2);
   };
 
-  const handleNewPasswordChange = (event) => {
-    const newPasswordValue = event.target.value;
-    setNewPassword(newPasswordValue);
+  
 
-    // Password validation logic (e.g., requires at least one digit and one special character)
-    const passwordRegex = /^(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z]).{8,}$/;
-    const isValid = passwordRegex.test(newPasswordValue);
-    setPasswordValid(isValid);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    const confirmPasswordValue = event.target.value;
-    setConfirmPassword(confirmPasswordValue);
-  };
+  const [passwordValidationError, setPasswordValidationError] = useState("");
 
   const handleSubmit = () => {
-    // Handle form submission logic here (e.g., send data to the server)
-    // You can use a state or context to manage the success or failure of the process
+
+     // Check if newPassword and confirmPassword are empty
+  if (!newPassword || !confirmPassword) {
+    setPasswordValidationError("Password fields cannot be empty.");
+    setIsLoading(false); // Disable loading state immediately
+    return;
+  }
+   
+    const passwordRegex = /^(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z]).{8,}$/;
+    const isValidPassword = passwordRegex.test(newPassword);
+
+    if (!isValidPassword) {
+      setPasswordValidationError(
+        "Password must contain at least one digit and one special character."
+      );
+      return;
+    }
+    // Check if passwords match
+    if (newPassword !== confirmPassword) {
+      setPasswordValidationError("Passwords do not match.");
+      return; // Prevent form submission if validation fails
+    }
+    setIsLoading(true); 
+    setTimeout(() => {
+      setIsLoading(false); // Disable loading state after the delay
+      setCurrentStep(currentStep + 1);
+    }, 2000); // Simulate a 2-second delay
   };
 
   return (
-    <Container maxWidth="100vw" bg="black" minHeight="100vh" py={5}>
+    <Container maxWidth="100vw" bg="black" minHeight="100vh" pt={5}>
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         gap={6}
@@ -180,6 +191,7 @@ const ForgotPasswordPage = () => {
           borderRadius="md"
           boxShadow="lg"
           my={{ base: "50", md: "100" }}
+          fontFamily="clash grotesk"
         >
           {currentStep === 1 && (
             <>
@@ -190,6 +202,7 @@ const ForgotPasswordPage = () => {
                 color="#808080"
                 textAlign={{ base: "left", md: "center" }}
                 mb={10}
+                fontFamily="clash grotesk"
               >
                 <Text>Don't worry! it happens.</Text>
                 <Text>Please enter the email associated with your account</Text>
@@ -213,8 +226,9 @@ const ForgotPasswordPage = () => {
                 rounded="25px"
                 width="full"
                 fontWeight="400"
+                fontFamily="clash grotesk"
               >
-               Send code
+                Send code
               </Button>
 
               <Text
@@ -239,7 +253,7 @@ const ForgotPasswordPage = () => {
           {currentStep === 2 && (
             <>
               {" "}
-              <Heading fontSize="30px" fontWeight="500">
+              <Heading fontSize="30px" fontWeight="500"  fontFamily="clash grotesk">
                 Verify your account to reset your password
               </Heading>
               <FormControl>
@@ -252,7 +266,7 @@ const ForgotPasswordPage = () => {
                   We've sent an email with your account activation code to
                   <span style={{ color: "#CB29BE" }}> {email}</span>
                 </Text>
-                <Center>
+                <Center  fontFamily="clash grotesk">
                   <HStack spacing={2}>
                     {[0, 1, 2, 3, 4, 5].map((index) => (
                       <Input
@@ -264,8 +278,8 @@ const ForgotPasswordPage = () => {
                         maxLength={1} // Allow only one digit per input
                         borderColor="#808080"
                         borderRadius="12px"
-                        width={{ base: "50px", md: "60px" }}
-                        height={{ base: "50px", md: "60px" }}
+                        width={{ base: "45px", md: "60px" }}
+                        height={{ base: "45px", md: "60px" }}
                         textAlign="center"
                         color="white"
                         autoFocus={index === 0} // Autofocus on the first input
@@ -286,6 +300,7 @@ const ForgotPasswordPage = () => {
                     onClick={handleResendClick}
                     isDisabled={isResending || resendSuccess}
                     fontWeight="400"
+                    fontFamily="clash grotesk"
                   >
                     {isResending ? (
                       <Spinner size="sm" color="white" />
@@ -296,7 +311,7 @@ const ForgotPasswordPage = () => {
                 </Text>
               </FormControl>
               {resendSuccess && (
-                <Text color="#cb29be">
+                <Text color="#cb29be"  fontFamily="clash grotesk">
                   New code sent to your email. Please Check
                 </Text>
               )}
@@ -314,105 +329,97 @@ const ForgotPasswordPage = () => {
                 rounded="25px"
                 width="full"
                 isDisabled={!isPinFilled()}
+                fontFamily="clash grotesk"
               >
-                 {isLoading ? (
-                <>
-                  <Loader />
-                  Authenticating code....
-                </>
-              ) : (
-                "Verify & reset password"
-              )}
+                {isLoading ? (
+                  <>
+                    <Loader />
+                    Authenticating code....
+                  </>
+                ) : (
+                  "Verify & reset password"
+                )}
               </Button>
-              <Button
-                mt={3}
-                variant="link"
-                color="#CB29BE"
+              <ArrowBackIcon
+                color="white"
+                fontSize="30px"
+                position="absolute"
+                left={{ base: "10px", md: "30%" }}
+                top={{ base: "80px", md: "120px" }}
+                cursor="pointer"
                 onClick={handlePreviousStep}
-              >
-                Previous
-              </Button>
+              />
             </>
           )}
           {currentStep === 3 && (
             <>
-
-                <Heading fontSize="30px" textAlign="center"fontWeight="500">
-               Reset password
+              <Heading fontSize="30px" textAlign="center" fontWeight="500"  fontFamily="clash grotesk">
+                Reset password
               </Heading>
-                <Text
-                  textAlign="center"
-                  color="#808080"
-                  fontFamily="clash grotesk"
-                  mb={8}
-                >
-                 Kindly use a password will remember
-                  <span style={{ color: "#CB29BE" }}> {email}</span>
-                </Text>
-              <FormControl>
+              <Text
+                textAlign="center"
+                color="#808080"
+                fontFamily="clash grotesk"
+                mb={8}
+              >
+                Kindly use a password you will remember
+              </Text>
+              <FormControl  fontFamily="clash grotesk">
                 <FormLabel>New Password</FormLabel>
                 <InputGroup>
-            <Input
-              type={showPassword1  ? "text" : "password"}
-              value={newPassword}
-              onChange={handleNewPasswordChange}
-              borderColor="#808080"
-              borderRadius="12px"
-            />
-            <InputRightElement width="4.5rem">
-              <Button
-                h="1.75rem"
-                size="sm"
-                onClick={handleTogglePassword1}
-                bg="black"
-                _hover={{ bg: "inherit" }}
-                _active={{ bg: "inherit" }}
-              >
-                {showPassword1 ? <ViewOffIcon /> : <ViewIcon />}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
+                  <Input
+                    type={showPassword1 ? "text" : "password"}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    onFocus={() => setPasswordValidationError("")}
+                    borderColor="#808080"
+                    borderRadius="12px"
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button
+                      h="1.75rem"
+                      size="sm"
+                      onClick={handleTogglePassword1}
+                      bg="black"
+                      _hover={{ bg: "inherit" }}
+                      _active={{ bg: "inherit" }}
+                    >
+                      {showPassword1 ? <ViewOffIcon /> : <ViewIcon />}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
               </FormControl>
 
-
-              <FormControl mt={4}>
+              <FormControl mt={4}> 
                 <FormLabel>Confirm Password</FormLabel>
                 <InputGroup>
-                <Input
-               type={showPassword2  ? "text" : "password"}
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                borderColor="#808080"
-                borderRadius="12px"
-            />
-              <InputRightElement width="4.5rem">
-              <Button
-                h="1.75rem"
-                size="sm"
-                onClick={handleTogglePassword2}
-                bg="black"
-                _hover={{ bg: "inherit" }}
-                _active={{ bg: "inherit" }}
-              >
-                {showPassword2  ? <ViewOffIcon /> : <ViewIcon />}
-              </Button>
-            </InputRightElement>
-            </InputGroup>
+                  <Input
+                    type={showPassword2 ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    onFocus={() => setPasswordValidationError("")}
+                    borderColor="#808080"
+                    borderRadius="12px"
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button
+                      h="1.75rem"
+                      size="sm"
+                    
+                      onClick={handleTogglePassword2}
+                      bg="black"
+                      _hover={{ bg: "inherit" }}
+                      _active={{ bg: "inherit" }}
+                    >
+                      {showPassword2 ? <ViewOffIcon /> : <ViewIcon />}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
               </FormControl>
-               
-              {!isPasswordValid && (
-          <Text color="red.500" mt={2}>
-            Password must contain at least one digit and one special character.
-          </Text>
-        )}
-        {newPassword !== confirmPassword && (
-          <Text color="red.500" mt={2}>
-            Passwords do not match.
-          </Text>
-        )}
 
-
-
+              {passwordValidationError && (
+  <div style={{ color: "red" }}>{passwordValidationError}</div>
+)}
 
               <Button
                 mt={6}
@@ -421,33 +428,52 @@ const ForgotPasswordPage = () => {
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 rounded="25px"
                 width="full"
+                fontWeight='400'
+                fontFamily="clash grotesk"
               >
-                Reset Password
+                {isLoading ? (
+                  <>
+                    <Loader />
+                    Updating new password....
+                  </>
+                ) : (
+                  "Reset password"
+                )}
               </Button>
-              <Button
-                mt={3}
-                variant="link"
-                color="#CB29BE"
+              <ArrowBackIcon
+                color="white"
+                fontSize="30px"
+                position="absolute"
+                left={{ base: "10px", md: "30%" }}
+                top={{ base: "80px", md: "120px" }}
+                cursor="pointer"
                 onClick={handlePreviousStep}
-              >
-                Previous
-              </Button>
+              />
             </>
           )}
           {currentStep === 4 && (
             <>
-              <Heading fontSize="xl" mb={4}>
-                Password Reset Successful
+
+              <iconify-icon icon="mdi:password-check"  style={{ color: "#CB29BE" }}
+            width="120"></iconify-icon>
+              <Heading fontSize="xl" mb={4} fontWeight='400'  fontFamily="clash grotesk">
+                Password Changed
               </Heading>
-              <Button
+             <Text color='#808080'>Your password was changed succesfully</Text>
+             <Button
                 mt={6}
                 bg="#CB29BE"
-                onClick={() => setCurrentStep(1)}
+                onClick={handleSubmit}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 rounded="25px"
                 width="full"
+                fontWeight='400'
+                as={Link}
+                to='/log-in'
               >
-                Start Over
+               
+                  Back to login
+               
               </Button>
             </>
           )}
@@ -455,10 +481,11 @@ const ForgotPasswordPage = () => {
             mt={3}
             value={(currentStep / 4) * 100}
             size="sm"
-            colorScheme="pink"
+            color="#CB29BE"
           />
         </Box>
       </Grid>
+       <Footer />
     </Container>
   );
 };
