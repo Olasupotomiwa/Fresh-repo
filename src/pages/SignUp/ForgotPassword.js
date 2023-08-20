@@ -111,12 +111,10 @@ const correctPin = "123456"; // Replace with your specific PIN
           bg="black"
           textAlign="center"
           mx="auto"
-          px={6}
-          py={10}
           width={{ base: "80%", md: "600px" }}
           borderRadius="md"
           boxShadow="lg"
-          my={100}
+          my={{base: '50', md: '100'}}
         >
          
           {currentStep === 1 && (
