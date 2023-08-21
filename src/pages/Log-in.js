@@ -132,6 +132,7 @@ const LoginPage = () => {
                   type="text"
                   value={emailaddress}
                   onChange={handleEmailAddressChange}
+                  onFocus={() => setIsLoginError("")}
                   pr={isEmailAddressVerified ? "2.5rem" : "0.5rem"}
                   borderColor="#808080"
                   borderRadius="12px"
@@ -170,6 +171,7 @@ const LoginPage = () => {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={handlePasswordChange}
+                  onFocus={() => setIsLoginError("")}
                   borderColor="#808080"
                   borderRadius="12px"
                 />

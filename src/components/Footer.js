@@ -6,10 +6,10 @@ import {
  Flex,
  Divider,
  Text,
- Link,
  Heading
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
+import { Link} from "react-router-dom";
 
 
 import {
@@ -163,6 +163,8 @@ return (
                 px={10}
                 fontWeight="400"
                 py="10px"
+                as={Link}
+                to='/sign-up'
                 fontSize="sm"
               >
                 Create account
