@@ -27,7 +27,7 @@ const Verified = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height='100vh'
+          height='full'
          
         />
         <Box
@@ -36,8 +36,8 @@ const Verified = () => {
           textAlign="center"
         
           mx="auto"
-          mb={200}
-          mt={100}
+          mt='100'
+          height='100vh'
           fontFamily="clash grotesk"
           width={{ base: "80%", md: "500px" }}
         >

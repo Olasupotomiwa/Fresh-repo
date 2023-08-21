@@ -20,7 +20,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Center, Heading } from "@chakra-ui/react";
 import { Stack, HStack } from "@chakra-ui/react";
 import Loader from "../../Loader";
-import Footer from "components/Footer";
+
 
 import { Box, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -765,7 +765,7 @@ const correctPin = "123456"; // Replace with your specific PIN
           </Text>
         </Box>
       </Grid>
-      <Footer />
+     
     </Container>
   );
 }

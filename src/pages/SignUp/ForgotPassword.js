@@ -180,7 +180,7 @@ const ForgotPasswordPage = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height="100vh"
+          height="full"
         />
         <Box
           color="white"
@@ -190,7 +190,9 @@ const ForgotPasswordPage = () => {
           width={{ base: "80%", md: "600px" }}
           borderRadius="md"
           boxShadow="lg"
-          my={{ base: "50", md: "100" }}
+          mt='100'
+         
+          height='100vh'
           fontFamily="clash grotesk"
         >
           {currentStep === 1 && (

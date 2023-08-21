@@ -104,15 +104,16 @@ const LoginPage = () => {
           alt="Onboarding_pics"
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
-          height="100vh"
+          height="full"
         />
         <Box
           color="white"
           bg="black"
           textAlign="center"
           mx="auto"
-          my={100}
+          mt='100'
           fontFamily="clash grotesk"
+          height='100vh'
           width={{ base: "80%", md: "500px" }}
         >
           <Heading
