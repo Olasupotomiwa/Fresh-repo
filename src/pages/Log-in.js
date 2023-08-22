@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+
 import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { loginSuccess } from '../slices/authSlice'; 
+import { useDispatch } from 'react-redux';
 
 import {
   FormControl,
@@ -34,6 +37,7 @@ const LoginPage = () => {
 
   const toast = useToast();
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // Initialize useDispatch
 
   // Simulated username verification function
   const verifyEmailAddress = (inputEmailAddress) => {
@@ -77,6 +81,14 @@ const LoginPage = () => {
       if (emailaddress === "Trendit3@gmail.com" && password === "Trendit3") {
         // Successful login
         console.log("Login successful!");
+
+         // Dispatch the loginSuccess action with mock user data
+         const mockUserData = {
+          id: 1,
+          username: 'Trendit3',
+          // Add other user data as needed
+        };
+        dispatch(loginSuccess(mockUserData));
         navigate("/dashboard");
       } else {
         // Incorrect username or password
