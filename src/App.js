@@ -1,3 +1,4 @@
+import ScrollTop from './components/scrolltop'
 import Header from "./components/Header";
 import Homepage from "./pages/Homepage";
 import Aboutpage from "./pages/About";
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <>
+    <ScrollTop /> 
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
