@@ -47,7 +47,7 @@ function SignUpComponent() {
       setUsernameError("");
       setEmailError("");
       setPasswordError("");
-    }, 3000); // 3000 milliseconds (3 seconds)
+    }, 12000); // 3000 milliseconds (3 seconds)
   };
 
 
@@ -93,7 +93,7 @@ function SignUpComponent() {
       }else if (!isValidPassword(password1)) {
         console.log("Invalid password.");
         setPasswordError(
-          "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
+          "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and a special character"
         );
         // Clear errors after 3 seconds
         clearErrors();
@@ -157,23 +157,22 @@ function SignUpComponent() {
   };
 
 
-  // Function to validate password
+  // Function to validate email
   const isValidEmail = (email) => {
     // Implement your email validation logic here
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     return emailPattern.test(email);
   };
 
+ 
   const isValidPassword = (password) => {
     // Implement your password validation logic here
     // Return true if valid, false otherwise
-    return (
-      password.length >= 8 &&
-      /[A-Z]/.test(password) &&
-      /[a-z]/.test(password) &&
-      /\d/.test(password)
-    );
+    const passwordRegex = /^(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z]).{8,}$/;
+    return passwordRegex.test(password);
   };
+  
+    
 
 
   // States to handle the second step
@@ -344,7 +343,7 @@ const correctPin = "123456"; // Replace with your specific PIN
             bg="black"
             alignItems="center"
             justifyContent="center"
-            mt="40px"
+            mt="25px"
             fontFamily="clash grotesk"  
           >
             <VStack spacing={6} width={{ base: "80%", md: "500px" }}>
