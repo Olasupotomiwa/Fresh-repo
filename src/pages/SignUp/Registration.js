@@ -52,6 +52,8 @@ function SignUpComponent() {
 
 
   // Function to proceed to the next registration step
+  const NewMail = "Trendit3@gmail.com"; //relace with actual function to check if mail does not exist
+
   const handleNextStep = () => {
     if (currentStep === 1) {
       // Check for empty fields
@@ -74,7 +76,7 @@ function SignUpComponent() {
       // Add authentication and error handling for username and email
       if (!isValidUsername(username)) {
         console.log("Invalid username.");
-        setUsernameError("Username is not available.");
+        setUsernameError("Username is already taken.");
         // Clear errors after 3 seconds
         clearErrors();
       } else if (!isValidEmail(email)) {
@@ -82,7 +84,13 @@ function SignUpComponent() {
         setEmailError("Invalid email address.");
         // Clear errors after 3 seconds
         clearErrors();
-      } else if (!isValidPassword(password1)) {
+      } 
+      else if (NewMail  !== email) {
+        console.log("Invalid email.");
+        setEmailError("This email has been registered already. Use a new email address");
+        // Clear errors after 3 seconds
+        clearErrors();
+      }else if (!isValidPassword(password1)) {
         console.log("Invalid password.");
         setPasswordError(
           "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number."

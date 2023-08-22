@@ -184,7 +184,7 @@ const LoginPage = () => {
               )}
 
 
-            <FormControl mt={4}>
+            <FormControl mt={4} mb='3'>
               <FormLabel>Password</FormLabel>
               <InputGroup>
                 <Input
@@ -211,9 +211,10 @@ const LoginPage = () => {
              
             </FormControl>
             <Text
-              fontSize="14px"
-              mt={2}
-              textAlign="right"
+              fontSize="15px"
+              pt={3}
+              textAlign="left"
+             
               color="#CB29BE"
               fontFamily="clash grotesk"
               as={Link}

@@ -21,7 +21,8 @@ function App() {
   return (
     <>
     <ScrollTop /> 
-      <Header />
+     
+      {isAuthenticated ?  null:  <Header /> }
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />

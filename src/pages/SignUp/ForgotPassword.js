@@ -28,13 +28,48 @@ import Onboard from "assets/images/onboard.png";
 const ForgotPasswordPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleNextStep = () => {
-    setCurrentStep(currentStep + 1);
-    setIsLoading(false);
+
+  const RegisteredMail = "Trendit3@gmail.com"; //relace with actual function to check if mail exist in database
+
+
+  const isValidEmail = (email) => {
+    // Implement your email validation logic here
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    return emailPattern.test(email);
+  };
+
+  const handleSendCode = () => {
+    const enteredMail = email
+    setIsLoading(true);
+
+    if (!email ) {
+      setIsLoading(false);
+      setEmailError(!email ? "Please fill in this field." : "")
+      return;
+    }
+    else if (!isValidEmail(email)) {
+      console.log("Invalid email.");
+      setIsLoading(false);
+      setEmailError("Invalid email address.")
+      return;;
+     
+    } 
+    setTimeout(() => {
+      if (enteredMail === RegisteredMail) {
+        setIsLoading(false); // Deactivate the loading spinner
+        setCurrentStep(currentStep + 1);
+      } else {
+        setIsLoading(false); // Deactivate the loading spinner
+        setEmailError("This Email is not registered. Kindly provide your registered email address");
+        return;
+       
+      }
+    }, 2000);
   };
 
   const handlePreviousStep = () => {
@@ -215,25 +250,37 @@ const ForgotPasswordPage = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onFocus={() => setEmailError("")}
                   borderColor="#808080"
                   placeholder="Enter your registed email"
                   borderRadius="12px"
                 />
               </FormControl>
 
+              <Text color="#CB29BE" fontSize="14px">
+                  {emailError}
+                </Text>
+                
               <Button
                 mt={10}
                 bg="#CB29BE"
-                onClick={handleNextStep}
+                onClick={handleSendCode}
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 rounded="25px"
                 width="full"
                 fontWeight="400"
                 fontFamily="clash grotesk"
               >
-                Send code
+                {isLoading ? (
+                  <>
+                    <Loader />
+                   Sending code ...
+                  </>
+                ) : (
+                  "Send code"
+                )}
               </Button>
-
+              
               <Text
                 textAlign="center"
                 color="white"

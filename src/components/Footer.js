@@ -40,33 +40,33 @@ return (
           </Text>
         </Box>
 
-        <Flex mt={8}>
-          <Link href="#" pr={2}>
+        <Flex mt={8} gap='5'>
+          <Link href="#" >
             <iconify-icon
               icon="basil:facebook-solid"
               style={{ color: "white" }}
-              width="22"
+              width="25"
             ></iconify-icon>
           </Link>
-          <Link href="#" px={2}>
+          <Link href="#">
             <iconify-icon
               icon="basil:instagram-outline"
               style={{ color: "white" }}
-              width="22"
+              width="25"
             ></iconify-icon>
           </Link>
-          <Link href="#" px={2}>
+          <Link href="#" >
             <iconify-icon
               icon="basil:twitter-solid"
               style={{ color: "white" }}
-              width="22"
+              width="25"
             ></iconify-icon>
           </Link>
-          <Link href="#" px={2}>
+          <Link href="#">
             <iconify-icon
               icon="basil:linkedin-solid"
               style={{ color: "white" }}
-              width="22"
+              width="25"
             ></iconify-icon>
           </Link>
         </Flex>
