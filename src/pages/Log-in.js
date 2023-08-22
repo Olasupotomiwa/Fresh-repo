@@ -86,8 +86,10 @@ const LoginPage = () => {
          const mockUserData = {
           id: 1,
           username: 'Trendit3',
-          // Add other user data as needed
+         
+          // Other properties...
         };
+        
         dispatch(loginSuccess(mockUserData));
         navigate("/dashboard");
       } else {

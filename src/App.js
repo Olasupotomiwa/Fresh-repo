@@ -1,20 +1,22 @@
-import Header from './components/Header'
+import Header from "./components/Header";
 import Homepage from "./pages/Homepage";
 import Aboutpage from "./pages/About";
-import Advertspage from './pages/Packages/Adverts'
+import Advertspage from "./pages/Packages/Adverts";
 import Tasks from "./pages/Packages/Tasks";
-import MarketPlace from './pages/Market-Place'
-import BuyFollowers from './pages/Packages/BuyFollowers'
+import MarketPlace from "./pages/Market-Place";
+import BuyFollowers from "./pages/Packages/BuyFollowers";
 import SignUp from "./pages/SignUp";
 import Verified from "./pages/SignUp/Verified";
 import LoginPage from "./pages/Log-in";
 import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
-
 import Dashboard from "./Dahboard/dashboard";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <>
       <Header />
@@ -30,7 +32,10 @@ function App() {
         <Route path="/log-in" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={isAuthenticated ? <Dashboard /> : <Navigate to="/log-in" />}
+        />
       </Routes>
     </>
   );
