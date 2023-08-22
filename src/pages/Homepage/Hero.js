@@ -19,7 +19,10 @@ const Hero=()=>{
 
 
     return (
+      
+      
       <Flex
+      className="animate__animated animate__bounce"
         direction={{ base: "column", md: "row" }}
         pt={30}
         py={{ base: "5", md: "10" }}
