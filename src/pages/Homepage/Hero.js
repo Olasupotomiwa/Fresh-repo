@@ -25,7 +25,7 @@ const Hero=()=>{
         py={{ base: "5", md: "10" }}
         fontFamily="Clash Grotesk"
       >
-        <Box flex="1" mb={10} px={{ base: "3", md: "6" }}>
+        <Box flex="1"  mb={10} px={{ base: "3", md: "6" }} py={{base: '0', md: '0', lg: '10'}}>
           {/* Content for the first section */}
 
           <Heading
