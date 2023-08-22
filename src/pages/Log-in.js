@@ -4,7 +4,7 @@ import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { loginSuccess } from '../slices/authSlice'; 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   FormControl,
@@ -38,6 +38,7 @@ const LoginPage = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const dispatch = useDispatch(); // Initialize useDispatch
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Get authentication state
 
   // Simulated username verification function
   const verifyEmailAddress = (inputEmailAddress) => {
@@ -138,6 +139,11 @@ const LoginPage = () => {
           >
             Welcome back <iconify-icon icon="noto:waving-hand"></iconify-icon>
           </Heading>
+          {!isAuthenticated && (
+            <Text color="#CB29BE" fontSize="16px" mb={4}>
+              Kindly login to access your dashboard
+            </Text>
+          )}
           <Box p={0} my={{ base: "5", md: "15" }}>
             <FormControl>
               <FormLabel>Email address</FormLabel>
