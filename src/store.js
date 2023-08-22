@@ -6,13 +6,14 @@ import { persistStore, persistReducer,  FLUSH,
     PERSIST,
     PURGE,
     REGISTER, } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+
+import storageSession from 'redux-persist/lib/storage/session'; 
 import authReducer from './slices/authSlice';
 
 const persistConfig = {
   key: 'root',
-  storage,
- 
+  storage: storageSession, // Use sessionStorage
+  timeout: null,
  
 };
 
