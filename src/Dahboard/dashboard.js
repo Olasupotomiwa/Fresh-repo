@@ -23,11 +23,12 @@ const Home = () => {
   const isLoading = useSelector((state) => state.auth.isLoading);
   return (
     <Container
-      maxW="100%"
+     maxW={{base: '100%', md: '75%'}}
       px={0}
       fontFamily="clash grotesk"
       bg="black"
       height="100vh"
+      ml={{ base: 0, md: '25%'}}
     >
       <Heading
         textAlign="left"

@@ -14,7 +14,7 @@ const Homepage = () => {
     <Container maxW="full" bg="black" px={0}>
       <Hero />
 
-      <Box py={9} px={6}>
+      <Box py={9} px={{ base: "10", md: "6" }}>
         <Heading
           textAlign="center"
           color="white"
@@ -28,7 +28,7 @@ const Homepage = () => {
         <Earners />
       </Box>
 
-      <Box pt={7} px={{ base: "6", md: "6" }} mt={-6} fontSize="32px">
+      <Box pt={7} px={{ base: "10", md: "6" }} mt={-6} fontSize="32px">
         <Heading
           textAlign="center"
           color="white"

@@ -10,6 +10,8 @@ import SignUp from "./pages/SignUp";
 import Verified from "./pages/SignUp/Verified";
 import LoginPage from "./pages/Log-in";
 import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
+
+import AuthenticatedHeader from "./components/AuthenticatedHeader";
 import Dashboard from "./Dahboard/dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -22,7 +24,7 @@ function App() {
     <>
     <ScrollTop /> 
      
-      {isAuthenticated ?  null:  <Header /> }
+      {isAuthenticated ?  <AuthenticatedHeader/>:  <Header /> }
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
