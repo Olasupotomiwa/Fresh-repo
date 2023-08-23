@@ -1,4 +1,4 @@
-import ScrollTop from './components/scrolltop'
+import ScrollTop from "./components/scrolltop";
 import Header from "./components/Header";
 import Homepage from "./pages/Homepage";
 import Aboutpage from "./pages/About";
@@ -10,9 +10,12 @@ import SignUp from "./pages/SignUp";
 import Verified from "./pages/SignUp/Verified";
 import LoginPage from "./pages/Log-in";
 import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
-
+//Protected routes
 import AuthenticatedHeader from "./components/AuthenticatedHeader";
 import Dashboard from "./Dahboard/dashboard";
+import ProtectedMarketPlace from "./ProtectedPages/PpMarketplace";
+import ProtectedFAQS from "./ProtectedPages/PpFaqs";
+import ProtectedAbout from "./ProtectedPages/PpAbout";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -22,9 +25,9 @@ function App() {
 
   return (
     <>
-    <ScrollTop /> 
-     
-      {isAuthenticated ?  <AuthenticatedHeader/>:  <Header /> }
+      <ScrollTop />
+
+      {isAuthenticated ? <AuthenticatedHeader /> : <Header />}
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
@@ -40,6 +43,30 @@ function App() {
         <Route
           path="/dashboard"
           element={isAuthenticated ? <Dashboard /> : <Navigate to="/log-in" />}
+        />
+
+        <Route
+          path="/market-place2"
+          element={
+            isAuthenticated ? (
+              <ProtectedMarketPlace />
+            ) : (
+              <Navigate to="/log-in" />
+            )
+          }
+        />
+
+        <Route
+          path="/frequency-asked-questions"
+          element={
+            isAuthenticated ? <ProtectedFAQS /> : <Navigate to="/log-in" />
+          }
+        />
+         <Route
+          path="/about2"
+          element={
+            isAuthenticated ? <ProtectedAbout /> : <Navigate to="/log-in" />
+          }
         />
       </Routes>
     </>

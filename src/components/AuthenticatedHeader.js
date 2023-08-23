@@ -30,16 +30,16 @@ import {
 import  Logo  from '../../src/assets/images/logo.png'
 // Update the LinkItems with route paths
 const LinkItems = [
-  { name: 'Home', icon: 'solar:cart-4-bold', path: '/' },
-  { name: 'Earn', icon: "healthicons:money-bag", path: '/dashboard' },
+  { name: 'Home', icon: 'solar:cart-4-bold', path: '/dashboard' },
+  { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/dashboard' },
   { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/favourites' },
-  { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place' },
+  { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place2' },
   { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/settings' },
   { name: 'Referral', icon: "ph:paper-plane-fill", path: '/settings' },
   { name: 'My Dashboard', icon: "fluent:content-view-gallery-28-filled", path: '/settings' },
   { name: 'My profile', icon: "bi:person-fill", path: '/settings' },
-  { name: 'FAQS', icon: "bxs:chat", path: '/' },
-  { name: 'About us', icon: "fluent:info-12-filled", path: '/settings' },
+  { name: 'FAQS', icon: "bxs:chat", path: '/frequency-asked-questions' },
+  { name: 'About us', icon: "fluent:info-12-filled", path: '/about2' },
   { name: 'Chat with support', icon: "mdi:video-chat", path: '/settings' },
 ];
 
@@ -50,7 +50,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       bg='#121212'
      
       w={{ base: 'full', md: '25%' }}
-      pos="fixed"
+      pos={{ base: 'absolute', md: 'fixed' }}
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -125,16 +125,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
   
       <HStack spacing={{ base: '0', md: '6' }}>
         <IconButton size="lg" variant="ghost" mx='4' aria-label="open menu" icon={<FiBell  color='white' bg='#121212'/>} />
-        <IconButton
-          display={{ base: 'flex', md: 'none' }}
-          onClick={onOpen}
-          variant="outline"
-          aria-label="open menu"
-          icon={<FiMenu  color='white'/>}
-        />
-        <Flex alignItems={'center'} display={{ base: 'none', md: 'flex' }}>
+      
+        <Flex alignItems={'center'}  >
           <Menu>
-            <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
+            <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}  mr='6'>
               <HStack>
                 <Avatar
                   size={'sm'}
@@ -166,6 +160,15 @@ const MobileNav = ({ onOpen, ...rest }) => {
             </MenuList>
           </Menu>
         </Flex>
+
+
+        <IconButton
+          display={{ base: 'flex', md: 'none' }}
+          onClick={onOpen}
+          variant="outline"
+          aria-label="open menu"
+          icon={<FiMenu  color='white'/>}
+        />
       </HStack>
     </Flex>
   );
