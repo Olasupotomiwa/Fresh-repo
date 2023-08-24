@@ -308,7 +308,7 @@ const MobileNav = ({
   onClose: () => void;
 }) => {
   return (
-    <Stack bg="black" p={4} display={{ md: "none" }}>
+    <Stack bg="black" p={4} display={{ md: "none" }} height='100vh'>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} onClose={onClose} />
       ))}
@@ -410,11 +410,12 @@ const Header = () => {
           >
             <IconButton
               onClick={onToggle}
+              _hover={{ bg: "black", opacity: "0.9" }}
               icon={
                 isOpen ? (
                   <CloseIcon w={3} h={3} />
                 ) : (
-                  <HamburgerIcon w={5} h={5} color="white" />
+                  <HamburgerIcon w={5} h={5} color="white"  />
                 )
               }
               variant="ghost"

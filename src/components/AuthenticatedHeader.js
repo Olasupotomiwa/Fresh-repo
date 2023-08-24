@@ -140,7 +140,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
     <Image src={Logo}  display={{ base: 'flex', md: 'none' }}/>
   
       <HStack spacing={{ base: '0', md: '6' }}>
-        <IconButton size="lg" variant="ghost" mx='4' aria-label="open menu" icon={<FiBell  color='white' bg='#121212'/>} />
+        <IconButton size="lg" variant="ghost" mx='4' _hover={{ bg: "black", opacity: "0.9" }} aria-label="open menu" icon={<FiBell  color='white' bg='#121212'/>} />
       
         <Flex alignItems={'center'}  >
           <Menu>
@@ -181,9 +181,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
         <IconButton
           display={{ base: 'flex', md: 'none' }}
           onClick={onOpen}
+          _hover={{ bg: "black", opacity: "0.9" }}
           variant="outline"
           aria-label="open menu"
-          icon={<FiMenu  color='white'/>}
+          icon={<FiMenu  color='white' />}
         />
       </HStack>
     </Flex>
