@@ -33,7 +33,21 @@ Button:focus{
 .active{
   color: #CB29BE;
   font-weight: bold;
+ 
+}/* Add a class for the active NavLink */
+.active-nav-link {
+  color: white; /* Change to your desired text color */
+  background-color: #CB29BE; /* Change to your desired background color */
+  transition: background-color 0.3s, color 0.3s; /* Add a transition effect */
 }
+
+/* Define styles for non-active NavLink */
+/* You can customize this as needed */
+.nav-link {
+  color: #808080; /* Change to your desired text color */
+  transition: background-color 0.3s, color 0.3s; /* Add a transition effect */
+}
+
 
 /* styles.css */
 

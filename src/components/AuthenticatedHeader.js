@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import { useSelector } from 'react-redux';
 
 import {
@@ -31,16 +33,16 @@ import  Logo  from '../../src/assets/images/logo.png'
 // Update the LinkItems with route paths
 const LinkItems = [
   { name: 'Home', icon: 'solar:cart-4-bold', path: '/dashboard' },
-  { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/dashboard' },
+  { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/dashboard2' },
   { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/favourites' },
   { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place2' },
-  { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/settings' },
-  { name: 'Referral', icon: "ph:paper-plane-fill", path: '/settings' },
-  { name: 'My Dashboard', icon: "fluent:content-view-gallery-28-filled", path: '/settings' },
-  { name: 'My profile', icon: "bi:person-fill", path: '/settings' },
+  { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/settings2' },
+  { name: 'Referral', icon: "ph:paper-plane-fill", path: '/settings3' },
+  { name: 'My Dashboard', icon: "fluent:content-view-gallery-28-filled", path: '/settings4' },
+  { name: 'My profile', icon: "bi:person-fill", path: '/settings5' },
   { name: 'FAQS', icon: "bxs:chat", path: '/frequency-asked-questions' },
   { name: 'About us', icon: "fluent:info-12-filled", path: '/about2' },
-  { name: 'Chat with support', icon: "mdi:video-chat", path: '/settings' },
+  { name: 'Chat with support', icon: "mdi:video-chat", path: '/settings6' },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {
@@ -73,18 +75,27 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
   const handleClick = () => {
     onClose(); // Close the mobile menu
   }
+  const location = useLocation();
+
+  const isActive = location.pathname === path;
   return (
    
     <Box>
       
-    <Link to={path || '/dashboard'} style={{ textDecoration: 'none' }} onClick={handleClick}>
+    <NavLink to={path || '/dashboard'} style={{ textDecoration: 'none' }} onClick={handleClick}  className={isActive ? 'active-nav-link' : 'nav-link'} >
       <Flex
         align="center"
         p="0"
-        color='#808080'
-        mx="3"
+      
+        mr="10"
+        my='1'
+        activeClassName="active-link"
+        bg={isActive ? '#CB29BE' : 'inherit'}
+        color={isActive ? 'white' : '#808080'}
         fontFamily='clash grotesk'
         borderRadius="lg"
+        borderBottomLeftRadius='none'
+        borderTopLeftRadius="none"
         role="group"
         cursor="pointer"
         _hover={{
@@ -95,7 +106,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
         {icon && (
           <iconify-icon
           icon={icon}
-          style={{ color: "#808080", margin: '12px' }}
+          style={{ color: isActive ? 'white' : '#808080', margin: '12px' }}
           width="22"
           margin-right='10px'
         
@@ -103,7 +114,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
         )}
         {children}
       </Flex>
-    </Link>
+    </NavLink>
     </Box>
   );
 };
