@@ -204,7 +204,7 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <Container maxWidth="100vw" bg="black" minHeight="100vh" pt={5} px={0}>
+    <Container maxWidth="100vw" bg="black" minHeight="100vh" pt={15} px={0} >
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         gap={6}

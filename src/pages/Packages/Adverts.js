@@ -5,7 +5,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const Adverts = () => {
   return (
-    <Container maxW="100%" bg="black" px={0}>
+    <Container maxW="100%" bg="black" px={0} pt='20'>
       <Box>
         <Box
           fontFamily="clash grotesk"

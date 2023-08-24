@@ -23,6 +23,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Container,
 } from '@chakra-ui/react';
 import {
   FiMenu,
@@ -30,6 +31,7 @@ import {
   FiChevronDown,
 } from 'react-icons/fi';
 import  Logo  from '../../src/assets/images/logo.png'
+
 // Update the LinkItems with route paths
 const LinkItems = [
   { name: 'Home', icon: 'solar:cart-4-bold', path: '/dashboard' },
@@ -52,7 +54,8 @@ const SidebarContent = ({ onClose, ...rest }) => {
       bg='#121212'
      
       w={{ base: 'full', md: '25%' }}
-      pos={{ base: 'absolute', md: 'fixed' }}
+      pos='fixed'
+      top='0'
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -123,12 +126,14 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const user = useSelector((state) => state.auth.user);
 
   return (
+    <Container  className="mobile-header" maxW={{base: '100%', md: '75%'}} ml={{ base: 0, md: "25%" }} p="0">
     <Flex
       ml={{ base: 0, md: "25%" }}
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
       bg='black'
+     
      
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       {...rest}>
@@ -182,6 +187,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
         />
       </HStack>
     </Flex>
+    </Container>
   );
 };
 

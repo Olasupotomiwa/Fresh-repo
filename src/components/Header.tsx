@@ -66,7 +66,7 @@ const NAV_ITEMS: NavItem[] = [
 // Desktop navigation component
 const DesktopNav = () => {
   return (
-    <Stack direction="row" align="center" spacing={0} pr={0} mr="30">
+    <Stack direction="row" align="center" spacing={0} pr={0} mr="30" >
       <Center>
         {NAV_ITEMS.map((navItem, index) => (
           <Box key={navItem.label} px={0} ml={{base: '10', md: '6', lg: '-2'}}  mr={{base: '0', md: '0', lg: '8'}}>
@@ -364,6 +364,7 @@ const Header = () => {
       color="white"
       fontFamily="Clash Grotesk"
       px={5}
+      className="mobile-header" 
     >
       <Box py={2}>
         <Flex

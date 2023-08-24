@@ -1,5 +1,5 @@
 
-import { Container, Button, Heading, Text } from "@chakra-ui/react";
+import { Container, Button, Heading, Text, Center } from "@chakra-ui/react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../slices/authSlice'; // Import your logout action
@@ -27,8 +27,9 @@ const Home = () => {
       px={0}
       fontFamily="clash grotesk"
       bg="black"
-      height="100vh"
+      height="200vh"
       ml={{ base: 0, md: '25%'}}
+      mt='20'
     >
       <Heading
         textAlign="left"
@@ -52,9 +53,9 @@ const Home = () => {
         This page is under development. Check back later{" "}
       </Text>
 
-      <Button onClick={handleLogout}>
+    <Center>  <Button onClick={handleLogout} py='5'>
       Logout
-    </Button>
+    </Button></Center>
     </Container>
   );
 };

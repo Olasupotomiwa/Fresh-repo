@@ -7,7 +7,7 @@ import { Box, Container, Heading, Text } from "@chakra-ui/react";
 
 const BuyFollowers = () => {
   return (
-    <Container maxW="100%" px={0} bg="black" fontFamily="Clash Grotesk">
+    <Container maxW="100%" px={0} bg="black" fontFamily="Clash Grotesk" pt='20'>
       <Box py="30px" px={5}>
         <Heading
           fontSize="24px"

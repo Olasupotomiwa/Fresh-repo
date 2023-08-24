@@ -683,7 +683,7 @@ const correctPin = "123456"; // Replace with your specific PIN
   };
 
   return (
-    <Container maxWidth="100vw"  bg="black" px={0}>
+    <Container maxWidth="100vw"  bg="black" px={0} pt='14'>
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
