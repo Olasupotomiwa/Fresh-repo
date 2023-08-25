@@ -35,9 +35,9 @@ const Card = ({ icon, header, content, text }) => {
       p={4}
       shadow="md"
       borderRadius="md"
-      width={{ base: "95%", md: "300px" }}
-      height="350px"
-      mx={4}
+      width={{ base: "85%", md: "300px" }}
+      height="300px"
+      mx='auto'
       my={4}
     >
       <Box alignItems="center" p={1}>
@@ -65,7 +65,7 @@ const Card = ({ icon, header, content, text }) => {
             as="h2"
             size="md"
             display="flex"
-            mt={4}
+            mt={0}
             mb={1}
             color=" #CB29BE"
             fontFamily="Clash Grotesk"
@@ -73,12 +73,12 @@ const Card = ({ icon, header, content, text }) => {
           >
             {header}
           </Heading>
-          <Text fontSize="16px" py={0} letterSpacing="0.369px" color="#808080">
+          <Text fontSize="15px" py={0} letterSpacing="0.369px" color="#808080">
             {content}
           </Text>
         </Box>
       </Box>
-      <Button width="full" rounded="full" bg="#cb29be" fontWeight='400' color="white" mt={8}>
+      <Button width="full" rounded="full" bg="#cb29be" fontWeight='400' color="white" mt={3} mb={5}>
         {text}  <ArrowForwardIcon  ml={3}/>
       </Button>
     </Box>
