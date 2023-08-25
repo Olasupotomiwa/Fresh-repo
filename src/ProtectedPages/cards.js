@@ -150,7 +150,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
       </Button>
 
       {/* Modal */}
-      <Modal isOpen={isOpen} onClose={closeModal} size="md" isCentered>
+      <Modal isOpen={isOpen} onClose={closeModal} size={{base: 'sm', md: 'md'}} isCentered>
         <ModalOverlay />
         <ModalContent
           bg="black"
@@ -158,7 +158,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
           borderColor="#808080"
           borderRadius="25px"
           fontFamily="clash grotesk"
-          p={{base: '3', md: '6'}}
+          p={{base: '0', md: '6'}}
         >
           <ModalHeader
             color="white"
@@ -216,7 +216,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
       <Modal
         isOpen={showSecondModal}
         onClose={closeSecondModal}
-        size="md"
+        size={{base: 'sm', md: 'md'}}
         isCentered
       >
         <ModalOverlay />
@@ -226,7 +226,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
           borderColor="#808080"
           borderRadius="25px"
           fontFamily="clash grotesk"
-          px={{base: '3', md: '6'}}
+          px={{base: '0', md: '6'}}
         >
           <ModalHeader
             color="white"
