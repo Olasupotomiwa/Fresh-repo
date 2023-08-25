@@ -32,7 +32,7 @@ Button:focus{
 
 .active{
   color: #CB29BE;
-  font-weight: bold;
+  font-weight: 500;
  
 }/* Add a class for the active NavLink */
 .active-nav-link {
