@@ -158,7 +158,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
           borderColor="#808080"
           borderRadius="25px"
           fontFamily="clash grotesk"
-          p="6"
+          p={{base: '3', md: '6'}}
         >
           <ModalHeader
             color="white"
@@ -226,7 +226,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
           borderColor="#808080"
           borderRadius="25px"
           fontFamily="clash grotesk"
-          px="6"
+          px={{base: '3', md: '6'}}
         >
           <ModalHeader
             color="white"
