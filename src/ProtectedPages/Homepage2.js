@@ -6,7 +6,7 @@ const ProtectedFAQS =()=>{
 
     return(
 
-      <Container ml={{ base: 0, md: "25%" }} p="10" maxW={{ base: '100%', md: "75%" }} bg='black' height={{base: 'full', md: '100vh'}}   mt='20' fontFamily='clash grotesk'>
+      <Container ml={{ base: 0, md: "25%" }} p={{ base: '4', md: "10" }} maxW={{ base: '100%', md: "75%" }} bg='black' height={{base: 'full', md: '100vh'}}   mt='20' fontFamily='clash grotesk'>
           
           <Box bg='#121212' width='full' p={4} border='1px' borderColor='#808080' borderRadius='lg'> 
           <Text color='white' fontWeight='500'>Disclaimer</Text>

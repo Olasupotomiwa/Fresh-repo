@@ -35,7 +35,7 @@ const Card = ({ icon, header, content, text }) => {
       p={4}
       shadow="md"
       borderRadius="md"
-      width={{ base: "80%", md: "300px" }}
+      width={{ base: "95%", md: "300px" }}
       height="350px"
       mx={4}
       my={4}
