@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 import { Box, Flex, Text, Heading, Button } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -10,6 +11,7 @@ const cardContent = [
     content:
       "Earn by carrying out simple social media tasks for businesses and individuals or by reselling their products.",
     text: "Start earning",
+    to: '/earn'
   },
   {
     icon: "healthicons:money-bag",
@@ -17,6 +19,7 @@ const cardContent = [
     content:
       "Get real people with active followers to help repost your ads and carry out other social media tasks you create on our platform.",
     text: "Start advertising",
+    to: '/advertise'
   },
   {
     icon: "ion:person-sharp",
@@ -24,10 +27,11 @@ const cardContent = [
     content:
       "Advertise your products directly to the traffic on our platform or get our active users to resell your products for you.",
     text: "Start selling",
+    to: '/market-place2'
   },
 ];
 
-const Card = ({ icon, header, content, text }) => {
+const Card = ({ icon, header, content, text, to }) => {
     console.log("button:", text); 
   return (
     <Box
@@ -49,7 +53,7 @@ const Card = ({ icon, header, content, text }) => {
           borderRadius="md"
           marginRight={4}
           mt={2}
-          mb={9}
+          mb={6}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -78,7 +82,11 @@ const Card = ({ icon, header, content, text }) => {
           </Text>
         </Box>
       </Box>
-      <Button width="full" rounded="full" bg="#cb29be" fontWeight='400' color="white" mt={3} mb={5}>
+      <Button width="full" rounded="full" bg="#cb29be" fontWeight='400' color="white" mt={3} mb={5} as={Link} to={to}   _hover={{
+          bg: '#CB29BE',
+          color: 'white',
+          opacity: '0.9'
+        }}>
         {text}  <ArrowForwardIcon  ml={3}/>
       </Button>
     </Box>
@@ -103,6 +111,7 @@ const CardsSection = () => {
             header={card.header}
             content={card.content}
             text={card.text}
+            to={card.to}
           />
         ))}
       </Flex>

@@ -35,10 +35,10 @@ import  Logo  from '../../src/assets/images/logo.png'
 // Update the LinkItems with route paths
 const LinkItems = [
   { name: 'Home', icon: 'solar:cart-4-bold', path: '/homepage' },
-  { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/dashboard2' },
-  { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/favourites' },
+  { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/earn' },
+  { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/advertise' },
   { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place2' },
-  { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/settings2' },
+  { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/dashboard' },
   { name: 'Referral', icon: "ph:paper-plane-fill", path: '/settings3' },
   { name: 'My Dashboard', icon: "fluent:content-view-gallery-28-filled", path: '/settings4' },
   { name: 'My profile', icon: "bi:person-fill", path: '/settings5' },
