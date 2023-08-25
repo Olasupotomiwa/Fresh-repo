@@ -17,10 +17,15 @@ import ProtectedMarketPlace from "./ProtectedPages/PpMarketplace";
 import ProtectedFAQS from "./ProtectedPages/PpFaqs";
 import ProtectedAbout from "./ProtectedPages/PpAbout";
 import Homepage2 from "./ProtectedPages/Homepage2";
+import EarnPage from "./ProtectedPages/Earn/Earnhome";
+import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
-
+const AuthenticatedRoute = ({ element }) => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  return isAuthenticated ? element : <Navigate to="/log-in" />;
+};
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -43,42 +48,33 @@ function App() {
 
         <Route
           path="/dashboard"
-          element={isAuthenticated ? <Dashboard /> : <Navigate to="/log-in" />}
+          element={<AuthenticatedRoute element={<Dashboard />} />}
         />
-
         <Route
           path="/market-place2"
-          element={
-            isAuthenticated ? (
-              <ProtectedMarketPlace />
-            ) : (
-              <Navigate to="/log-in" />
-            )
-          }
+          element={<AuthenticatedRoute element={<ProtectedMarketPlace />} />}
         />
-
-<Route
+        <Route
           path="/homepage"
-          element={
-            isAuthenticated ? (
-              <Homepage2 />
-            ) : (
-              <Navigate to="/log-in" />
-            )
-          }
+          element={<AuthenticatedRoute element={<Homepage2 />} />}
+        />
+        <Route
+          path="/frequency-asked-questions"
+          element={<AuthenticatedRoute element={<ProtectedFAQS />} />}
+        />
+        <Route
+          path="/about2"
+          element={<AuthenticatedRoute element={<ProtectedAbout />} />}
         />
 
         <Route
-          path="/frequency-asked-questions"
-          element={
-            isAuthenticated ? <ProtectedFAQS /> : <Navigate to="/log-in" />
-          }
+          path="/earn"
+          element={<AuthenticatedRoute element={<EarnPage />} />}
         />
-         <Route
-          path="/about2"
-          element={
-            isAuthenticated ? <ProtectedAbout /> : <Navigate to="/log-in" />
-          }
+
+        <Route
+          path="/earn/adverts-task"
+          element={<AuthenticatedRoute element={<AdvertsTask />} />}
         />
       </Routes>
     </>

@@ -92,7 +92,7 @@ const LoginPage = () => {
         };
         
         dispatch(loginSuccess(mockUserData));
-        navigate("/dashboard");
+        navigate("/homepage");
       } else {
         // Incorrect username or password
         toast({

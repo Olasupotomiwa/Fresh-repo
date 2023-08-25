@@ -35,7 +35,7 @@ import  Logo  from '../../src/assets/images/logo.png'
 // Update the LinkItems with route paths
 const LinkItems = [
   { name: 'Home', icon: 'solar:cart-4-bold', path: '/homepage' },
-  { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/earn' },
+  { name: 'Earn', icon: "healthicons:money-bag", path: '/earn' },
   { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/advertise' },
   { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place2' },
   { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/dashboard' },
@@ -85,7 +85,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
    
     <Box>
       
-    <NavLink to={path || '/dashboard'} style={{ textDecoration: 'none' }} onClick={handleClick}  className={isActive ? 'active-nav-link' : 'nav-link'} >
+    <NavLink to={path || '/homepage'} style={{ textDecoration: 'none' }} onClick={handleClick}  className={isActive ? 'active-nav-link' : 'nav-link'} >
       <Flex
         align="center"
         p="0"
