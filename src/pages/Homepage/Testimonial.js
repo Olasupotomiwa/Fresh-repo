@@ -5,7 +5,7 @@ import People from '../../assets/images/human_people.png'
 const testimonies = [
   {
     name: "John Doe",
-    testimony: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    testimony: " Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     name: "Jane Smith",
@@ -74,20 +74,24 @@ const Testimonial = () => {
            What our customers say
           </Text>
           <Box>
-            <Text mb="4" className={animationClass}>{currentTestimony.testimony}</Text>
-            <Text fontWeight="bold"  className={animationClass}>{currentTestimony.name}</Text>
+            <Text mb="4" className={animationClass} color='#808080'>{currentTestimony.testimony}</Text>
+            <Text fontWeight="500"  className={animationClass}>{currentTestimony.name}</Text>
+            <Text>User</Text>
           </Box>
-          <Button
-            variant="outline"
-            size="sm"
-            mt="2"
+          <Box mt={12} cursor='pointer'>
+          <iconify-icon
+            icon="bi:arrow-left-circle-fill"
+            style={{ color: "#808080", marginLeft: '12px' }}
+            width="36"
             onClick={handlePrevious}
-          >
-            Previous
-          </Button>
-          <Button variant="outline" size="sm" ml="2" mt="2" onClick={handleNext}>
-            Next
-          </Button>
+          ></iconify-icon>
+          <iconify-icon
+            icon="bi:arrow-right-circle-fill"
+            style={{ color: "white",  marginLeft: '12px' }}
+            width="36"
+            onClick={handleNext}
+          ></iconify-icon>
+          </Box>
         </Box>
       </Flex>
     </Box>
