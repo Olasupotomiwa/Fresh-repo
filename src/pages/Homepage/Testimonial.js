@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Flex, Image, Text, Button, Heading } from "@chakra-ui/react";
+import { Box, Flex, Image, Text,  Heading } from "@chakra-ui/react";
 import People from '../../assets/images/human_people.png'
 
 const testimonies = [

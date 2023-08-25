@@ -34,7 +34,7 @@ import  Logo  from '../../src/assets/images/logo.png'
 
 // Update the LinkItems with route paths
 const LinkItems = [
-  { name: 'Home', icon: 'solar:cart-4-bold', path: '/dashboard' },
+  { name: 'Home', icon: 'solar:cart-4-bold', path: '/homepage' },
   { name: 'Earn (log out)', icon: "healthicons:money-bag", path: '/dashboard2' },
   { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/favourites' },
   { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place2' },
@@ -97,6 +97,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
         color={isActive ? 'white' : '#808080'}
         fontFamily='clash grotesk'
         borderRadius="lg"
+        fontSize='sm'
         borderBottomLeftRadius='none'
         borderTopLeftRadius="none"
         role="group"

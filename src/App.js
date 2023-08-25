@@ -16,6 +16,7 @@ import Dashboard from "./Dahboard/dashboard";
 import ProtectedMarketPlace from "./ProtectedPages/PpMarketplace";
 import ProtectedFAQS from "./ProtectedPages/PpFaqs";
 import ProtectedAbout from "./ProtectedPages/PpAbout";
+import Homepage2 from "./ProtectedPages/Homepage2";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -50,6 +51,17 @@ function App() {
           element={
             isAuthenticated ? (
               <ProtectedMarketPlace />
+            ) : (
+              <Navigate to="/log-in" />
+            )
+          }
+        />
+
+<Route
+          path="/homepage"
+          element={
+            isAuthenticated ? (
+              <Homepage2 />
             ) : (
               <Navigate to="/log-in" />
             )
