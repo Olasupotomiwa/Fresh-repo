@@ -4,6 +4,7 @@ import Card from "../Homepage/Card";
 import Faqs from "../Homepage/Faqs";
 import Countdown from "../Homepage/Countdown";
 import Hero from "../Homepage/Hero";
+import Testimonial from '../Homepage/Testimonial'
 
 import Conditional from "../Homepage/Conditional";
 import Footer from "components/Footer";
@@ -15,6 +16,7 @@ const Homepage = () => {
       <Card />
       <Conditional />
       <Countdown />
+      <Testimonial/>
       <Faqs />
       <Footer />
     </Container>

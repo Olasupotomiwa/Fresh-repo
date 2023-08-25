@@ -1,95 +1,97 @@
 import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Center,
-  Icon,
-  IconButton,
-  ChakraProvider,
-  CSSReset,
-  Container,
-} from "@chakra-ui/react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Box, Flex, Image, Text, Button, Heading } from "@chakra-ui/react";
+import People from '../../assets/images/human_people.png'
 
-const data = [
+const testimonies = [
   {
-    id: 1,
-    title: "Card 1",
-    content: "Content for Card 1",
+    name: "John Doe",
+    testimony: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
-    id: 2,
-    title: "Card 2",
-    content: "Content for Card 2",
+    name: "Jane Smith",
+    testimony: "Praesent vel neque eu libero efficitur auctor a a ipsum.",
   },
-  {
-    id: 3,
-    title: "Card 3",
-    content: "Content for Card 3",
-  },
-  // Add more data as needed
+  // Add more testimonies here
 ];
 
-const Carousel = ({ items }) => {
+const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  const [animationClass, setAnimationClass] = useState("testimony"); // 
 
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNextClick();
-    }, 3000); // Auto slide every 3 seconds
+      handleNext();
+    }, 5000); // Auto slide every 5 seconds
 
     return () => clearInterval(interval);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, [currentIndex]);
+  const handleNext = () => {
+    setAnimationClass(""); // Remove animation class
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonies.length);
+      setAnimationClass("testimony"); // Add animation class
+    }, 50); // Small delay to ensure the class is removed and added
+  };
+
+  const handlePrevious = () => {
+    setAnimationClass(""); // Remove animation class
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? testimonies.length - 1 : prevIndex - 1
+      );
+      setAnimationClass("testimony"); // Add animation class
+    }, 50); // Small delay to ensure the class is removed and added
+  };
+
+
+  const currentTestimony = testimonies[currentIndex];
 
   return (
-    <Box position="relative" maxWidth="400px" w="100%" overflow="hidden">
-      <Box
-        display="flex"
-        transition="transform 0.3s ease"
-        transform={`translateX(-${currentIndex * 100}%)`} // Sliding effect using translateX
+    <Box p={{base: '0', md: '8'}} mx="auto" my={10} w={{base: '100%', md: '80%'}}>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        justifyContent="center"
+        alignItems="center"
       >
-        {items.map((item) => (
-          <Box
-            key={item.id}
-            borderWidth="1px"
-            borderRadius="lg"
-            p="4"
-            width="100%"
-            textAlign="center"
-          >
-            <Box fontWeight="bold">{item.title}</Box>
-            <Box>{item.content}</Box>
+        <Box px="20">
+          {/* Constant image */}
+          <Image
+            src={People}
+            alt="Testimonial"
+            transition="transform 0.3s ease-in-out"
+            _hover={{ transform: "scale(1.05)" }}
+          />
+        </Box>
+        <Box
+          px={{base: '10', md: '0'}}
+          pb='20'
+          transition="opacity 0.3s ease-in-out"
+          color="white"
+         fontFamily='clash grotesk'
+        >
+         <Heading  color='#CB29BE' fontWeight='400' py='10' fontSize='18PX'>_TESTIMONIALS</Heading>
+          <Text fontSize={{base: '25px', md: '35px'}} fontWeight="500" mb="10">
+           What our customers say
+          </Text>
+          <Box>
+            <Text mb="4" className={animationClass}>{currentTestimony.testimony}</Text>
+            <Text fontWeight="bold"  className={animationClass}>{currentTestimony.name}</Text>
           </Box>
-        ))}
-      </Box>
-      <Center mt="4" position="absolute" bottom="0" width="100%">
-        <IconButton
-          aria-label="Previous Slide"
-          icon={<Icon as={FaChevronLeft} />}
-          onClick={handlePrevClick}
-          marginLeft="-40px"
-        />
-        <IconButton
-          aria-label="Next Slide"
-          icon={<Icon as={FaChevronRight} />}
-          onClick={handleNextClick}
-          marginRight="-40px"
-        />
-      </Center>
+          <Button
+            variant="outline"
+            size="sm"
+            mt="2"
+            onClick={handlePrevious}
+          >
+            Previous
+          </Button>
+          <Button variant="outline" size="sm" ml="2" mt="2" onClick={handleNext}>
+            Next
+          </Button>
+        </Box>
+      </Flex>
     </Box>
   );
 };
 
-
-export default Carousel;
+export default Testimonial;

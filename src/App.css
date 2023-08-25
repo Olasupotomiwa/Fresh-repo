@@ -56,6 +56,21 @@ Button:focus{
   z-index: 1000; /* Adjust the z-index as needed to ensure it's above other content */
   /* Add any other styles you want for the sticky header */
 }
+/* Define the CSS for your element */
+
+/* Define the keyframes for the fade-in and fade-out animation */
+@keyframes fade {
+  0% { opacity: 0; } /* Start with opacity 0 for fade-in */
+  100% { opacity: 1; } /* End with opacity 1 for fade-in */
+}
+
+/* Apply the animation to your element */
+.testimony{
+  animation: fade 1s ease-in-out; /* Adjust the duration and timing function as needed */
+}
+
+
+
 
 /* styles.css */
 
