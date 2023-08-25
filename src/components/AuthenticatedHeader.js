@@ -126,13 +126,13 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const user = useSelector((state) => state.auth.user);
 
   return (
-    <Container  className="mobile-header" maxW={{base: '100%', md: '75%'}} ml={{ base: 0, md: "25%" }} p="0">
+    <Container  className="mobile-header" maxW={{base: '100%', md: '75%'}} ml={{ base: 0, md: "25%" }} p="0" bg='#121212'>
     <Flex
       ml={{ base: 0, md: "25%" }}
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg='black'
+    
      
      
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
