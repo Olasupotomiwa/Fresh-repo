@@ -67,15 +67,10 @@ function App() {
           element={<AuthenticatedRoute element={<ProtectedAbout />} />}
         />
 
-        <Route
-          path="/earn"
-          element={<AuthenticatedRoute element={<EarnPage />} />}
-        />
-
-        <Route
-          path="/earn/adverts-task"
-          element={<AuthenticatedRoute element={<AdvertsTask />} />}
-        />
+         <Route path="earn" element={<AuthenticatedRoute element={<EarnPage />} />}>
+         
+        </Route>
+        <Route path="earn/adverts-tasks" element={<AdvertsTask />} />
       </Routes>
     </>
   );

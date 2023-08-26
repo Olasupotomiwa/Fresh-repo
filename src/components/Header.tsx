@@ -156,10 +156,11 @@ const DesktopDropdownNavItem = ({
 
   return (
     <Box as="div" onClick={handleNavItemClick}>
-      <Flex align="center" _hover={{ textDecoration: "none" }}>
+      <Flex align="center" _hover={{ textDecoration: "none" }} >
         <Text
           cursor="pointer"
           _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out" }}
+        
            
         >
           {label}
@@ -182,7 +183,7 @@ const DesktopDropdownNavItem = ({
             bg='black'
         >
           {subItems.map((subItem) => (
-            <NavLink key={subItem.label} to={subItem.href}>
+            <NavLink key={subItem.label} to={subItem.href} className="Navlink">
               <chakra.span
                 _hover={{
                   color: "#CB29BE",
@@ -257,6 +258,8 @@ const MobileNavItem = ({
                   key={subItem.label}
                   to={subItem.href}
                   onClick={onClose}
+                  className="Navlink"
+                
                 >
                   <chakra.span
                     _hover={{
@@ -274,6 +277,7 @@ const MobileNavItem = ({
       ) : (
         <Flex
           py={2}
+         
           as={NavLink}
           to={href}
           onClick={onClose}
@@ -282,6 +286,7 @@ const MobileNavItem = ({
           _hover={{
             textDecoration: "none",
           }}
+          className="Navlink"
         >
           <Text
             onClick={handleNavItemClick}
@@ -327,9 +332,10 @@ const MobileNav = ({
             onClick={onClose}
             as={Link}
             to="/log-in"
+            className="Navlink"
            
           >
-            Login
+            Log in
           </Button>
 
           <Button

@@ -19,7 +19,7 @@ const cardContent = [
     content:
       "Earn by carrying out simple social media tasks for businesses and individuals or by reselling their products.",
     text: "Start earning",
-    to: "/earn",
+    to: "/earn/*",
     isFirstCard: true,
   },
   {

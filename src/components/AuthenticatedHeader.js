@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useMatch, Outlet } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
@@ -79,25 +78,36 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
     onClose(); // Close the mobile menu
   }
   const location = useLocation();
+  const match = useMatch(path);
 
-  const isActive = location.pathname === path;
+ 
+  // Determine if the NavLink should be active
+  const isActive = () => {
+    if (!match) return false; // Not active if not matched
+
+    // Check if it's an exact match (top-level route) or a partial match (nested route)
+    return location.pathname === path || location.pathname.startsWith(path + '/');
+  };
+
   return (
    
     <Box>
       
-    <NavLink to={path || '/homepage'} style={{ textDecoration: 'none' }} onClick={handleClick}  className={isActive ? 'active-nav-link' : 'nav-link'} >
+    <NavLink to={path || '/homepage'} style={{ textDecoration: 'none' }} onClick={handleClick}  className={isActive() ? 'active-nav-link' : 'nav-link'} >
       <Flex
         align="center"
         p="0"
       
         mr="10"
         my='1'
-        activeClassName="active-link"
-        bg={isActive ? '#CB29BE' : 'inherit'}
-        color={isActive ? 'white' : '#808080'}
+       
+        bg={isActive() ? '#CB29BE' : 'inherit'}
+        color={isActive() ? 'white' : 'inherit'}
+       
+       
         fontFamily='clash grotesk'
         borderRadius="lg"
-        fontSize='sm'
+        fontSize='16px'
         borderBottomLeftRadius='none'
         borderTopLeftRadius="none"
         role="group"
@@ -110,7 +120,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
         {icon && (
           <iconify-icon
           icon={icon}
-          style={{ color: isActive ? 'white' : '#808080', margin: '12px' }}
+          style={{ color: isActive() ? 'white' : 'inherit' , margin: '12px' }}
           width="22"
           margin-right='10px'
         
@@ -119,6 +129,8 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
         {children}
       </Flex>
     </NavLink>
+     {/* If this NavItem has nested routes, render them using Outlet */}
+     {match?.route?.children && <Outlet />}
     </Box>
   );
 };

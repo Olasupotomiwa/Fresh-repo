@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, Flex, Text, Heading, Button, Container } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const cardContent = [
@@ -10,8 +10,8 @@ const cardContent = [
     header: "Social tasks",
     content:
       "Our platform features a variety of income-generating strategies for users by having them carry out simple social media activities.",
-    to: "/earn/adverts-task",
-    text: "Get started",
+    to: "/earn/adverts-tasks",
+    text: "click",
   },
   {
     icon: "healthicons:money-bag",
@@ -24,6 +24,7 @@ const cardContent = [
 ];
 
 const Card = ({ icon, header, content, to, text }) => {
+    const navigate = useNavigate();
   return (
     <Box
       bg="#121212"
@@ -78,10 +79,9 @@ const Card = ({ icon, header, content, to, text }) => {
         bg="#cb29be"
         fontWeight="400"
         color="white"
-        mt={3}
-        mb={5}
-        as={Link}
-        to={to}
+        mt={8}
+        mb={0}
+        onClick={() => navigate(to)}
         _hover={{
           bg: "#CB29BE",
           color: "white",
@@ -127,6 +127,7 @@ const CardsSection = () => {
           ))}
         </Flex>
       </Box>
+     
     </Container>
   );
 };

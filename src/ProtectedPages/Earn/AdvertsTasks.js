@@ -9,7 +9,7 @@ const ButtonComponent2 = () => {
   return <Box  color='white'>Engagement tasks</Box>;
 };
 
-const ProtectedFAQS = () => {
+const AdHomepage = () => {
   const [showComponent1, setShowComponent1] = useState(true);
   const [showComponent2, setShowComponent2] = useState(false);
 
@@ -33,7 +33,7 @@ const ProtectedFAQS = () => {
       mt="20"
       fontFamily="clash grotesk"
     >
-        <Heading fontWeight='400' color='white' my={5}>Earn</Heading>
+        <Heading fontWeight='400' color='white' my={5}  fontFamily="clash grotesk">Earn</Heading>
       <Box>
         <Text color="#808080">
           Here you will find variety of adverts and engagement tasks. Engagement
@@ -42,10 +42,10 @@ const ProtectedFAQS = () => {
           joining groups and so much more.
         </Text>
         <div>
-          <Box p={4} my={5}>
+          <Box py={2} my={5}>
             <Button
               onClick={handleClick1}
-              m={4}
+              mr={2}
               bg={showComponent1 ? "#CB29BE" : "#121212"}
               color={showComponent1 ? "white" : "#808080"}
               fontWeight="500"
@@ -62,7 +62,7 @@ const ProtectedFAQS = () => {
             <Button
               onClick={handleClick2}
               rounded='lg'
-              m={4}
+              mr={0}
               transition="background 0.3s, color 0.3s"
               bg={showComponent2 ? "#CB29BE" : "#121212"}
               color={showComponent2 ? "white" : "#808080"}
@@ -85,4 +85,4 @@ const ProtectedFAQS = () => {
   );
 };
 
-export default ProtectedFAQS;
+export default AdHomepage;
