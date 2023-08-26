@@ -82,6 +82,7 @@ const handleButtonClick = () => {
           <Text color='white'>
             Your account has been linked succesfully. 
           </Text>
+          <Center>
           <Button
             bg="#CB29BE"
             rounded='full'
@@ -99,6 +100,7 @@ const handleButtonClick = () => {
           >
             Proceed  <ArrowForwardIcon ml='3' />
           </Button>
+          </Center>
         </Box>
         </Center>
 
