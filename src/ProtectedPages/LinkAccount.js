@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
   Container,
   Box,
@@ -18,13 +18,19 @@ import {
 } from "@chakra-ui/react";
 import { Goback } from "./Earn/Earnhome";
 import Loader from "../Loader";
+import { useSelector, useDispatch } from 'react-redux';
+import { setIsLinked, selectIsLinked } from '../slices/linkedslice';
 
 const LinkAcct = () => {
+
+    const isLinked = useSelector(selectIsLinked);
+    const dispatch = useDispatch();
+
   const [inputValue, setInputValue] = useState("");
   const [isButtonActive, setIsButtonActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [isLinked, setIsLinked] = useState(false);
+ 
   console.log(isLinked);
 
   // Function to handle input changes
@@ -32,24 +38,24 @@ const LinkAcct = () => {
     const value = e.target.value;
     setInputValue(value);
     setIsButtonActive(value.trim() !== "");
-
-     // Check if the input value is "Trendit3" to set isLinked
-  if (value === "Trendit3") {
-    setIsLinked(true);
-  } else {
-    setIsLinked(false);
-  }
   };
 
   // Function to handle button click
-  const handleButtonClick = () => {
+ // Function to handle button click
+const handleButtonClick = () => {
     setIsLoading(true); // Show spinner
     setTimeout(() => {
       setIsLoading(false); // Hide spinner after 2 seconds
-   
       setShowModal(true); // Show modal with default content
+      if (inputValue === "Trendit3") {
+        setIsLinked(true); // Set isLinked to true after showing the modal
+        dispatch(setIsLinked(true));
+      } else {
+        setIsLinked(false);
+      }
     }, 3000);
   };
+  
 
   // Function to close the modal
   const closeModal = () => {
@@ -67,6 +73,38 @@ const LinkAcct = () => {
       mt="20"
       fontFamily="clash grotesk"
     >
+
+
+{isLinked ? (
+        // Content when isLinked is true
+        <Center>
+        <Box mt="80px">
+          <Text color='white'>
+            Your account has been linked succesfully. 
+          </Text>
+          <Button
+            bg="#CB29BE"
+            rounded='full'
+            color="white"
+            fontWeight="500"
+            fontSize="16px"
+            px={10}
+            my={4}
+            mx="auto"
+            _hover={{
+                bg: "#CB29BE",
+                color: "white",
+                opacity: "0.9",
+              }}
+          >
+            Proceed  <ArrowForwardIcon ml='3' />
+          </Button>
+        </Box>
+        </Center>
+
+
+) : (
+    <>
       <Box
         bg="#121212"
         width="full"
@@ -137,7 +175,8 @@ const LinkAcct = () => {
           </Button>
         </FormControl>
       </Box>
-
+      </>
+ )}
       <Goback />
 
       {/* Modal */}

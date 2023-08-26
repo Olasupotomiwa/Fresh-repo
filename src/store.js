@@ -1,5 +1,7 @@
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
+import linkedReducer from './slices/linkedslice';
+
 import { persistStore, persistReducer,  FLUSH,
     REHYDRATE,
     PAUSE,
@@ -22,6 +24,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
+    linked: linkedReducer,
    
     // Add other slices here
   },

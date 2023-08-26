@@ -4,6 +4,8 @@ import { Box, Flex, Heading, Image, Text  } from '@chakra-ui/react';
 import IG from '../../assets/SocialMediaLogo/IG.png'
 
 function MyComponent() {
+
+    
   return (
     <Box as={Link} to='/earn/link-account'>
     <Flex justifyContent="space-between" alignItems="flex-start" width={{base: '100%', md: '100%', lg: '80%'}}>
