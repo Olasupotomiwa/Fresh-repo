@@ -7,7 +7,7 @@ import Tasks from "./pages/Packages/Tasks";
 import MarketPlace from "./pages/Market-Place";
 import BuyFollowers from "./pages/Packages/BuyFollowers";
 import SignUp from "./pages/SignUp";
-import Verified from "./pages/SignUp/Verified";
+
 import LoginPage from "./pages/Log-in";
 import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
 //Protected routes
@@ -19,10 +19,10 @@ import ProtectedAbout from "./ProtectedPages/PpAbout";
 import Homepage2 from "./ProtectedPages/Homepage2";
 import EarnPage from "./ProtectedPages/Earn/Earnhome";
 import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks";
+import LinkAccount from './ProtectedPages/LinkAccount'
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
-
 
 const AuthenticatedRoute = ({ element }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -44,7 +44,6 @@ function App() {
         <Route path="/buy-followers" element={<BuyFollowers />} />
         <Route path="/market-place" element={<MarketPlace />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/verified" element={<Verified />} />
         <Route path="/log-in" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
@@ -69,10 +68,20 @@ function App() {
           element={<AuthenticatedRoute element={<ProtectedAbout />} />}
         />
 
-         <Route path="earn" element={<AuthenticatedRoute element={<EarnPage />} />}>
-         
-        </Route>
-        <Route path="earn/adverts-tasks" element={<AdvertsTask />} />
+        <Route
+          path="earn"
+          element={<AuthenticatedRoute element={<EarnPage />} />}
+        ></Route>
+
+        <Route
+          path="earn/adverts-tasks"
+          element={<AuthenticatedRoute element={<AdvertsTask />} />}
+        />
+
+        <Route
+          path="earn/link-account"
+          element={<AuthenticatedRoute element={<LinkAccount />} />}
+        />
       </Routes>
     </>
   );

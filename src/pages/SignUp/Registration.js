@@ -1,6 +1,7 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import locationData from "./LocationArray";
-import { useNavigate } from "react-router-dom";
+
 
 import {
   Button,
@@ -20,7 +21,6 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Center, Heading } from "@chakra-ui/react";
 import { Stack, HStack } from "@chakra-ui/react";
 import Loader from "../../Loader";
-
 
 import { Box, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -49,7 +49,6 @@ function SignUpComponent() {
       setPasswordError("");
     }, 12000); // 3000 milliseconds (3 seconds)
   };
-
 
   // Function to proceed to the next registration step
   const NewMail = "Trendit3@gmail.com"; //relace with actual function to check if mail does not exist
@@ -84,13 +83,14 @@ function SignUpComponent() {
         setEmailError("Invalid email address.");
         // Clear errors after 3 seconds
         clearErrors();
-      } 
-      else if (NewMail  !== email) {
+      } else if (NewMail !== email) {
         console.log("Invalid email.");
-        setEmailError("This email has been registered already. Use a new email address");
+        setEmailError(
+          "This email has been registered already. Use a new email address"
+        );
         // Clear errors after 3 seconds
         clearErrors();
-      }else if (!isValidPassword(password1)) {
+      } else if (!isValidPassword(password1)) {
         console.log("Invalid password.");
         setPasswordError(
           "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and a special character"
@@ -128,21 +128,20 @@ function SignUpComponent() {
         setCityError("Please select a city.");
         return;
       }
-      // Validation for Step 1 passed; proceed to Step 2
-      setCurrentStep(currentStep + 1);
+      setIsLoading(true); // Show loader
+
+      setTimeout(() => {
+        setCurrentStep(currentStep + 1); // Proceed to Step 3 after 3 seconds
+        setIsLoading(false); // Hide loader
+      }, 3000); // 3 seconds delay
     }
   };
 
-
-
-
-// Function to go back to the previous step
+  // Function to go back to the previous step
 
   const handlePreviousStep = () => {
     setCurrentStep(currentStep - 1);
   };
-
-
 
   // Define the allowed username
   const allowedUsername = "Trendit3";
@@ -156,7 +155,6 @@ function SignUpComponent() {
     return true;
   };
 
-
   // Function to validate email
   const isValidEmail = (email) => {
     // Implement your email validation logic here
@@ -164,16 +162,12 @@ function SignUpComponent() {
     return emailPattern.test(email);
   };
 
- 
   const isValidPassword = (password) => {
     // Implement your password validation logic here
     // Return true if valid, false otherwise
     const passwordRegex = /^(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z]).{8,}$/;
     return passwordRegex.test(password);
   };
-  
-    
-
 
   // States to handle the second step
   const [selectedCountry, setSelectedCountry] = useState(""); // State to store the selected country
@@ -226,17 +220,13 @@ function SignUpComponent() {
     color: "#121212", // Change the text color as needed
   };
 
-
   // States to handle the code verificaation step
-  const navigate = useNavigate();
+ 
   const [pin, setPin] = useState(["", "", "", "", "", ""]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isResending, setIsResending] = useState(false);
   const [resendSuccess, setResendSuccess] = useState(false);
-
-
-  
 
   const handlePinChange = (e, index) => {
     const updatedPin = [...pin];
@@ -262,8 +252,8 @@ function SignUpComponent() {
     }
   };
 
-   // Function to check if the PIN input is filled
-   const isPinFilled = () => {
+  // Function to check if the PIN input is filled
+  const isPinFilled = () => {
     return pin.every((digit) => digit.trim() !== "");
   };
 
@@ -276,28 +266,26 @@ function SignUpComponent() {
     }
   }, [resendSuccess]);
 
-// Define the specific six-digit PIN that should be matched
-const correctPin = "123456"; // Replace with your specific PIN
+  // Define the specific six-digit PIN that should be matched
+  const correctPin = "123456"; // Replace with your specific PIN
   // Function to check if the pin matches before verying users
   const handleVerifyButton = () => {
     const enteredPin = pin.join(""); // Combine the array into a string
     setError(""); // Clear any previous error
     setIsLoading(true); // Set isLoading to true
-  
+
     // Simulate some asynchronous operation (e.g., API call)
     setTimeout(() => {
       if (enteredPin === correctPin) {
         setIsLoading(false); // Deactivate the loading spinner
-       navigate('/verified')
-       logInputs()
+        setCurrentStep(currentStep + 1);
+        logInputs();
       } else {
         setError("Incorrect PIN. Please try again.");
         setIsLoading(false); // Deactivate the loading spinner
       }
     }, 2000); // Simulate a 2-second delay
   };
-  
-
 
   // Function to handle resending of code
   const handleResendClick = () => {
@@ -309,12 +297,10 @@ const correctPin = "123456"; // Replace with your specific PIN
       setResendSuccess(true); // Set resend success to true
       setPin(["", "", "", "", "", ""]); // Clear the PIN input
       setError("");
-     
-     // Start the countdown timer
+
+      // Start the countdown timer
     }, 2000); // Simulate a 2-second resend process
   };
-
-
 
   // Function to collect and log step 1 and step 2 input values into console
   const logInputs = () => {
@@ -334,8 +320,7 @@ const correctPin = "123456"; // Replace with your specific PIN
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
-
-    //First registration step. Uesernmae, email and password
+        //First registration step. Uesernmae, email and password
         return (
           <Flex
             color="white"
@@ -344,7 +329,7 @@ const correctPin = "123456"; // Replace with your specific PIN
             alignItems="center"
             justifyContent="center"
             mt="25px"
-            fontFamily="clash grotesk"  
+            fontFamily="clash grotesk"
           >
             <VStack spacing={6} width={{ base: "80%", md: "500px" }}>
               <Box>
@@ -460,8 +445,7 @@ const correctPin = "123456"; // Replace with your specific PIN
           </Flex>
         );
 
-
-          //Second registration step. Gender, country and states
+      //Second registration step. Gender, country and states
       case 2:
         return (
           <Flex
@@ -573,8 +557,7 @@ const correctPin = "123456"; // Replace with your specific PIN
           </Flex>
         );
 
-
-   //Third registration step. Verification of email
+      //Third registration step. Verification of email
       case 3:
         return (
           <Flex justify={"center"}>
@@ -613,7 +596,7 @@ const correctPin = "123456"; // Replace with your specific PIN
                   <span style={{ color: "#CB29BE" }}> {email}</span>
                 </Text>
                 <Center>
-                <HStack spacing={2}>
+                  <HStack spacing={2}>
                     {[0, 1, 2, 3, 4, 5].map((index) => (
                       <Input
                         key={index}
@@ -641,22 +624,26 @@ const correctPin = "123456"; // Replace with your specific PIN
                 >
                   Didn't receive a code ?{" "}
                   <Button
-                  variant='unstyled'
+                    variant="unstyled"
                     style={{ color: "#CB29BE" }}
                     onClick={handleResendClick}
                     isDisabled={isResending || resendSuccess}
-                    fontWeight='400'
+                    fontWeight="400"
                   >
-                     {isResending ? <Spinner size="sm" color="white" /> : 'Resend'}
+                    {isResending ? (
+                      <Spinner size="sm" color="white" />
+                    ) : (
+                      "Resend"
+                    )}
                   </Button>
                 </Text>
               </FormControl>
 
               {resendSuccess && (
-        <Text color='#cb29be'>
-          New code sent to your email. Please Check
-        </Text>
-      )}
+                <Text color="#cb29be">
+                  New code sent to your email. Please Check
+                </Text>
+              )}
 
               {error && (
                 <Text textAlign="center" color="#CB29BE">
@@ -666,6 +653,64 @@ const correctPin = "123456"; // Replace with your specific PIN
             </Stack>
           </Flex>
         );
+
+
+        case 4:
+          // Fourth step (dummy text)
+          return (
+                 
+
+            <Box
+            color="white"
+            bg="black"
+            textAlign="center"
+          
+            mx="auto"
+            mt='100'
+            height='100vh'
+            fontFamily="clash grotesk"
+            width={{ base: "80%", md: "500px" }}
+          >
+            <iconify-icon
+              icon="solar:verified-check-bold"
+              style={{ color: "#CB29BE" }}
+              width="120"
+            ></iconify-icon>
+            <Heading
+              textAlign="center"
+              fontFamily="clash grotesk"
+              fontWeight="500"
+            >
+              Account verified
+            </Heading>
+            <Text fontSize="sm" color="#808080" textAlign="center" mt={2}>
+              Your account has been verified successfully
+            </Text>
+            <Center>
+              <Button
+                bg="#CB29BE"
+                color="white"
+                fontWeight={500}
+                rounded="25px"
+                px={10}
+                width={{ base: "80%", md: "500px" }}
+                mt={8}
+                mb={2}
+                _hover={{ bg: "#CB29BE", opacity: "0.9" }}
+                fontFamily="clash grotesk"
+                display="flex"
+                justifyContent="center"
+                as={Link}
+                to='/log-in'
+              >
+                Go to profile <ArrowForwardIcon ml={3} />
+              </Button>
+            </Center>
+          </Box>
+
+
+          );
+  
       default:
         return;
     }
@@ -683,7 +728,7 @@ const correctPin = "123456"; // Replace with your specific PIN
   };
 
   return (
-    <Container maxWidth="100vw"  bg="black" px={0} pt='14'>
+    <Container maxWidth="100vw" bg="black" px={0} pt="14">
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
@@ -694,16 +739,13 @@ const correctPin = "123456"; // Replace with your specific PIN
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
           height="full"
-         
-         
         />
-        <Box mt={{base: '5', md: '20'}} >
+        <Box mt={{ base: "5", md: "20" }}>
           {renderStepContent()}
           <Box
             display="flex"
             justifyContent="center"
             fontFamily="clash grotesk"
-            
           >
             {currentStep > 1 && (
               <ArrowBackIcon
@@ -730,7 +772,14 @@ const correctPin = "123456"; // Replace with your specific PIN
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
               >
-                Proceed
+                {isLoading ? (
+                  <>
+                    <Loader />
+                    sending code....
+                  </>
+                ) : (
+                  "Proceed"
+                )}
               </Button>
             ) : (
               <Button
@@ -744,20 +793,24 @@ const correctPin = "123456"; // Replace with your specific PIN
                 fontFamily="clash grotesk"
                 onClick={handleVerifyButton}
                 isDisabled={!isPinFilled()}
-               
               >
-                 {isLoading ? (
-                <>
-                  <Loader />
-                  Authenticating code....
-                </>
-              ) : (
-                "Verify & create account"
-              )}
+                {isLoading ? (
+                  <>
+                    <Loader />
+                    Authenticating code....
+                  </>
+                ) : (
+                  "Verify & create account"
+                )}
               </Button>
             )}
           </Box>
-          <Text textAlign="center" color="white" fontFamily="clash grotesk" mb={40}>
+          <Text
+            textAlign="center"
+            color="white"
+            fontFamily="clash grotesk"
+            mb={40}
+          >
             Already have an account ?{" "}
             <Button
               variant="unstyled"
@@ -772,7 +825,6 @@ const correctPin = "123456"; // Replace with your specific PIN
           </Text>
         </Box>
       </Grid>
-     
     </Container>
   );
 }

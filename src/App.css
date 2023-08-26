@@ -5,7 +5,6 @@ html{
      
     font-family: 'Clash Grotesk';
     outline: none;
-     textDecoration: none
 }
 
 Button{
@@ -131,7 +130,7 @@ ion-icon {
 .dot-spinner {
   --uib-size: 6.8rem;
   --uib-speed: .9s;
-  --uib-color: white;
+  --uib-color: #CB29BE;
   position: relative;
   display: flex;
   height: var(--uib-size);
