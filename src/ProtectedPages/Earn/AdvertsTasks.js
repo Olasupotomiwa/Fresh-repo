@@ -1,10 +1,7 @@
 import { Container, Box, Text, Button, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 import {Goback } from './Earnhome'
-
-const ButtonComponent1 = () => {
-  return <Box color='white'>Advert tasks</Box>;
-};
+import ADtasks from './Adtasks'
 
 const ButtonComponent2 = () => {
   return <Box  color='white'>Engagement tasks</Box>;
@@ -82,7 +79,7 @@ const AdHomepage = () => {
             </Button>
           </Box>
 
-          {showComponent1 && <ButtonComponent1 />}
+          {showComponent1 && <ADtasks/>}
           {showComponent2 && <ButtonComponent2 />}
         </div>
       </Box>

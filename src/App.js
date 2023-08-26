@@ -22,6 +22,8 @@ import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
+
+
 const AuthenticatedRoute = ({ element }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return isAuthenticated ? element : <Navigate to="/log-in" />;
