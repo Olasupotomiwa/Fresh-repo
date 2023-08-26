@@ -758,7 +758,8 @@ function SignUpComponent() {
                 onClick={handlePreviousStep}
               />
             )}
-            {currentStep < 3 ? (
+           {currentStep < 3  && (
+
               <Button
                 onClick={handleNextStep}
                 bg="#CB29BE"
@@ -781,7 +782,9 @@ function SignUpComponent() {
                   "Proceed"
                 )}
               </Button>
-            ) : (
+            )}
+
+{currentStep === 3  && (
               <Button
                 bg="#CB29BE"
                 color="white"
@@ -805,6 +808,7 @@ function SignUpComponent() {
               </Button>
             )}
           </Box>
+          {currentStep < 3 && (
           <Text
             textAlign="center"
             color="white"
@@ -823,6 +827,7 @@ function SignUpComponent() {
               Log in{" "}
             </Button>
           </Text>
+           )}
         </Box>
       </Grid>
     </Container>
