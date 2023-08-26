@@ -1,4 +1,6 @@
 import React from "react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { IconButton } from "@chakra-ui/react";
 
 import { Box, Flex, Text, Heading, Button, Container } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +13,7 @@ const cardContent = [
     content:
       "Our platform features a variety of income-generating strategies for users by having them carry out simple social media activities.",
     to: "/earn/adverts-tasks",
-    text: "click",
+    text: "Get started",
   },
   {
     icon: "healthicons:money-bag",
@@ -24,14 +26,14 @@ const cardContent = [
 ];
 
 const Card = ({ icon, header, content, to, text }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Box
       bg="#121212"
       p={4}
       shadow="md"
       borderRadius="md"
-      width={{ base: "85%", md: "350px" }} 
+      width={{ base: "85%", md: "350px" }}
       height="300px"
       mx="20px"
       my={4}
@@ -95,6 +97,32 @@ const Card = ({ icon, header, content, to, text }) => {
   );
 };
 
+const Goback = () => {
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1); // Go back to the previous route
+  };
+  return (
+    <IconButton
+      aria-label="Search database"
+      onClick={handleGoBack}
+      position="absolute"
+      left={{ base: "5px", md: "26%" }}
+      top="4"
+     mb={4}
+      color="white"
+      bg="inherit"
+      _hover={{ bg: "inherit" }}
+      fontSize="30px"
+      cursor="pointer"
+      icon={<ArrowBackIcon />}
+    />
+  );
+};
+
+export {Goback}
+
+
 const CardsSection = () => {
   return (
     <Container
@@ -109,8 +137,8 @@ const CardsSection = () => {
       <Box my={5}>
         <Flex
           direction={{ base: "column", md: "row" }}
-          align={{ base: "center", md: "center" }} 
-          justify={{ base: "center", md: "space-between" }} 
+          align={{ base: "center", md: "center" }}
+          justify={{ base: "center", md: "space-between" }}
           justifyContent="center"
           wrap="wrap"
           fontFamily="Clash Grotesk"
@@ -127,9 +155,9 @@ const CardsSection = () => {
           ))}
         </Flex>
       </Box>
-     
+      <Goback />
     </Container>
   );
 };
 
-export default CardsSection;
+export default CardsSection ;

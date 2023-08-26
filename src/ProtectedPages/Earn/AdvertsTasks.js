@@ -1,5 +1,6 @@
 import { Container, Box, Text, Button, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
+import {Goback } from './Earnhome'
 
 const ButtonComponent1 = () => {
   return <Box color='white'>Advert tasks</Box>;
@@ -33,7 +34,9 @@ const AdHomepage = () => {
       mt="20"
       fontFamily="clash grotesk"
     >
-        <Heading fontWeight='400' color='white' my={5}  fontFamily="clash grotesk">Earn</Heading>
+        <Goback/>
+        <Box mt={10}>
+        <Heading fontWeight='400' pt={3} color='white' mt={10} fontSize={{base: '18px', md: '25px'}} fontFamily="clash grotesk">Earn</Heading>
       <Box>
         <Text color="#808080">
           Here you will find variety of adverts and engagement tasks. Engagement
@@ -41,7 +44,9 @@ const AdHomepage = () => {
           App Store or Google play store, suscribing to YouTube channels,
           joining groups and so much more.
         </Text>
+        </Box>
         <div>
+     
           <Box py={2} my={5}>
             <Button
               onClick={handleClick1}
