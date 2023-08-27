@@ -48,7 +48,7 @@ const LinkAcct = () => {
       // If isLinked is true, wait for a brief moment and then redirect
       setTimeout(() => {
         navigate("/earn/adverts-tasks");
-      }, 3000); // Adjust the delay time as needed
+      }, 5000); // Adjust the delay time as needed
     }
   }, [isLinked,  navigate]);
 
