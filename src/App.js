@@ -19,7 +19,8 @@ import ProtectedAbout from "./ProtectedPages/PpAbout";
 import Homepage2 from "./ProtectedPages/Homepage2";
 import EarnPage from "./ProtectedPages/Earn/Earnhome";
 import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks";
-import LinkAccount from './ProtectedPages/LinkAccount'
+import LinkAccount from "./ProtectedPages/LinkAccount";
+import IGtasks from "./ProtectedPages/Earn/Instagramtask";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -30,6 +31,7 @@ const AuthenticatedRoute = ({ element }) => {
 };
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isLinked = useSelector((state) => state.linked.isLinked);
 
   return (
     <>
@@ -81,6 +83,17 @@ function App() {
         <Route
           path="earn/link-account"
           element={<AuthenticatedRoute element={<LinkAccount />} />}
+        />
+
+        <Route
+          path="/earn/instagram-tasks"
+          element={
+            isLinked ? (
+              <AuthenticatedRoute element={<IGtasks />} />
+            ) : (
+              <AuthenticatedRoute element={<LinkAccount />} />
+            )
+          }
         />
       </Routes>
     </>

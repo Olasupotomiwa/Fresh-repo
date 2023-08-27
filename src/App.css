@@ -117,6 +117,17 @@ ion-icon {
 }
 
 
+
+
+/* In your CSS file */
+.dollar-amount {
+  color: #CB29BE; /* Set the color you want */
+  font-weight: 600;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+
 /* CSS loader*/
 
 .Loader{

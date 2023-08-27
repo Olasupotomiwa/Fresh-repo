@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'; 
+
+
 import {
   Container,
   Box,
@@ -25,6 +27,7 @@ const LinkAcct = () => {
 
     const isLinked = useSelector(selectIsLinked);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState("");
   const [isButtonActive, setIsButtonActive] = useState(false);
@@ -40,7 +43,15 @@ const LinkAcct = () => {
     setIsButtonActive(value.trim() !== "");
   };
 
-  // Function to handle button click
+  useEffect(() => {
+    if (isLinked) {
+      // If isLinked is true, wait for a brief moment and then redirect
+      setTimeout(() => {
+        navigate("/earn/adverts-tasks");
+      }, 3000); // Adjust the delay time as needed
+    }
+  }, [isLinked,  navigate]);
+
  // Function to handle button click
 const handleButtonClick = () => {
     setIsLoading(true); // Show spinner
@@ -78,30 +89,9 @@ const handleButtonClick = () => {
 {isLinked ? (
         // Content when isLinked is true
         <Center>
-        <Box mt="80px">
-          <Text color='white'>
-            Your account has been linked succesfully. 
-          </Text>
-          <Center>
-          <Button
-            bg="#CB29BE"
-            rounded='full'
-            color="white"
-            fontWeight="500"
-            fontSize="16px"
-            px={10}
-            my={4}
-            mx="auto"
-            _hover={{
-                bg: "#CB29BE",
-                color: "white",
-                opacity: "0.9",
-              }}
-          >
-            Proceed  <ArrowForwardIcon ml='3' />
-          </Button>
-          </Center>
-        </Box>
+       
+         <Loader/>
+         <Text color='white'>Redirecting....</Text>
         </Center>
 
 
@@ -122,7 +112,7 @@ const handleButtonClick = () => {
         </Text>
         <Text color="#808080">
           To be eligible for our social tasks: <br />
-          1. Your Instagram must have at least 1000 real followers <br />
+          1. Your selected must have at least 1000 real followers <br />
           2. Your account must be an active one. Your last post must not be
           later than 30 days
         </Text>
@@ -227,7 +217,8 @@ const handleButtonClick = () => {
                   <span style={{ color: "#CB29BE", fontWeight: "600" }}>
                     Instagram Tasks
                   </span>{" "}
-                  Tasks on our platform!
+                  Tasks on our platform! <br />
+                  Please wait while you are being directed to the task page
                 </Text>
               </div>
             ) : (

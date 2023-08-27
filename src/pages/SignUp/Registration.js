@@ -796,6 +796,7 @@ function SignUpComponent() {
                 fontFamily="clash grotesk"
                 onClick={handleVerifyButton}
                 isDisabled={!isPinFilled()}
+                mb={{base: '300px', md: '0'}}
               >
                 {isLoading ? (
                   <>

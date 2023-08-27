@@ -27,7 +27,7 @@ const AdHomepage = () => {
       p={{ base: "4", md: "10" }}
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
-      height={{ base: "100vh", md: "100vh" }}
+      height='100%'
       mt="20"
       fontFamily="clash grotesk"
     >

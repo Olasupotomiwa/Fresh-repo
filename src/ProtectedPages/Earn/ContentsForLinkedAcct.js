@@ -6,7 +6,6 @@ import Fb from "assets/SocialMediaLogo/Fb.png";
 import Tiktok from "assets/SocialMediaLogo/Tiktok.png";
 import Whatsapp from "assets/SocialMediaLogo/Whatsapp.png";
 import Twitter from "assets/SocialMediaLogo/Twitter.png";
-import { useSelector } from "react-redux"
 
 
 
@@ -19,7 +18,7 @@ export const contentArray = [
     taskCount: 100, 
     description1: 'You will need to have at least 1000 active followers on Instagram to perform this task.',
     description2: 'Carrying out the task while having less than 1000 followers attracts no pay.',
-    route: '/earn/instagram-tasks', // You can replace with the actual route
+    route: '/earn/link', // You can replace with the actual route
   },
 
 
@@ -30,7 +29,7 @@ export const contentArray = [
     taskCount: 2, 
     description1: 'You will need to have at least 1000 active followers on Tiktok to perform this task.',
     description2: 'Carrying out the task while having less than 1000 followers attracts no pay.',
-    route: '/earn/instagram-tasks', // You can replace with the actual route
+    route: '/earn/link-account', // You can replace with the actual route
   },
 
   {
@@ -40,7 +39,7 @@ export const contentArray = [
     taskCount: 0, // Set task count to 0
     description1: 'You will need to have an average of 100 Whatsapp status view to perform this task.',
     description2: 'Carrying out the task while having less than 100 Whatsapp status view attracts no pay.',
-    route: '/earn/instagram-tasks', // You can replace with the actual route
+    route: '/earn/link-account', // You can replace with the actual route
   },
 
   {
@@ -50,7 +49,7 @@ export const contentArray = [
     taskCount: 0, // Set task count to 0
     description1: 'You will need to have an average of 1000 active followers or friends on Facebook to perform this task.',
     description2: 'Carrying out the task while having less than 100 Whatsapp status view attracts no pay.',
-    route: '/earn/instagram-tasks', // You can replace with the actual route
+    route: '/earn/link-account', // You can replace with the actual route
   },
 
   {
@@ -60,7 +59,7 @@ export const contentArray = [
     taskCount: 2, 
     description1: 'You will need to have an average of 1000 active followers on Twitter to perform this task.',
     description2: 'Carrying out the task while having less than 100 Whatsapp status view attracts no pay.',
-    route: '/earn/instagram-tasks', // You can replace with the actual route
+    route: '/earn/link-account', // You can replace with the actual route
   },
   // Add more content objects as needed
 ];
@@ -69,15 +68,14 @@ export const contentArray = [
 
 
 
-function MyComponent() {
-  const isLinked = useSelector((state) => state.linked.isLinked);
+function LinkedAcctContents() {
  
 
   return (
     <div>
       {contentArray.map((content, index) => (
         <div key={content.id} >
-          <Link to={isLinked ? content.route : "/earn/link-account"} >
+          <Link to='/earn/link-account' >
             <Flex justifyContent="space-between" alignItems="flex-start" width={{ base: '100%', md: '100%', lg: '80%' }} mt={3} >
               {/* First Container */}
               <Box display="flex">
@@ -120,4 +118,4 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default LinkedAcctContents;
