@@ -1,7 +1,7 @@
 import { Container, Box, Text, Button, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
-import {Goback } from './Earnhome'
-import ADtasks from './Adtasks'
+import {Goback } from '../Earnhome'
+import ADtasks from '../AdvertsTasks/Adtasks'
 
 const ButtonComponent2 = () => {
   return <Box  color='white'>Engagement tasks</Box>;

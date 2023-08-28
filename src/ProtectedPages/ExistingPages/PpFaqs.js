@@ -1,5 +1,5 @@
 import { Container } from "@chakra-ui/react"
-import FAQS from '../pages/Homepage/Faqs'
+import FAQS from '../../pages/Homepage/Faqs'
 
 const ProtectedFAQS =()=>{
 

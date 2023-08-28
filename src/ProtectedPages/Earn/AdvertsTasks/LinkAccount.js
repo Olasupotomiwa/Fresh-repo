@@ -18,10 +18,10 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import { Goback } from "./Earn/Earnhome";
-import Loader from "../Loader";
+import { Goback } from "../../Earn/Earnhome";
+import Loader from "../../../Loader";
 import { useSelector, useDispatch } from 'react-redux';
-import { setIsLinked, selectIsLinked } from '../slices/linkedslice';
+import { setIsLinked, selectIsLinked } from '../../../slices/linkedslice';
 
 const LinkAcct = () => {
 

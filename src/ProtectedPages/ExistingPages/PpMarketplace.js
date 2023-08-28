@@ -1,5 +1,5 @@
 import { Container } from "@chakra-ui/react"
-import MarketPlace from '../pages/Market-Place'
+import MarketPlace from '../../pages/Market-Place'
 
 const ProtectedMarketPlace =()=>{
 
