@@ -21,7 +21,7 @@ import {
 import { Goback } from "../../Earn/Earnhome";
 import Loader from "../../../Loader";
 import { useSelector, useDispatch } from 'react-redux';
-import { setIsLinked, selectIsLinked } from '../../../slices/linkedslice';
+import { setIsLinked, selectIsLinked } from '../../../Redux-files/slices/linkedslice';
 
 const LinkAcct = () => {
 

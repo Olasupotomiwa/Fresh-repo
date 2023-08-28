@@ -2,7 +2,7 @@
 import { Container, Button, Heading, Text, Center } from "@chakra-ui/react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { logout } from '../slices/authSlice'; // Import your logout action
+import { logout } from '../Redux-files/slices/authSlice'; // Import your logout action
 import { Navigate } from 'react-router-dom';
 
 

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { loginSuccess } from '../slices/authSlice'; 
+import { loginSuccess } from '../Redux-files/slices/authSlice'; 
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
