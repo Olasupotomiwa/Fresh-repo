@@ -66,16 +66,20 @@ const NAV_ITEMS: NavItem[] = [
 // Desktop navigation component
 const DesktopNav = () => {
   return (
-    <Stack direction="row" align="center" spacing={0} pr={0} mr="30" >
+    <Stack direction="row" align="center" spacing={0} pr={0} mr="30">
       <Center>
         {NAV_ITEMS.map((navItem, index) => (
-          <Box key={navItem.label} px={0} ml={{base: '10', md: '6', lg: '-2'}}  mr={{base: '0', md: '2', lg: '6'}}>
+          <Box
+            key={navItem.label}
+            px={0}
+            ml={{ base: "10", md: "6", lg: "-2" }}
+            mr={{ base: "0", md: "2", lg: "6" }}
+          >
             {index !== 0 && <Box />}
             {navItem.subItems ? (
               <DesktopDropdownNavItem
                 label={navItem.label}
                 subItems={navItem.subItems}
-              
               />
             ) : (
               <Popover trigger="hover" placement="bottom-start">
@@ -105,7 +109,7 @@ const DesktopNav = () => {
         direction="row"
         display={{ base: "none", md: "flex" }}
         position="absolute"
-        right={{ base: " ", md: "10px", lg: '30px' }}
+        right={{ base: " ", md: "10px", lg: "30px" }}
       >
         <Button
           variant="ghost"
@@ -156,12 +160,10 @@ const DesktopDropdownNavItem = ({
 
   return (
     <Box as="div" onClick={handleNavItemClick}>
-      <Flex align="center" _hover={{ textDecoration: "none" }} >
+      <Flex align="center" _hover={{ textDecoration: "none" }}>
         <Text
           cursor="pointer"
           _hover={{ color: "#CB29BE", transition: "color 0.3s ease-in-out" }}
-        
-           
         >
           {label}
         </Text>
@@ -169,7 +171,6 @@ const DesktopDropdownNavItem = ({
           as={ChevronDownIcon}
           ml={0.5}
           transform={isOpen ? "rotate(180deg)" : "none"}
-          
         />
       </Flex>
       {isOpen && (
@@ -180,7 +181,7 @@ const DesktopDropdownNavItem = ({
           zIndex={1}
           position="absolute"
           mt={2}
-            bg='black'
+          bg="black"
         >
           {subItems.map((subItem) => (
             <NavLink key={subItem.label} to={subItem.href} className="Navlink">
@@ -189,7 +190,6 @@ const DesktopDropdownNavItem = ({
                   color: "#CB29BE",
                   transition: "color 0.3s ease-in-out",
                 }}
-               
               >
                 {subItem.label}
               </chakra.span>
@@ -259,7 +259,6 @@ const MobileNavItem = ({
                   to={subItem.href}
                   onClick={onClose}
                   className="Navlink"
-                
                 >
                   <chakra.span
                     _hover={{
@@ -277,7 +276,6 @@ const MobileNavItem = ({
       ) : (
         <Flex
           py={2}
-         
           as={NavLink}
           to={href}
           onClick={onClose}
@@ -313,7 +311,7 @@ const MobileNav = ({
   onClose: () => void;
 }) => {
   return (
-    <Stack bg="black" p={4} display={{ md: "none" }} height='100vh'>
+    <Stack bg="black" p={4} display={{ md: "none" }} height="100vh">
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} onClose={onClose} />
       ))}
@@ -333,7 +331,6 @@ const MobileNav = ({
             as={Link}
             to="/log-in"
             className="Navlink"
-           
           >
             Log in
           </Button>
@@ -369,10 +366,9 @@ const Header = () => {
       bg="black"
       color="white"
       fontFamily="Clash Grotesk"
-     
-      className="mobile-header" 
+      className="mobile-header"
     >
-      <Box py={5}  px={15}>
+      <Box py={{ base: "3", md: "5" }} px={{ base: "0", md: "15" }}>
         <Flex
           color="white.600"
           py={{ base: 4 }}
@@ -381,7 +377,10 @@ const Header = () => {
           bg="black"
         >
           <Flex flex={{ base: 0 }}>
-            <Box display={{ base: "none", md: "flex" }} width={{base: '150px', md: '90px', lg: '360px'}}>
+            <Box
+              display={{ base: "none", md: "flex" }}
+              width={{ base: "150px", md: "90px", lg: "360px" }}
+            >
               <Link to="/">
                 <Image src={LogoJPG} width="100px" alt="trendit3 logo" />
               </Link>
@@ -421,7 +420,7 @@ const Header = () => {
                 isOpen ? (
                   <CloseIcon w={3} h={3} />
                 ) : (
-                  <HamburgerIcon w={5} h={5} color="white"  />
+                  <HamburgerIcon w={5} h={5} color="white" />
                 )
               }
               variant="ghost"
