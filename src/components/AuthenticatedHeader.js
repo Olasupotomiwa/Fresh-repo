@@ -51,18 +51,19 @@ const SidebarContent = ({ onClose, ...rest }) => {
     <Box
       transition="3s ease"
       bg='#121212'
-     
+      overflowY="auto"
       w={{ base: 'full', md: '25%' }}
       pos='fixed'
       top='0'
       h="full"
+    
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
        
         <Image src={Logo} />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} color='white' />
       </Flex>
-      <Box mt='30px'>
+      <Box mt='30px' >
       {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon} path={link.path} onClose={onClose}>
           {link.name}

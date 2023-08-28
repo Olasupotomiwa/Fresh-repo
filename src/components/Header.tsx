@@ -69,7 +69,7 @@ const DesktopNav = () => {
     <Stack direction="row" align="center" spacing={0} pr={0} mr="30" >
       <Center>
         {NAV_ITEMS.map((navItem, index) => (
-          <Box key={navItem.label} px={0} ml={{base: '10', md: '6', lg: '-2'}}  mr={{base: '0', md: '0', lg: '8'}}>
+          <Box key={navItem.label} px={0} ml={{base: '10', md: '6', lg: '-2'}}  mr={{base: '0', md: '2', lg: '6'}}>
             {index !== 0 && <Box />}
             {navItem.subItems ? (
               <DesktopDropdownNavItem
@@ -105,7 +105,7 @@ const DesktopNav = () => {
         direction="row"
         display={{ base: "none", md: "flex" }}
         position="absolute"
-        right="10px"
+        right={{ base: " ", md: "10px", lg: '30px' }}
       >
         <Button
           variant="ghost"
@@ -369,10 +369,10 @@ const Header = () => {
       bg="black"
       color="white"
       fontFamily="Clash Grotesk"
-      px={5}
+     
       className="mobile-header" 
     >
-      <Box py={2}>
+      <Box py={5}  px={15}>
         <Flex
           color="white.600"
           py={{ base: 4 }}
