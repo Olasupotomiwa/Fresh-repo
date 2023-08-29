@@ -5,6 +5,7 @@ html{
      
     font-family: 'Clash Grotesk';
     outline: none;
+    scroll-behavior: smooth;
 }
 
 Button{

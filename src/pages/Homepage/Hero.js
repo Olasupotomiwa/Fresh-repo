@@ -22,7 +22,7 @@ const Hero=()=>{
       
       
       <Flex
-      className="animate__animated animate__bounce"
+      
         direction={{ base: "column", md: "row" }}
         pt={30}
         py={{ base: "5", md: "10" }}
@@ -39,6 +39,7 @@ const Hero=()=>{
             fontWeight={700}
             textAlign={{ base: "center", md: "left" }}
             color="white"
+          
           >
             Earn money by <Text color="#CB29BE">connecting businesses </Text> to
             their potential customers
