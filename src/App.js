@@ -24,16 +24,20 @@ import IGtasks from "./ProtectedPages/Earn/AdvertsTasks/Instagramtask";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const AuthenticatedRoute = ({ element }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return isAuthenticated ? element : <Navigate to="/log-in" />;
 };
+
+const queryClient = new QueryClient()
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isLinked = useSelector((state) => state.linked.isLinked);
 
   return (
+    <QueryClientProvider client={queryClient}>
     <>
       <ScrollTop />
 
@@ -97,6 +101,8 @@ function App() {
         />
       </Routes>
     </>
+
+    </QueryClientProvider>
   );
 }
 

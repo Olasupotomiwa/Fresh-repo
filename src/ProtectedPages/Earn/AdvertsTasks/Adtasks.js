@@ -74,7 +74,7 @@ function MyComponent() {
  
 
   return (
-    <div>
+    <Box  mb={10}>
       {contentArray.map((content, index) => (
         <div key={content.id} >
           <Link to={isLinked ? content.route : "/earn/link-account"} >
@@ -116,7 +116,7 @@ function MyComponent() {
           {index < contentArray.length - 1 && <Divider borderColor="#808080" mt={4} />}
         </div>
       ))}
-    </div>
+    </Box>
   );
 }
 
