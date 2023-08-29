@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Text,
@@ -8,7 +8,13 @@ import {
   VStack,
   Divider,
   Button,
+  Center,
   Image,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -18,6 +24,24 @@ import Loader from "../../../Loader";
 const IGtasks = ({ apiEndpoint }) => {
   const { data, isLoading, error, handlePageChange, totalPages, currentPage } =
     useFetch("https://jsonplaceholder.typicode.com/albums");
+
+  // State to control the modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // State to store the selected task
+  const [selectedTask, setSelectedTask] = useState(null);
+
+  // Function to open the modal and set the selected task
+  const openModal = (task) => {
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setSelectedTask(null);
+    setIsModalOpen(false);
+  };
 
   return (
     <Container
@@ -109,8 +133,7 @@ const IGtasks = ({ apiEndpoint }) => {
                     fontWeight="bold"
                     cursor="pointer"
                     textAlign="right"
-                    as={Link}
-                    to={`/earn/instagram-tasks/perform-task/${item.id}`}
+                    onClick={() => openModal(item)}
                   >
                     Perform Task <ArrowForwardIcon fontWeight="400" ml={1} />
                   </Text>
@@ -137,6 +160,71 @@ const IGtasks = ({ apiEndpoint }) => {
           </Flex>
         </Box>
       )}
+
+      {/* Modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        size={{ base: "sm", md: "md" }}
+        isCentered
+
+      >
+        <ModalOverlay />
+        <ModalContent
+          bg="black"
+          border="1px"
+          borderColor="#808080"
+          borderRadius="25px"
+          fontFamily="clash grotesk"
+          p={{ base: "0", md: "6" }}
+        >
+          <Heading
+            textAlign="center"
+            fontSize="20px"
+            color="white"
+            fontWeight="400"
+            fontFamily="clash grotesk"
+          >
+            Perform task
+          </Heading>
+          <ModalCloseButton
+            bg="#808080"
+            rounded="full"
+            position="absolute"
+            top="-8px"
+            right="-5px"
+          />
+          <ModalBody>
+            {/* Modal content here */}
+            {selectedTask && (
+              <div>
+                {/* Add your modal content here */}
+                <Text color="#808080" textAlign="center" py={4}>
+                  If you proceed to perform this tasks, you will have just{" "}
+                  <span style={{ color: "#CB29BE", fontWeight: "600" }}>
+                    1 hour
+                  </span>{" "}
+                  to complete the task. Otherwise, it will e cancelled
+                </Text>
+                <Center pt={5}>
+                  <Button
+                    as={Link}
+                    to={`/earn/instagram-tasks/perform-task/${selectedTask.id}`}
+                    color="white"
+                    bg="#CB29BE"
+                    rounded="full"
+                    fontWeight="400"
+                    px="60px"
+                    _hover={{ bg: "#CB29BE" }}
+                  >
+                    Proceed
+                  </Button>
+                </Center>
+              </div>
+            )}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Container>
   );
 };
