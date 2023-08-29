@@ -204,7 +204,7 @@ const IGtasks = ({ apiEndpoint }) => {
                   <span style={{ color: "#CB29BE", fontWeight: "600" }}>
                     1 hour
                   </span>{" "}
-                  to complete the task. Otherwise, it will e cancelled
+                  to complete the task. Otherwise, it will be cancelled
                 </Text>
                 <Center pt={5}>
                   <Button
