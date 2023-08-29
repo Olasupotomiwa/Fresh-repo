@@ -10,6 +10,7 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useFetch } from "../../../React-query-hook/hook";
 import Loader from "../../../Loader";
@@ -32,7 +33,9 @@ const IGtasks = ({ apiEndpoint }) => {
       {isLoading && (
         <Container bg="black" height="100vh">
           <Loader />
-          <Text color='white' textAlign='center'>Loading available tasks</Text>
+          <Text color="white" textAlign="center">
+            Loading available tasks
+          </Text>
         </Container>
       )}
 
@@ -101,7 +104,14 @@ const IGtasks = ({ apiEndpoint }) => {
                   mt="auto"
                   display={{ base: "block", md: "flex" }}
                 >
-                  <Text color="#CB29BE" fontWeight="bold" cursor="pointer">
+                  <Text
+                    color="#CB29BE"
+                    fontWeight="bold"
+                    cursor="pointer"
+                    textAlign="right"
+                    as={Link}
+                    to={`/earn/instagram-tasks/perform-task/${item.id}`}
+                  >
                     Perform Task <ArrowForwardIcon fontWeight="400" ml={1} />
                   </Text>
                 </Flex>

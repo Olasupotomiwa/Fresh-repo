@@ -21,6 +21,7 @@ import EarnPage from "./ProtectedPages/Earn/Earnhome";
 import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks/AdvertsTasks";
 import LinkAccount from "./ProtectedPages/Earn/AdvertsTasks/LinkAccount";
 import IGtasks from "./ProtectedPages/Earn/AdvertsTasks/Instagramtask";
+import TaskPage from "ProtectedPages/Earn/AdvertsTasks/PerfomTasks";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -99,6 +100,12 @@ function App() {
             )
           }
         />
+      
+      <Route
+         path="/earn/instagram-tasks/perform-task/:taskId"
+          element={<AuthenticatedRoute element={<TaskPage />} />}
+        />
+     
       </Routes>
     </>
 
