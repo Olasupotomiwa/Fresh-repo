@@ -50,7 +50,7 @@ export const contentArray = [
     taskCount: 0, // Set task count to 0
     description1: 'You will need to have an average of 1000 active followers or friends on Facebook to perform this task.',
     description2: 'Carrying out the task while having less than 100 Whatsapp status view attracts no pay.',
-    route: '/earn/facebook-tasks', // You can replace with the actual route
+    route: '/earn/facebook-tasks', 
   },
 
   {
@@ -60,7 +60,7 @@ export const contentArray = [
     taskCount: 2, 
     description1: 'You will need to have an average of 1000 active followers on Twitter to perform this task.',
     description2: 'Carrying out the task while having less than 100 Whatsapp status view attracts no pay.',
-    route: '/earn/twitter-tasks', // You can replace with the actual route
+    route: '/earn/twitter-tasks', 
   },
   // Add more content objects as needed
 ];
