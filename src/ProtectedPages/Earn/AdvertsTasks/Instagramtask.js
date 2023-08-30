@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useRef, useEffect } from "react";
+
 import {
   Container,
   Text,
@@ -42,6 +44,14 @@ const IGtasks = ({ apiEndpoint }) => {
     setSelectedTask(null);
     setIsModalOpen(false);
   };
+  const topRef = useRef(null);
+  useEffect(() => {
+    // Scroll to the top when the component is mounted
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount
+
 
   return (
     <Container
@@ -53,7 +63,9 @@ const IGtasks = ({ apiEndpoint }) => {
       height="100%"
       mt="20"
       fontFamily="clash grotesk"
+      id="top"
     >
+        <div ref={topRef} id="top"></div>
       {isLoading && (
         <Container bg="black" height="100vh">
           <Loader />
@@ -97,7 +109,7 @@ const IGtasks = ({ apiEndpoint }) => {
                     width={{ base: "100px", md: "200px" }}
                     height={{ base: "150px", md: "100px" }}
                     objectFit="cover"
-                    mb={{ base: "6px", md: "0" }} 
+                    mb='-12px'
                     mt={2}// Adjust margin-bottom for smaller screens
                   />
                
@@ -115,7 +127,7 @@ const IGtasks = ({ apiEndpoint }) => {
                   </Box>
                   </HStack>
                   <Box >
-                    <Text textAlign="right"  color="#CB29BE" fontWeight='600' mb='-4px'onClick={() => openModal(item)} cursor="pointer">
+                    <Text width='auto' textAlign="right"  color="#CB29BE" fontWeight='600' mb='-4px'onClick={() => openModal(item)} cursor="pointer">
                       Perform task <ArrowForwardIcon />{" "}
                     </Text>
                   </Box>
@@ -131,7 +143,10 @@ const IGtasks = ({ apiEndpoint }) => {
               <Button
                 key={index + 1}
                 colorScheme={index + 1 === currentPage ? "teal" : "#121212"}
-                onClick={() => handlePageChange(index + 1)}
+                onClick={() => {
+                  handlePageChange(index + 1);
+                  topRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll to the top
+                }}
               >
                 {index + 1}
               </Button>
