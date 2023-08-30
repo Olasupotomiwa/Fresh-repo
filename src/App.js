@@ -22,7 +22,7 @@ import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks/AdvertsTasks";
 import LinkAccount from "./ProtectedPages/Earn/AdvertsTasks/LinkAccount";
 import IGtasks from "./ProtectedPages/Earn/AdvertsTasks/Instagramtask";
 import TikTokTasks from "./ProtectedPages/Earn/AdvertsTasks/TiktokTasks";
-import WhatsappTasks from "./ProtectedPages/Earn/AdvertsTasks/TwitterTasks";
+import WhatsappTasks from "./ProtectedPages/Earn/AdvertsTasks/WhatsappTasks";
 import FacebookTasks from "./ProtectedPages/Earn/AdvertsTasks/FacebookTasks";
 import TwitterTasks from "./ProtectedPages/Earn/AdvertsTasks/TwitterTasks";
 import TaskPage from "ProtectedPages/Earn/AdvertsTasks/PerfomTasks";

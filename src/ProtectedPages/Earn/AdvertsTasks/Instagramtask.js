@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRef, useEffect } from "react";
 import { Goback } from "../Earnhome";
+import Gele from 'assets/Markets/Gele.png'
 
 import {
   Container,
@@ -121,7 +122,7 @@ const IGtasks = ({
                 <Box>
                   <HStack>
                     <Image
-                      src="https://via.placeholder.com/100" // Replace with your image URL
+                      src={Gele} // Replace with your image URL
                       alt="Image"
                       width={{ base: "100px", md: "200px" }}
                       height={{ base: "150px", md: "100px" }}
