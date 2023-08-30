@@ -5,10 +5,10 @@ import {
   Heading,
   Box,
   Flex,
-  VStack,
   Divider,
   Button,
   Center,
+  HStack,
   Image,
   Modal,
   ModalOverlay,
@@ -63,7 +63,7 @@ const IGtasks = ({ apiEndpoint }) => {
         </Container>
       )}
 
-      {error && <Text color='white'>Error: {error.message}</Text>}
+      {error && <Text color="white">Error: {error.message}</Text>}
 
       {!isLoading && !error && (
         <Box pt={{ base: "0", md: "50" }} px={{ base: "4", md: "10" }}>
@@ -86,64 +86,43 @@ const IGtasks = ({ apiEndpoint }) => {
           </Text>
 
           {data.map((item) => (
-            <Box key={item.id}>
+            <Box key={item.id} maxW={{ md: "100%", lg: "80%" }}>
               {/* Render your data as needed */}
               {/* Modify the following lines to display your data */}
-              <Flex
-                py="2"
-                width={{ base: "100%", md: "100%", lg: "80%" }}
-                justifyContent="space-between"
-                alignItems="flex-start"
-              >
-                <Flex alignItems="flex-start">
+              <Box>
+                <HStack>
                   <Image
                     src="https://via.placeholder.com/100" // Replace with your image URL
                     alt="Image"
                     width={{ base: "100px", md: "200px" }}
                     height={{ base: "150px", md: "100px" }}
                     objectFit="cover"
-                    mr={{ base: "6px", md: "12px" }}
+                    mb={{ base: "6px", md: "0" }} 
+                    mt={2}// Adjust margin-bottom for smaller screens
                   />
-                  {/* Your data display here */}
-                  <VStack alignItems="flex-start" spacing={8}>
-                    <Box>
-                      <Text fontWeight="bold" color="#CB29BE">
-                        Title
-                      </Text>
-                      <Text color="#808080">Description</Text>
+               
+                
+                  <Box display="flex">
+                    <Box ml={2}>
+                      <Box mb={6}>
+                        <Text color="#CB29BE" fontWeight='600'>Title</Text>
+                        <Text color='#808080'>Description</Text>
+                      </Box>
+                      <Box>
+                        <Text pr={2} color='#808080'>{item.title}</Text>
+                      </Box>
                     </Box>
-
-                    <Text
-                      color="#808080"
-                      display={{ base: "block", md: "flex" }}
-                    >
-                      {item.title}
+                  </Box>
+                  </HStack>
+                  <Box >
+                    <Text textAlign="right"  color="#CB29BE" fontWeight='600' mb='-4px'onClick={() => openModal(item)} cursor="pointer">
+                      Perform task <ArrowForwardIcon />{" "}
                     </Text>
-                  </VStack>
-                </Flex>
+                  </Box>
+             
+              </Box>
 
-                <Flex
-                  flexDirection="column"
-                  alignItems="flex-start"
-                  mt="auto"
-                  display={{ base: "block", md: "flex" }}
-                >
-                  <Text
-                    color="#CB29BE"
-                    fontWeight="bold"
-                    cursor="pointer"
-                    textAlign="right"
-                    onClick={() => openModal(item)}
-                  >
-                    Perform Task <ArrowForwardIcon fontWeight="400" ml={1} />
-                  </Text>
-                </Flex>
-              </Flex>
-              <Divider
-                borderColor="#808080"
-                mt={1}
-                maxW={{ base: "100%", md: "80%" }}
-              />
+              <Divider borderColor="#808080" mt={1} />
             </Box>
           ))}
 
@@ -167,7 +146,6 @@ const IGtasks = ({ apiEndpoint }) => {
         onClose={closeModal}
         size={{ base: "sm", md: "md" }}
         isCentered
-
       >
         <ModalOverlay />
         <ModalContent

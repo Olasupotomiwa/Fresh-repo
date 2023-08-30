@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'; 
 
 import {
   InputGroup,
@@ -92,7 +93,20 @@ const TaskPage = () => {
       setIsLoading(false); // Hide loader after 2 seconds
       openModal(); // Show the modal
     }, 2000); // 2-second delay
+   
   };
+
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isModalOpen) return; // Only navigate when the modal is closed
+    setTimeout(() => {
+      navigate("/earn/adverts-tasks"); // Navigate to the homepage after 3 seconds
+    }, 3000);
+
+    return // Clear the timeout on unmount
+  }, [isModalOpen, navigate]);
+
   return (
     <Container
       ml={{ base: 0, md: "25%" }}
@@ -396,6 +410,7 @@ const TaskPage = () => {
         onClose={closeModal}
         size={{ base: "sm", md: "md" }}
         isCentered
+       
       >
         <ModalOverlay />
         <ModalContent
@@ -412,6 +427,7 @@ const TaskPage = () => {
             position="absolute"
             top="-8px"
             right="-5px"
+          
           />
           <ModalBody color="#808080">
             <Center>
