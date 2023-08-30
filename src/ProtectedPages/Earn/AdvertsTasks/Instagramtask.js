@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRef, useEffect } from "react";
+import {Goback } from '../Earnhome'
 
 import {
   Container,
@@ -54,7 +55,8 @@ const IGtasks = ({ apiEndpoint }) => {
 
 
   return (
-    <Container
+    <div ref={topRef} id="top">
+      <Container
       ml={{ base: 0, md: "25%" }}
       px="0"
       py={{ base: "7", md: "10" }}
@@ -65,7 +67,8 @@ const IGtasks = ({ apiEndpoint }) => {
       fontFamily="clash grotesk"
       id="top"
     >
-        <div ref={topRef} id="top"></div>
+      <Goback/>
+       
       {isLoading && (
         <Container bg="black" height="100vh">
           <Loader />
@@ -127,7 +130,7 @@ const IGtasks = ({ apiEndpoint }) => {
                   </Box>
                   </HStack>
                   <Box >
-                    <Text width='auto' textAlign="right"  color="#CB29BE" fontWeight='600' mb='-4px'onClick={() => openModal(item)} cursor="pointer">
+                    <Text width='auto' textAlign="right"  color="#CB29BE" fontWeight='500' mb='-4px'onClick={() => openModal(item)} cursor="pointer">
                       Perform task <ArrowForwardIcon />{" "}
                     </Text>
                   </Box>
@@ -219,6 +222,8 @@ const IGtasks = ({ apiEndpoint }) => {
         </ModalContent>
       </Modal>
     </Container>
+    </div>
+    
   );
 };
 
