@@ -6,7 +6,7 @@ const useFetch = (apiEndpoint) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [totalPages, setTotalPages] = useState(0); // Add totalPages state
+  const [totalPages, setTotalPages] = useState(0); 
 
   useEffect(() => {
     const fetchFunction = async (page) => {
