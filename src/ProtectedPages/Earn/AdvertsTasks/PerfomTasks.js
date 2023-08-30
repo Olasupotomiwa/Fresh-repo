@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-import { InputGroup, Button, FormControl, Input, Image, Flex } from "@chakra-ui/react";
+import {
+  InputGroup,
+  Button,
+  FormControl,
+  Input,
+  Image,
+  Flex,
+} from "@chakra-ui/react";
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import img from "assets/bg.jpg";
 
 const TaskPage = () => {
-
-   // Function to handle file drop
-   const handleFileDrop = (event) => {
+  // Function to handle file drop
+  const handleFileDrop = (event) => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     setSelectedFile(file);
@@ -42,10 +49,6 @@ const TaskPage = () => {
     };
   }, [countdown]);
 
-
-
-
-  
   const [selectedFile, setSelectedFile] = useState(null);
 
   // Function to handle file selection
@@ -60,7 +63,7 @@ const TaskPage = () => {
       maxW={{ base: "100%", md: "75%" }}
       mx="auto"
       bg="black"
-      height="100vh"
+      height="auto"
       mt="20"
       fontFamily="clash grotesk"
     >
@@ -72,8 +75,10 @@ const TaskPage = () => {
         mx="auto"
         onDrop={handleFileDrop} // Handle file drop event
         onDragOver={preventDefault} // Prevent default behavior for drag-over event
-        onDragEnter={preventDefault} // 
+        onDragEnter={preventDefault} //
       >
+
+
         <Heading
           fontSize={{ base: "20px", md: "30px" }}
           color="white"
@@ -82,6 +87,7 @@ const TaskPage = () => {
         >
           Perform task
         </Heading>
+        
         <Text color="white" py={2} fontSize="16px">
           This task will expire in{" "}
           <span style={{ color: "#CB29BE", fontWeight: "600" }}>
@@ -90,21 +96,112 @@ const TaskPage = () => {
         </Text>
 
         <Box mt={30}>
-          <Text color="#808080" fontSize="sm" textAlign="left">
-            task to be done
-          </Text>
-          <Box
-            bg="#121212"
-            width="full"
-            p={2}
-            border="1px"
-            borderColor="#808080"
-            borderRadius="lg"
-          >
-            <Text textAlign="left" color="white">
-              Follow Instagram accout - earn{" "}
-              <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
+          <Box>
+            <Text color="#808080" fontSize="sm" textAlign="left">
+              task to be done
             </Text>
+            <Box
+              bg="#121212"
+              width="full"
+              p={2}
+              border="1px"
+              borderColor="#808080"
+              borderRadius="lg"
+            >
+              <Text textAlign="left" color="white">
+                Share ad to Instagram story - earn $10{" "}
+                <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
+              </Text>
+            </Box>
+          </Box>
+
+          <Box mt={6}>
+            <Text textAlign="left" color="#ffffff">
+              Download Ad image/video
+            </Text>
+            <Box
+              border="1px"
+              borderColor="#808080"
+              borderRadius="15px"
+              height="300px"
+              width="full"
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Image src={img} width="200px" height="295px" />
+              <Box
+                display="flex"
+                alignItems="center"
+                cursor="pointer"
+                as="a"
+                href={img}
+                download={img}
+              >
+                <iconify-icon
+                  icon="ic:baseline-download-for-offline"
+                  width="20px"
+                  style={{ color: "#ffffff", marginTop: "0px" }}
+                ></iconify-icon>
+                <Text color="#ffffff">Download</Text>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box my={4}>
+            <Text color="#ffffff" fontSize="sm" textAlign="left">
+              Caption to use
+            </Text>
+            <Box
+              bg="#121212"
+              width="full"
+              p={5}
+              border="1px"
+              borderColor="#808080"
+              borderRadius="lg"
+            >
+              <Text textAlign="left" color="white">
+                Satisfy your cravings at Dezfoods, the ultimate destination for
+                unforgettable flavors. Indulge in our mouthwatering creations,
+                meticulously crafted with love and expertise.
+              </Text>
+            </Box>
+          </Box>
+
+          <Box my={4}>
+            <Text color="#ffffff" fontSize="sm" textAlign="left">
+              Hashtags to use
+            </Text>
+            <Box
+              bg="#121212"
+              width="full"
+              p={5}
+              border="1px"
+              borderColor="#808080"
+              borderRadius="lg"
+            >
+              <Box>
+                <Button
+                  bg="#CB29BE"
+                  rounded="full"
+                  color="white"
+                  fontWeight="400"
+                  mx={2}
+                  py='10px'
+                >
+                  Foodlovers
+                </Button>
+                <Button
+                  bg="#CB29BE"
+                  rounded="full"
+                  color="white"
+                  fontWeight="400"
+                >
+                  Lagosfoodusiness
+                </Button>
+              </Box>
+            </Box>
           </Box>
 
           <Box my="40px">
@@ -142,59 +239,76 @@ const TaskPage = () => {
                 color="white"
                 py={6}
                 outline="1px"
-                bg="#CB29BE" // Change background color
+                bg="#CB29BE"
                 fontSize="16px"
-                // Disable button when input is empty or during loading
               >
                 Visit link
               </Button>
             </FormControl>
           </Box>
 
-          
-          <Text textAlign='left' color='#808080'>Proof of task done -  <span style={{ color: "white", fontWeight: "600" }}>
-           screenshot
-          </span>{" "}</Text>
+          <Text textAlign="left" color="#808080">
+            Proof of task done -{" "}
+            <span style={{ color: "white", fontWeight: "600" }}>
+              screenshot
+            </span>{" "}
+          </Text>
           <Box
-          border="1px"
-          borderRadius="lg"
-         height='300px'
-         width='full'
-          mt="4"
-          textAlign="center"
-        >
-          <label htmlFor="file-upload" style={{ fontWeight: "bold", cursor: "pointer" }}>
-            Click to upload a picture
-          </label>
-          <Input
-            type="file"
-            id="file-upload"
-            accept="image/*"
-            onChange={handleFileSelect}
-            style={{ display: "none" }}
-          />
-          {selectedFile && (
-            <Box mt="2">
-              <Flex
-              flexDirection="column"
-              alignItems="center"
-              mt="2"
+            border="1px"
+            borderColor="#808080"
+            borderRadius="15px"
+            height="300px"
+            width="full"
+            mt="4"
+            textAlign="center"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            fontFamily="clash grotesk"
+          >
+            <label
+              htmlFor="file-upload"
+              style={{ color: "#808080", fontWeight: "500" }}
             >
-              <Image
-                src={URL.createObjectURL(selectedFile)}
-                alt="Selected Image"
-                maxW="100%"
-                width="200px" // Specify your width here
-                height="150px" // Specify your height here
-              />
-              <Text color="white" mt="2">
-                {selectedFile.name}
-              </Text>
-            </Flex>
-              <Text color="white">{selectedFile.name}</Text>
-            </Box>
-          )}
-        </Box>
+              <Box cursor="pointer" px={5}>
+                <Box bg="white" h={10} w={10} rounded="full" mx="auto" my={2}>
+                  <iconify-icon
+                    icon="solar:gallery-bold"
+                    style={{ color: "#808080", marginTop: "10px" }}
+                  ></iconify-icon>
+                </Box>
+                Drag and drop your screenshot here or{" "}
+                <span style={{ color: "#CB29BE", fontWeight: "600" }}>
+                  click here to browse
+                </span>{" "}
+                <Text>Image must be 10MB max file size</Text>
+              </Box>
+            </label>
+
+            <Input
+              type="file"
+              id="file-upload"
+              accept="image/*"
+              onChange={handleFileSelect}
+              style={{ display: "none" }}
+            />
+            {selectedFile && (
+              <Box mt="2">
+                <Flex flexDirection="column" alignItems="center" mt="2">
+                  <Image
+                    src={URL.createObjectURL(selectedFile)}
+                    alt="Selected Image"
+                    maxW="100%"
+                    width="200px" // Specify your width here
+                    height="220px" // Specify your height here
+                  />
+                  <Text color="white" mt="2">
+                    {selectedFile.name}
+                  </Text>
+                </Flex>
+              </Box>
+            )}
+          </Box>
         </Box>
       </Box>
     </Container>

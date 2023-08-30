@@ -133,7 +133,7 @@ const handleButtonClick = () => {
               color="#CB29BE"
               placeholder="paste profile link"
               fontSize="15px"
-              pl="2.5rem"
+              pl="0.5rem"
               borderTopRightRadius={0}
               borderBottomRightRadius={0}
               value={inputValue}

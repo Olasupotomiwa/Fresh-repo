@@ -63,7 +63,7 @@ const IGtasks = ({ apiEndpoint }) => {
         </Container>
       )}
 
-      {error && <div>Error: {error.message}</div>}
+      {error && <Text color='white'>Error: {error.message}</Text>}
 
       {!isLoading && !error && (
         <Box pt={{ base: "0", md: "50" }} px={{ base: "4", md: "10" }}>
