@@ -21,11 +21,16 @@ import EarnPage from "./ProtectedPages/Earn/Earnhome";
 import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks/AdvertsTasks";
 import LinkAccount from "./ProtectedPages/Earn/AdvertsTasks/LinkAccount";
 import IGtasks from "./ProtectedPages/Earn/AdvertsTasks/Instagramtask";
+import TikTokTasks from './ProtectedPages/Earn/AdvertsTasks/TiktokTasks'
+import WhatsappTasks from './ProtectedPages/Earn/AdvertsTasks/TwitterTasks'
+import FacebookTasks from './ProtectedPages/Earn/AdvertsTasks/FacebookTasks'
+import TwitterTasks from './ProtectedPages/Earn/AdvertsTasks/TwitterTasks'
 import TaskPage from "ProtectedPages/Earn/AdvertsTasks/PerfomTasks";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+
 
 const AuthenticatedRoute = ({ element }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -100,9 +105,56 @@ function App() {
             )
           }
         />
+
+
+<Route
+          path="/earn/tiktok-tasks"
+          element={
+            isLinked ? (
+              <AuthenticatedRoute element={<TikTokTasks />} />
+            ) : (
+              <AuthenticatedRoute element={<LinkAccount />} />
+            )
+          }
+        />
+
+
+<Route
+          path="/earn/whatsapp-tasks"
+          element={
+            isLinked ? (
+              <AuthenticatedRoute element={<WhatsappTasks />} />
+            ) : (
+              <AuthenticatedRoute element={<LinkAccount />} />
+            )
+          }
+        />
+
+
+<Route
+          path="/earn/facebook-tasks"
+          element={
+            isLinked ? (
+              <AuthenticatedRoute element={<FacebookTasks />} />
+            ) : (
+              <AuthenticatedRoute element={<LinkAccount />} />
+            )
+          }
+        />
+
+<Route
+          path="/earn/twitter-tasks"
+          element={
+            isLinked ? (
+              <AuthenticatedRoute element={<TwitterTasks />} />
+            ) : (
+              <AuthenticatedRoute element={<LinkAccount />} />
+            )
+          }
+        />
       
       <Route
-         path="/earn/instagram-tasks/perform-task/:taskId"
+         path="/earn/perform-task/:taskId"
           element={<AuthenticatedRoute element={<TaskPage />} />}
         />
      

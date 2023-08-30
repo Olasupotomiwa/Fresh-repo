@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'; 
-
+import {Goback } from '../Earnhome'
 import {
   InputGroup,
   Button,
@@ -22,6 +22,11 @@ import { Container, Box, Heading, Text } from "@chakra-ui/react";
 import img from "assets/bg.jpg";
 import Loader from 'Loader'
 
+
+
+
+//Api should be wrapped with task id to fetch this page content
+//const {taskId} = useParams()   //import useParams
 const TaskPage = () => {
   // Function to handle file drop
   const handleFileDrop = (event) => {
@@ -118,6 +123,8 @@ const TaskPage = () => {
       mt="20"
       fontFamily="clash grotesk"
     >
+
+<Goback />
       <Box
         justifyContent="center"
         alignItems="center"
@@ -159,7 +166,7 @@ const TaskPage = () => {
               borderRadius="lg"
             >
               <Text textAlign="left" color="white">
-                Share ad to Instagram story - earn $10{" "}
+                Share ad to your {""} account story - earn{" "}
                 <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
               </Text>
             </Box>
