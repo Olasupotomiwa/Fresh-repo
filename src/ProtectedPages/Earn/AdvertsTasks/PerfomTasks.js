@@ -8,8 +8,18 @@ import {
   Image,
   Flex,
 } from "@chakra-ui/react";
+
+import {
+  Center,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
 import img from "assets/bg.jpg";
+import Loader from 'Loader'
 
 const TaskPage = () => {
   // Function to handle file drop
@@ -51,10 +61,37 @@ const TaskPage = () => {
 
   const [selectedFile, setSelectedFile] = useState(null);
 
+  // Determine if the button should be disabled
+  const isButtonDisabled = !selectedFile;
+
   // Function to handle file selection
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
+  };
+
+  //handle modal
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const [isLoading, setIsLoading] = useState(false); // loading state to submit task
+
+  
+
+  const handleButtonClick = () => {
+    setIsLoading(true); // Show loader
+    setTimeout(() => {
+      setIsLoading(false); // Hide loader after 2 seconds
+      openModal(); // Show the modal
+    }, 2000); // 2-second delay
   };
   return (
     <Container
@@ -77,8 +114,6 @@ const TaskPage = () => {
         onDragOver={preventDefault} // Prevent default behavior for drag-over event
         onDragEnter={preventDefault} //
       >
-
-
         <Heading
           fontSize={{ base: "20px", md: "30px" }}
           color="white"
@@ -87,7 +122,7 @@ const TaskPage = () => {
         >
           Perform task
         </Heading>
-        
+
         <Text color="white" py={2} fontSize="16px">
           This task will expire in{" "}
           <span style={{ color: "#CB29BE", fontWeight: "600" }}>
@@ -96,6 +131,7 @@ const TaskPage = () => {
         </Text>
 
         <Box mt={30}>
+          {/*Task to be done */}
           <Box>
             <Text color="#808080" fontSize="sm" textAlign="left">
               task to be done
@@ -115,7 +151,8 @@ const TaskPage = () => {
             </Box>
           </Box>
 
-          <Box mt={6}>
+          {/*Download Ad image or video */}
+          <Box mt={10}>
             <Text textAlign="left" color="#ffffff">
               Download Ad image/video
             </Text>
@@ -149,7 +186,8 @@ const TaskPage = () => {
             </Box>
           </Box>
 
-          <Box my={4}>
+          {/*Caption to use*/}
+          <Box my={8}>
             <Text color="#ffffff" fontSize="sm" textAlign="left">
               Caption to use
             </Text>
@@ -169,7 +207,8 @@ const TaskPage = () => {
             </Box>
           </Box>
 
-          <Box my={4}>
+          {/*Hashtag to use*/}
+          <Box my={5}>
             <Text color="#ffffff" fontSize="sm" textAlign="left">
               Hashtags to use
             </Text>
@@ -188,7 +227,7 @@ const TaskPage = () => {
                   color="white"
                   fontWeight="400"
                   mx={2}
-                  py='10px'
+                  py="10px"
                 >
                   Foodlovers
                 </Button>
@@ -204,6 +243,7 @@ const TaskPage = () => {
             </Box>
           </Box>
 
+          {/*Link account */}
           <Box my="40px">
             <Text color="#808080" textAlign="left">
               Link to account
@@ -247,6 +287,7 @@ const TaskPage = () => {
             </FormControl>
           </Box>
 
+          {/*Proof of task done */}
           <Text textAlign="left" color="#808080">
             Proof of task done -{" "}
             <span style={{ color: "white", fontWeight: "600" }}>
@@ -259,18 +300,14 @@ const TaskPage = () => {
             borderRadius="15px"
             height="300px"
             width="full"
-            mt="4"
             textAlign="center"
             display="flex"
             justifyContent="center"
             alignItems="center"
             fontFamily="clash grotesk"
           >
-            <label
-              htmlFor="file-upload"
-              style={{ color: "#808080", fontWeight: "500" }}
-            >
-              <Box cursor="pointer" px={5}>
+            <Box style={{ color: "#808080", fontWeight: "500" }}>
+              <Box px={5}>
                 <Box bg="white" h={10} w={10} rounded="full" mx="auto" my={2}>
                   <iconify-icon
                     icon="solar:gallery-bold"
@@ -278,12 +315,19 @@ const TaskPage = () => {
                   ></iconify-icon>
                 </Box>
                 Drag and drop your screenshot here or{" "}
-                <span style={{ color: "#CB29BE", fontWeight: "600" }}>
+                <label
+                  style={{
+                    color: "#CB29BE",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                  }}
+                  htmlFor="file-upload"
+                >
                   click here to browse
-                </span>{" "}
+                </label>{" "}
                 <Text>Image must be 10MB max file size</Text>
               </Box>
-            </label>
+            </Box>
 
             <Input
               type="file"
@@ -294,7 +338,7 @@ const TaskPage = () => {
             />
             {selectedFile && (
               <Box mt="2">
-                <Flex flexDirection="column" alignItems="center" mt="2">
+                <Flex flexDirection="column" alignItems="center">
                   <Image
                     src={URL.createObjectURL(selectedFile)}
                     alt="Selected Image"
@@ -309,8 +353,100 @@ const TaskPage = () => {
               </Box>
             )}
           </Box>
+          <Text color="#808080" fontSize="smaller">
+            After submitting this task, you must not delete the ad from your
+            profile, our team will continually check your account for this task.
+            You risk a ban on your Trendit account if you delete this ad after
+            submission.
+          </Text>
+        </Box>
+
+        {/* Submit task */}
+        <Box pt={10} pb={20}>
+          <Button
+            bg="#CB29BE"
+            color="white"
+            fontWeight="500"
+            width="full"
+            transition="background 0.3s, color 0.3s"
+            _hover={{
+              bg: "#CB29BE",
+              color: "white",
+              opacity: "0.9",
+            }}
+            rounded="full"
+            isDisabled={isButtonDisabled}
+            isOpen={isModalOpen}
+            onClick={handleButtonClick}
+          >
+            {isLoading ? (
+                <>
+                  <Loader />
+                  submitting.....
+                </>
+              ) : (
+                "Submit task"
+              )}
+          </Button>
         </Box>
       </Box>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        size={{ base: "sm", md: "md" }}
+        isCentered
+      >
+        <ModalOverlay />
+        <ModalContent
+          bg="black"
+          border="1px"
+          borderColor="#808080"
+          borderRadius="25px"
+          fontFamily="clash grotesk"
+          p={{ base: "0", md: "6" }}
+        >
+          <ModalCloseButton
+            bg="#808080"
+            rounded="full"
+            position="absolute"
+            top="-8px"
+            right="-5px"
+          />
+          <ModalBody color="#808080">
+            <Center>
+              <iconify-icon
+                icon="solar:verified-check-bold"
+                style={{ color: "#CB29BE" }}
+                mx="auto"
+                justifyContent="center"
+                alignItems="center"
+                width="80"
+              ></iconify-icon>
+            </Center>
+            <Heading
+              color="white"
+              fontWeight="400"
+              my={3}
+              fontSize="24px"
+              fontFamily="clash grotesk"
+              textAlign="center"
+            >
+              Submitted
+            </Heading>
+            <Text textAlign="center">
+              Our team will review your submission and once it's approved you
+              will be paid for the task. Meanwhile, you can carry out
+             {" "}
+              <span style={{ color: "#CB29BE", fontWeight: "600" }}>
+                more Tasks
+              </span>{" "}
+              and continue earning! <br />
+              Please wait while you are being directed to the task page
+            </Text>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Container>
   );
 };
