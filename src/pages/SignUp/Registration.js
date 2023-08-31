@@ -728,7 +728,7 @@ function SignUpComponent() {
   };
 
   return (
-    <Container maxWidth="100vw" bg="black" px={0} pt="14">
+    <Container maxWidth="100vw" bg="black" px={0} pt="14"  mt={5}>
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
@@ -747,17 +747,18 @@ function SignUpComponent() {
             justifyContent="center"
             fontFamily="clash grotesk"
           >
-            {currentStep > 1 && (
-              <ArrowBackIcon
-                color="white"
-                fontSize="30px"
-                position="absolute"
-                left={{ base: "10px", md: "30%" }}
-                top={{ base: "80px", md: "120px" }}
-                cursor="pointer"
-                onClick={handlePreviousStep}
-              />
-            )}
+          {currentStep > 1 && currentStep < 4 && (
+  <ArrowBackIcon
+    color="white"
+    fontSize="30px"
+    position="absolute"
+    left={{ base: "10px", md: "30%" }}
+    top={{ base: "80px", md: "120px" }}
+    cursor="pointer"
+    onClick={handlePreviousStep}
+  />
+)}
+
            {currentStep < 3  && (
 
               <Button

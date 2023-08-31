@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRef, useEffect } from "react";
+import {  useEffect } from "react";
 import { Goback } from "../Earnhome";
 import Gele from 'assets/Markets/Gele.png'
 
@@ -50,16 +50,13 @@ const IGtasks = ({
     setSelectedTask(null);
     setIsModalOpen(false);
   };
-  const topRef = useRef(null);
   useEffect(() => {
     // Scroll to the top when the component is mounted
-    if (topRef.current) {
-      topRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, []); // Empty dependency array ensures this effect runs once on mount
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
-    <div ref={topRef} id="top">
+    
       <Container
         ml={{ base: 0, md: "25%" }}
         px="0"
@@ -116,9 +113,9 @@ const IGtasks = ({
             </Text>
 
             {data.map((item) => (
-              <Box key={item.id} maxW={{ md: "100%", lg: "80%" }}>
-                {/* Render your data as needed */}
-                {/* Modify the following lines to display your data */}
+              <Box key={item.id} maxW={{ md: "100%", lg: "80%" }}  onClick={() => openModal(item)}
+              cursor="pointer">
+                
                 <Box>
                   <HStack>
                     <Image
@@ -154,8 +151,7 @@ const IGtasks = ({
                       color="#CB29BE"
                       fontWeight="500"
                       mb="-4px"
-                      onClick={() => openModal(item)}
-                      cursor="pointer"
+                     
                     >
                       Perform task <ArrowForwardIcon />{" "}
                     </Text>
@@ -173,7 +169,8 @@ const IGtasks = ({
                   colorScheme={index + 1 === currentPage ? "teal" : "#121212"}
                   onClick={() => {
                     handlePageChange(index + 1);
-                    topRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll to the top
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    
                   }}
                 >
                   {index + 1}
@@ -247,7 +244,7 @@ const IGtasks = ({
           </ModalContent>
         </Modal>
       </Container>
-    </div>
+  
   );
 };
 

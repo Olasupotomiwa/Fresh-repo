@@ -204,7 +204,7 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <Container maxWidth="100vw" bg="black" minHeight="100vh" pt={15} px={0} >
+    <Container maxWidth="100vw" bg="black" minHeight="100vh" pt={15} px={0}  mt={10}>
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         gap={6}
@@ -303,7 +303,7 @@ const ForgotPasswordPage = () => {
           {currentStep === 2 && (
             <>
               {" "}
-              <Heading fontSize="30px" fontWeight="500"  fontFamily="clash grotesk">
+              <Heading fontSize="30px" fontWeight="500"  fontFamily="clash grotesk"> 
                 Verify your account to reset your password
               </Heading>
               <FormControl>
@@ -395,7 +395,7 @@ const ForgotPasswordPage = () => {
                 fontSize="30px"
                 position="absolute"
                 left={{ base: "10px", md: "30%" }}
-                top={{ base: "80px", md: "120px" }}
+                top={{ base: "100px", md: "120px" }}
                 cursor="pointer"
                 onClick={handlePreviousStep}
               />
@@ -403,7 +403,7 @@ const ForgotPasswordPage = () => {
           )}
           {currentStep === 3 && (
             <>
-              <Heading fontSize="30px" textAlign="center" fontWeight="500"  fontFamily="clash grotesk">
+              <Heading fontSize="30px" textAlign="center" fontWeight="500"  fontFamily="clash grotesk"> 
                 Reset password
               </Heading>
               <Text
