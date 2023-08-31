@@ -158,7 +158,7 @@ const IGtasks = ({
             fontSize="20px"
             my={4}
           >
-            Total tasks available: {totalPages * 20}{" "}
+            Tasks ({totalPages * 20}{" "})
             {/* Assuming 20 items per page */}
           </Text>
 
@@ -195,7 +195,7 @@ const IGtasks = ({
                     </Box>
                   </Box>
                 </HStack>
-                <Box ml={{base: '70%', md: '85%'}}>
+                <Box width={{base: '35%', md: '25%', lg: '20%'}} ml={{base: '65%', md: '75%', lg: '80%'}}>
                   <Text
                     width="auto"
                     textAlign="right"
