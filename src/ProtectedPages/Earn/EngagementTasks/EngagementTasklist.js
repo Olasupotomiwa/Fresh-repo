@@ -180,7 +180,7 @@ function EngagementTasklist() {
     <Box mb={10}>
       {contentArray.map((content, index) => (
         <div key={content.id}>
-          <Link to="/earn/link-account">
+          <Link to={content.route}>
             <Flex
               justifyContent="space-between"
               alignItems="flex-start"
