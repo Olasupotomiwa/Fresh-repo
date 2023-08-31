@@ -25,7 +25,7 @@ export const contentArray = [
     description1:
       "Follow people and pages on Instagram, TikTok, Facebook and Twitter.",
    
-    route: "/earn/instagram-tasks",
+    route: "/earn/engagement/follow-pages",
   },
 
   {
@@ -36,7 +36,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Like posts on Instagram, TikTok, Facebook and Twitter..",
-    route: "/earn/tiktok-tasks",
+    route: "/earn/engagement/like-posts",
   },
 
   {
@@ -47,7 +47,7 @@ export const contentArray = [
     taskCount: 0, // Set task count to 0
     description1:
       "Drop comments on Instagram, TikTok, Facebook and Twitter posts.",
-    route: "/earn/whatsapp-tasks",
+    route: "/earn/engagement/comment-on-posts",
   },
 
   {
@@ -58,7 +58,7 @@ export const contentArray = [
     taskCount: 0, // Set task count to 0
     description1:
       "Re-share posts on Instagram, Facebook and Twitter..",
-    route: "/earn/facebook-tasks",
+    route: "/earn/engagement/reshare-posts",
   },
 
   {

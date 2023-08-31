@@ -19,13 +19,23 @@ import ProtectedAbout from "./ProtectedPages/ExistingPages/PpAbout";
 import Homepage2 from "./ProtectedPages/Homepage/Homepage2";
 import EarnPage from "./ProtectedPages/Earn/Earnhome";
 import AdvertsTask from "./ProtectedPages/Earn/AdvertsTasks/AdvertsTasks";
+
+//Adverts Tasks pages
 import LinkAccount from "./ProtectedPages/Earn/AdvertsTasks/LinkAccount";
 import IGtasks from "./ProtectedPages/Earn/AdvertsTasks/Instagramtask";
 import TikTokTasks from "./ProtectedPages/Earn/AdvertsTasks/TiktokTasks";
 import WhatsappTasks from "./ProtectedPages/Earn/AdvertsTasks/WhatsappTasks";
 import FacebookTasks from "./ProtectedPages/Earn/AdvertsTasks/FacebookTasks";
 import TwitterTasks from "./ProtectedPages/Earn/AdvertsTasks/TwitterTasks";
-import TaskPage from "ProtectedPages/Earn/AdvertsTasks/PerfomTasks";
+import AdsTaskPage from "ProtectedPages/Earn/AdvertsTasks/PerfomTasks";
+
+//Engagement tasks pages
+import FollowPagesTasks from "ProtectedPages/Earn/EngagementTasks/FollowPages";
+import PerformEngagementTasksPage from "ProtectedPages/Earn/EngagementTasks/PerformEngagementTasks";
+import CommentsTasksPage from "ProtectedPages/Earn/EngagementTasks/CommentsTasks";
+import LikeTaskPage from "ProtectedPages/Earn/EngagementTasks/Likeposts";
+import ReshareTasksPage from "ProtectedPages/Earn/EngagementTasks/ResharePosts";
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -151,7 +161,34 @@ function App() {
 
           <Route
             path="/earn/perform-task/:taskId"
-            element={<AuthenticatedRoute element={<TaskPage />} />}
+            element={<AuthenticatedRoute element={<AdsTaskPage />} />}
+          />
+
+          <Route
+            path="/earn/engagement/follow-pages"
+            element={<AuthenticatedRoute element={<FollowPagesTasks />} />}
+          />
+
+          <Route
+            path="/earn/engagement/perform-task/:taskId"
+            element={
+              <AuthenticatedRoute element={<PerformEngagementTasksPage />} />
+            }
+          />
+
+          <Route
+            path="/earn/engagement/comment-on-posts"
+            element={<AuthenticatedRoute element={<CommentsTasksPage />} />}
+          />
+
+          <Route
+            path="/earn/engagement/like-posts"
+            element={<AuthenticatedRoute element={<LikeTaskPage />} />}
+          />
+
+          <Route
+            path="/earn/engagement/reshare-posts"
+            element={<AuthenticatedRoute element={<ReshareTasksPage />} />}
           />
         </Routes>
       </>
