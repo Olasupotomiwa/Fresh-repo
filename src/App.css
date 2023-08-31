@@ -129,6 +129,56 @@ ion-icon {
 }
 
 
+
+/*pagination buttons*/
+
+
+/* Pagination container */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: inherit; /* Set your background color */
+  padding: 10px; /* Adjust padding as needed */
+  font-family: clash grotesk;
+}
+
+/* Previous and Next buttons */
+.previous, .next {
+  background-color: white; /* Set your desired color */
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Page number buttons */
+.page {
+  background-color: inherit; /* Set your desired color */
+  color: #808080;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  margin: 0 5px; /* Adjust margin as needed */
+}
+
+/* Active page number button */
+.activebtn {
+  background-color: #808080; /* Set your desired active color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  margin: 0 5px; /* Adjust margin as needed */
+}
+
 /* CSS loader*/
 
 .Loader{
