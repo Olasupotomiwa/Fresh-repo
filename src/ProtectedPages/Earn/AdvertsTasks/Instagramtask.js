@@ -166,8 +166,6 @@ const IGtasks = ({
             <Box
               key={item.id}
               maxW={{ md: "100%", lg: "80%" }}
-              onClick={() => openModal(item)}
-              cursor="pointer"
             >
               <Box>
                 <HStack>
@@ -197,13 +195,15 @@ const IGtasks = ({
                     </Box>
                   </Box>
                 </HStack>
-                <Box>
+                <Box ml={{base: '70%', md: '85%'}}>
                   <Text
                     width="auto"
                     textAlign="right"
                     color="#CB29BE"
                     fontWeight="500"
                     mb="-4px"
+                    onClick={() => openModal(item)}
+                    cursor='pointer'
                   >
                     Perform task <ArrowForwardIcon />{" "}
                   </Text>

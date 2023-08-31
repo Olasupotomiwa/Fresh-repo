@@ -20,12 +20,11 @@ export const contentArray = [
     id: 1,
     imageSrc: GroupIcon,
     headerText:
-      'Post adverts on Instagram || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Follow people and pages || Earn <span class="dollar-amount"> $10 </span> per follow',
     taskCount: 100,
     description1:
-      "You will need to have at least 1000 active followers on Instagram to perform this task.",
-    description2:
-      "Carrying out the task while having less than 1000 followers attracts no pay.",
+      "Follow people and pages on Instagram, TikTok, Facebook and Twitter.",
+   
     route: "/earn/instagram-tasks",
   },
 
@@ -33,12 +32,10 @@ export const contentArray = [
     id: 2,
     imageSrc: GroupIcon,
     headerText:
-      'Post adverts on TikTok || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Like posts on social media || Earn  <span class="dollar-amount"> $10 </span> per like',
     taskCount: 2,
     description1:
-      "You will need to have at least 1000 active followers on Tiktok to perform this task.",
-    description2:
-      "Carrying out the task while having less than 1000 followers attracts no pay.",
+      "Like posts on Instagram, TikTok, Facebook and Twitter..",
     route: "/earn/tiktok-tasks",
   },
 
@@ -46,12 +43,10 @@ export const contentArray = [
     id: 3,
     imageSrc: GroupIcon2,
     headerText:
-      'Post adverts on Whatsapp || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Comment on posts || Earn <span class="dollar-amount"> $10 </span> per comment',
     taskCount: 0, // Set task count to 0
     description1:
-      "You will need to have an average of 100 Whatsapp status view to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Drop comments on Instagram, TikTok, Facebook and Twitter posts.",
     route: "/earn/whatsapp-tasks",
   },
 
@@ -59,12 +54,10 @@ export const contentArray = [
     id: 4,
     imageSrc: GroupIcon2,
     headerText:
-      'Post adverts on Facebook || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Re-share posts on social media || Earn <span class="dollar-amount"> $10 </span> per re-share',
     taskCount: 0, // Set task count to 0
     description1:
-      "You will need to have an average of 1000 active followers or friends on Facebook to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Re-share posts on Instagram, Facebook and Twitter..",
     route: "/earn/facebook-tasks",
   },
 
@@ -72,12 +65,10 @@ export const contentArray = [
     id: 5,
     imageSrc: Youtube,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Subscribe to a YouTube channel || Earn  <span class="dollar-amount"> $10 </span> per subscription',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Subscribe to a YouTube channel. The more channels you subscribe to, the more you earn..",
     route: "/earn/youtube-tasks",
   },
 
@@ -85,12 +76,10 @@ export const contentArray = [
     id: 6,
     imageSrc: Youtube,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'View, like and comment on YouTube || Earn  <span class="dollar-amount"> $10 </span> for this task',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "View, like and comment on a YouTube video.",
     route: "/earn/youtube-tasks",
   },
 
@@ -98,12 +87,10 @@ export const contentArray = [
     id: 7,
     imageSrc: Whatsapp,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Join Whatsapp group || Earn <span class="dollar-amount"> $10 </span> per group',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Join Whatsapp groups. The more groups you join, the more you earn.",
     route: "/earn/twitter-tasks",
   },
 
@@ -111,12 +98,10 @@ export const contentArray = [
     id: 8,
     imageSrc: Audiomack,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Follow Audiomack account || Earn <span class="dollar-amount"> $10 </span> per follow',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Follow Audiomack accounts. The more accounts you follow, the more you earn.",
     route: "/earn/twitter-tasks",
   },
 
@@ -124,12 +109,10 @@ export const contentArray = [
     id: 9,
     imageSrc: Telegram,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Join Telegram group || Earn <span class="dollar-amount"> $10 </span> per group',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Join Telegram groups. The more groups you join, the more you earn.",
     route: "/earn/twitter-tasks",
   },
 
@@ -137,37 +120,33 @@ export const contentArray = [
     id: 10,
     imageSrc: GooglePlay,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Download and review apps on Play store || Earn <span class="dollar-amount"> $10 </span> for this task',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
+      "Download apps and review then on the Play store.",
     description2:
       "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
     route: "/earn/twitter-tasks",
   },
   {
-    id: 10,
+    id: 11,
     imageSrc: Appstore,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Download and review apps on App store || Earn <span class="dollar-amount"> $10 </span> for this task',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Download apps and review then on the Play store.",
     route: "/earn/twitter-tasks",
   },
 
   {
-    id: 11,
+    id: 12,
     imageSrc: Discord,
     headerText:
-      'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+      'Join Discord channel || Earn <span class="dollar-amount"> $10 </span>per channel',
     taskCount: 2,
     description1:
-      "You will need to have an average of 1000 active followers on Twitter to perform this task.",
-    description2:
-      "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
+      "Join Discord channels. The more channels you join, the more you earn.",
     route: "/earn/twitter-tasks",
   },
   // Add more content objects as needed
@@ -202,7 +181,7 @@ function EngagementTasklist() {
                     fontFamily="clash grotesk"
                     fontWeight="500"
                     textAlign="left"
-                    fontSize={{ base: "14px", md: "20px" }}
+                    fontSize={{ base: "14px", md: "18px" }}
                     lineHeight={1.5}
                   >
                     <span
@@ -229,12 +208,9 @@ function EngagementTasklist() {
                 </Box>
               </Box>
             </Flex>
-            <Box ml={10} mt={{ base: "2", md: "2", lg: "0" }}>
-              <Text fontSize="sm" color="#808080" lineHeight={1.5}>
+            <Box ml={{ base: "10", md: "12"}} mt={{ base: "0", md: "2", lg: "0" }}>
+              <Text fontSize="sm" color="#808080" lineHeight={1.5} textAlign='left'>
                 {content.description1}
-              </Text>
-              <Text fontSize="sm" color="#808080">
-                {content.description2}
               </Text>
             </Box>
           </Link>
