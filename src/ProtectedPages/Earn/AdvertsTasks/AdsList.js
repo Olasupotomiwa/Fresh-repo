@@ -69,7 +69,7 @@ export const contentArray = [
 
 
 
-function MyComponent() {
+function Adlist() {
   const isLinked = useSelector((state) => state.linked.isLinked);
  
 
@@ -120,4 +120,4 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default Adlist;

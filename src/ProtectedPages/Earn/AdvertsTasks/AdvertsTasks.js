@@ -2,23 +2,22 @@ import { Container, Box, Text, Button, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 import {Goback } from '../Earnhome'
 import ADtasks from './AdsList'
+import EngagementTasks from '../EngagementTasks/EngagementTasklist'
 
-const ButtonComponent2 = () => {
-  return <Box  color='white'>Engagement tasks</Box>;
-};
+
 
 const AdHomepage = () => {
-  const [showComponent1, setShowComponent1] = useState(true);
-  const [showComponent2, setShowComponent2] = useState(false);
+  const [showAdtasks, setShowAdtasks] = useState(true);
+  const [showEngagementTasks, setShowEngagementTasks] = useState(false);
 
   const handleClick1 = () => {
-    setShowComponent1(true);
-    setShowComponent2(false);
+    setShowAdtasks(true);
+    setShowEngagementTasks(false);
   };
 
   const handleClick2 = () => {
-    setShowComponent1(false);
-    setShowComponent2(true);
+    setShowAdtasks(false);
+    setShowEngagementTasks(true);
   };
 
   return (
@@ -48,8 +47,8 @@ const AdHomepage = () => {
             <Button
               onClick={handleClick1}
               mr={2}
-              bg={showComponent1 ? "#CB29BE" : "#121212"}
-              color={showComponent1 ? "white" : "#808080"}
+              bg={showAdtasks ? "#CB29BE" : "#121212"}
+              color={showAdtasks ? "white" : "#808080"}
               fontWeight="500"
               transition="background 0.3s, color 0.3s"
               _hover={{
@@ -66,8 +65,8 @@ const AdHomepage = () => {
               rounded='lg'
               mr={0}
               transition="background 0.3s, color 0.3s"
-              bg={showComponent2 ? "#CB29BE" : "#121212"}
-              color={showComponent2 ? "white" : "#808080"}
+              bg={ showEngagementTasks ? "#CB29BE" : "#121212"}
+              color={ showEngagementTasks ? "white" : "#808080"}
               fontWeight="500"
               _hover={{
                 bg: "#CB29BE",
@@ -79,8 +78,8 @@ const AdHomepage = () => {
             </Button>
           </Box>
 
-          {showComponent1 && <ADtasks/>}
-          {showComponent2 && <ButtonComponent2 />}
+          { showAdtasks && <ADtasks/>}
+          { showEngagementTasks && <EngagementTasks />}
         </div>
       </Box>
     </Container>
