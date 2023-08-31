@@ -108,7 +108,7 @@ const Goback = () => {
       onClick={handleGoBack}
       position="absolute"
       left={{ base: "5px", md: "26%" }}
-      top="4"
+      top="0"
      mb={4}
       color="white"
       bg="inherit"

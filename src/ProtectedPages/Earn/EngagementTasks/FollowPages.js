@@ -137,7 +137,8 @@ const FollowPages = ({
           <Heading
             color="white"
             fontFamily="clash grotesk"
-            fontSize="25px"
+            fontSize="22px"
+            mt={2}
             fontWeight="600"
             textAlign={{ base: "center", md: "left" }}
           >
