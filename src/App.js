@@ -35,6 +35,13 @@ import PerformEngagementTasksPage from "ProtectedPages/Earn/EngagementTasks/Perf
 import CommentsTasksPage from "ProtectedPages/Earn/EngagementTasks/CommentsTasks";
 import LikeTaskPage from "ProtectedPages/Earn/EngagementTasks/Likeposts";
 import ReshareTasksPage from "ProtectedPages/Earn/EngagementTasks/ResharePosts";
+import YouTubeTasks from "ProtectedPages/Earn/EngagementTasks/SuscribeYouTube";
+import AudiomackTasks from "ProtectedPages/Earn/EngagementTasks/Audiomack";
+import DiscordTasks from "ProtectedPages/Earn/EngagementTasks/DiscordTasks";
+import Telegram from "ProtectedPages/Earn/EngagementTasks/TelegramTasks";
+import GooglePlay from "ProtectedPages/Earn/EngagementTasks/GooglePlayTasks";
+import JoinWhatsapp from "ProtectedPages/Earn/EngagementTasks/JoinWhatsapp";
+import AppStore from "ProtectedPages/Earn/EngagementTasks/AppStore";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -189,6 +196,41 @@ function App() {
           <Route
             path="/earn/engagement/reshare-posts"
             element={<AuthenticatedRoute element={<ReshareTasksPage />} />}
+          />
+
+          <Route
+            path="/earn/engagement/telegram-tasks"
+            element={<AuthenticatedRoute element={<Telegram />} />}
+          />
+
+          <Route
+            path="/earn/engagement/discord-tasks"
+            element={<AuthenticatedRoute element={<DiscordTasks />} />}
+          />
+
+          <Route
+            path="/earn/engagement/audiomack-tasks"
+            element={<AuthenticatedRoute element={<AudiomackTasks />} />}
+          />
+
+          <Route
+            path="/earn/engagement/youtube-tasks"
+            element={<AuthenticatedRoute element={<YouTubeTasks />} />}
+          />
+
+          <Route
+            path="/earn/engagement/google-play-tasks"
+            element={<AuthenticatedRoute element={<GooglePlay />} />}
+          />
+
+          <Route
+            path="/earn/engagement/join-whatsapp-tasks"
+            element={<AuthenticatedRoute element={<JoinWhatsapp />} />}
+          />
+
+          <Route
+            path="/earn/engagement/appstore-tasks"
+            element={<AuthenticatedRoute element={<AppStore />} />}
           />
         </Routes>
       </>

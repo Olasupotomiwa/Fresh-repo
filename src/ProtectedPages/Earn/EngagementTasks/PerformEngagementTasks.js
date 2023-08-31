@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'; 
-import {Goback } from '../Earnhome'
+import { useNavigate } from "react-router-dom";
+import { Goback } from "../Earnhome";
 import {
   InputGroup,
   Button,
   FormControl,
   Input,
+ Menu, MenuButton, MenuList, MenuItem,
   Image,
   Flex,
 } from "@chakra-ui/react";
+import {ChevronDownIcon } from '@chakra-ui/icons'
 
 import {
   Center,
@@ -19,10 +21,8 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
-import Loader from 'Loader'
-
-
-
+import img from "assets/images/youtube.png"
+import Loader from "Loader";
 
 //Api should be wrapped with task id to fetch this page content (Link and social media to perfom task on)
 //const {taskId} = useParams()   //import useParams
@@ -90,17 +90,13 @@ const TaskPage = () => {
 
   const [isLoading, setIsLoading] = useState(false); // loading state to submit task
 
-  
-
   const handleButtonClick = () => {
     setIsLoading(true); // Show loader
     setTimeout(() => {
       setIsLoading(false); // Hide loader after 2 seconds
       openModal(); // Show the modal
     }, 2000); // 2-second delay
-   
   };
-
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -109,8 +105,11 @@ const TaskPage = () => {
       navigate("/earn/adverts-tasks"); // Navigate to the homepage after 3 seconds
     }, 3000);
 
-    return // Clear the timeout on unmount
+    return; // Clear the timeout on unmount
   }, [isModalOpen, navigate]);
+
+  const [selectedSocialMedia, setSelectedSocialMedia] = useState("");
+  const socialMediaAccounts = ["Instagram", "Facebook", "Twitter", "YouTube", "TikTok"];
 
   return (
     <Container
@@ -123,8 +122,7 @@ const TaskPage = () => {
       mt="20"
       fontFamily="clash grotesk"
     >
-
-<Goback />
+      <Goback />
       <Box
         justifyContent="center"
         alignItems="center"
@@ -151,12 +149,42 @@ const TaskPage = () => {
           </span>{" "}
         </Text>
 
+
+
+ {/*Task to be done */}
         <Box mt={30}>
-          {/*Task to be done */}
           <Box>
-            <Text color="#808080" fontSize="sm" textAlign="left">
-              task to be done
-            </Text>
+          <Box py={10}>
+  <Text color="#808080" fontSize="16px" textAlign="left">
+    Select platform to perform task on
+    <Menu>
+      <MenuButton
+        as={Text}
+        color="#808080"
+        fontSize="16px"
+        textAlign="left"
+        borderColor="#808080"
+        borderWidth="2px"
+        borderRadius="lg"
+        px={4}
+        py={2}
+        _focus={{ outline: "none" }}
+      >
+        {selectedSocialMedia || "Select social media account" }
+        <ChevronDownIcon  color='white' ml='2'/>
+      </MenuButton>
+      <MenuList>
+        {socialMediaAccounts.map((account) => (
+          <MenuItem key={account} onClick={() => setSelectedSocialMedia(account)} color='#121212'>
+            {account}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
+  </Text>
+</Box>
+
+
             <Box
               bg="#121212"
               width="full"
@@ -166,15 +194,23 @@ const TaskPage = () => {
               borderRadius="lg"
             >
               <Text textAlign="left" color="white">
-              <iconify-icon icon="ion:checkbox" style={{color: "white", width: "35"}}></iconify-icon>
-               follow instagram account - earn{" "}
+                <iconify-icon
+                  icon="ion:checkbox"
+                  style={{ color: "white", width: "35" }}
+                ></iconify-icon>
+               {
+  selectedSocialMedia === 'YouTube'
+    ? 'Subscribe to YouTube channel - earn '
+    : `Follow ${selectedSocialMedia} account - earn `
+}               
+
                 <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
               </Text>
             </Box>
           </Box>
 
-         {/*Link account */}
-         <Box my="40px">
+          {/*Link account */}
+          <Box my="40px">
             <Text color="#808080" textAlign="left">
               Link to account
             </Text>
@@ -217,7 +253,45 @@ const TaskPage = () => {
             </FormControl>
           </Box>
 
-        
+
+
+          {selectedSocialMedia === "YouTube" && (
+    <div>
+      {/*  content to render when YouTube is selected */}
+     
+      <Box my={10}>
+            <Text textAlign="left" color="#ffffff">
+             Channel cover
+            </Text>
+            <Box
+              border="1px"
+              borderColor="#808080"
+              borderRadius="15px"
+              height="300px"
+              width="full"
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Image src={img} width="300px" height="295px" />
+              <Box
+                display="flex"
+                alignItems="center"
+                cursor="pointer"
+                as="a"
+                href={img}
+                download={img}
+              >
+                
+                
+              </Box>
+            </Box>
+          </Box>
+    </div>
+  )}
+
+
 
           {/*Proof of task done */}
           <Text textAlign="left" color="#808080">
@@ -312,13 +386,13 @@ const TaskPage = () => {
             onClick={handleButtonClick}
           >
             {isLoading ? (
-                <>
-                  <Loader />
-                  submitting.....
-                </>
-              ) : (
-                "Submit task"
-              )}
+              <>
+                <Loader />
+                submitting.....
+              </>
+            ) : (
+              "Submit task"
+            )}
           </Button>
         </Box>
       </Box>
@@ -328,7 +402,6 @@ const TaskPage = () => {
         onClose={closeModal}
         size={{ base: "sm", md: "md" }}
         isCentered
-       
       >
         <ModalOverlay />
         <ModalContent
@@ -345,7 +418,6 @@ const TaskPage = () => {
             position="absolute"
             top="-8px"
             right="-5px"
-          
           />
           <ModalBody color="#808080">
             <Center>
@@ -370,8 +442,7 @@ const TaskPage = () => {
             </Heading>
             <Text textAlign="center">
               Our team will review your submission and once it's approved you
-              will be paid for the task. Meanwhile, you can carry out
-             {" "}
+              will be paid for the task. Meanwhile, you can carry out{" "}
               <span style={{ color: "#CB29BE", fontWeight: "600" }}>
                 more Tasks
               </span>{" "}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Goback } from "../Earnhome";
+import { Goback } from "../../Earn/Earnhome";
 import IG from 'assets/SocialMediaLogo/IG.png'
 import {
   Container,

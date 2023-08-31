@@ -69,7 +69,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Subscribe to a YouTube channel. The more channels you subscribe to, the more you earn..",
-    route: "/earn/youtube-tasks",
+    route: "/earn/engagement/youtube-tasks",
   },
 
   {
@@ -80,7 +80,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "View, like and comment on a YouTube video.",
-    route: "/earn/youtube-tasks",
+    route: "/earn/engagement/youtube-tasks",
   },
 
   {
@@ -91,7 +91,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Join Whatsapp groups. The more groups you join, the more you earn.",
-    route: "/earn/twitter-tasks",
+    route: "/earn/engagement/join-whatsapp-tasks",
   },
 
   {
@@ -102,7 +102,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Follow Audiomack accounts. The more accounts you follow, the more you earn.",
-    route: "/earn/twitter-tasks",
+    route: "/earn/engagement/audiomack-tasks",
   },
 
   {
@@ -113,7 +113,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Join Telegram groups. The more groups you join, the more you earn.",
-    route: "/earn/twitter-tasks",
+    route: "/earn/engagement/telegram-tasks",
   },
 
   {
@@ -123,10 +123,10 @@ export const contentArray = [
       'Download and review apps on Play store || Earn <span class="dollar-amount"> $10 </span> for this task',
     taskCount: 2,
     description1:
-      "Download apps and review then on the Play store.",
+      "Download apps and review them on the Play store.",
     description2:
       "Carrying out the task while having less than 100 Whatsapp status view attracts no pay.",
-    route: "/earn/twitter-tasks",
+    route: "/earn/engagement/google-play-tasks",
   },
   {
     id: 11,
@@ -135,8 +135,8 @@ export const contentArray = [
       'Download and review apps on App store || Earn <span class="dollar-amount"> $10 </span> for this task',
     taskCount: 2,
     description1:
-      "Download apps and review then on the Play store.",
-    route: "/earn/twitter-tasks",
+      "Download apps and review them on the Play store.",
+    route: "/earn/engagement/appstore-tasks",
   },
 
   {
@@ -147,7 +147,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Join Discord channels. The more channels you join, the more you earn.",
-    route: "/earn/twitter-tasks",
+    route: "/earn/engagement/discord-tasks",
   },
   // Add more content objects as needed
 ];

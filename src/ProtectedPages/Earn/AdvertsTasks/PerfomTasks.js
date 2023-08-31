@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'; 
 import {Goback } from '../Earnhome'
 import {
-  InputGroup,
+  
   Button,
-  FormControl,
+  
   Input,
   Image,
   Flex,
@@ -264,50 +264,7 @@ const TaskPage = () => {
             </Box>
           </Box>
 
-          {/*Link account */}
-          <Box my="40px">
-            <Text color="#808080" textAlign="left">
-              Link to account
-            </Text>
-            <FormControl
-              borderRadius="8px"
-              borderWidth="2px"
-              borderColor="#808080"
-              display="flex"
-              width={{ base: "100%", md: "100%" }}
-              m={{ base: "auto", md: "0" }}
-            >
-              <InputGroup variant="unstyled">
-                <Input
-                  type="email"
-                  color="#CB29BE"
-                  placeholder="paste profile link"
-                  fontSize="15px"
-                  pl="0.5rem"
-                  borderTopRightRadius={0}
-                  borderBottomRightRadius={0}
-                  value="testing"
-                />
-              </InputGroup>
-              <Button
-                rounded="8px"
-                textDecoration="none"
-                px={10}
-                fontWeight="500"
-                borderWidth="1px"
-                _hover={{ bg: "CB29BE", opacity: "0,9" }}
-                borderColor="#808080"
-                color="white"
-                py={6}
-                outline="1px"
-                bg="#CB29BE"
-                fontSize="16px"
-              >
-                Visit link
-              </Button>
-            </FormControl>
-          </Box>
-
+        
           {/*Proof of task done */}
           <Text textAlign="left" color="#808080">
             Proof of task done -{" "}
