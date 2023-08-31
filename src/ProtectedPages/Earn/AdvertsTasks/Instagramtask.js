@@ -22,13 +22,14 @@ import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useFetch } from "../../../React-query-hook/hook";
 import Loader from "../../../Loader";
+import ScrollToTop from "components/scrolltop";
 
 
 
 
 
 function Pagination({ totalPages, currentPage, onPageChange }) {
-  const maxPageButtons = 4; // Adjust this value as needed
+  const maxPageButtons = 5; // Adjust this value as needed
   
 
   // Calculate the range of page buttons to display
@@ -117,6 +118,7 @@ const IGtasks = ({
       id="top"
     >
       <Goback />
+      <ScrollToTop/>
 
       {isLoading && (
         <Container bg="black" height="100vh">

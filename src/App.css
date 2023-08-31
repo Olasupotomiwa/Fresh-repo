@@ -147,7 +147,7 @@ ion-icon {
 .previous, .next {
   background-color: white; /* Set your desired color */
   color: black;
-  padding: 10px 20px;
+  padding: 8px;
   border: none;
   border-radius: 5px;
   font-weight: 600;
@@ -159,7 +159,7 @@ ion-icon {
 .page {
   background-color: inherit; /* Set your desired color */
   color: #808080;
-  padding: 10px 15px;
+  padding: 8px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -171,7 +171,7 @@ ion-icon {
 .activebtn {
   background-color: #808080; /* Set your desired active color */
   color: white;
-  padding: 10px 15px;
+  padding: 5px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
