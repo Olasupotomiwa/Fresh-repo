@@ -34,7 +34,7 @@ const Card = ({ icon, header, content, to, text }) => {
       shadow="md"
       borderRadius="md"
       width={{ base: "85%", md: "350px" }}
-      height="300px"
+      height="320px"
       mx="20px"
       my={4}
     >
