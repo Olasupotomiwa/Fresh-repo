@@ -43,6 +43,11 @@ import GooglePlay from "ProtectedPages/Earn/EngagementTasks/GooglePlayTasks";
 import JoinWhatsapp from "ProtectedPages/Earn/EngagementTasks/JoinWhatsapp";
 import AppStore from "ProtectedPages/Earn/EngagementTasks/AppStore";
 
+//Advertisements pages
+import AdvertiseHomePage from "./ProtectedPages/Advertise/AdvertiseHome";
+import AdvertiseTaskPage from "./ProtectedPages/Advertise/AdvertiseTasksPage";
+import PostAdtasks from './ProtectedPages/Advertise/PostAdTasks'
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -231,6 +236,21 @@ function App() {
           <Route
             path="/earn/engagement/appstore-tasks"
             element={<AuthenticatedRoute element={<AppStore />} />}
+          />
+
+          <Route
+            path="/advertise"
+            element={<AuthenticatedRoute element={<AdvertiseHomePage />} />}
+          />
+
+          <Route
+            path="/advertise/tasklists"
+            element={<AuthenticatedRoute element={<AdvertiseTaskPage />} />}
+          />
+
+          <Route
+            path="/advertise/create-tasks"
+            element={<AuthenticatedRoute element={<PostAdtasks />} />}
           />
         </Routes>
       </>
