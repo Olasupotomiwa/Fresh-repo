@@ -55,15 +55,45 @@ const PostAdTasks = () => {
 
  
 
-  const handleButtonClick = () => {
-    // Validate the inputs before opening the modal
-    validateInputs();
+ const handleButtonClick = () => {
+  // Validate the inputs
+  const isFileValid = !!selectedFile;
+  const isSocialMediaValid = !!selectedSocialMedia;
+  const isCountryValid = !!selectedCountry;
+  const isStateValid = !!selectedState;
+  const isGenderValid = !!selectedGender;
+  const isCaptionValid = !!caption;
+  const isHashtagsValid = !!hashtags;
 
-    // Check if the form is valid
-    if (!isButtonDisabled) {
-      openModal(); // Show the modal
-    }
-  };
+  // Update error messages immediately
+  setFileError(isFileValid ? "" : "Kindly upload your ad image or video");
+  setSocialMediaError(
+    isSocialMediaValid ? "" : "Kindly select your desired platform"
+  );
+  setCountryError(
+    isCountryValid ? "" : "Your target location (Country) is required."
+  );
+  setStateError(
+    isStateValid ? "" : "Your target location (State) is required."
+  );
+  setGenderError(isGenderValid ? "" : "Gender is required.");
+  setCaptionError(isCaptionValid ? "" : "Caption is required.");
+  setHashtagsError(isHashtagsValid ? "" : "Hashtags are required.");
+
+  const isFormValid =
+    isFileValid &&
+    isSocialMediaValid &&
+    isCountryValid &&
+    isStateValid &&
+    isGenderValid &&
+    isCaptionValid &&
+    isHashtagsValid;
+
+  if (isFormValid) {
+    openModal();
+  }
+};
+
 
   const socialMediaAccounts = [
     "Instagram",
@@ -81,7 +111,7 @@ const PostAdTasks = () => {
   const [selectedGender, setSelectedGender] = useState("");
   const [caption, setCaption] = useState("");
   const [hashtags, setHashtags] = useState("");
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  
 
   // State variables for error messages
   const [fileError, setFileError] = useState("");
@@ -94,51 +124,7 @@ const PostAdTasks = () => {
   const [hashtagsError, setHashtagsError] = useState("");
 
   // Function to validate all inputs
-  const validateInputs = () => {
-    const isFileValid = !!selectedFile;
-    const isSocialMediaValid = !!selectedSocialMedia;
-    const isCountryValid = !!selectedCountry;
-    const isStateValid = !!selectedState;
-    const isGenderValid = !!selectedGender;
-    const isCaptionValid = !!caption;
-    const isHashtagsValid = !!hashtags;
-
-    // Update error messages
-    setFileError(isFileValid ? "" : "Kindly upload your ad image or video");
-    setSocialMediaError(
-      isSocialMediaValid ? "" : "Kindly select your desired platform"
-    );
-    setCountryError(
-      isCountryValid ? "" : "Your target location (Country) is required."
-    );
-    setStateError(
-      isStateValid ? "" : "Your target location (State) is required.."
-    );
-    setGenderError(isGenderValid ? "" : "Gender is required.");
-    setCaptionError(isCaptionValid ? "" : "Caption is required.");
-    setHashtagsError(isHashtagsValid ? "" : "Hashtags are required.");
-
-    const isNumberOfPostsValid =
-      !!numberOfPosts && !isNaN(numberOfPosts) && Number(numberOfPosts) > 0;
-
-    // Update error message for number of posts
-    setNumberOfPostsError(
-      isNumberOfPostsValid ? "" : "Enter a valid number of posts"
-    );
-
-    // Check if all inputs are valid
-    const isValid =
-      isFileValid &&
-      isSocialMediaValid &&
-      isCountryValid &&
-      isStateValid &&
-      isGenderValid &&
-      isCaptionValid &&
-      isHashtagsValid;
-
-    setIsButtonDisabled(!isValid);
-  };
-
+  
   // Create arrays of countries, states, and cities based on the selected values
   const countries = locationData.map((data) => data.country);
   const states =
@@ -536,7 +522,7 @@ const PostAdTasks = () => {
           </Button>
         </Box>
       </Box>
-   <CheckOut isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+   <CheckOut isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} amount={result} />
      
     </Container>
   );

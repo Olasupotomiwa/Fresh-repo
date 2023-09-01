@@ -87,6 +87,7 @@ const LoginPage = () => {
          const mockUserData = {
           id: 1,
           username: 'Trendit3',
+          Balance : '1000'
          
           // Other properties...
         };
