@@ -53,7 +53,7 @@ const Advertise = () => {
             <Button
               onClick={handleClick1}
               mr={2}
-              mx={3}
+              my={3}
               bg={showCreateAd ? "#CB29BE" : "#121212"}
               color={showCreateAd ? "white" : "#808080"}
               fontWeight="600"

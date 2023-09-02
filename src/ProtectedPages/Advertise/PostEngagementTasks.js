@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Goback } from "../Earn/Earnhome";
 import { Button, Input, Image, Flex } from "@chakra-ui/react";
 import CheckOut from "./CheckoutProcess";
+import generateLabelsAndText from './Labels'
 
 import {
   Menu,
@@ -91,10 +92,10 @@ const PostEngagemntTasks = () => {
 
   const EngagementTasks = [
     "Follow my account",
-    "Likes my post",
+    "Likes for my post",
     "Comments for my post",
     "Reshare my post",
-    "Suscribers for my YouTube Channel",
+    "Suscribers for my YouTube channel",
     "Likes, views and  comment for my YouTube video",
     "Join my WhatsApp group",
     "Follow my Audiomack account",
@@ -124,36 +125,23 @@ const PostEngagemntTasks = () => {
 
   const result = numberOfPosts ? numberOfPosts * 10 : null;
 
+
+
+  
+
+
+ 
+
   // Function to render special content for "Likes for my post" task
   const renderContentForSelectedTask = () => {
-    if (selectedEngagementTask === "Likes my post") {
-      return (
-        <Box>
-          <Text color="white">Special content for Likes for my post task</Text>
-          {/* Add your specific content for this task here */}
-        </Box>
-      );
-    }
-
-    if (selectedEngagementTask === "Follow my account") {
-      return (
-        <Box>
-          <Text color="white">Special content for follow for my post task</Text>
-          {/* Add your specific content for this task here */}
-        </Box>
-      );
-    }
-
-
-
-
+   
     if (
       selectedEngagementTask ===
       "Likes, views and  comment for my YouTube video"
     ) {
       return (
         <Box>
-          <Text color="white">Special content for Youtube</Text>
+          <Text color="white">{label3}</Text>
           
          
           
@@ -242,6 +230,12 @@ const PostEngagemntTasks = () => {
     return null;
   };
 
+  // ...
+
+
+
+
+  const { label1, label2, label3, textContent3, textContent4 } = generateLabelsAndText({ selectedEngagementTask });
 
 
 
@@ -252,7 +246,7 @@ const PostEngagemntTasks = () => {
       maxW={{ base: "100%", md: "75%" }}
       mx="auto"
       bg="black"
-      height="auto"
+      height="100%"
       mt="20"
       fontFamily="clash grotesk"
     >
@@ -279,9 +273,9 @@ const PostEngagemntTasks = () => {
        
           {/*Select task to e done */}
           <Box>
-            <Box py={0}>
+            <Box py={3}>
               <Text color="#808080" fontSize="16px" textAlign="left">
-                Select desired task
+              What are your goals for this tasks ?
                 <Menu>
                   <MenuButton
                     as={Text}
@@ -323,9 +317,9 @@ const PostEngagemntTasks = () => {
 
           {/*Select platform */}
           <Box>
-            <Box py={10}>
+            <Box py={4}>
               <Text color="#808080" fontSize="16px" textAlign="left">
-                Select platform
+                {label1}
                 <Menu>
                   <MenuButton
                     as={Text}
@@ -365,16 +359,34 @@ const PostEngagemntTasks = () => {
             </Box>
           </Box>
 
-          {renderContentForSelectedTask()}
+
+
+
+
+          <FormControl py={3}>
+              <FormLabel color='#808080'> {label2}</FormLabel>
+             
+                <Input
+                  type="text"
+                  borderColor="#808080"
+                  borderRadius="12px"
+                  placeholder="Paste link to profile or link to post here"
+                  bg='black'
+                  color="white"
+                  fontFamily="clash grotesk"
+                />
+            </FormControl>
+
+            {renderContentForSelectedTask()}
 
           {/* Enter number of posts */}
 
           <Box>
             <FormControl>
               <FormLabel color="#808080">
-                How many posts do you want for this ad ({" "}
+                How many {textContent3} do you want for this ad ({" "}
                 <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
-                per post)
+                per { textContent4})
               </FormLabel>
               <Input
                 type="number"
@@ -399,7 +411,7 @@ const PostEngagemntTasks = () => {
                       {" "}
                       ${result}
                     </span>{" "}
-                    for {numberOfPosts} posts
+                    for {numberOfPosts} {textContent4}
                   </Text>
                 </Text>
               )}

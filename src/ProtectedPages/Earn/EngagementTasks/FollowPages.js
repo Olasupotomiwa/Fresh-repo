@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Goback } from "../../Earn/Earnhome";
-import IG from 'assets/SocialMediaLogo/IG.png'
+import IG from "assets/SocialMediaLogo/IG.png";
 import {
   Container,
   Text,
@@ -24,21 +24,17 @@ import { useFetch } from "../../../React-query-hook/hook";
 import Loader from "../../../Loader";
 import ScrollToTop from "components/scrolltop";
 
-
-
-
-
 function Pagination({ totalPages, currentPage, onPageChange }) {
   const maxPageButtons = 5; // Adjust this value as needed
-  
 
   // Calculate the range of page buttons to display
   const startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
   const endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
 
   // Generate an array of page numbers within the current range
-  const pageNumbers = Array.from({ length: endPage - startPage + 1 }, (_, i) =>
-    startPage + i
+  const pageNumbers = Array.from(
+    { length: endPage - startPage + 1 },
+    (_, i) => startPage + i
   );
 
   return (
@@ -61,17 +57,13 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
         </button>
       ))}
       {currentPage < totalPages && (
-        <button
-          className="next"
-          onClick={() => onPageChange(currentPage + 1)}
-        >
+        <button className="next" onClick={() => onPageChange(currentPage + 1)}>
           Next
         </button>
       )}
     </div>
   );
 }
-
 
 //Faked api call
 //Data from Api are not displayed
@@ -119,7 +111,7 @@ const FollowPages = ({
       id="top"
     >
       <Goback />
-      <ScrollToTop/>
+      <ScrollToTop />
 
       {isLoading && (
         <Container bg="black" height="100vh">
@@ -130,7 +122,19 @@ const FollowPages = ({
         </Container>
       )}
 
-      {error && <Text color="white">Error: {error.message}</Text>}
+      {error && (
+        <Container
+          bg="black"
+          height="100vh"
+          alignContent="center"
+          alignItems="center"
+        >
+          <Text color="white" textAlign="center">
+            Could not fetch tasks <br/> Ensure you are connected to the internet
+          </Text>
+        </Container>
+      )}
+
 
       {!isLoading && !error && (
         <Box pt={{ base: "0", md: "50" }} px={{ base: "4", md: "10" }}>
@@ -160,24 +164,26 @@ const FollowPages = ({
             fontSize="20px"
             my={4}
           >
-            Tasks ({totalPages * 20}{" "})
-            {/* Assuming 20 items per page */}
+            Tasks ({totalPages * 20} ){/* Assuming 20 items per page */}
           </Text>
 
-          {data.map((item) => (
-            <Box
-              key={item.id}
-              maxW={{ md: "100%", lg: "80%" }}
-            >
+
+
+          {data.length === 0 ? (
+            <Text color="#808080" textAlign="center">
+              No tasks available.
+            </Text>
+          ) : (
+          data.map((item) => (
+            <Box key={item.id} maxW={{ md: "100%", lg: "80%" }}>
               <Box>
                 <HStack>
                   <Image
                     src={IG} // Replace with your image URL
                     alt="Image"
-                    width='50px'
-                    height='50px'
+                    width="50px"
+                    height="50px"
                     objectFit="cover"
-                   
                   />
 
                   <Box display="flex">
@@ -186,13 +192,17 @@ const FollowPages = ({
                         <Text color="#ffffff" fontWeight="400">
                           Follow Instagram account
                         </Text>
-                        <Text color="#808080" fontSize='sm'>Posted May 11, 2022</Text>
+                        <Text color="#808080" fontSize="sm">
+                          Posted May 11, 2022
+                        </Text>
                       </Box>
-                     
                     </Box>
                   </Box>
                 </HStack>
-                <Box width={{base: '35%', md: '25%', lg: '20%'}} ml={{base: '65%', md: '75%', lg: '80%'}}>
+                <Box
+                  width={{ base: "35%", md: "25%", lg: "20%" }}
+                  ml={{ base: "65%", md: "75%", lg: "80%" }}
+                >
                   <Text
                     width="auto"
                     textAlign="right"
@@ -200,7 +210,7 @@ const FollowPages = ({
                     fontWeight="500"
                     mb="-4px"
                     onClick={() => openModal(item)}
-                    cursor='pointer'
+                    cursor="pointer"
                   >
                     Perform task <ArrowForwardIcon />{" "}
                   </Text>
@@ -208,7 +218,8 @@ const FollowPages = ({
               </Box>
               <Divider borderColor="#808080" mt={1} />
             </Box>
-          ))}
+          ))
+        )}
 
           <Flex justifyContent="center" mt={4}>
             <Pagination
@@ -221,6 +232,7 @@ const FollowPages = ({
             />
           </Flex>
         </Box>
+       
       )}
 
       {/* Modal */}
@@ -259,7 +271,6 @@ const FollowPages = ({
             {/* Modal content here */}
             {selectedTask && (
               <div>
-               
                 <Text color="#808080" textAlign="center" py={4}>
                   If you proceed to perform this tasks, you will have just{" "}
                   <span style={{ color: "#CB29BE", fontWeight: "600" }}>

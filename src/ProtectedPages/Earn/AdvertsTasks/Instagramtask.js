@@ -129,7 +129,13 @@ const IGtasks = ({
         </Container>
       )}
 
-      {error && <Text color="white">Error: {error.message}</Text>}
+      {error &&  <Container bg="black" height="100vh" alignContent='center' alignItems='center'>
+       
+     
+      <Text color="white" textAlign="center">
+            Could not fetch tasks <br/> Ensure you are connected to the internet
+          </Text>
+        </Container>}
 
       {!isLoading && !error && (
         <Box pt={{ base: "0", md: "50" }} px={{ base: "4", md: "10" }}>
@@ -163,7 +169,16 @@ const IGtasks = ({
             {/* Assuming 20 items per page */}
           </Text>
 
-          {data.map((item) => (
+
+
+
+          {data.length === 0 ? (
+            <Text color="#808080" textAlign="center">
+              No tasks available.
+            </Text>
+          ) : (
+
+          data.map((item) => (
             <Box
               key={item.id}
               maxW={{ md: "100%", lg: "80%" }}
@@ -212,7 +227,8 @@ const IGtasks = ({
               </Box>
               <Divider borderColor="#808080" mt={1} />
             </Box>
-          ))}
+          ))
+        )}
 
           <Flex justifyContent="center" mt={4}>
             <Pagination
@@ -225,6 +241,8 @@ const IGtasks = ({
             />
           </Flex>
         </Box>
+
+        
       )}
 
       {/* Modal */}

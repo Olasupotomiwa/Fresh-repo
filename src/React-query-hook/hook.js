@@ -21,7 +21,9 @@ const useFetch = (apiEndpoint) => {
 
         return pageData;
       } catch (error) {
-        throw new Error("Failed to fetch data");
+        setError(error);
+        setIsLoading(false); // Set isLoading to false on error
+        throw new Error("Failed to tasks. ");
       }
     };
 
@@ -40,7 +42,7 @@ const useFetch = (apiEndpoint) => {
         return { data: pageData, totalPages: calculatedTotalPages };
       } catch (error) {
         setError(error);
-        setIsLoading(false);
+        setIsLoading(false); // Set isLoading to false on error
       }
     };
 
