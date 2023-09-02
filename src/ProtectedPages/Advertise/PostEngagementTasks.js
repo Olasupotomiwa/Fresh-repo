@@ -87,7 +87,13 @@ const PostEngagemntTasks = () => {
     "Facebook",
     "Twitter",
     "YouTube",
-    "TikTok",
+    "WhatsApp",
+    "Telegram",
+    "Audiomack",
+    "Playstore",
+    "Appstore",
+    "Discord",
+    "Appstore",
   ];
 
   const EngagementTasks = [
@@ -137,7 +143,8 @@ const PostEngagemntTasks = () => {
    
     if (
       selectedEngagementTask ===
-      "Likes, views and  comment for my YouTube video"
+      "Likes, views and  comment for my YouTube video" ||
+         selectedEngagementTask ==="Suscribers for my YouTube channel"
     ) {
       return (
         <Box>
@@ -177,7 +184,7 @@ const PostEngagemntTasks = () => {
                   click here to browse
                 </label>{" "}
                 <Text fontWeight="400">
-                  Image or video must be 200MB max file size
+                   10MB max file size
                 </Text>
               </Box>
             </Box>
@@ -185,7 +192,7 @@ const PostEngagemntTasks = () => {
             <Input
               type="file"
               id="file-upload"
-              accept="image/*,video/*" // Accept both images and videos
+              accept="image/*" 
               onChange={handleFileSelect}
               style={{ display: "none" }}
               onClick={() => {
@@ -196,7 +203,7 @@ const PostEngagemntTasks = () => {
             {selectedFile && (
               <Box mt="2">
                 <Flex flexDirection="column" alignItems="center">
-                  {/* Display the selected image or video */}
+                  {/* Display the selected image  */}
                   {selectedFile.type.startsWith("image/") ? (
                     <Image
                       src={URL.createObjectURL(selectedFile)}
@@ -246,7 +253,7 @@ const PostEngagemntTasks = () => {
       maxW={{ base: "100%", md: "75%" }}
       mx="auto"
       bg="black"
-      height="100%"
+      height='100%'
       mt="20"
       fontFamily="clash grotesk"
     >
@@ -266,6 +273,7 @@ const PostEngagemntTasks = () => {
           color="white"
           fontWeight="600"
           fontFamily="clash grotesk"
+          my={10}
         >
           Create task
         </Heading>
@@ -273,7 +281,7 @@ const PostEngagemntTasks = () => {
        
           {/*Select task to e done */}
           <Box>
-            <Box py={3}>
+            <Box py={5}>
               <Text color="#808080" fontSize="16px" textAlign="left">
               What are your goals for this tasks ?
                 <Menu>
@@ -288,11 +296,12 @@ const PostEngagemntTasks = () => {
                     px={4}
                     py={2}
                     _focus={{ outline: "none" }}
+                  
                   >
-                    {selectedEngagementTask || "Select Task"}
+                    {selectedEngagementTask || "Choose"}
                     <ChevronDownIcon color="white" ml="2" />
                   </MenuButton>
-                  <MenuList>
+                  <MenuList  maxH="200px" overflow="auto">
                     {EngagementTasks.map((task) => (
                       <MenuItem
                         key={task}
@@ -302,6 +311,7 @@ const PostEngagemntTasks = () => {
                           // Clear the error when the input is focused
                           setEngagementTaskError("");
                         }}
+                       
                       >
                         {task}
                       </MenuItem>
@@ -336,7 +346,7 @@ const PostEngagemntTasks = () => {
                     {selectedSocialMedia || "Select platform"}
                     <ChevronDownIcon color="white" ml="2" />
                   </MenuButton>
-                  <MenuList>
+                  <MenuList  maxH="200px" overflow="auto">
                     {socialMediaAccounts.map((account) => (
                       <MenuItem
                         key={account}
@@ -363,7 +373,7 @@ const PostEngagemntTasks = () => {
 
 
 
-          <FormControl py={3}>
+          <FormControl py={4}>
               <FormLabel color='#808080'> {label2}</FormLabel>
              
                 <Input
@@ -421,7 +431,7 @@ const PostEngagemntTasks = () => {
             )}
           </Box>
 
-        {/* Render special content for "Likes for my post" task */}
+     
 
         {fileError && <Text color="#CB29BE">{fileError}</Text>}
         {EngagementTaskError && (
