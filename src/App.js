@@ -47,6 +47,7 @@ import AppStore from "ProtectedPages/Earn/EngagementTasks/AppStore";
 import AdvertiseHomePage from "./ProtectedPages/Advertise/AdvertiseHome";
 import AdvertiseTaskPage from "./ProtectedPages/Advertise/AdvertiseTasksPage";
 import PostAdtasks from './ProtectedPages/Advertise/PostAdTasks'
+import PostEngagemntTasks from "ProtectedPages/Advertise/PostEngagementTasks";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -251,6 +252,12 @@ function App() {
           <Route
             path="/advertise/create-tasks"
             element={<AuthenticatedRoute element={<PostAdtasks />} />}
+          />
+
+
+<Route
+            path="/advertise/create-engagement-tasks"
+            element={<AuthenticatedRoute element={<PostEngagemntTasks />} />}
           />
         </Routes>
       </>

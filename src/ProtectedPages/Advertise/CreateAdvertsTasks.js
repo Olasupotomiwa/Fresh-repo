@@ -53,7 +53,7 @@ export const contentArray = [
   {
     id: 5,
     imageSrc: Twitter,
-    headerText: 'Post adverts on Twitter || Earn <span class="dollar-amount"> $10 </span> per advert post',
+    headerText: ' Get people to post your advert on Twitter Pay <span class="dollar-amount"> $10 </span> per  post',
     description1: 'Our users with at least 1000 real and active followers on Twitter will post your ad on their account.',
     description2: ' This is a very cost-effective method of promoting your picture or video advert to a larger audience.',
     route: "/advertise/create-tasks", 
@@ -88,7 +88,7 @@ function CreateTasks() {
             
               </Box>
             </Flex>
-            <Box ml={10} mt={{ base: '2', md: '2', lg: '0' }}>
+            <Box ml={10} mt={{ base: '2', md: '2', lg: '0' }} textAlign="left">
               <Text fontSize="sm" color="#808080" lineHeight={1.5}>
                 {content.description1}
               </Text>

@@ -24,7 +24,7 @@ export const contentArray = [
     description1:
       "Get followers on Instagram, TikTok, Facebook and Twitter.",
    
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -34,7 +34,7 @@ export const contentArray = [
       'Get people to like your posts on social media || Pay <span class="dollar-amount"> $10 </span> per like',
     description1:
       "Get likes on Instagram, TikTok, Facebook and Twitter.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -45,7 +45,7 @@ export const contentArray = [
    
     description1:
       "Get comments on Instagram, TikTok, Facebook and Twitter posts.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -55,7 +55,7 @@ export const contentArray = [
       'Get people to re-share your posts on social media || Pay <span class="dollar-amount"> $10 </span> per re-share',
     description1:
       "Get re-shares on Instagram, Facebook and Twitter.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -65,7 +65,7 @@ export const contentArray = [
       'Get people to subscribe to your YouTube channel || Pay  <span class="dollar-amount"> $10 </span> per subscription',
     description1:
       "Get more subscribers for your Youtube Channel.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -75,7 +75,7 @@ export const contentArray = [
       'Get people to view, like and comment on your YouTube video || Pay <span class="dollar-amount"> $10 </span> for this task',
     description1:
       "Increase the views, likes and comments on your YouTube video.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -86,7 +86,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Get more participants for your Whatsapp group.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -96,7 +96,7 @@ export const contentArray = [
       'Get people to follow your Audiomack account || Pay <span class="dollar-amount"> $10 </span> per follow',
     description1:
       "Get more Followers for your Audiomack account.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -106,7 +106,7 @@ export const contentArray = [
       'Get people to join your Telegram group || Pay $10 <span class="dollar-amount"> $10 </span> per person',
     description1:
       "Get more participants for your Telegram group.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -116,7 +116,7 @@ export const contentArray = [
       'Get people to download and review your app on the Play store || Pay <span class="dollar-amount"> $10 </span> for this task',
     description1:
       "Get more downloads and reviews for your app.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
   {
     id: 11,
@@ -126,7 +126,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Get more downloads and reviews for your app.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
 
   {
@@ -137,7 +137,7 @@ export const contentArray = [
     taskCount: 2,
     description1:
       "Get more participants for your Discord channel.",
-    route: "/advertise/create-tasks",
+    route: "/advertise/create-engagement-tasks",
   },
   // Add more content objects as needed
 ];

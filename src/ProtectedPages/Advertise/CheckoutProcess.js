@@ -9,6 +9,8 @@ import {
   Text,
   Center,
   Button,
+  chakra,
+  HStack,
   Box,
   Spinner, // Import Spinner from Chakra UI
 } from "@chakra-ui/react";
@@ -18,7 +20,6 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
   const [currentContent, setCurrentContent] = useState(0);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
- 
   const handleNext = () => {
     if (currentContent < 2) {
       setCurrentContent(currentContent + 1);
@@ -48,8 +49,6 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
 
   const remainingBalance = balance - amount;
   return (
-
-   
     <Modal
       isOpen={isOpen}
       onClose={onClose}
@@ -79,7 +78,7 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
               <Box>
                 <Text color="white">Upload ad</Text>
                 <Box display="flex" textAlign="left">
-                <Box pr={3}>
+                  <Box pr={3}>
                     <iconify-icon
                       icon="uis:padlock"
                       style={{ color: "#CB29BE" }}
@@ -104,8 +103,6 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
                   </Box>
 
                   <Box pr={3} cursor="pointer">
-                    {" "}
-                    {/*Attach link to payment channel here */}
                     <iconify-icon
                       icon="material-symbols:arrow-right-alt-rounded"
                       style={{ color: "#CB29BE" }}
@@ -114,54 +111,90 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
                   </Box>
                 </Box>
 
-                <Box display="flex" textAlign="left" mt={3}>
-                  <Box pr={3}>
-                    <iconify-icon
-                      icon="entypo:wallet"
-                      style={{ color: "#CB29BE" }}
-                      width="23"
-                    />
-                  </Box>
+                {balance < amount ? (
+                  <Box display="flex" textAlign="left" mt={3}>
+                    <Box pr={3}>
+                      <iconify-icon
+                        icon="entypo:wallet"
+                        style={{ color: "#CB29BE" }}
+                        width="23"
+                      />
+                    </Box>
 
-                  <Box>
-                    <Heading
-                      color="white"
-                      fontSize="sm"
-                      fontFamily="clash grotesk"
-                      pb={2}
-                    >
-                      Pay from your Trendit Wallet
-                    </Heading>
+                    <Box>
+                      <Heading
+                        color="white"
+                        fontSize="sm"
+                        fontFamily="clash grotesk"
+                        pb={2}
+                      >
+                        Pay from your Trendit Wallet
+                      </Heading>
 
-                    <Text fontSize="14px">
-                      You can pay for this task from your Trendit wallet balance
-                      of ${balance}. You are just one click away!
-                    </Text>
-                  </Box>
+                      <Text fontSize="14px">
+                        You’ll need to have at least ${amount} in your Trendit
+                        wallet to pay with this method. You can <chakra.span color='#CB29BE' fontWeight='600'>fund your account </chakra.span>
+                        now.
+                      </Text>
+                    </Box>
 
-                  <Box pr={3} cursor="pointer" onClick={handleNext}>
-                    {" "}
-                    <iconify-icon
-                      icon="material-symbols:arrow-right-alt-rounded"
-                      style={{ color: "#CB29BE" }}
-                      width="23"
-                    />
+                    <Box pr={3}>
+                      <iconify-icon
+                        icon="material-symbols:arrow-right-alt-rounded"
+                        style={{ color: "#292929" }}
+                        width="23"
+                      />
+                    </Box>
                   </Box>
-                </Box>
+                ) : (
+                  <Box display="flex" textAlign="left" mt={3}>
+                    <Box pr={3}>
+                      <iconify-icon
+                        icon="entypo:wallet"
+                        style={{ color: "#CB29BE" }}
+                        width="23"
+                      />
+                    </Box>
+
+                    <Box>
+                      <Heading
+                        color="white"
+                        fontSize="sm"
+                        fontFamily="clash grotesk"
+                        pb={2}
+                      >
+                        Pay from your Trendit Wallet
+                      </Heading>
+
+                      <Text fontSize="14px">
+                        You can pay for this task from your Trendit wallet
+                        balance of ${balance}. You are just one click away!
+                      </Text>
+                    </Box>
+
+                    <Box pr={3} cursor="pointer" onClick={handleNext}>
+                      <iconify-icon
+                        icon="material-symbols:arrow-right-alt-rounded"
+                        style={{ color: "#CB29BE" }}
+                        width="23"
+                      />
+                    </Box>
+                  </Box>
+                )}
               </Box>
             )}
 
             {currentContent === 1 && (
               <Box>
-                   <Text color="white" onClick={handlePrev} cursor="pointer">
+                <HStack color="white" onClick={handlePrev} cursor="pointer">
                   {" "}
                   <iconify-icon
                     icon="material-symbols:arrow-back-rounded"
                     style={{ color: "white" }}
                     width="23"
                   />{" "}
-                  Payment method
-                </Text>
+                  <Text>Payment method</Text>
+                </HStack>
 
                 <Box textAlign="center">
                   <Box py={3} mb={2}>
@@ -174,14 +207,16 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
                       Current Wallet Balance
                     </Heading>
 
-                    <Text fontSize="18px" color="#CB29BE" fontWeight='600'>
-                    ${balance}
+                    <Text fontSize="18px" color="#CB29BE" fontWeight="600">
+                      ${balance}
                     </Text>
                   </Box>
                 </Box>
                 <Box color="#808080" py={3}>
                   <Text>Amount due for task: ${amount} </Text>
-                  <Text>Wallet balance after this payment: ${remainingBalance} </Text>
+                  <Text>
+                    Wallet balance after this payment: ${remainingBalance}{" "}
+                  </Text>
                 </Box>
 
                 <Box bg="#121212" p={3} rounded="lg" my={2}>
@@ -193,15 +228,14 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
                   </Text>
                 </Box>
                 <Box py={3}>
-                 
-                    <Button
-                      bg="#CB29BE"
-                      color="white"
-                      _hover={{ bg: "#CB29BE" }}
-                      width="full"
-                      onClick={handleProceed}
-                    >
-                      {isProcessingPayment ? (
+                  <Button
+                    bg="#CB29BE"
+                    color="white"
+                    _hover={{ bg: "#CB29BE" }}
+                    width="full"
+                    onClick={handleProceed}
+                  >
+                    {isProcessingPayment ? (
                       <Spinner size="sm" color="white" />
                     ) : (
                       "Proceed to pay"
@@ -210,7 +244,6 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
                 </Box>
               </Box>
             )}
-
 
             {currentContent === 2 && (
               <Box textAlign="center">

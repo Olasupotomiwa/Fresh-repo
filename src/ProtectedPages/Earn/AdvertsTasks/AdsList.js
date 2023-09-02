@@ -105,10 +105,10 @@ function Adlist() {
               </Box>
             </Flex>
             <Box ml={10} mt={{ base: '2', md: '2', lg: '0' }}>
-              <Text fontSize="sm" color="#808080" lineHeight={1.5}>
+              <Text fontSize="sm" color="#808080" lineHeight={1.5} textAlign="left">
                 {content.description1}
               </Text>
-              <Text fontSize="sm" color="#808080">
+              <Text fontSize="sm" color="#808080" textAlign="left">
                 {content.description2}
               </Text>
             </Box>

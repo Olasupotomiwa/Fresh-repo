@@ -64,6 +64,7 @@ const PostAdTasks = () => {
   const isGenderValid = !!selectedGender;
   const isCaptionValid = !!caption;
   const isHashtagsValid = !!hashtags;
+  const isNumberOfPostsValid = !!numberOfPosts;
 
   // Update error messages immediately
   setFileError(isFileValid ? "" : "Kindly upload your ad image or video");
@@ -79,6 +80,8 @@ const PostAdTasks = () => {
   setGenderError(isGenderValid ? "" : "Gender is required.");
   setCaptionError(isCaptionValid ? "" : "Caption is required.");
   setHashtagsError(isHashtagsValid ? "" : "Hashtags are required.");
+  setNumberOfPostsError(isNumberOfPostsValid ? "" : "Number of Posts is required.");
+
 
   const isFormValid =
     isFileValid &&
@@ -87,7 +90,9 @@ const PostAdTasks = () => {
     isStateValid &&
     isGenderValid &&
     isCaptionValid &&
+    isNumberOfPostsValid &&
     isHashtagsValid;
+   
 
   if (isFormValid) {
     openModal();
@@ -194,7 +199,7 @@ const PostAdTasks = () => {
           <Box>
             <Box py={10}>
               <Text color="#808080" fontSize="16px" textAlign="left">
-                Select platform to perform task on
+                Select platform
                 <Menu>
                   <MenuButton
                     as={Text}
