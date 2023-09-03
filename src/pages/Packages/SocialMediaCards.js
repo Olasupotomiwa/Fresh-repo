@@ -71,7 +71,7 @@ const LogoCardComponent = () => {
       >
         Platforms we support
       </Heading>
-      <Flex align="center" justify="center" flexWrap="wrap" mx={15}>
+      <Flex alignItems="center" justify="center" flexWrap="wrap" mx='auto' maxWidth={{base: '100%', md: '75%'}}>
         {logos.map((logo) => (
           <Box
             key={logo.name}

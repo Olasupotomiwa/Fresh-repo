@@ -1,6 +1,7 @@
 import { Box, Heading, Button, Text, Container } from "@chakra-ui/react";
 import Logos from './SocialMediaCards'
 import Footer from "components/Footer";
+import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const Adverts = () => {
@@ -38,6 +39,9 @@ const Adverts = () => {
           <Button
             bg=" #CB29BE"
             color="white"
+            as={Link}
+            to='/log-in'
+            py={3}
             px={10}
             fontWeight="400"
             rounded="full"
