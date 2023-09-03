@@ -42,8 +42,7 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
  
 
   const handleProceed = () => {
-     // Set currentContent to 0 to start from step one
-  setCurrentContent(0);
+    
     if (currentContent === 1) {
       // Simulate payment processing for 3 seconds
       setIsProcessingPayment(true);
@@ -63,7 +62,7 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
     setCurrentContent(0);
   }, [amount, balance]);
 
-  
+
 
   const remainingBalance = balance - amount;
   return (
