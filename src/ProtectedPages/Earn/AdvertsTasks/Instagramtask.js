@@ -102,7 +102,7 @@ const IGtasks = ({
 
   useEffect(() => {
     // Scroll to the top when the component is mounted
-    window.scrollTo({ top: 0,  });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
@@ -115,7 +115,7 @@ const IGtasks = ({
       height="100%"
       mt="20"
       fontFamily="clash grotesk"
-      id="top"
+     
     >
       <Goback />
       <ScrollToTop/>
@@ -236,7 +236,7 @@ const IGtasks = ({
               currentPage={currentPage}
               onPageChange={(page) => {
                 handlePageChange(page);
-                window.scrollTo({ top: 0, });
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
           </Flex>
