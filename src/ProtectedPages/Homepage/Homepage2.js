@@ -8,7 +8,7 @@ const ProtectedFAQS = () => {
       p={{ base: "4", md: "10" }}
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
-      height='1000px'
+      height={{base: '1500px', md: '1000px'}}
       mt="20"
       fontFamily="clash grotesk"
     >
