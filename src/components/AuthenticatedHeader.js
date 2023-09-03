@@ -151,7 +151,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
      
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       {...rest}>
-    <Image src={Logo}  display={{ base: 'flex', md: 'none' }}/>
+    <Image src={Logo} width='75px' display={{ base: 'flex', md: 'none' }}/>
   
       <HStack spacing={{ base: '0', md: '6' }}>
         <IconButton size="lg" variant="ghost" mx='4' _hover={{ bg: "black", opacity: "0.9" }} aria-label="open menu" icon={<FiBell  color='white' bg='#121212'/>} />
