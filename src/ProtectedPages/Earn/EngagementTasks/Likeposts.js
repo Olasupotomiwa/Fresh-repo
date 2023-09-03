@@ -2,11 +2,11 @@ import EngagementTaskTemplate from "./FollowPages";
 
 const LikePosts =()=>{
 
-
+const apiEndpoint = 'https://jsonplaceholder.typicode.com/albums'
     return(
    <>
    <EngagementTaskTemplate
-  apiEndpoint="https://jsonplaceholder.typicode.com/albums"
+  apiEndpoint={apiEndpoint}
   customHeading="Like posts"
   customText="Like posts on Instagram, TikTok, Facebook and Twitter"
 />

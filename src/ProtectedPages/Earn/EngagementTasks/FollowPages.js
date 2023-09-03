@@ -281,7 +281,7 @@ const FollowPages = ({
                 <Center pt={5}>
                   <Button
                     as={Link}
-                    to={`/earn/engagement/perform-task/${selectedTask.id}`}
+                    to={`/earn/engagement/perform-task/${selectedTask.id}?apiEndpoint=${apiEndpoint}`}
                     color="white"
                     bg="#CB29BE"
                     rounded="full"
@@ -302,3 +302,4 @@ const FollowPages = ({
 };
 
 export default FollowPages;
+

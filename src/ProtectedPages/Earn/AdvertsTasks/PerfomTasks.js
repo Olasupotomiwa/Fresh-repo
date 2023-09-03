@@ -21,6 +21,7 @@ import {
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
 import img from "assets/bg.jpg";
 import Loader from 'Loader'
+import { useLocation, useParams } from "react-router-dom";
 
 
 
@@ -28,6 +29,21 @@ import Loader from 'Loader'
 //Api should be wrapped with task id to fetch this page content
 //const {taskId} = useParams()   //import useParams
 const TaskPage = () => {
+
+  const { taskId } = useParams();
+   //function to receive the specified Api from the link that led to this task page
+   const location = useLocation();
+   const searchParams = new URLSearchParams(location.search);
+   const apiEndpoint = searchParams.get("apiEndpoint");
+ 
+ 
+   useEffect(() => {
+     // Log the apiEndpoint and taskId to the console
+     console.log("API Endpoint:", apiEndpoint);
+     console.log("Task ID:", taskId);
+ 
+ 
+   }, [apiEndpoint, taskId]);
   // Function to handle file drop
   const handleFileDrop = (event) => {
     event.preventDefault();
@@ -127,8 +143,7 @@ const TaskPage = () => {
 <Goback />
       <Box
         justifyContent="center"
-        alignItems="center"
-        textAlign="center" // Add this line for text alignment
+       
         width={{ base: "100%", md: "60%" }}
         mx="auto"
         onDrop={handleFileDrop} // Handle file drop event
@@ -140,6 +155,7 @@ const TaskPage = () => {
           color="white"
           fontWeight="600"
           fontFamily="clash grotesk"
+          mt={{base: '10', md: '2'}}
         >
           Perform task
         </Heading>

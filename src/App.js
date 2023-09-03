@@ -64,6 +64,9 @@ function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isLinked = useSelector((state) => state.linked.isLinked);
 
+
+
+  const apiEndpoint = "https://jsonplaceholder.typicode.com/albums";
   return (
     <QueryClientProvider client={queryClient}>
       <>
@@ -185,8 +188,9 @@ function App() {
           <Route
             path="/earn/engagement/perform-task/:taskId"
             element={
-              <AuthenticatedRoute element={<PerformEngagementTasksPage />} />
+              <AuthenticatedRoute element={<PerformEngagementTasksPage  />} />
             }
+           
           />
 
           <Route
@@ -196,7 +200,7 @@ function App() {
 
           <Route
             path="/earn/engagement/like-posts"
-            element={<AuthenticatedRoute element={<LikeTaskPage />} />}
+            element={<AuthenticatedRoute element={<LikeTaskPage  apiEndpoint={apiEndpoint} />} />}
           />
 
           <Route

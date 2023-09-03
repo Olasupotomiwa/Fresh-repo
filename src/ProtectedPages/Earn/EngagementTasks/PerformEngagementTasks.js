@@ -24,10 +24,28 @@ import { Container, Box, Heading, Text } from "@chakra-ui/react";
 import img from "assets/images/youtube.png"
 import Loader from "Loader";
 
+import { useLocation, useParams } from "react-router-dom";
+
 //Api should be wrapped with task id to fetch this page content (Link and social media to perfom task on)
 //const {taskId} = useParams()   //import useParams
 
 const TaskPage = () => {
+ 
+  const { taskId } = useParams();
+  //function to receive the specified Api from the link that led to this task page
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const apiEndpoint = searchParams.get("apiEndpoint");
+
+
+  useEffect(() => {
+    // Log the apiEndpoint and taskId to the console
+    console.log("API Endpoint:", apiEndpoint);
+    console.log("Task ID:", taskId);
+
+
+  }, [apiEndpoint, taskId]);
+  
   // Function to handle file drop
   const handleFileDrop = (event) => {
     event.preventDefault();

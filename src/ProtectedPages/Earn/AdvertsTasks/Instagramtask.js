@@ -292,7 +292,7 @@ const IGtasks = ({
                 <Center pt={5}>
                   <Button
                     as={Link}
-                    to={`/earn/perform-task/${selectedTask.id}`}
+                    to={`/earn/perform-task/${selectedTask.id}?apiEndpoint=${apiEndpoint}`}
                     color="white"
                     bg="#CB29BE"
                     rounded="full"
