@@ -51,21 +51,20 @@ const SidebarContent = ({ onClose, ...rest }) => {
     <Box
       transition="3s ease"
       bg='#121212'
-      overflowY="auto" 
       w={{ base: 'full', md: '25%' }}
       pos='fixed'
       top='0'
       h="full"
     
       {...rest}>
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between" >
        
         <Image src={Logo} />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} color='white' />
       </Flex>
       <Box mt='30px' >
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon} path={link.path} onClose={onClose}>
+        <NavItem key={link.name} icon={link.icon} path={link.path} onClose={onClose} >
           {link.name}
         </NavItem>
       ))}
@@ -209,17 +208,17 @@ const SidebarWithHeader = () => {
 
   return (
     <Box bg='#121212' >
-      <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
+      <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }}   overflowY="auto" />
       <Drawer
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-      
+       
         size="full">
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
+        <DrawerContent >
+          <SidebarContent onClose={onClose}  />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}

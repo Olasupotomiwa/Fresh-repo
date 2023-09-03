@@ -130,7 +130,7 @@ const CardsSection = () => {
       p={{ base: "4", md: "10" }}
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
-      height="100%"
+      height={{md: '100%', lg: '100vh'}}
       mt="20"
       fontFamily="clash grotesk"
     >
