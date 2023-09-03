@@ -6,11 +6,14 @@ import {
   Button,
   FormControl,
   Input,
- Menu, MenuButton, MenuList, MenuItem,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
   Image,
   Flex,
 } from "@chakra-ui/react";
-import {ChevronDownIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 import {
   Center,
@@ -21,7 +24,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
-import img from "assets/images/youtube.png"
+import img from "assets/images/youtube.png";
 import Loader from "Loader";
 
 import { useLocation, useParams } from "react-router-dom";
@@ -30,22 +33,18 @@ import { useLocation, useParams } from "react-router-dom";
 //const {taskId} = useParams()   //import useParams
 
 const TaskPage = () => {
- 
   const { taskId } = useParams();
   //function to receive the specified Api from the link that led to this task page
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const apiEndpoint = searchParams.get("apiEndpoint");
 
-
   useEffect(() => {
     // Log the apiEndpoint and taskId to the console
     console.log("API Endpoint:", apiEndpoint);
     console.log("Task ID:", taskId);
-
-
   }, [apiEndpoint, taskId]);
-  
+
   // Function to handle file drop
   const handleFileDrop = (event) => {
     event.preventDefault();
@@ -127,7 +126,13 @@ const TaskPage = () => {
   }, [isModalOpen, navigate]);
 
   const [selectedSocialMedia, setSelectedSocialMedia] = useState("");
-  const socialMediaAccounts = ["Instagram", "Facebook", "Twitter", "YouTube", "TikTok"];
+  const socialMediaAccounts = [
+    "Instagram",
+    "Facebook",
+    "Twitter",
+    "YouTube",
+    "TikTok",
+  ];
 
   return (
     <Container
@@ -167,41 +172,42 @@ const TaskPage = () => {
           </span>{" "}
         </Text>
 
-
-
- {/*Task to be done */}
+        {/*Task to be done */}
         <Box mt={30}>
           <Box>
-          <Box py={10}>
-  <Text color="#808080" fontSize="16px" textAlign="left">
-    Select platform to perform task on
-    <Menu>
-      <MenuButton
-        as={Text}
-        color="#808080"
-        fontSize="16px"
-        textAlign="left"
-        borderColor="#808080"
-        borderWidth="2px"
-        borderRadius="lg"
-        px={4}
-        py={2}
-        _focus={{ outline: "none" }}
-      >
-        {selectedSocialMedia || "Select social media account" }
-        <ChevronDownIcon  color='white' ml='2'/>
-      </MenuButton>
-      <MenuList>
-        {socialMediaAccounts.map((account) => (
-          <MenuItem key={account} onClick={() => setSelectedSocialMedia(account)} color='#121212'>
-            {account}
-          </MenuItem>
-        ))}
-      </MenuList>
-    </Menu>
-  </Text>
-</Box>
-
+            <Box py={10}>
+              <Text color="#808080" fontSize="16px" textAlign="left">
+                Select platform to perform task on
+                <Menu>
+                  <MenuButton
+                    as={Text}
+                    color="#808080"
+                    fontSize="16px"
+                    textAlign="left"
+                    borderColor="#808080"
+                    borderWidth="2px"
+                    borderRadius="lg"
+                    px={4}
+                    py={2}
+                    _focus={{ outline: "none" }}
+                  >
+                    {selectedSocialMedia || "Select social media account"}
+                    <ChevronDownIcon color="white" ml="2" />
+                  </MenuButton>
+                  <MenuList>
+                    {socialMediaAccounts.map((account) => (
+                      <MenuItem
+                        key={account}
+                        onClick={() => setSelectedSocialMedia(account)}
+                        color="#121212"
+                      >
+                        {account}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </Menu>
+              </Text>
+            </Box>
 
             <Box
               bg="#121212"
@@ -216,12 +222,11 @@ const TaskPage = () => {
                   icon="ion:checkbox"
                   style={{ color: "white", width: "35" }}
                 ></iconify-icon>
-               {
-  selectedSocialMedia === 'YouTube'
-    ? 'Subscribe to YouTube channel - earn '
-    : `Follow ${selectedSocialMedia} account - earn `     {/* fetch name of task here */}
-}               
 
+                 {/* fetch name of task here */}
+                {selectedSocialMedia === "YouTube"
+                  ? "Subscribe to YouTube channel - earn "
+                  : `Follow ${selectedSocialMedia} account - earn `}
                 <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
               </Text>
             </Box>
@@ -271,45 +276,38 @@ const TaskPage = () => {
             </FormControl>
           </Box>
 
-
-
           {selectedSocialMedia === "YouTube" && (
-    <div>
-      {/*  content to render when YouTube is selected */}
-     
-      <Box my={10}>
-            <Text textAlign="left" color="#ffffff">
-             Channel cover
-            </Text>
-            <Box
-              border="1px"
-              borderColor="#808080"
-              borderRadius="15px"
-              height="300px"
-              width="full"
-              textAlign="center"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Image src={img} width="300px" height="295px" />
-              <Box
-                display="flex"
-                alignItems="center"
-                cursor="pointer"
-                as="a"
-                href={img}
-                download={img}
-              >
-                
-                
+            <div>
+              {/*  content to render when YouTube is selected */}
+
+              <Box my={10}>
+                <Text textAlign="left" color="#ffffff">
+                  Channel cover
+                </Text>
+                <Box
+                  border="1px"
+                  borderColor="#808080"
+                  borderRadius="15px"
+                  height="300px"
+                  width="full"
+                  textAlign="center"
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Image src={img} width="300px" height="295px" />
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    cursor="pointer"
+                    as="a"
+                    href={img}
+                    download={img}
+                  ></Box>
+                </Box>
               </Box>
-            </Box>
-          </Box>
-    </div>
-  )}
-
-
+            </div>
+          )}
 
           {/*Proof of task done */}
           <Text textAlign="left" color="#808080">

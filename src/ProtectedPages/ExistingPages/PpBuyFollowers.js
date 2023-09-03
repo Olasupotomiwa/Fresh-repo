@@ -1,13 +1,13 @@
 import { Container } from "@chakra-ui/react"
-import MarketPlace from '../../pages/Market-Place'
+import  BuyFollowers from '../../pages/Packages/BuyFollowers'
 
-const ProtectedMarketPlace =()=>{
+const  ProtectedBuyFollowers =()=>{
 
     return(
 
       <Container ml={{ base: 0, md: "25%" }} px="0" maxW={{ base: '100%', md: "75%" }}  mt='10'>
           
-          <MarketPlace/>
+          <BuyFollowers/>
           
           </Container>
     )
@@ -15,4 +15,4 @@ const ProtectedMarketPlace =()=>{
     
     }
     
-    export default ProtectedMarketPlace
+    export default ProtectedBuyFollowers

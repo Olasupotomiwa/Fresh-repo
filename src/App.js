@@ -53,6 +53,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+import ProtectedBuyFollowers from "ProtectedPages/ExistingPages/PpBuyFollowers";
 
 const AuthenticatedRoute = ({ element }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -103,6 +104,11 @@ function App() {
           <Route
             path="/about2"
             element={<AuthenticatedRoute element={<ProtectedAbout />} />}
+          />
+
+         <Route
+            path="/buy-followers2"
+            element={<AuthenticatedRoute element={<ProtectedBuyFollowers />} />}
           />
 
           <Route
