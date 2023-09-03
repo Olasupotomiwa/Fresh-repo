@@ -164,8 +164,7 @@ const PostEngagemntTasks = () => {
       {/* overall container */}
       <Box
         justifyContent="center"
-        alignItems="center"
-        textAlign={{ base: "center", md: "left" }}
+        textAlign='left'
         width={{ base: "100%", md: "60%" }}
         mx="auto"
         onDrop={handleFileDrop} // Handle file drop event
@@ -173,7 +172,7 @@ const PostEngagemntTasks = () => {
         onDragEnter={preventDefault} //
       >
         <Heading
-          fontSize={{ base: "20px", md: "30px" }}
+          fontSize={{ base: "25px", md: "30px" }}
           color="white"
           fontWeight="600"
           fontFamily="clash grotesk"
