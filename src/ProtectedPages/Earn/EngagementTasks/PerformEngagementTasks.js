@@ -219,7 +219,7 @@ const TaskPage = () => {
                {
   selectedSocialMedia === 'YouTube'
     ? 'Subscribe to YouTube channel - earn '
-    : `Follow ${selectedSocialMedia} account - earn `
+    : `Follow ${selectedSocialMedia} account - earn `     {/* fetch name of task here */}
 }               
 
                 <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}

@@ -182,7 +182,7 @@ const TaskPage = () => {
               borderRadius="lg"
             >
               <Text textAlign="left" color="white">
-                Share ad to your {""} account story - earn{" "}
+                Share ad to your {""} account story - earn{" "} {/* fetch name of platform here */}
                 <span style={{ color: "#CB29BE", fontWeight: "600" }}>$10</span>{" "}
               </Text>
             </Box>
