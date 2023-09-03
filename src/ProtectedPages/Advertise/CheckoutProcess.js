@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -23,16 +23,27 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
   const handleNext = () => {
     if (currentContent < 2) {
       setCurrentContent(currentContent + 1);
+    } else if (balance < amount) {
+      // Redirect to step 1 if balance is insufficient
+      setCurrentContent(0);
     }
   };
 
   const handlePrev = () => {
     if (currentContent > 0) {
       setCurrentContent(currentContent - 1);
+    } else if (balance < amount) {
+      // Redirect to step 1 if balance is insufficient
+      setCurrentContent(0);
     }
   };
 
+
+ 
+
   const handleProceed = () => {
+     // Set currentContent to 0 to start from step one
+  setCurrentContent(0);
     if (currentContent === 1) {
       // Simulate payment processing for 3 seconds
       setIsProcessingPayment(true);
@@ -46,6 +57,13 @@ const CheckOut = ({ isOpen, onClose, amount }) => {
     }
   };
   const balance = useSelector((state) => state.auth.user.Balance);
+
+  useEffect(() => {
+    // Reset to step 0 whenever amount or balance changes
+    setCurrentContent(0);
+  }, [amount, balance]);
+
+  
 
   const remainingBalance = balance - amount;
   return (
