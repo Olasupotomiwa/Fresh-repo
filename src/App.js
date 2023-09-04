@@ -14,6 +14,7 @@ import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
 import AuthenticatedHeader from "./components/AuthenticatedHeader";
 import Dashboard from "./Dahboard/dashboard";
 import ProtectedMarketPlace from "./ProtectedPages/ExistingPages/PpMarketplace";
+import UploadProducts from './pages/Market-Place/UploadProductOrService'
 import ProtectedFAQS from "./ProtectedPages/ExistingPages/PpFaqs";
 import ProtectedAbout from "./ProtectedPages/ExistingPages/PpAbout";
 import Homepage2 from "./ProtectedPages/Homepage/Homepage2";
@@ -93,6 +94,12 @@ function App() {
             path="/market-place2"
             element={<AuthenticatedRoute element={<ProtectedMarketPlace />} />}
           />
+
+         <Route
+            path="/market-place2/upload-product-or-service"
+            element={<AuthenticatedRoute element={<UploadProducts />} />}
+          />
+
           <Route
             path="/homepage"
             element={<AuthenticatedRoute element={<Homepage2 />} />}
@@ -265,7 +272,7 @@ function App() {
           />
 
 
-<Route
+<          Route
             path="/advertise/create-engagement-tasks"
             element={<AuthenticatedRoute element={<PostEngagemntTasks />} />}
           />
@@ -276,3 +283,4 @@ function App() {
 }
 
 export default App;
+

@@ -14,7 +14,7 @@ import Loader from '../../Loader'
 
 const ProductCard = ({ product }) => (
   <Box
-    width={{base: '48%', md: '270.43px'}}
+    width={{base: '48%', md: '272.43px'}}
     borderRadius="lg"
     overflow="hidden"
     px={0}
@@ -126,7 +126,7 @@ const Products = () => {
   return (
    
        <Box bg='black' px={{base: '0', md: '3'}}>
-      <Flex flexWrap="wrap" px={{base: '0', md: '20px'}} bg='#121212' py={8} justifyContent='center' alignItems='center'>
+      <Flex flexWrap="wrap" px={{base: '0', md: '1'}} bg='#121212' py={8} justifyContent='center' alignItems='center'>
         {data.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
