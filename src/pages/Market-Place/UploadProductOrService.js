@@ -441,7 +441,7 @@ const UploadProducts = () => {
         mt="20"
         width={{ base: "full", md: "60%" }}
         mx="auto"
-        px={10}
+        px={{base: '3', md: '10'}}
         py={10}
       >
         {renderStepContent()}
