@@ -25,9 +25,9 @@ root.render(
       <BrowserRouter>
       <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-      <ToastProvider>
+     
         <App />
-        </ToastProvider>
+       
         </PersistGate>
         </Provider>
       </BrowserRouter>

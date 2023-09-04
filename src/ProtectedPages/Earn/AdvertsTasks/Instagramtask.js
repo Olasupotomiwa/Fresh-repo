@@ -79,8 +79,9 @@ const IGtasks = ({
   customHeading,
   customText,
 }) => {
-  const { data, isLoading, error, handlePageChange, totalPages, currentPage } =
+  const { data, isLoading, error, handlePageChange, totalPages, currentPage, totalDataLength } =
     useFetch(apiEndpoint);
+    console.log(totalDataLength)
 
   // State to control the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -165,14 +166,15 @@ const IGtasks = ({
             fontSize="20px"
             my={4}
           >
-            Tasks ({totalPages * 20}{" "})
+            Tasks ({totalDataLength}{" "})
             {/* Assuming 20 items per page */}
           </Text>
 
 
 
-
-          {data.length === 0 ? (
+         
+          {totalDataLength === 0 ? (
+           
             <Text color="#808080" textAlign="center">
               No tasks available.
             </Text>

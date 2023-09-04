@@ -6,7 +6,9 @@ const useFetch = (apiEndpoint) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [totalPages, setTotalPages] = useState(0); 
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalDataLength, setTotalDataLength] = useState(0);
+  const [currentDataLength, setCurrentDataLength] = useState(0);
 
   useEffect(() => {
     const fetchFunction = async (page) => {
@@ -18,12 +20,13 @@ const useFetch = (apiEndpoint) => {
         const endIndex = startIndex + 20;
 
         const pageData = data.slice(startIndex, endIndex);
+        setCurrentDataLength(pageData.length); // Set the current data length
 
         return pageData;
       } catch (error) {
         setError(error);
         setIsLoading(false); // Set isLoading to false on error
-        throw new Error("Failed to tasks. ");
+        throw new Error("Failed to fetch data.");
       }
     };
 
@@ -33,6 +36,8 @@ const useFetch = (apiEndpoint) => {
         setData(pageData);
 
         const totalItems = (await axios.get(apiEndpoint)).data.length;
+        setTotalDataLength(totalItems); // Set the total data length
+
         const itemsPerPage = 20;
         const calculatedTotalPages = Math.ceil(totalItems / itemsPerPage);
         setTotalPages(calculatedTotalPages); // Set totalPages
@@ -53,7 +58,7 @@ const useFetch = (apiEndpoint) => {
     setCurrentPage(page);
   };
 
-  return { data, isLoading, error, handlePageChange, totalPages, currentPage };
+  return { data, isLoading, error, handlePageChange, totalPages, currentPage, totalDataLength, currentDataLength };
 };
 
 export { useFetch };
