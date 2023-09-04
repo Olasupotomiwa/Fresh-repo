@@ -435,7 +435,7 @@ const UploadProducts = () => {
       maxW={{ base: "100%", md: "75%" }}
       mt="0"
       bg="black"
-      h="100%"
+      h="100vh"
     >
       <Box
         mt="20"
