@@ -5,10 +5,10 @@ import {
   Heading,
   Image,
   Button,
-  Center,
+
   Text,
 } from "@chakra-ui/react";
-import shirts from "assets/Markets/shirts.png";
+
 import { useFetch } from "../../React-query-hook/hook"; // Import the useFetch hook
 
 const ProductCard = ({ product }) => (
