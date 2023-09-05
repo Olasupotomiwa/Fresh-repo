@@ -314,7 +314,9 @@ ion-icon {
   opacity: 1;
 }
 
-
+Select, option, input{
+  cursor: pointer;
+}
 
 
 

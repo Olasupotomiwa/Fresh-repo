@@ -7,6 +7,10 @@ import {
   Textarea,
   Flex,
   Image,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
@@ -23,6 +27,10 @@ import NGN from "assets/images/naira.jpg";
 import locationData from "../../pages/SignUp/LocationArray";
 
 const UploadProducts = () => {
+
+
+
+  //Step 1 states validation
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
@@ -68,6 +76,8 @@ const UploadProducts = () => {
       .find((data) => data.country === selectedCountry)
       ?.states.find((state) => state.state === selectedState)?.cities || [];
 
+
+      //Handle step 1 proceed button
   const handleProceed = () => {
     if (!selectedCountry) {
       setCountryError("Please select a country.");
@@ -85,37 +95,49 @@ const UploadProducts = () => {
   };
 
   const handleProceed2 = () => {
-    if (!selectedType) {
-      // Validate that a type (Product or Service) is selected
-      // If not, show an error message and prevent proceeding
-      setSelectedTypeError("Please select a type (Product or Service).");
-      return;
-    }
-    if (!productName) {
-      // Validate that a product name is entered
-      // If not, show an error message and prevent proceeding
-      setProductNameError("Please enter a name.");
-      return;
-    }
-    if (!productDescription) {
-      // Validate that a product description is entered
-      // If not, show an error message and prevent proceeding
-      setProductDescriptionError("Please enter a  description.");
-      return;
-    }
-    if (!selectedFile) {
-      // Validate that an image is selected
-      // If not, show an error message and prevent proceeding
-      setSelectedFileError("Please select an image for your product/service.");
-    }
-    if (!servicePrice) {
-      // Validate that a service price is entered
-      // If not, show an error message and prevent proceeding
-      setServicePriceError("Please enter  price.");
-      return;
-    }
-    // If all validations pass, proceed to the next step
+    let hasError = false;
 
+    if (!selectedType) {
+      setSelectedTypeError("Please select a type (Product or Service).");
+      hasError = true;
+    } else {
+      setSelectedTypeError(""); // Clear the error message if type is selected.
+    }
+
+    if (!productName) {
+      setProductNameError("Please enter a name.");
+      hasError = true;
+    } else {
+      setProductNameError(""); // Clear the error message if product name is entered.
+    }
+
+    if (!productDescription) {
+      setProductDescriptionError("Please enter a description.");
+      hasError = true;
+    } else {
+      setProductDescriptionError(""); // Clear the error message if description is entered.
+    }
+
+    if (!selectedFile) {
+      setSelectedFileError("Please select an image for your product/service.");
+      hasError = true;
+    } else {
+      setSelectedFileError(""); // Clear the error message if an image is selected.
+    }
+
+    if (!servicePrice) {
+      setServicePriceError("Please enter a price.");
+      hasError = true;
+    } else {
+      setServicePriceError(""); // Clear the error message if price is entered.
+    }
+
+    if (hasError) {
+      // If any validation error occurred, return early without proceeding.
+      return;
+    }
+
+    // If all validations pass, proceed to the next step
     setStep(step + 1);
   };
 
@@ -124,6 +146,9 @@ const UploadProducts = () => {
     setStep(step - 1);
   };
 
+
+
+  //Step 2 states
   const [selectedType, setSelectedType] = useState(""); // State to store the selected type (Product or Service)
   const [productName, setProductName] = useState(""); // State to store the product name
   const [productDescription, setProductDescription] = useState("");
@@ -164,6 +189,8 @@ const UploadProducts = () => {
     switch (step) {
       case 1:
         return (
+
+
           <>
             <Box color="white" fontFamily="clash grotesk">
               <Heading
@@ -255,7 +282,11 @@ const UploadProducts = () => {
                 Proceed
               </Button>
             </Box>
+
+
           </>
+
+
         );
       case 2:
         return (
@@ -352,7 +383,7 @@ const UploadProducts = () => {
                 alignItems="center"
                 fontFamily="clash grotesk"
                 onDrop={handleFileDrop}
-                onDragEnter={() => setSelectedFileError("")} 
+                onDragEnter={() => setSelectedFileError("")}
                 onDragOver={(event) => event.preventDefault()}
               >
                 <Box style={{ color: "#808080", fontWeight: "500" }}>
@@ -375,10 +406,13 @@ const UploadProducts = () => {
                       style={{
                         color: "#CB29BE",
                         fontWeight: "600",
+                        cursor: "pointer",
                        
                       }}
                       htmlFor="file-upload"
-                      onClick={() => setSelectedFileError("")}
+                      onClick={() => setSelectedFileError("")} 
+                      cursor='pointer'
+
                     >
                       click here to browse
                     </label>{" "}
@@ -391,7 +425,6 @@ const UploadProducts = () => {
                   id="file-upload"
                   accept="image/*"
                   onChange={handleFileSelect}
-                  
                   style={{ display: "none" }}
                 />
                 {selectedFile && (
@@ -419,7 +452,7 @@ const UploadProducts = () => {
                 <FormLabel fontFamily="clash grotesk">
                   {selectedType} price
                 </FormLabel>
-                <Box display="flex" alignItems="center" >
+                <Box display="flex" alignItems="center">
                   <HStack spacing={2}>
                     <Image
                       src={selectedCurrencyData.image}
@@ -432,6 +465,7 @@ const UploadProducts = () => {
                       value={selectedCurrency}
                       onChange={handleChange}
                       w="120px"
+                      borderRadius='25px'
                     >
                       {currencyOptions.map((option) => (
                         <option key={option.code} value={option.code}>
@@ -444,38 +478,35 @@ const UploadProducts = () => {
                   <FormControl ml={2}>
                     <Input
                       type="number"
-                      id="numberInput"
                       borderRadius="10px"
+                      value={servicePrice}
                       placeholder="Enter a price"
                       borderColor="#808080"
                       onChange={handleServicePriceChange}
                       onFocus={() => setServicePriceError("")}
                     />
-                    
                   </FormControl>
                 </Box>
                 {servicePriceError && (
                   <Text color="#CB29BE">{servicePriceError}</Text>
                 )}
-                </Box>
-               
+              </Box>
 
-                <Button
-                  bg="#CB29BE"
-                  color="white"
-                  fontWeight={500}
-                  rounded="25px"
-                  px={10}
-                  width="full"
-                  mb={2}
-                  _hover={{ bg: "#CB29BE", opacity: "0.9" }}
-                  fontFamily="clash grotesk"
-                  mt={4}
-                  onClick={handleProceed2}
-                >
-                  Proceed
-                </Button>
-              
+              <Button
+                bg="#CB29BE"
+                color="white"
+                fontWeight={500}
+                rounded="25px"
+                px={10}
+                width="full"
+                mb={2}
+                _hover={{ bg: "#CB29BE", opacity: "0.9" }}
+                fontFamily="clash grotesk"
+                mt={4}
+                onClick={handleProceed2}
+              >
+                Proceed
+              </Button>
             </Box>
           </>
         );
@@ -497,20 +528,131 @@ const UploadProducts = () => {
               icon={<ArrowBackIcon />}
             />
             <Box color="white" fontFamily="clash grotesk">
+              <FormControl mb={4}>
+                <FormLabel>Select a category</FormLabel>
+                <Menu>
+                  <MenuButton
+                    as={Text}
+                    color="#808080"
+                    fontSize="16px"
+                    textAlign="left"
+                    borderColor="#808080"
+                    borderWidth="2px"
+                    borderRadius="lg"
+                    px={4}
+                    py={2}
+                    _focus={{ outline: "none" }}
+                    onFocus={() => setSelectedCategoryError("")}
+                  >
+                    {selectedCategory || "Select a category"}
+                  </MenuButton>
+                  <MenuList maxH="200px" overflow="auto">
+                    {categories.map((category) => (
+                      <MenuItem
+                        key={category}
+                        color="#808080"
+                        onClick={() => {
+                          setSelectedCategory(category);
+                        }}
+                      >
+                        {category}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </Menu>
+                {selectedCategoryError && <Text color='#cb29be'>{selectedCategoryError}</Text>}
+              </FormControl>
+
               {selectedType === "Product" ? (
                 <>
                   {/* Product-specific content for step 3 */}
-                  <FormControl fontFamily="clash grotesk" my={4}>
-                    <FormLabel>Product-specific Label</FormLabel>
-                    {/* Add input field for product-specific data */}
-                  </FormControl>
+
+                  <Box color="#808080">
+                    <FormControl mb={4}>
+                      <FormLabel color="#ffffff">Brand name</FormLabel>
+                      <Input
+                        borderColor="#808080"
+                        borderRadius="12px"
+                        value={BrandName}
+                        onChange={(e) => setBrandName(e.target.value)}
+                        onFocus={() => setBrandNameError("")}
+                      />
+                      {BrandNameError && <Text color='#cb29be'>{BrandNameError}</Text>}
+                    </FormControl>
+
+                    <FormControl mb={4} color="#808080">
+                      <FormLabel color="#ffffff">Size</FormLabel>
+                      <Input
+                        borderColor="#808080"
+                        borderRadius="12px"
+                        value={Size}
+                        onChange={(e) => setSize(e.target.value)}
+                      />
+                      <Text>Only fill this if applicable</Text>
+                    </FormControl>
+
+                    <FormControl mb={4}>
+                      <FormLabel color="#ffffff">Color</FormLabel>
+                      <Input
+                        borderColor="#808080"
+                        borderRadius="12px"
+                        value={Color}
+                        onChange={(e) => setColor(e.target.value)}
+                      />
+                      <Text>Only fill this if applicable</Text>
+                    </FormControl>
+
+                    <FormControl mb={4}>
+                      <FormLabel color="#ffffff">Material</FormLabel>
+                      <Input
+                        borderColor="#808080"
+                        borderRadius="12px"
+                        value={Material}
+                        onChange={(e) => setMaterial(e.target.value)}
+                      />
+                      <Text>Only fill this if applicable</Text>
+                    </FormControl>
+                  </Box>
                 </>
               ) : (
                 <>
                   {/* Service-specific content for step 3 */}
                   <FormControl fontFamily="clash grotesk" my={4}>
-                    <FormLabel>Service-specific Label</FormLabel>
-                    {/* Add input field for service-specific data */}
+                   
+
+
+                  <HStack>
+        {/* Dropdown */}
+        <Menu>
+          <MenuButton as={FormLabel} width='200px'>
+            <Flex>
+              <Image src={selectedCode.imageSrc} alt={selectedCode.label} boxSize="30px" mr="2" rounded='full' />
+              {selectedCode.label}
+            </Flex>
+          </MenuButton>
+          <MenuList>
+            {countryDropdown.map((code) => (
+              <MenuItem key={code.label} onClick={() => handleOptionSelect(code)}>
+                <Flex align="center" color='#808080'>
+                  <Image src={countryDropdown.imageSrc} alt={countryDropdown.label} boxSize="30px" mr="2" rounded="full"/>
+                  {code.label}
+                </Flex>
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Menu>
+
+        {/* Input box with pre-filled country code */}
+        <FormControl>
+          <FormLabel>Country Code</FormLabel>
+          <Input
+            value={selectedCode.countryCode}
+           
+          />
+        </FormControl>
+      </HStack>
+
+
                   </FormControl>
                 </>
               )}
@@ -527,7 +669,7 @@ const UploadProducts = () => {
                 _hover={{ bg: "#CB29BE", opacity: "0.9" }}
                 fontFamily="clash grotesk"
                 mt={4}
-                onClick={handleProceed}
+                onClick={handleUpload}
               >
                 Upload {selectedType}
               </Button>
@@ -539,6 +681,8 @@ const UploadProducts = () => {
     }
   };
 
+
+  //Synch selected picture with logo
   const [selectedCurrency, setSelectedCurrency] = useState(
     currencyOptions[0].code
   );
@@ -555,6 +699,67 @@ const UploadProducts = () => {
     setServicePrice(event.target.value);
   };
 
+
+  //Step 3 states
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [BrandName, setBrandName] = useState("");
+  const [Size, setSize] = useState("");
+  const [Color, setColor] = useState("");
+  const [Material, setMaterial] = useState("");
+
+  const categories = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
+
+  const [selectedCategoryError, setSelectedCategoryError] = useState("");
+  const [BrandNameError, setBrandNameError] = useState("");
+
+
+
+  //Function to validate and open payment modal
+  const handleUpload = () => {
+    // Check if selected option is empty
+    if (!selectedCategory) {
+      setSelectedCategoryError("Please select a category.");
+      return;
+    } else {
+      setSelectedCategoryError("");
+    }
+
+    if (selectedType === "Product") {
+      // If the selected type is "Product," check if brand name is filled
+      if (!BrandName) {
+        setBrandNameError("Please enter a brand name.");
+        return;
+      } else {
+        setBrandNameError("");
+      }
+    }
+
+    // Perform your upload logic here
+    // ...
+  };
+
+
+
+
+  const countryDropdown = [
+    {
+      label: "Option 1",
+      imageSrc: NGN, // Replace with your image path
+      countryCode: "+1",
+    },
+    {
+      label: "Option 2",
+      imageSrc: "/path-to-image/image2.png", // Replace with your image path
+      countryCode: "+44",
+    },
+    // Add more options as needed
+  ];
+
+  const [selectedCode, setSelectedCode] = useState(countryDropdown[0]); // Initialize with the first option
+
+  const handleOptionSelect = (countryDropdown) => {
+    setSelectedCode(countryDropdown);
+  };
   return (
     <Container
       ml={{ base: 0, md: "25%" }}

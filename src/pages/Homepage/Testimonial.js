@@ -78,19 +78,26 @@ const Testimonial = () => {
             <Text fontWeight="500"  className={animationClass}>{currentTestimony.name}</Text>
             <Text>User</Text>
           </Box>
-          <Box mt={12} cursor='pointer'>
+          <Box mt={12} display='flex'>
+            <Box cursor='pointer'>
           <iconify-icon
             icon="bi:arrow-left-circle-fill"
             style={{ color: "#808080", marginLeft: '12px' }}
             width="36"
             onClick={handlePrevious}
+            cursor='pointer'
           ></iconify-icon>
+          </Box>
+
+          <Box cursor='pointer'>
           <iconify-icon
             icon="bi:arrow-right-circle-fill"
             style={{ color: "white",  marginLeft: '12px' }}
             width="36"
             onClick={handleNext}
+            
           ></iconify-icon>
+          </Box>
           </Box>
         </Box>
       </Flex>
