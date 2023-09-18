@@ -104,11 +104,12 @@ const Goback = () => {
   };
   return (
     <IconButton
-      aria-label="Search database"
       onClick={handleGoBack}
-      position="absolute"
       left={{ base: "5px", md: "26%" }}
-      top="0"
+       py={5}
+      pos='fixed'
+      top='20'
+      zIndex='1000'
      mb={4}
       color="white"
       bg="inherit"

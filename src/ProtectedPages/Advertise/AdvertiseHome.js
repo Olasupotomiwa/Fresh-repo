@@ -1,6 +1,6 @@
 import React from "react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { IconButton } from "@chakra-ui/react";
+
+import  {Goback} from '../Earn/Earnhome'
 
 import { Box, Flex, Text, Heading, Button, Container } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
@@ -97,30 +97,7 @@ const Card = ({ icon, header, content, to, text }) => {
   );
 };
 
-const Goback = () => {
-  const navigate = useNavigate();
-  const handleGoBack = () => {
-    navigate(-1); // Go back to the previous route
-  };
-  return (
-    <IconButton
-      aria-label="Search database"
-      onClick={handleGoBack}
-      position="absolute"
-      left={{ base: "5px", md: "26%" }}
-      top="0"
-     mb={4}
-      color="white"
-      bg="inherit"
-      _hover={{ bg: "inherit" }}
-      fontSize="30px"
-      cursor="pointer"
-      icon={<ArrowBackIcon />}
-    />
-  );
-};
 
-export {Goback}
 
 
 const CardsSection = () => {
