@@ -11,7 +11,7 @@ import Footer from "components/Footer";
 
 const Homepage = () => {
   return (
-    <Container maxW="full" bg="black" px={0} pt='20'>
+    <Container maxW="full" bg="black" pt='20'>
       <Hero />
       <Card />
       <Conditional />

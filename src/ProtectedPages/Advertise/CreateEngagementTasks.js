@@ -15,6 +15,7 @@ import Youtube from "assets/SocialMediaLogo/Youtube.png";
 
 
 
+const newLocal = 'Get people to view, like and comment on your YouTube video || Pay <span class="dollar-amount"> $10 </span> for this task';
 export const contentArray = [
   {
     id: 1,
@@ -72,7 +73,7 @@ export const contentArray = [
     id: 6,
     imageSrc: Youtube,
     headerText:
-      'Get people to view, like and comment on your YouTube video || Pay <span class="dollar-amount"> $10 </span> for this task',
+      newLocal,
     description1:
       "Increase the views, likes and comments on your YouTube video.",
     route: "/advertise/create-engagement-tasks",

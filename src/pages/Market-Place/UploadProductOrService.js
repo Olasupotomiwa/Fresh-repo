@@ -619,13 +619,13 @@ const UploadProducts = () => {
                   {/* Service-specific content for step 3 */}
                   <FormControl fontFamily="clash grotesk" my={4}>
                    
+                  <FormLabel>Contact info</FormLabel>
 
-
-                  <HStack>
+                  <HStack >
         {/* Dropdown */}
-        <Menu>
-          <MenuButton as={FormLabel} width='200px'>
-            <Flex>
+        <Menu >
+          <MenuButton as={FormLabel} width='100px'>
+            <Flex bg='red'>
               <Image src={selectedCode.imageSrc} alt={selectedCode.label} boxSize="30px" mr="2" rounded='full' />
               {selectedCode.label}
             </Flex>
@@ -643,8 +643,8 @@ const UploadProducts = () => {
         </Menu>
 
         {/* Input box with pre-filled country code */}
-        <FormControl>
-          <FormLabel>Country Code</FormLabel>
+        <FormControl bg='red'>
+        
           <Input
             value={selectedCode.countryCode}
            
@@ -743,14 +743,14 @@ const UploadProducts = () => {
 
   const countryDropdown = [
     {
-      label: "Option 1",
-      imageSrc: NGN, // Replace with your image path
-      countryCode: "+1",
+      label: "  NGN",
+      imageSrc: NGN,
+      countryCode: "+12",
     },
     {
       label: "Option 2",
-      imageSrc: "/path-to-image/image2.png", // Replace with your image path
-      countryCode: "+44",
+      imageSrc: "/path-to-image/image2.png", 
+      countryCode: "+234",
     },
     // Add more options as needed
   ];
@@ -771,7 +771,7 @@ const UploadProducts = () => {
     >
       <Box
         mt="20"
-        width={{ base: "full", md: "70%" }}
+        width={{ base: "full", md: "60%" }}
         mx="auto"
         px={{ base: "5", md: "10" }}
         py={10}

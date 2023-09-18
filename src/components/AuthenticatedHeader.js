@@ -57,12 +57,12 @@ const SidebarContent = ({ onClose, ...rest }) => {
       h="full"
     
       {...rest}>
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between" >
+      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between"  >
        
         <Image src={Logo} />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} color='white' />
       </Flex>
-      <Box mt='30px' >
+      <Box mt='30px'  pb={20}>
       {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon} path={link.path} onClose={onClose} >
           {link.name}
@@ -208,7 +208,7 @@ const SidebarWithHeader = () => {
 
   return (
     <Box bg='#121212' >
-      <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }}   overflowY="auto" />
+      <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }}   overflowY="auto"  />
       <Drawer
         isOpen={isOpen}
         placement="left"
