@@ -14,7 +14,7 @@ import ForgotPasswordPage from "./pages/SignUp/ForgotPassword";
 import AuthenticatedHeader from "./components/AuthenticatedHeader";
 import Dashboard from "./Dahboard/dashboard";
 import ProtectedMarketPlace from "./ProtectedPages/ExistingPages/PpMarketplace";
-import UploadProducts from './pages/Market-Place/UploadProductOrService'
+import UploadProducts from "./pages/Market-Place/UploadProductOrService";
 import ProtectedFAQS from "./ProtectedPages/ExistingPages/PpFaqs";
 import ProtectedAbout from "./ProtectedPages/ExistingPages/PpAbout";
 import Homepage2 from "./ProtectedPages/Homepage/Homepage2";
@@ -47,8 +47,11 @@ import AppStore from "ProtectedPages/Earn/EngagementTasks/AppStore";
 //Advertisements pages
 import AdvertiseHomePage from "./ProtectedPages/Advertise/AdvertiseHome";
 import AdvertiseTaskPage from "./ProtectedPages/Advertise/AdvertiseTasksPage";
-import PostAdtasks from './ProtectedPages/Advertise/PostAdTasks'
+import PostAdtasks from "./ProtectedPages/Advertise/PostAdTasks";
 import PostEngagemntTasks from "ProtectedPages/Advertise/PostEngagementTasks";
+
+//Refferral
+import Referral from "./ProtectedPages/Referral";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -65,8 +68,6 @@ const queryClient = new QueryClient();
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isLinked = useSelector((state) => state.linked.isLinked);
-
-
 
   const apiEndpoint = "https://jsonplaceholder.typicode.com/albums";
   return (
@@ -95,7 +96,7 @@ function App() {
             element={<AuthenticatedRoute element={<ProtectedMarketPlace />} />}
           />
 
-         <Route
+          <Route
             path="/market-place2/upload-product-or-service"
             element={<AuthenticatedRoute element={<UploadProducts />} />}
           />
@@ -113,7 +114,7 @@ function App() {
             element={<AuthenticatedRoute element={<ProtectedAbout />} />}
           />
 
-         <Route
+          <Route
             path="/buy-followers2"
             element={<AuthenticatedRoute element={<ProtectedBuyFollowers />} />}
           />
@@ -201,9 +202,8 @@ function App() {
           <Route
             path="/earn/engagement/perform-task/:taskId"
             element={
-              <AuthenticatedRoute element={<PerformEngagementTasksPage  />} />
+              <AuthenticatedRoute element={<PerformEngagementTasksPage />} />
             }
-           
           />
 
           <Route
@@ -213,7 +213,11 @@ function App() {
 
           <Route
             path="/earn/engagement/like-posts"
-            element={<AuthenticatedRoute element={<LikeTaskPage  apiEndpoint={apiEndpoint} />} />}
+            element={
+              <AuthenticatedRoute
+                element={<LikeTaskPage apiEndpoint={apiEndpoint} />}
+              />
+            }
           />
 
           <Route
@@ -271,10 +275,14 @@ function App() {
             element={<AuthenticatedRoute element={<PostAdtasks />} />}
           />
 
-
-<          Route
+          <Route
             path="/advertise/create-engagement-tasks"
             element={<AuthenticatedRoute element={<PostEngagemntTasks />} />}
+          />
+
+          <Route
+            path="/referral"
+            element={<AuthenticatedRoute element={<Referral />} />}
           />
         </Routes>
       </>
@@ -283,4 +291,3 @@ function App() {
 }
 
 export default App;
-

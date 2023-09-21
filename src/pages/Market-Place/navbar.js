@@ -18,7 +18,7 @@ const Navbar = ({ onNavLinkClick }) => {
     { label: "Electronics", id: "Electronics" },
     { label: "Home & office", id: "Home & office" },
     { label: "Groceries", id: "Groceries" },
-    { label: "Other", id: "Other" },
+    { label: "Others", id: "Other" },
   ];
 
   return (

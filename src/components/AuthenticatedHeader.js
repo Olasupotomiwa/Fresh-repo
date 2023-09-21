@@ -38,7 +38,7 @@ const LinkItems = [
   { name: 'Advertise', icon: 'bi:phone-vibrate-fill', path: '/advertise' },
   { name: 'Marketplace', icon: 'solar:cart-4-bold', path: '/market-place2' },
   { name: 'Buy more followers & more', icon: "fluent:people-32-filled", path: '/buy-followers2' },
-  { name: 'Referral', icon: "ph:paper-plane-fill", path: '/settings3' },
+  { name: 'Referral', icon: "ph:paper-plane-fill", path: '/referral' },
   { name: 'My Dashboard', icon: "fluent:content-view-gallery-28-filled", path: '/dashboard' },
   { name: 'My profile', icon: "bi:person-fill", path: '/settings5' },
   { name: 'FAQS', icon: "bxs:chat", path: '/frequency-asked-questions' },

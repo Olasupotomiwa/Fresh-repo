@@ -211,6 +211,8 @@ const PostEngagemntTasks = () => {
                       onFocus={() => {
                         // Clear the error when the input is focused
                         setEngagementTaskError("");
+                       
+                       
                       }}
                     >
                       {task}

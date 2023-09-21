@@ -87,7 +87,8 @@ const LoginPage = () => {
          const mockUserData = {
           id: 1,
           username: 'Trendit3',
-          Balance : '1000'
+          Balance : '1000',
+          referral_link : 'www.trendit3.com/signup/dezfoodz',
          
           // Other properties...
         };

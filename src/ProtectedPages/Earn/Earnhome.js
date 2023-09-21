@@ -103,21 +103,25 @@ const Goback = () => {
     navigate(-1); // Go back to the previous route
   };
   return (
+    <Box>
     <IconButton
       onClick={handleGoBack}
       left={{ base: "5px", md: "26%" }}
        py={5}
+       pr='100%'
+      
       pos='fixed'
       top='20'
       zIndex='1000'
      mb={4}
       color="white"
-      bg="inherit"
+      bg="black"
       _hover={{ bg: "inherit" }}
       fontSize="30px"
       cursor="pointer"
       icon={<ArrowBackIcon />}
     />
+    </Box>
   );
 };
 

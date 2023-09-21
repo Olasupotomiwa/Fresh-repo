@@ -1,6 +1,5 @@
 import {
   Container,
-  IconButton,
   Heading,
   Text,
   Input,
@@ -13,7 +12,7 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import { Goback } from "../../ProtectedPages/Earn/Earnhome";
 import {
   FormControl,
   FormLabel,
@@ -27,9 +26,6 @@ import NGN from "assets/images/naira.jpg";
 import locationData from "../../pages/SignUp/LocationArray";
 
 const UploadProducts = () => {
-
-
-
   //Step 1 states validation
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
@@ -76,8 +72,7 @@ const UploadProducts = () => {
       .find((data) => data.country === selectedCountry)
       ?.states.find((state) => state.state === selectedState)?.cities || [];
 
-
-      //Handle step 1 proceed button
+  //Handle step 1 proceed button
   const handleProceed = () => {
     if (!selectedCountry) {
       setCountryError("Please select a country.");
@@ -141,13 +136,6 @@ const UploadProducts = () => {
     setStep(step + 1);
   };
 
-  const handlePreviousStep = () => {
-    // Navigate back to the previous step
-    setStep(step - 1);
-  };
-
-
-
   //Step 2 states
   const [selectedType, setSelectedType] = useState(""); // State to store the selected type (Product or Service)
   const [productName, setProductName] = useState(""); // State to store the product name
@@ -189,8 +177,6 @@ const UploadProducts = () => {
     switch (step) {
       case 1:
         return (
-
-
           <>
             <Box color="white" fontFamily="clash grotesk">
               <Heading
@@ -282,29 +268,12 @@ const UploadProducts = () => {
                 Proceed
               </Button>
             </Box>
-
-
           </>
-
-
         );
       case 2:
         return (
           <>
-            <IconButton
-              aria-label="Search database"
-              onClick={handlePreviousStep}
-              position="absolute"
-              left={{ base: "5px", md: "26%" }}
-              top="0"
-              mb={4}
-              color="white"
-              bg="inherit"
-              _hover={{ bg: "inherit" }}
-              fontSize="30px"
-              cursor="pointer"
-              icon={<ArrowBackIcon />}
-            />
+            <Goback />
             <Box color="white" fontFamily="clash grotesk">
               <Heading
                 fontSize="34px"
@@ -407,12 +376,10 @@ const UploadProducts = () => {
                         color: "#CB29BE",
                         fontWeight: "600",
                         cursor: "pointer",
-                       
                       }}
                       htmlFor="file-upload"
-                      onClick={() => setSelectedFileError("")} 
-                      cursor='pointer'
-
+                      onClick={() => setSelectedFileError("")}
+                      cursor="pointer"
                     >
                       click here to browse
                     </label>{" "}
@@ -465,7 +432,7 @@ const UploadProducts = () => {
                       value={selectedCurrency}
                       onChange={handleChange}
                       w="120px"
-                      borderRadius='25px'
+                      borderRadius="25px"
                     >
                       {currencyOptions.map((option) => (
                         <option key={option.code} value={option.code}>
@@ -513,20 +480,7 @@ const UploadProducts = () => {
       case 3:
         return (
           <>
-            <IconButton
-              aria-label="Search database"
-              onClick={handlePreviousStep}
-              position="absolute"
-              left={{ base: "5px", md: "26%" }}
-              top="0"
-              mb={4}
-              color="white"
-              bg="inherit"
-              _hover={{ bg: "inherit" }}
-              fontSize="30px"
-              cursor="pointer"
-              icon={<ArrowBackIcon />}
-            />
+            <Goback />
             <Box color="white" fontFamily="clash grotesk">
               <FormControl mb={4}>
                 <FormLabel>Select a category</FormLabel>
@@ -560,7 +514,9 @@ const UploadProducts = () => {
                     ))}
                   </MenuList>
                 </Menu>
-                {selectedCategoryError && <Text color='#cb29be'>{selectedCategoryError}</Text>}
+                {selectedCategoryError && (
+                  <Text color="#cb29be">{selectedCategoryError}</Text>
+                )}
               </FormControl>
 
               {selectedType === "Product" ? (
@@ -577,7 +533,9 @@ const UploadProducts = () => {
                         onChange={(e) => setBrandName(e.target.value)}
                         onFocus={() => setBrandNameError("")}
                       />
-                      {BrandNameError && <Text color='#cb29be'>{BrandNameError}</Text>}
+                      {BrandNameError && (
+                        <Text color="#cb29be">{BrandNameError}</Text>
+                      )}
                     </FormControl>
 
                     <FormControl mb={4} color="#808080">
@@ -618,41 +576,49 @@ const UploadProducts = () => {
                 <>
                   {/* Service-specific content for step 3 */}
                   <FormControl fontFamily="clash grotesk" my={4}>
-                   
-                  <FormLabel>Contact info</FormLabel>
+                    <FormLabel>Contact info</FormLabel>
 
-                  <HStack >
-        {/* Dropdown */}
-        <Menu >
-          <MenuButton as={FormLabel} width='100px'>
-            <Flex bg='red'>
-              <Image src={selectedCode.imageSrc} alt={selectedCode.label} boxSize="30px" mr="2" rounded='full' />
-              {selectedCode.label}
-            </Flex>
-          </MenuButton>
-          <MenuList>
-            {countryDropdown.map((code) => (
-              <MenuItem key={code.label} onClick={() => handleOptionSelect(code)}>
-                <Flex align="center" color='#808080'>
-                  <Image src={countryDropdown.imageSrc} alt={countryDropdown.label} boxSize="30px" mr="2" rounded="full"/>
-                  {code.label}
-                </Flex>
-              </MenuItem>
-            ))}
-          </MenuList>
-        </Menu>
+                    <HStack>
+                      {/* Dropdown */}
+                      <Menu>
+                        <MenuButton as={FormLabel} width="AUTO" mt="3">
+                          <Flex>
+                            <Image
+                              src={selectedCode.imageSrc}
+                              alt={selectedCode.label}
+                              boxSize="30px"
+                              mr={2}
+                              rounded="full"
+                            />
+                            {selectedCode.label}
+                          </Flex>
+                        </MenuButton>
+                        <MenuList>
+                          {countryDropdown.map((code) => (
+                            <MenuItem
+                              key={code.label}
+                              onClick={() => handleOptionSelect(code)}
+                            >
+                              <Flex align="center" color="#808080">
+                                <Image
+                                  src={countryDropdown.imageSrc}
+                                  alt={countryDropdown.label}
+                                  boxSize="30px"
+                                  mr="2"
+                                  rounded="full"
+                                />
+                                {code.label}
+                              </Flex>
+                            </MenuItem>
+                          ))}
+                        </MenuList>
+                      </Menu>
 
-        {/* Input box with pre-filled country code */}
-        <FormControl bg='red'>
-        
-          <Input
-            value={selectedCode.countryCode}
-           
-          />
-        </FormControl>
-      </HStack>
-
-
+                      {/* Input box with pre-filled country code */}
+                      <FormControl>
+                        <Input value={selectedCode.countryCode} />
+                      </FormControl>
+                    </HStack>
                   </FormControl>
                 </>
               )}
@@ -681,7 +647,6 @@ const UploadProducts = () => {
     }
   };
 
-
   //Synch selected picture with logo
   const [selectedCurrency, setSelectedCurrency] = useState(
     currencyOptions[0].code
@@ -699,7 +664,6 @@ const UploadProducts = () => {
     setServicePrice(event.target.value);
   };
 
-
   //Step 3 states
   const [selectedCategory, setSelectedCategory] = useState("");
   const [BrandName, setBrandName] = useState("");
@@ -707,12 +671,18 @@ const UploadProducts = () => {
   const [Color, setColor] = useState("");
   const [Material, setMaterial] = useState("");
 
-  const categories = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
+  const categories = [
+    "Fashion",
+    "Health & Beauty",
+    "Gadget & accessories",
+    "Electronics",
+    "Home & office",
+    "Groceries",
+    "Others",
+  ];
 
   const [selectedCategoryError, setSelectedCategoryError] = useState("");
   const [BrandNameError, setBrandNameError] = useState("");
-
-
 
   //Function to validate and open payment modal
   const handleUpload = () => {
@@ -738,18 +708,15 @@ const UploadProducts = () => {
     // ...
   };
 
-
-
-
   const countryDropdown = [
     {
       label: "  NGN",
       imageSrc: NGN,
-      countryCode: "+12",
+      countryCode: "+234",
     },
     {
       label: "Option 2",
-      imageSrc: "/path-to-image/image2.png", 
+      imageSrc: "/path-to-image/image2.png",
       countryCode: "+234",
     },
     // Add more options as needed
