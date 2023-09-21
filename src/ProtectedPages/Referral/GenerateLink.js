@@ -40,7 +40,7 @@ const GenerateLink = () => {
   return (
     <Container px={0} maxW="100%">
       <Box textAlign={{ base: "center", md: "left" }} py={6}>
-        <Heading color="white" fontWeight="500">
+        <Heading color="white" fontWeight="500" fontFamily='clash grotesk'>
           Referrals
         </Heading>
         <Text color="#808080" mt={4}>
