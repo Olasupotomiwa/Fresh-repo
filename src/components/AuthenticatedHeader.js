@@ -44,10 +44,10 @@ const LinkItems = [
     icon: "fluent:content-view-gallery-28-filled",
     path: "/dashboard",
   },
-  { name: "My profile", icon: "bi:person-fill", path: "/settings5" },
+  { name: "My profile", icon: "bi:person-fill", path: "/my-profile" },
   { name: "FAQS", icon: "bxs:chat", path: "/frequency-asked-questions" },
   { name: "About us", icon: "fluent:info-12-filled", path: "/about2" },
-  { name: "Chat with support", icon: "mdi:video-chat", path: "/settings6" },
+  { name: "Chat with support", icon: "mdi:video-chat", path: "/chat-with-support" },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {
@@ -224,7 +224,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 mr="6"
               >
                 <HStack>
-                  <Avatar size={"sm"} src="" />
+                  <Avatar size={"sm"} src={user.Profile_picture} />
                   <VStack
                     display={{ base: "none", md: "flex" }}
                     alignItems="flex-start"

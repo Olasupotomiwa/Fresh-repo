@@ -87,8 +87,11 @@ const LoginPage = () => {
          const mockUserData = {
           id: 1,
           username: 'Trendit3',
+          Profile_picture: 'https://usuploads.s3.amazonaws.com/itlearn360/uploads/2018/12/dummy-profile-pic-300x300.jpg',
           Balance : '1000',
           referral_link : 'www.trendit3.com/signup/dezfoodz',
+          password: 'Trendit3',
+          email: 'Trendit3@gmail.com'
          
           // Other properties...
         };

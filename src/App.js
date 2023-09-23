@@ -53,6 +53,9 @@ import PostEngagemntTasks from "ProtectedPages/Advertise/PostEngagementTasks";
 //Refferral
 import Referral from "./ProtectedPages/Referral";
 
+//Profile
+import Profile from './ProtectedPages/MyProfile'
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -283,6 +286,10 @@ function App() {
           <Route
             path="/referral"
             element={<AuthenticatedRoute element={<Referral />} />}
+          />
+            <Route
+            path="/my-profile"
+            element={<AuthenticatedRoute element={<Profile />} />}
           />
         </Routes>
       </>
