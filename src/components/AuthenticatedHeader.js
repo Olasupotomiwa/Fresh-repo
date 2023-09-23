@@ -20,10 +20,11 @@ import {
   Menu,
   MenuButton,
   MenuItem,
+  Input,
   MenuList,
   Container,
 } from "@chakra-ui/react";
-import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
+import { FiMenu, FiBell, FiChevronDown, FiSearch } from "react-icons/fi";
 import Logo from "../../src/assets/images/logo.png";
 
 // Update the LinkItems with route paths
@@ -162,14 +163,44 @@ const MobileNav = ({ onOpen, ...rest }) => {
     >
       
       <Flex
-        ml={{ base: 0, md: "25%" }}
         px={{ base: 4, md: 4 }}
         height="20"
         alignItems="center"
-        justifyContent={{ base: "space-between", md: "flex-end" }}
+        justifyContent={{ base: "space-between", md: "space-between" }}
         {...rest}
         
       >
+        {/* Add search input with icon */}
+        <Box
+  display={{ base: 'none', md: 'flex' }}
+  alignItems="center"
+  border="1px solid #808080" 
+  borderRadius="15px"
+  transition="border-color 0.3s ease" 
+>
+  <IconButton
+    size="lg"
+    variant="ghost"
+    _hover={{ bg: "black", opacity: "0.9" }}
+    aria-label="search"
+    icon={<FiSearch color="white" />}
+  />
+  <Input
+    type="text"
+    placeholder="Search"
+    bg="transparent"
+    border="none"
+    fontFamily='clash grotesk'
+    outline="none"
+    color="white"
+    ml='-5'
+    _focus={{
+      borderColor: "transparent", // Remove border on focus
+      boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)", // Add box shadow on focus
+    }}
+  />
+</Box>
+
 
         <Image src={Logo} width="75px" display={{ base: "flex", md: "none" }} />
         

@@ -60,6 +60,7 @@ const GenerateLink = () => {
         status: "success",
         duration: 3000, 
         isClosable: true,
+        position: "top",
       });
 
 
@@ -126,7 +127,7 @@ const GenerateLink = () => {
             </Button>
           </FormControl>
           <Text color="#808080" fontSize='sm' py={3}>
-            Your referral are required to pay the the account activation fee of
+            Your referral are required to pay the  account activation fee of
             $10 after signing up with your link
           </Text>
 
