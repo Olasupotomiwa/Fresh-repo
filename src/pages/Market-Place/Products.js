@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => (
     overflow="hidden"
     px={0}
     boxShadow="md"
-    height={{ base: "370px", md: "430.3px" }}
+    height={{ base: "380px", md: "430.3px" }}
     bg="black"
     mb={4}
     mx={{ base: "2px", md: "1" }}
