@@ -141,7 +141,7 @@ const Products = () => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <Container h='50vh' color='white'>Error: {error.message}</Container>;
   }
 
   return (
