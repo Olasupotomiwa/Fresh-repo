@@ -11,7 +11,7 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import { Goback } from "../../ProtectedPages/Earn/Earnhome";
 import {
   FormControl,
@@ -22,7 +22,8 @@ import {
   HStack,
 } from "@chakra-ui/react";
 
-import NGN from "assets/images/naira.jpg";
+import NGN from "assets/images/naira.jpg"
+import CountryCode from './UpdatePhoneNo'
 import locationData from "../../pages/SignUp/LocationArray";
 
 const UploadProducts = () => {
@@ -575,51 +576,7 @@ const UploadProducts = () => {
               ) : (
                 <>
                   {/* Service-specific content for step 3 */}
-                  <FormControl fontFamily="clash grotesk" my={4}>
-                    <FormLabel>Contact info</FormLabel>
-
-                    <HStack>
-                      {/* Dropdown */}
-                      <Menu>
-                        <MenuButton as={FormLabel} width="AUTO" mt="3">
-                          <Flex>
-                            <Image
-                              src={selectedCode.imageSrc}
-                              alt={selectedCode.label}
-                              boxSize="30px"
-                              mr={2}
-                              rounded="full"
-                            />
-                            {selectedCode.label}
-                          </Flex>
-                        </MenuButton>
-                        <MenuList>
-                          {countryDropdown.map((code) => (
-                            <MenuItem
-                              key={code.label}
-                              onClick={() => handleOptionSelect(code)}
-                            >
-                              <Flex align="center" color="#808080">
-                                <Image
-                                  src={countryDropdown.imageSrc}
-                                  alt={countryDropdown.label}
-                                  boxSize="30px"
-                                  mr="2"
-                                  rounded="full"
-                                />
-                                {code.label}
-                              </Flex>
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </Menu>
-
-                      {/* Input box with pre-filled country code */}
-                      <FormControl>
-                        <Input value={selectedCode.countryCode} />
-                      </FormControl>
-                    </HStack>
-                  </FormControl>
+                  <CountryCode/>
                 </>
               )}
             </Box>
@@ -708,25 +665,7 @@ const UploadProducts = () => {
     // ...
   };
 
-  const countryDropdown = [
-    {
-      label: "  NGN",
-      imageSrc: NGN,
-      countryCode: "+234",
-    },
-    {
-      label: "Option 2",
-      imageSrc: "/path-to-image/image2.png",
-      countryCode: "+234",
-    },
-    // Add more options as needed
-  ];
-
-  const [selectedCode, setSelectedCode] = useState(countryDropdown[0]); // Initialize with the first option
-
-  const handleOptionSelect = (countryDropdown) => {
-    setSelectedCode(countryDropdown);
-  };
+  
   return (
     <Container
       ml={{ base: 0, md: "25%" }}

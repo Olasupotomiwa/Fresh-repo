@@ -1,4 +1,4 @@
-function Pagination({ totalPages, currentPage, onPageChange }) {
+export default function Pagination({ totalPages, currentPage, onPageChange }) {
     const maxPageButtons = 5; // Adjust this value as needed
   
     // Calculate the range of page buttons to display

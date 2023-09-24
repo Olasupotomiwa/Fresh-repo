@@ -31,7 +31,7 @@ const UploadImage = () => {
       py={6}
       px={4}
     >
-      <HStack gap={5} ml={4}>
+      <HStack gap={{base: '3', md: '5'}} ml={2}>
         <Box>
           {selectedImage ? (
             <Image
@@ -39,6 +39,7 @@ const UploadImage = () => {
               rounded="full"
               height="65px"
               width="65px"
+              boxSize='70px'
               borderWidth="1px"
             />
           ) : (
@@ -56,7 +57,7 @@ const UploadImage = () => {
           <Text color="#808080" py={1}>
             Image must be 10MB max file size
           </Text>
-          <HStack gap={5}>
+          <HStack gap={{base: '3', md: '5'}}>
             <label>
               <Button
                 as="span"

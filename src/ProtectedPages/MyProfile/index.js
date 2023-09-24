@@ -1,6 +1,8 @@
 import { Container, Box } from "@chakra-ui/react";
 import UploadImage from "./uploadimage";
 import ContactInfo from './ContactInfo'
+import BankDetails from "./BankDetails";
+import UpdateLocation from "./UpdateLocation";
 const Referral = () => {
   return (
     <Container
@@ -15,11 +17,13 @@ const Referral = () => {
       <Box
         width={{ base: "full", md: "60%" }}
         mx="auto"
-        px={{ base: "5", md: "10" }}
+        px={{ base: "1", md: "10" }}
         py={3}
       >
         <UploadImage />
         <ContactInfo/>
+        <BankDetails/>
+        <UpdateLocation/>
       </Box>
     </Container>
   );
