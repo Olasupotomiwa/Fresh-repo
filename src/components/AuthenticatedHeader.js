@@ -32,7 +32,7 @@ const LinkItems = [
   { name: "Home", icon: "solar:cart-4-bold", path: "/homepage" },
   { name: "Earn", icon: "healthicons:money-bag", path: "/earn" },
   { name: "Advertise", icon: "bi:phone-vibrate-fill", path: "/advertise" },
-  { name: "Marketplace", icon: "solar:cart-4-bold", path: "/market-place2" },
+  { name: "Marketplace", icon: "solar:cart-4-bold", path: "/market-place" },
   {
     name: "Buy more followers & more",
     icon: "fluent:people-32-filled",

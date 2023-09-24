@@ -54,7 +54,7 @@ import PostEngagemntTasks from "ProtectedPages/Advertise/PostEngagementTasks";
 import Referral from "./ProtectedPages/Referral";
 
 //Profile
-import Profile from './ProtectedPages/MyProfile'
+import Profile from "./ProtectedPages/MyProfile";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -80,12 +80,31 @@ function App() {
 
         {isAuthenticated ? <AuthenticatedHeader /> : <Header />}
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route
+            path="/"
+            element={
+              isAuthenticated ? (
+                <AuthenticatedRoute element={<Homepage2 />} />
+              ) : (
+                <Homepage />
+              )
+            }
+          />
           <Route path="/about" element={<Aboutpage />} />
           <Route path="/create-tasks" element={<Tasks />} />
           <Route path="/social-media-adverts" element={<Advertspage />} />
           <Route path="/buy-followers" element={<BuyFollowers />} />
-          <Route path="/market-place" element={<MarketPlace />} />
+          
+          <Route
+            path="/market-place"
+            element={
+              isAuthenticated ? (
+                <AuthenticatedRoute element={<ProtectedMarketPlace />} />
+              ) : (
+                <MarketPlace />
+              )
+            }
+          />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LoginPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
@@ -94,10 +113,7 @@ function App() {
             path="/dashboard"
             element={<AuthenticatedRoute element={<Dashboard />} />}
           />
-          <Route
-            path="/market-place2"
-            element={<AuthenticatedRoute element={<ProtectedMarketPlace />} />}
-          />
+          
 
           <Route
             path="/market-place2/upload-product-or-service"
@@ -287,7 +303,7 @@ function App() {
             path="/referral"
             element={<AuthenticatedRoute element={<Referral />} />}
           />
-            <Route
+          <Route
             path="/my-profile"
             element={<AuthenticatedRoute element={<Profile />} />}
           />
