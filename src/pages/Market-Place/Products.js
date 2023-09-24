@@ -11,6 +11,7 @@ import {
 
 import { useFetch } from "../../React-query-hook/hook"; // Import the useFetch hook
 import Loader from "../../Loader";
+import Pagination from "components/Pagination";
 
 const ProductCard = ({ product }) => (
   <Box
@@ -126,14 +127,13 @@ const ProductCard = ({ product }) => (
 
 const Products = () => {
   // Initialize the useFetch hook with your API endpoint
-  const { data, isLoading, error } = useFetch(
-    "https://api.escuelajs.co/api/v1/products"
-  );
+  const { data, isLoading, error, handlePageChange, totalPages, currentPage } =
+    useFetch("https://api.escuelajs.co/api/v1/products");
 
   if (isLoading) {
     return (
       <Container height="100vh">
-        <Box mt='50'>
+        <Box mt="50">
           <Loader />
         </Box>
       </Container>
@@ -157,6 +157,17 @@ const Products = () => {
         {data.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
+      </Flex>
+
+      <Flex justifyContent="center" mt={4} mb={20}>
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={(page) => {
+            handlePageChange(page);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
       </Flex>
     </Box>
   );
