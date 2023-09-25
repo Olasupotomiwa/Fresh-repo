@@ -94,7 +94,7 @@ function App() {
           <Route path="/create-tasks" element={<Tasks />} />
           <Route path="/social-media-adverts" element={<Advertspage />} />
           <Route path="/buy-followers" element={<BuyFollowers />} />
-          
+
           <Route
             path="/market-place"
             element={
@@ -113,7 +113,6 @@ function App() {
             path="/dashboard"
             element={<AuthenticatedRoute element={<Dashboard />} />}
           />
-          
 
           <Route
             path="/market-place2/upload-product-or-service"

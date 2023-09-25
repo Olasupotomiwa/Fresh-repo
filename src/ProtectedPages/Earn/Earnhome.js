@@ -20,7 +20,7 @@ const cardContent = [
     header: "Resell",
     content:
       "We connect you to real people that will help you achieve your business goals in a way that is both effective and cost-efficient.",
-    to: "/market-place2",
+    to: "/market-place",
     text: "Go to market place",
   },
 ];

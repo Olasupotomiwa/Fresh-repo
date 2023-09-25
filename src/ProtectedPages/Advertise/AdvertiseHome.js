@@ -20,7 +20,7 @@ const cardContent = [
     header: "Resell",
     content:
       "Sell your products directly to our audience. Users on our platform can also help you sell your products for a small commission fee on  each sale.",
-    to: "/market-place2",
+    to: "/market-place",
     text: "Go to market place",
   },
 ];
