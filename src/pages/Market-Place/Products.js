@@ -24,6 +24,7 @@ const ProductCard = ({ product }) => (
     bg="black"
     mb={4}
     mx={{ base: "2px", md: "1" }}
+    data-aos="fade-up"  data-aos-duration="1000"
   >
     <Image
       src={product.images}
@@ -157,10 +158,7 @@ const Products = () => {
         {data.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
-      </Flex>
-
-      <Flex justifyContent="center" mt={4} mb={20}>
-        <Pagination
+         <Pagination
           totalPages={totalPages}
           currentPage={currentPage}
           onPageChange={(page) => {
@@ -169,6 +167,8 @@ const Products = () => {
           }}
         />
       </Flex>
+
+    
     </Box>
   );
 };
