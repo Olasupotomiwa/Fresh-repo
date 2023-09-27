@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, Flex, Text, Heading } from "@chakra-ui/react";
-import ScrollAnimation from 'react-animate-on-scroll';
+
 
 
 const cardContent = [
@@ -84,7 +84,7 @@ const Card = ({ icon, header, content }) => {
 
 const CardsSection = () => {
   return (
-    <ScrollAnimation animateIn='fadeIn'  initiallyVisible={false}>
+    
     <Box my={5}>
       <Heading textAlign="center" color="white" fontFamily="Clash Grotesk">
         {" "}
@@ -108,7 +108,7 @@ const CardsSection = () => {
         ))}
       </Flex>
     </Box>
-    </ScrollAnimation>
+   
   );
 };
 

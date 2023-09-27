@@ -10,20 +10,21 @@ import { Link } from "react-router-dom";
 import { EmailIcon } from "@chakra-ui/icons";
 import Dashboard from "assets/dashboard.png";
 import Sparkle from "assets/images/highlights.png";
-import ScrollAnimation from 'react-animate-on-scroll';
 
 const Hero = () => {
   return (
-    <ScrollAnimation animateIn='fadeIn'  initiallyVisible={true}>
     <Flex
       direction={{ base: "column", md: "row" }}
       pt={30}
       py={{ base: "5", md: "10" }}
       fontFamily="Clash Grotesk"
       px={5}
-      animateIn='fadeIn'
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="150"
+      startEvent='load'
+      once='true'
     >
-     
       <Box
         flex="1"
         mb={10}
@@ -106,9 +107,7 @@ const Hero = () => {
       <Box flex="1" pt={{ base: "2", md: "5" }}>
         <Image src={Dashboard} alt="Dashboard-img" width="full" />
       </Box>
-     
     </Flex>
-    </ScrollAnimation>
   );
 };
 
