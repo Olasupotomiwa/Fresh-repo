@@ -32,6 +32,7 @@ const Navbar = ({ onNavLinkClick }) => {
       display={{ base: "block", md: "flex" }}
       justifyContent="space-between"
       alignContent="space-between"
+      data-aos="fade-up"  data-aos-duration="2000"
     >
       {/* Navigation Links */}
 

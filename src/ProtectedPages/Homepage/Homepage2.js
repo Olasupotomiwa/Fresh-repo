@@ -19,6 +19,7 @@ const ProtectedFAQS = () => {
         border="1px"
         borderColor="#808080"
         borderRadius="lg"
+        data-aos="fade-up"  data-aos-duration="2000"
       >
         <Text color="white" fontWeight="500">
           Disclaimer

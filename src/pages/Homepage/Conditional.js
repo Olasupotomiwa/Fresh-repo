@@ -54,6 +54,7 @@ const OffersForEarners = () => {
       justify="center"
       p={{ base: "0", md: "4" }}
       data-aos="fade-up"
+      data-aos-duration="2000"
      
    
     

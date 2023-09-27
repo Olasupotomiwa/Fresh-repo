@@ -53,6 +53,7 @@ const Testimonial = () => {
         justifyContent="center"
         alignItems="center"
         data-aos="fade-up"
+        data-aos-duration="3000"
       >
         <Box px="20">
           {/* Constant image */}

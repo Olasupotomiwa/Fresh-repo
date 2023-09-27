@@ -19,6 +19,7 @@ const cardContent = [
     content:
       "Earn by carrying out simple social media tasks for businesses and individuals or by reselling their products.",
     text: "Start earning",
+    anim: "zoom-in-up",
     to: "/earn/*",
     isFirstCard: true,
   },
@@ -28,6 +29,7 @@ const cardContent = [
     content:
       "Get real people with active followers to help repost your ads and carry out other social media tasks you create on our platform.",
     text: "Start advertising",
+    anim: "zoom-in-down",
     to: "/advertise",
   },
   {
@@ -36,11 +38,12 @@ const cardContent = [
     content:
       "Advertise your products directly to the traffic on our platform or get our active users to resell your products for you.",
     text: "Start selling",
+    anim: "zoom-in-left",
     to: "/market-place2",
   },
 ];
 
-const Card = ({ icon, header, content, text, to, isFirstCard }) => {
+const Card = ({ icon, header, content, text, to, isFirstCard, anim }) => {
   const [showModal, setShowModal] = useState(true);
   const [showSecondModal, setShowSecondModal] = useState(false);
 
@@ -92,6 +95,8 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
       height="300px"
       mx="auto"
       my={4}
+      data-aos={anim}
+      data-aos-duration="2000"
     >
       <Box alignItems="center" p={1}>
         <Box
@@ -105,6 +110,7 @@ const Card = ({ icon, header, content, text, to, isFirstCard }) => {
           display="flex"
           justifyContent="center"
           alignItems="center"
+        
         >
           <iconify-icon
             icon={icon}
@@ -318,6 +324,7 @@ const CardsSection = () => {
             showModal={showModal}
             setShowModal={setShowModal}
             isFirstCard={card.isFirstCard}
+            anim={card.anim}
           />
         ))}
       </Flex>

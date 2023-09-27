@@ -25,7 +25,7 @@ import { LogoJPG } from "constants/image_assets";
 const Footer =() =>{
 
 return (
-  <Box p={5} bg="#121212" color="#808080" data-aos="fade-up">
+  <Box p={5} bg="#121212" color="#808080" data-aos="fade-up"  data-aos-duration="2000">
     <Flex
       direction={{ base: "column", md: "row" }}
       justifyContent="space-around"

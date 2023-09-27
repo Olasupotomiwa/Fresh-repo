@@ -145,7 +145,7 @@ const Products = () => {
   }
 
   return (
-    <Box bg="black" px={{ base: "0", md: "3" }}>
+    <Box bg="black" px={{ base: "0", md: "3" }} data-aos="fade-up"  data-aos-duration="2000">
       <Flex
         flexWrap="wrap"
         px={{ base: "0", md: "1" }}

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Container, Grid, Image, Heading, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { loginSuccess } from '../Redux-files/slices/authSlice'; 
-import { useDispatch, useSelector } from 'react-redux';
+import { loginSuccess } from "../Redux-files/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   FormControl,
@@ -50,7 +50,7 @@ const LoginPage = () => {
     const newEmailAddress = event.target.value;
     setEmailAddress(newEmailAddress);
     setIsEmailAddressVerified(verifyEmailAddress(newEmailAddress));
-    setIsLoginError(false)
+    setIsLoginError(false);
     // Reset username verification
   };
 
@@ -83,19 +83,20 @@ const LoginPage = () => {
         // Successful login
         console.log("Login successful!");
 
-         // Dispatch the loginSuccess action with mock user data
-         const mockUserData = {
+        // Dispatch the loginSuccess action with mock user data
+        const mockUserData = {
           id: 1,
-          username: 'Trendit3',
-          Profile_picture: 'https://usuploads.s3.amazonaws.com/itlearn360/uploads/2018/12/dummy-profile-pic-300x300.jpg',
-          Balance : '1000',
-          referral_link : 'www.trendit3.com/signup/dezfoodz',
-          password: 'Trendit3',
-          email: 'Trendit3@gmail.com'
-         
+          username: "Trendit3",
+          Profile_picture:
+            "https://usuploads.s3.amazonaws.com/itlearn360/uploads/2018/12/dummy-profile-pic-300x300.jpg",
+          Balance: "1000",
+          referral_link: "www.trendit3.com/signup/dezfoodz",
+          password: "Trendit3",
+          email: "Trendit3@gmail.com",
+
           // Other properties...
         };
-        
+
         dispatch(loginSuccess(mockUserData));
         navigate("/homepage");
       } else {
@@ -114,11 +115,10 @@ const LoginPage = () => {
   };
 
   return (
-    <Container maxWidth="100vw" bg="black" px={0} pt='10'>
+    <Container maxWidth="100vw" bg="black" px={0} pt="10">
       <Grid
         templateColumns={{ base: "1fr", md: "2.3fr 7.7fr" }}
         fontFamily="clash grotesk"
-       
       >
         <Image
           src={Onboard}
@@ -126,15 +126,17 @@ const LoginPage = () => {
           objectFit="cover"
           display={{ base: "none", md: "flex" }}
           height="full"
+          data-aos="fade-up"
+          data-aos-duration="2000"
         />
         <Box
           color="white"
           bg="black"
           textAlign="center"
           mx="auto"
-          mt='100'
+          mt="100"
           fontFamily="clash grotesk"
-          height='100vh'
+          height="100vh"
           width={{ base: "80%", md: "500px" }}
         >
           <Heading
@@ -142,16 +144,24 @@ const LoginPage = () => {
             fontFamily="clash grotesk"
             fontWeight="500"
             mb={10}
+            data-aos="fade-up"
+            data-aos-duration="2000"
           >
             Welcome back <iconify-icon icon="noto:waving-hand"></iconify-icon>
           </Heading>
           {!isAuthenticated && (
-            <Text color="#CB29BE" fontSize="16px" mb={4}>
+            <Text
+              color="#CB29BE"
+              fontSize="16px"
+              mb={4}
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               Kindly login to access your dashboard
             </Text>
           )}
           <Box p={0} my={{ base: "5", md: "15" }}>
-            <FormControl>
+            <FormControl data-aos="fade-up" data-aos-duration="2000">
               <FormLabel>Email address</FormLabel>
               <InputGroup>
                 <Input
@@ -162,7 +172,7 @@ const LoginPage = () => {
                   pr={isEmailAddressVerified ? "2.5rem" : "0.5rem"}
                   borderColor="#808080"
                   borderRadius="12px"
-                  bg='black'
+                  bg="black"
                   color="white"
                   placeholder="E.g Trendit3@gmail.com"
                   fontFamily="clash grotesk"
@@ -181,16 +191,23 @@ const LoginPage = () => {
               </InputGroup>
             </FormControl>
 
-
-
             {isLoginError && (
-                <Text textAlign="center" color="#CB29BE">
-                  {isLoginError}
-                </Text>
-              )}
+              <Text
+                textAlign="center"
+                color="#CB29BE"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                {isLoginError}
+              </Text>
+            )}
 
-
-            <FormControl mt={4} mb='3'>
+            <FormControl
+              mt={4}
+              mb="3"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               <FormLabel>Password</FormLabel>
               <InputGroup>
                 <Input
@@ -214,17 +231,17 @@ const LoginPage = () => {
                   </Button>
                 </InputRightElement>
               </InputGroup>
-             
             </FormControl>
             <Text
               fontSize="15px"
               pt={3}
               textAlign="left"
-             
               color="#CB29BE"
               fontFamily="clash grotesk"
               as={Link}
               to="/forgot-password"
+              data-aos="fade-down"
+              data-aos-duration="2000"
             >
               Forgot password ?
             </Text>
@@ -237,6 +254,8 @@ const LoginPage = () => {
               rounded="25px"
               width="full"
               fontWeight="400"
+              data-aos="fade-up"
+              data-aos-duration="2000"
             >
               {isLoading ? (
                 <>
@@ -252,6 +271,8 @@ const LoginPage = () => {
               color="white"
               fontFamily="clash grotesk"
               fontSize="14px"
+              data-aos="fade-up"
+              data-aos-duration="2000"
             >
               Not registered ?{" "}
               <Button

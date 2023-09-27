@@ -5,7 +5,7 @@ import BannerJPG from 'assets/images/banner.png'
 
 const Notes = () => {
   return (
-    <Box>
+    <Box >
       <Flex
         direction={{ base: "column", md: "row" }}
         pt={30}
@@ -21,6 +21,7 @@ const Notes = () => {
             textAlign={{ base: "center", md: "left" }}
             color="white"
             mt={5}
+            data-aos="fade-up"  data-aos-duration="2000"
           >
             We help bridge the gap between 
             <span style={{ color: "#CB29BE" }}> businesses </span>and{" "}
@@ -34,6 +35,7 @@ const Notes = () => {
             my={3}
             color="#808080"
             px={{ base: "5", md: "8" }}
+            data-aos="fade-up"  data-aos-duration="2000"
           >
             We connect businesses to users who will help them grow their
             customer base and make more profit by carrying out social media
@@ -41,7 +43,7 @@ const Notes = () => {
           </Text>
         </Box>
       </Flex>
-      <Image src={BannerJPG} alt="banner" width="full" />
+      <Image src={BannerJPG} alt="banner" width="full"  data-aos="fade-up"  data-aos-duration="2000"/>
     </Box>
   );
 };

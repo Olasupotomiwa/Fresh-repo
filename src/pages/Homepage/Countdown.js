@@ -18,6 +18,9 @@ const Countdown = () => {
         justifyContent="space-around"
         alignItems="center"
         fontFamily="Clash Grotesk"
+        data-aos="fade-up"
+       
+        data-aos-duration="2000"
       >
         <Box color="white" mb={8} mx={4}>
           <Heading fontFamily="Clash Grotesk" fontWeight="500">

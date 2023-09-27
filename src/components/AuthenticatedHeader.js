@@ -103,12 +103,13 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
   };
 
   return (
-    <Box>
+    <Box >
       <NavLink
         to={path || "/homepage"}
         style={{ textDecoration: "none" }}
         onClick={handleClick}
         className={isActive() ? "active-nav-link" : "nav-link"}
+       
       >
         <Flex
           align="center"

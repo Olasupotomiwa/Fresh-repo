@@ -29,7 +29,7 @@ const Market = () => {
           >
             Marketplace
           </Heading>
-          <Box width={{ base: "95%", md: "75%" }}>
+          <Box width={{ base: "95%", md: "75%" }} data-aos="fade-up"  data-aos-duration="2000">
             <Text textAlign="left" color="#808080" my={4}>
               Here you'll find a variety of products and services posted by
               different businesses. As a user you can either post a product, buy

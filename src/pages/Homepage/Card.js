@@ -8,22 +8,25 @@ const cardContent = [
     header: "Earners",
     content:
       "Our platform features a variety of income-generating strategies for users by having them carry out simple social media activities.",
+    anim: "zoom-in-up",
   },
   {
     icon: "healthicons:money-bag",
     header: "Businesses",
     content:
       "We connect you to real people that will help you achieve your business goals in a way that is both effective and cost-efficient.",
+    anim: "zoom-in-down",
   },
   {
     icon: "ion:person-sharp",
     header: "Individuals",
     content:
       "We connect you to real people that will help you grow and achieve other goals on your social media platforms.",
+    anim: "zoom-in-left",
   },
 ];
 
-const Card = ({ icon, header, content }) => {
+const Card = ({ icon, header, content, anim }) => {
   return (
     <Box
       bg="#121212"
@@ -34,6 +37,9 @@ const Card = ({ icon, header, content }) => {
       height="250px"
       mx={4}
       my={4}
+      data-aos={anim}
+      data-aos-duration="2000"
+    
     >
       <Box alignItems="center" p={1}>
         {/* Replace 'icon' with the actual icon component you want to use */}
@@ -81,15 +87,14 @@ const Card = ({ icon, header, content }) => {
 };
 
 const CardsSection = () => {
- 
- 
   return (
-  
-    <Box my={5}  data-aos="zoom-out-up"
-    data-aos-easing="ease-out-cubic"
-    data-aos-duration="2000"
+    <Box
+      my={5}
+      data-aos="zoom-out-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
     >
-      <Heading textAlign="center" color="white" fontFamily="Clash Grotesk">
+      <Heading textAlign="center" color="white" fontFamily="Clash Grotesk"   data-aos="zoom-in" data-aos-duration="1500">
         {" "}
         Who is Trendit<sup>3</sup> for ?{" "}
       </Heading>
@@ -107,12 +112,11 @@ const CardsSection = () => {
             icon={card.icon}
             header={card.header}
             content={card.content}
-           
+            anim={card.anim}
           />
         ))}
       </Flex>
     </Box>
-  
   );
 };
 
