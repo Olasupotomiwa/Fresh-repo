@@ -52,6 +52,7 @@ const Testimonial = () => {
         direction={{ base: "column", md: "row" }}
         justifyContent="center"
         alignItems="center"
+        data-aos="fade-up"
       >
         <Box px="20">
           {/* Constant image */}

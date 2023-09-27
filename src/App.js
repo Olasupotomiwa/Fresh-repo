@@ -1,4 +1,5 @@
 import ScrollTop from "./components/scrolltop";
+import Animation from 'components/Animation'
 import Header from "./components/Header";
 import Homepage from "./pages/Homepage";
 import Aboutpage from "./pages/About";
@@ -76,6 +77,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <>
+      <Animation>
         <ScrollTop />
 
         {isAuthenticated ? <AuthenticatedHeader /> : <Header />}
@@ -307,6 +309,7 @@ function App() {
             element={<AuthenticatedRoute element={<Profile />} />}
           />
         </Routes>
+        </Animation>
       </>
     </QueryClientProvider>
   );

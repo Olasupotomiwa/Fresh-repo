@@ -2,8 +2,6 @@ import React from "react";
 
 import { Box, Flex, Text, Heading } from "@chakra-ui/react";
 
-
-
 const cardContent = [
   {
     icon: "solar:hand-money-bold",
@@ -48,8 +46,8 @@ const Card = ({ icon, header, content }) => {
           mt={2}
           mb={9}
           display="flex"
-          justifyContent='center'
-          alignItems='center'
+          justifyContent="center"
+          alignItems="center"
         >
           <iconify-icon
             icon={icon}
@@ -83,12 +81,17 @@ const Card = ({ icon, header, content }) => {
 };
 
 const CardsSection = () => {
+ 
+ 
   return (
-    
-    <Box my={5}>
+  
+    <Box my={5}  data-aos="zoom-out-up"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000"
+    >
       <Heading textAlign="center" color="white" fontFamily="Clash Grotesk">
         {" "}
-        Who is Trendit<sup>3</sup> for{" "}
+        Who is Trendit<sup>3</sup> for ?{" "}
       </Heading>
       <Flex
         direction={{ base: "column", md: "row" }}
@@ -104,11 +107,12 @@ const CardsSection = () => {
             icon={card.icon}
             header={card.header}
             content={card.content}
+           
           />
         ))}
       </Flex>
     </Box>
-   
+  
   );
 };
 

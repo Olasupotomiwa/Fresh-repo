@@ -50,6 +50,7 @@ const AccordionComponent = () => {
       m="auto"
       p={{ base: "3", md: "8" }}
       fontFamily="Clash Grotesk"
+      data-aos="fade-up"
     >
       <Heading
         textAlign="center"

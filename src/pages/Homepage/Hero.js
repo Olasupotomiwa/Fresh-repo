@@ -13,17 +13,18 @@ import Sparkle from "assets/images/highlights.png";
 
 const Hero = () => {
   return (
+   
     <Flex
       direction={{ base: "column", md: "row" }}
       pt={30}
       py={{ base: "5", md: "10" }}
       fontFamily="Clash Grotesk"
       px={5}
-      data-aos="fade-down"
-      data-aos-easing="linear"
-      data-aos-duration="150"
-      startEvent='load'
-      once='true'
+      data-aos="fade-up"
+      data-aos-duration="1500"
+      
+     
+     
     >
       <Box
         flex="1"
@@ -108,6 +109,7 @@ const Hero = () => {
         <Image src={Dashboard} alt="Dashboard-img" width="full" />
       </Box>
     </Flex>
+  
   );
 };
 

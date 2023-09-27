@@ -19,6 +19,7 @@ const Card = ({ header, content, icon }) => {
       width={{ base: "70%", md: "300px" }}
       height="220px"
       my={4}
+      data-aos="fade-up"
     >
       <Flex>
         {/* Add the vertical line here */}
