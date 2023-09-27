@@ -39,7 +39,7 @@ const cardContent = [
       "Advertise your products directly to the traffic on our platform or get our active users to resell your products for you.",
     text: "Start selling",
     anim: "zoom-in-left",
-    to: "/market-place2",
+    to: "/market-place",
   },
 ];
 
