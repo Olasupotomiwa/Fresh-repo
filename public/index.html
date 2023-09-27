@@ -8,6 +8,7 @@
       href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <meta
       content="Trendit3"
@@ -41,12 +42,21 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" ></div>
 
 
    
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="../../assets/vendor/aos/dist/aos.js"></script>
    
-  
+    <script>
+      $(document).on('ready', function () {
+        // initialization of aos
+        AOS.init({
+          duration: 650,
+          once: true
+        });
+      });
+    </script>
   </body>
 </html>
