@@ -102,6 +102,7 @@ const DesktopNav = () => {
       </Center>
 
       <Spacer />
+      <Spacer />
 
       {/* Login and Sign Up buttons for desktop view */}
       <Stack
@@ -109,7 +110,9 @@ const DesktopNav = () => {
         direction="row"
         display={{ base: "none", md: "flex" }}
         position="absolute"
-        right={{ base: " ", md: "10px", lg: "30px" }}
+        right={3}
+       
+      
       >
         <Button
           variant="ghost"
@@ -362,7 +365,7 @@ const Header = () => {
 
   return (
     <Container
-      maxW="full"
+      maxW="1400px"
       bg="black"
       color="white"
       fontFamily="Clash Grotesk"

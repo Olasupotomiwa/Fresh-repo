@@ -4,12 +4,12 @@ import Cards from "./cards";
 const ProtectedFAQS = () => {
   return (
     <Container
-      ml={{ base: 0, md: "25%" }}
+      ml={{ base: 0, md: "20%" }}
       p={{ base: "4", md: "10" }}
-      maxW={{ base: "100%", md: "75%" }}
+      maxW={{ base: "100%", md: "80%" }}
       bg="black"
       height={{base: '1500px', md: '1000px'}}
-      mt="20"
+    
       fontFamily="clash grotesk"
     >
       <Box

@@ -8,13 +8,13 @@ const Referral =()=>{
     return(
 
         <Container
-        ml={{ base: 0, md: "25%" }}
+        ml={{ base: 0, md: "20%" }}
         p={{ base: "1", md: "10" }}
-        maxW={{ base: "100%", md: "75%" }}
+        maxW={{ base: "100%", md: "80%" }}
         bg="black"
         height='full'
+      
        
-        mt="20"
         fontFamily="clash grotesk"
         
       >

@@ -55,7 +55,7 @@ const Hero = () => {
             src={Sparkle}
             alt="highlights-img"
             width="70px"
-            position="absolute"
+            position="relative"
             left="5px"
             mt="15px"
           />

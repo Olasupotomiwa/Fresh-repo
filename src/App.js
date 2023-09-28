@@ -1,3 +1,4 @@
+import {Container} from "@chakra-ui/react"
 import ScrollTop from "./components/scrolltop";
 import Animation from 'components/Animation'
 import Header from "./components/Header";
@@ -75,8 +76,9 @@ function App() {
 
   const apiEndpoint = "https://jsonplaceholder.typicode.com/albums";
   return (
-    <QueryClientProvider client={queryClient}>
-      <>
+    <QueryClientProvider client={queryClient} >
+      <Container bg='#000000' px={0} maxW='full'>
+      <Container maxW='1400px' mx='auto' px={0}>
       <Animation>
         <ScrollTop />
 
@@ -310,7 +312,8 @@ function App() {
           />
         </Routes>
         </Animation>
-      </>
+      </Container>
+      </Container>
     </QueryClientProvider>
   );
 }

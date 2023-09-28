@@ -14,7 +14,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const InstagramBtn = () => {
   return (
-    <Flex direction={{ base: "column", md: "row" }} bg="black">
+    <Flex direction={{ base: "column", md: "row" }} bg="black" flexWrap='wrap'>
       {/* First Column */}
       <Flex
         direction="column"

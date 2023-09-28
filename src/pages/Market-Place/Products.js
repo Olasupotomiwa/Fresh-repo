@@ -147,10 +147,13 @@ const Products = () => {
 
   return (
     <Box bg="black" px={{ base: "0", md: "3" }} data-aos="fade-up"  data-aos-duration="2000">
+      <Box   bg="#121212">
+
+     
       <Flex
         flexWrap="wrap"
         px={{ base: "0", md: "1" }}
-        bg="#121212"
+      
         py={8}
         justifyContent="center"
         alignItems="center"
@@ -158,7 +161,12 @@ const Products = () => {
         {data.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
-         <Pagination
+       
+       
+       
+      </Flex>
+      <Box mx='auto' width={{base: '65%', md: '35%'}}  mb={15}>
+        <Pagination
           totalPages={totalPages}
           currentPage={currentPage}
           onPageChange={(page) => {
@@ -166,8 +174,8 @@ const Products = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         />
-      </Flex>
-
+        </Box>
+        </Box>
     
     </Box>
   );

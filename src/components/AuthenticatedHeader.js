@@ -22,7 +22,6 @@ import {
   MenuItem,
   Input,
   MenuList,
-  Container,
 } from "@chakra-ui/react";
 import { FiMenu, FiBell, FiChevronDown, FiSearch } from "react-icons/fi";
 import Logo from "../../src/assets/images/logo.png";
@@ -55,9 +54,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
     <Box
       transition="3s ease"
       bg="#121212"
-      w={{ base: "full", md: "25%" }}
+      maxW={{ base: "full", md: "20%" }}
       pos="fixed"
+      pr={4}
       top="0"
+      
       h="full"
       {...rest}
     >
@@ -69,13 +70,15 @@ const SidebarContent = ({ onClose, ...rest }) => {
           color="white"
         />
       </Flex>
-      <Box mt="30px" pb={20}>
+      <Box mt="30px" pb={20} >
         {LinkItems.map((link) => (
           <NavItem
             key={link.name}
             icon={link.icon}
             path={link.path}
             onClose={onClose}
+            pl={3}
+            pr='2'
           >
             {link.name}
           </NavItem>
@@ -155,11 +158,11 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const user = useSelector((state) => state.auth.user);
 
   return (
-    <Container
-      className="mobile-header"
-      maxW={{ base: "100%", md: "75%" }}
-      ml={{ base: 0, md: "25%" }}
-      p="0"
+    <Box
+      className="mobile-heade"
+     w={{base: '100%', md: '80%'}}
+     ml={{base: '0', md: '20%'}}
+     
       bg={{ base: "#121212", md: "black" }}
     >
       
@@ -178,6 +181,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
   border="1px solid #808080" 
   borderRadius="15px"
   transition="border-color 0.3s ease" 
+  ml={0}
 >
   <IconButton
     size="lg"
@@ -267,7 +271,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
           />
         </HStack>
       </Flex>
-    </Container>
+    </Box>
   );
 };
 

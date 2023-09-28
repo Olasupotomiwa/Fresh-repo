@@ -16,7 +16,7 @@ const Market = () => {
         pt={5}
         mx={{ base: "1", md: "5" }}
         display={{ base: "block", md: "flex" }}
-        my={{base: '4', md: '9'}}
+        my={{base: '4', md: '6'}}
         px={{ base: "3", md: "8" }}
       >
         <Box>

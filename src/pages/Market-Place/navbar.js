@@ -33,6 +33,8 @@ const Navbar = ({ onNavLinkClick }) => {
       justifyContent="space-between"
       alignContent="space-between"
       data-aos="fade-up"  data-aos-duration="2000"
+     overflowX='auto'
+      
     >
       {/* Navigation Links */}
 
@@ -74,7 +76,7 @@ const Navbar = ({ onNavLinkClick }) => {
       </Flex>
       {/* Mobile Navigation Links */}
       <Box mt={4} display={["block", "block", "none"]}>
-        <Flex flexWrap="nowrap" overflowX="auto">
+        <Flex flexWrap="nowrap" overflowX="scroll">
           {navLinks.map((link) => (
             <Box
               key={link.id}
