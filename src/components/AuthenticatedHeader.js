@@ -22,6 +22,7 @@ import {
   MenuItem,
   Input,
   MenuList,
+  Container,
 } from "@chakra-ui/react";
 import { FiMenu, FiBell, FiChevronDown, FiSearch } from "react-icons/fi";
 import Logo from "../../src/assets/images/logo.png";
@@ -54,12 +55,13 @@ const SidebarContent = ({ onClose, ...rest }) => {
     <Box
       transition="3s ease"
       bg="#121212"
-      maxW={{ base: "full", md: "20%" }}
-      pos="fixed"
-      pr={4}
-      top="0"
+      maxW={{ base: "full", md: "25%" }}
+      w={{base: 'full', md: 'inherit'}}
       
+      pos="fixed"
+      top="0"
       h="full"
+      pr={3}
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -70,15 +72,14 @@ const SidebarContent = ({ onClose, ...rest }) => {
           color="white"
         />
       </Flex>
-      <Box mt="30px" pb={20} >
+      <Box mt="30px" pb={20}>
         {LinkItems.map((link) => (
           <NavItem
             key={link.name}
             icon={link.icon}
             path={link.path}
             onClose={onClose}
-            pl={3}
-            pr='2'
+            pr='5'
           >
             {link.name}
           </NavItem>
@@ -158,11 +159,11 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const user = useSelector((state) => state.auth.user);
 
   return (
-    <Box
+    <Container
       className="mobile-heade"
-     w={{base: '100%', md: '80%'}}
-     ml={{base: '0', md: '20%'}}
-     
+      maxW={{ base: "100%", md: "75%" }}
+      ml={{ base: 0, md: "25%" }}
+      px="0"
       bg={{ base: "#121212", md: "black" }}
     >
       
@@ -181,7 +182,6 @@ const MobileNav = ({ onOpen, ...rest }) => {
   border="1px solid #808080" 
   borderRadius="15px"
   transition="border-color 0.3s ease" 
-  ml={0}
 >
   <IconButton
     size="lg"
@@ -271,7 +271,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
           />
         </HStack>
       </Flex>
-    </Box>
+    </Container>
   );
 };
 
@@ -299,7 +299,7 @@ const SidebarWithHeader = () => {
       </Drawer>
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: "25%" }} p="0">
+      <Box ml={{ base: 0, md: "20%" }} p="0">
         {/* Content */}
       </Box>
     </Box>

@@ -110,7 +110,7 @@ const DesktopNav = () => {
         direction="row"
         display={{ base: "none", md: "flex" }}
         position="absolute"
-        right={3}
+        right={5}
        
       
       >
@@ -365,7 +365,7 @@ const Header = () => {
 
   return (
     <Container
-      maxW="1400px"
+      maxW="1900px"
       bg="black"
       color="white"
       fontFamily="Clash Grotesk"

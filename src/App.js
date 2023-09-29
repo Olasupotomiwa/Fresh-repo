@@ -77,8 +77,9 @@ function App() {
   const apiEndpoint = "https://jsonplaceholder.typicode.com/albums";
   return (
     <QueryClientProvider client={queryClient} >
-      <Container bg='#000000' px={0} maxW='full'>
-      <Container maxW='1400px' mx='auto' px={0}>
+      <Container bg='#121212' px={0} maxW='full'>
+      <Container maxW='1600px' mx='auto' px={0}>
+
       <Animation>
         <ScrollTop />
 

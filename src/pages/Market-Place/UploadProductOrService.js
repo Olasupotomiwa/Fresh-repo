@@ -676,7 +676,7 @@ const UploadProducts = () => {
       minH="100vh"
     >
       <Box
-        mt="20"
+        pt="20"
         width={{ base: "full", md: "60%" }}
         mx="auto"
         px={{ base: "5", md: "10" }}

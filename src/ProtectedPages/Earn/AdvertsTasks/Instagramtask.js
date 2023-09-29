@@ -68,10 +68,10 @@ const IGtasks = ({
 
   return (
     <Container
-      ml={{ base: 0, md: "20%" }}
+      ml={{ base: 0, md: "25%" }}
       px="0"
       py={{ base: "7", md: "10" }}
-      maxW={{ base: "100%", md: "80%" }}
+      maxW={{ base: "100%", md: "75%" }}
       bg="black"
       height="100%"
 

@@ -50,22 +50,22 @@ const Hero = () => {
           Our platform offer a variety of opportunities for users to earn while
           carrying out simple social media tasks for businesses and individuals
         </Text>
-        <Box mt={5}>
+        <Box mt={5} display='flex'>
           <Image
             src={Sparkle}
             alt="highlights-img"
             width="70px"
             position="relative"
-            left="5px"
-            mt="15px"
+            left="0px"
+            mt="10px"
           />
-          <Box ml={3}>
+          <Box ml={-5}>
             <FormControl
               borderRadius="full"
               borderWidth="1px"
               borderColor="#808080"
               display="flex"
-              width={{ base: "100%", md: "80%" }}
+              width='full'
               m={{ base: "auto", md: "0" }}
             >
               <InputGroup variant="unstyled">

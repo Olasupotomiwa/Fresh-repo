@@ -319,5 +319,26 @@ Select, option, input{
 }
 
 
+/* styles.css */
+.container {
+  max-width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+ 
+}
+
+@media screen and (min-width: 1280px) {
+  /* XL Screen */
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  /* 2XL Screen */
+  .container {
+    max-width: 85%;
+  }
+}
 
 

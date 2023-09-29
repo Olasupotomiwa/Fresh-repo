@@ -106,10 +106,10 @@ const Goback = () => {
     <Box bg="black" pr="100%">
       <IconButton
         onClick={handleGoBack}
-        left={{ base: "8px", md: "25%" }}
+        left={{ base: "8px", md: "22%" }}
         py={5}
         pr={100}
-        pos="fixed"
+        pos="absolute"
         top="20"
         zIndex="1000"
         mb={4}
@@ -129,9 +129,9 @@ export { Goback };
 const CardsSection = () => {
   return (
     <Container
-      ml={{ base: 0, md: "20%" }}
+      ml={{ base: 0, md: "25%" }}
       p={{ base: "4", md: "10" }}
-      maxW={{ base: "100%", md: "80%" }}
+      maxW={{ base: "100%", md: "75%" }}
       bg="black"
       height={{ base: "full", md: "100vh" }}
      
