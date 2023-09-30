@@ -136,9 +136,9 @@ const TaskPage = () => {
 
   return (
     <Container
-      ml={{ base: 0, md: "20%" }}
+      ml={{ base: 0, md: "25%" }}
       p={{ base: "4", md: "10" }}
-      maxW={{ base: "100%", md: "80%" }}
+      maxW={{ base: "100%", md: "75%" }}
       mx="auto"
       bg="black"
       height="auto"
@@ -154,6 +154,7 @@ const TaskPage = () => {
         onDrop={handleFileDrop} // Handle file drop event
         onDragOver={preventDefault} // Prevent default behavior for drag-over event
         onDragEnter={preventDefault} //
+        pt={0}
       >
         <Heading
           fontSize={{ base: "20px", md: "30px" }}

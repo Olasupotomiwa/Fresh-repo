@@ -36,7 +36,6 @@ const Home = () => {
         color="white"
         fontSize="20px"
         fontWeight="400"
-        pt="20px"
         px={10}
       >
       {isLoading ? (

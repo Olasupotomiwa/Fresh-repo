@@ -12,6 +12,7 @@ const Referral =()=>{
         p={{ base: "1", md: "10" }}
         maxW={{ base: "100%", md: "75%" }}
         bg="black"
+       
         height='full'
       
        

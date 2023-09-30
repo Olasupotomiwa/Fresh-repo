@@ -102,7 +102,7 @@ const FollowPages = ({
     <Container
       ml={{ base: 0, md: "25%" }}
       px="0"
-      py={{ base: "7", md: "10" }}
+      py={{ base: "7", md: "0" }}
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
       height="100%"

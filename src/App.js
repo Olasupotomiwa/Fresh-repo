@@ -78,7 +78,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient} >
       <Container bg='#121212' px={0} maxW='full'>
-      <Container maxW='1600px' mx='auto' px={0}>
+      <Container maxW={{lg: '100%', xl: "85%", }} mx='auto' px={0}>
 
       <Animation>
         <ScrollTop />

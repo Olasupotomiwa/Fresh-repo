@@ -111,8 +111,6 @@ const DesktopNav = () => {
         display={{ base: "none", md: "flex" }}
         position="absolute"
         right={5}
-       
-      
       >
         <Button
           variant="ghost"
@@ -365,7 +363,7 @@ const Header = () => {
 
   return (
     <Container
-      maxW="1900px"
+      maxW={{ lg: "100%", xl: "85%" }}
       bg="black"
       color="white"
       fontFamily="Clash Grotesk"

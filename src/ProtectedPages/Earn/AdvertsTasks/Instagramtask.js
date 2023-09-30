@@ -70,10 +70,11 @@ const IGtasks = ({
     <Container
       ml={{ base: 0, md: "25%" }}
       px="0"
-      py={{ base: "7", md: "10" }}
+      py={{ base: "20", md: "10px" }}
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
       height="100%"
+     
 
       fontFamily="clash grotesk"
      

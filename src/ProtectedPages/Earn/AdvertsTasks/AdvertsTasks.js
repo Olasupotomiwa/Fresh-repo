@@ -30,7 +30,7 @@ const AdHomepage = () => {
       fontFamily="clash grotesk"
     >
         <Goback/>
-        <Box mt={10} textAlign={{base: 'center', md: 'left'}}>
+        <Box mt={0} textAlign={{base: 'center', md: 'left'}}>
         <Heading fontWeight='400' pt={3} color='white' mt={10} fontSize={{base: '18px', md: '25px'}} fontFamily="clash grotesk">Earn</Heading>
       <Box>
         <Text color="#808080">

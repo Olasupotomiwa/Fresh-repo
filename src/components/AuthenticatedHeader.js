@@ -47,7 +47,11 @@ const LinkItems = [
   { name: "My profile", icon: "bi:person-fill", path: "/my-profile" },
   { name: "FAQS", icon: "bxs:chat", path: "/frequency-asked-questions" },
   { name: "About us", icon: "fluent:info-12-filled", path: "/about2" },
-  { name: "Chat with support", icon: "mdi:video-chat", path: "/chat-with-support" },
+  {
+    name: "Chat with support",
+    icon: "mdi:video-chat",
+    path: "/chat-with-support",
+  },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {
@@ -56,8 +60,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       transition="3s ease"
       bg="#121212"
       maxW={{ base: "full", md: "25%" }}
-      w={{base: 'full', md: 'inherit'}}
-      
+      w={{ base: "full", md: "inherit" }}
       pos="fixed"
       top="0"
       h="full"
@@ -79,7 +82,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
             icon={link.icon}
             path={link.path}
             onClose={onClose}
-            pr='5'
+            pr="5"
           >
             {link.name}
           </NavItem>
@@ -107,13 +110,12 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
   };
 
   return (
-    <Box >
+    <Box>
       <NavLink
         to={path || "/homepage"}
         style={{ textDecoration: "none" }}
         onClick={handleClick}
         className={isActive() ? "active-nav-link" : "nav-link"}
-       
       >
         <Flex
           align="center"
@@ -134,6 +136,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
             color: "white",
           }}
           {...rest}
+          pr={10}
         >
           {icon && (
             <iconify-icon
@@ -165,50 +168,48 @@ const MobileNav = ({ onOpen, ...rest }) => {
       ml={{ base: 0, md: "25%" }}
       px="0"
       bg={{ base: "#121212", md: "black" }}
+      zIndex="1000"
     >
-      
       <Flex
         px={{ base: 4, md: 4 }}
         height="20"
         alignItems="center"
         justifyContent={{ base: "space-between", md: "space-between" }}
         {...rest}
-        
       >
         {/* Add search input with icon */}
         <Box
-  display={{ base: 'none', md: 'flex' }}
-  alignItems="center"
-  border="1px solid #808080" 
-  borderRadius="15px"
-  transition="border-color 0.3s ease" 
->
-  <IconButton
-    size="lg"
-    variant="ghost"
-    _hover={{ bg: "black", opacity: "0.9" }}
-    aria-label="search"
-    icon={<FiSearch color="white" />}
-  />
-  <Input
-    type="text"
-    placeholder="Search"
-    bg="transparent"
-    border="none"
-    fontFamily='clash grotesk'
-    outline="none"
-    color="white"
-    ml='-5'
-    _focus={{
-      borderColor: "transparent", // Remove border on focus
-      boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)", // Add box shadow on focus
-    }}
-  />
-</Box>
-
+          display={{ base: "none", md: "flex" }}
+          alignItems="center"
+          border="1px solid #808080"
+          borderRadius="15px"
+          transition="border-color 0.3s ease"
+          ml='2%'
+        >
+          <IconButton
+            size="lg"
+            variant="ghost"
+            _hover={{ bg: "black", opacity: "0.9" }}
+            aria-label="search"
+            icon={<FiSearch color="white" />}
+          />
+          <Input
+            type="text"
+            placeholder="Search"
+            bg="transparent"
+            border="none"
+            fontFamily="clash grotesk"
+            outline="none"
+            color="white"
+            ml="-0"
+            _focus={{
+              borderColor: "transparent", // Remove border on focus
+              boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)", // Add box shadow on focus
+            }}
+          />
+        </Box>
 
         <Image src={Logo} width="75px" display={{ base: "flex", md: "none" }} />
-        
 
         <HStack spacing={{ base: "0", md: "6" }}>
           <IconButton

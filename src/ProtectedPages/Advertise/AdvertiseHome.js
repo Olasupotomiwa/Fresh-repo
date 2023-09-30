@@ -110,7 +110,7 @@ const CardsSection = () => {
       height={{md: '100%', lg: '100vh'}}
       fontFamily="clash grotesk"
     >
-      <Box my={5}>
+      <Box my={5}  pt={0}>
         <Flex
           direction={{ base: "column", md: "row" }}
           align={{ base: "center", md: "center" }}

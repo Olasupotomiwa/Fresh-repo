@@ -68,7 +68,7 @@ export const contentArray = [
 function CreateTasks() {
  
   return (
-    <Box  mb={10}>
+    <Box  mb={10} >
       {contentArray.map((content, index) => (
         <div key={content.id} >
           <Link to={content.route} >

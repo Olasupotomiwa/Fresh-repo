@@ -179,6 +179,7 @@ const PostAdTasks = () => {
         onDrop={handleFileDrop} // Handle file drop event
         onDragOver={preventDefault} // Prevent default behavior for drag-over event
         onDragEnter={preventDefault} //
+        pt={0}
       >
         <Heading
           fontSize={{ base: "20px", md: "30px" }}

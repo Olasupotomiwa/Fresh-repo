@@ -1,4 +1,4 @@
-import { Container, Center } from "@chakra-ui/react";
+import { Container , Box} from "@chakra-ui/react";
 import MarketPlace from "../../pages/Market-Place";
 
 const ProtectedMarketPlace = () => {
@@ -11,9 +11,11 @@ const ProtectedMarketPlace = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Center>
+    
+      <Box mt={-20}>
         <MarketPlace />
-      </Center>
+        </Box>
+      
     </Container>
   );
 };

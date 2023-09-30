@@ -106,10 +106,10 @@ const Goback = () => {
     <Box bg="black" pr="100%">
       <IconButton
         onClick={handleGoBack}
-        left={{ base: "8px", md: "22%" }}
+        left={{ base: "8px", md: "25%" }}
         py={5}
         pr={100}
-        pos="absolute"
+        pos="fixed"
         top="20"
         zIndex="1000"
         mb={4}
@@ -137,7 +137,7 @@ const CardsSection = () => {
      
       fontFamily="clash grotesk"
     >
-      <Box my={5}>
+      <Box my={5}  pt={0}>
         <Flex
           direction={{ base: "column", md: "row" }}
           align={{ base: "center", md: "center" }}

@@ -11,7 +11,7 @@ import Footer from "components/Footer";
 
 const Homepage = () => {
   return (
-    <Container maxW="full" bg="black" px={0} pt='20'>
+    <Container maxW="full" bg="black" px={0} pt='0'>
       <Hero />
 
       <Box py={9} px={{ base: "10", md: "6" }}>

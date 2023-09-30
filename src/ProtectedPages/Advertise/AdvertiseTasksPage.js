@@ -29,7 +29,7 @@ const Advertise = () => {
       fontFamily="clash grotesk"
     >
       <Goback />
-      <Box mt={10} textAlign={{ base: "center", md: "left" }}>
+      <Box mt={0} textAlign={{ base: "center", md: "left" }}>
         <Heading
           fontWeight="400"
           pt={3}

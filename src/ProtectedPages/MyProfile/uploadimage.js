@@ -30,6 +30,7 @@ const UploadImage = () => {
       borderColor="#808080"
       py={6}
       px={4}
+      mt={0}
     >
       <HStack gap={{base: '3', md: '5'}} ml={2}>
         <Box>

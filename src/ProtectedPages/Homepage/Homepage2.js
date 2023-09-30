@@ -9,6 +9,7 @@ const ProtectedFAQS = () => {
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
       height={{base: '1500px', md: '1000px'}}
+   
     
       fontFamily="clash grotesk"
     >
@@ -20,6 +21,7 @@ const ProtectedFAQS = () => {
         borderColor="#808080"
         borderRadius="lg"
         data-aos="fade-up"  data-aos-duration="2000"
+        mt={0}
       >
         <Text color="white" fontWeight="500">
           Disclaimer

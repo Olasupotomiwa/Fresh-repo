@@ -5,7 +5,7 @@ import BannerJPG from 'assets/images/banner.png'
 
 const Notes = () => {
   return (
-    <Box >
+    <Box pt={20} >
       <Flex
         direction={{ base: "column", md: "row" }}
         pt={30}
