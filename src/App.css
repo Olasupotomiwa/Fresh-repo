@@ -58,7 +58,7 @@ Button:focus{
 
 /* CSS to make the header sticky on mobile */
 .mobile-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   background-color: black; /* Set the background color as needed */
   z-index: 1000; /* Adjust the z-index as needed to ensure it's above other content */
