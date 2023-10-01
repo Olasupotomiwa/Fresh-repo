@@ -7,7 +7,7 @@ const ProtectedAbout =()=>{
 
       <Container ml={{ base: 0, md: "25%" }} px="0" maxW={{ base: '100%', md: "75%" }} bg='black'  >
           
-         <Box mt={-20}>
+         <Box pt={10}>
          <About />
          </Box>
           

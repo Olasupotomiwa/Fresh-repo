@@ -157,7 +157,8 @@ const PostAdTasks = () => {
     // Clear the error when the input is focused
     setNumberOfPostsError("");
   };
-
+ 
+  //calculated price
   const result = numberOfPosts ? numberOfPosts * 10 : null;
   return (
     <Container
@@ -179,7 +180,7 @@ const PostAdTasks = () => {
         onDrop={handleFileDrop} // Handle file drop event
         onDragOver={preventDefault} // Prevent default behavior for drag-over event
         onDragEnter={preventDefault} //
-        pt={0}
+        pt={20}
       >
         <Heading
           fontSize={{ base: "20px", md: "30px" }}

@@ -12,7 +12,7 @@ const ProtectedMarketPlace = () => {
       alignItems="center"
     >
     
-      <Box mt={-20}>
+      <Box pt={10}>
         <MarketPlace />
         </Box>
       

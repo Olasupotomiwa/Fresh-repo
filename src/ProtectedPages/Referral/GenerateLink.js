@@ -73,8 +73,8 @@ const GenerateLink = () => {
 
   return (
     <Container px={0} maxW="100%" height='auto'  pt={0}>
-      <Box textAlign={{ base: "center", md: "left" }} py={6} px={2}>
-        <Heading color="white" fontWeight="500" fontFamily='clash grotesk'>
+      <Box textAlign={{ base: "center", md: "left" }}  px={2} pt={20}>
+        <Heading color="white" fontWeight="500" fontFamily='clash grotesk' mt={10}>
           Referrals
         </Heading>
         <Text color="#808080" mt={4}>

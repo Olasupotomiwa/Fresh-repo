@@ -37,6 +37,7 @@ const Card = ({ icon, header, content, to, text }) => {
       height="300px"
       mx="20px"
       my={4}
+      mt={20}
     >
       <Box alignItems="center" p={1}>
         <Box
@@ -103,16 +104,16 @@ const Goback = () => {
     navigate(-1); // Go back to the previous route
   };
   return (
-    <Box bg="black" pr="100%">
+    <Box bg="black" pr="100%" py={10}>
       <IconButton
         onClick={handleGoBack}
-        left={{ base: "8px", md: '25%', lg: "25%", '2xl': '34%' }} 
-        py={5}
+        left={{ base: "8px", md: '25%', lg: "25%", '2xl': '32%' }} 
+        py={6}
         pr={100}
         pos="fixed"
-        top="20"
+        top="88px"
         zIndex="1000"
-        mb={4}
+       mb={10}
         color="white"
         bg="black"
         _hover={{ bg: "inherit" }}
@@ -134,6 +135,7 @@ const CardsSection = () => {
       maxW={{ base: "100%", md: "75%" }}
       bg="black"
       height={{ base: "full", md: "100vh" }}
+     
      
       fontFamily="clash grotesk"
     >

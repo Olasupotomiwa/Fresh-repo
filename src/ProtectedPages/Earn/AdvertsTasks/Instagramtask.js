@@ -105,7 +105,8 @@ const IGtasks = ({
             color="white"
             fontFamily="clash grotesk"
             fontSize="22px"
-            mt={2}
+            mt={20}
+            py={2}
             fontWeight="600"
             textAlign={{ base: "center", md: "left" }}
           >

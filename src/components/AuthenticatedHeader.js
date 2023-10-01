@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Header from 'components/Header'
 import {
   Box,
   Container,
@@ -60,7 +61,6 @@ const SidebarContent = ({ onClose, ...rest }) => {
       w={{ base: "full", md: "inherit" }}
       pos="fixed"
       top="0"
-     
       h="full"
       pr={3}
       {...rest}
@@ -73,7 +73,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
           color="white"
         />
       </Flex>
-      <Box mt="30px" pb={20}  maxH="100vh">
+      <Box mt="30px" pb={20} maxH="100vh">
         {LinkItems.map((link) => (
           <NavItem
             key={link.name}
@@ -157,55 +157,26 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
 
 const MobileNav = ({ onOpen, ...rest }) => {
   const user = useSelector((state) => state.auth.user);
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-     // Set the container width to 75% when the component mounts
-   const container = document.getElementById("mobile-nav-container"); 
-   container.style.width = "75%";
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const navClass = isSticky ? "sticky-nav" : "";
-
-  
 
   return (
-    
     <Container
-      maxW={{ base: "100%", md: "75%" }}
-      ml={{ base: 0, md: "25%" }}
-      px="0"
-      bg={{ base: "#121212", md: "black" }}
-      zIndex="1000"
-    
-      justifyContent={{ base: "space-between", md: "space-between" }}
-      id="mobile-nav-container"
-     
-    >
-     
-      <Flex
-        px={{ base: 4, md: 4 }}
-        height="20"
-        alignItems="center"
-        justifyContent={{ base: "space-between", md: "space-between" }}
-        {...rest}
-       
-      >
+    maxW={{ xl: "100%", '2xl': '75%' }}
+    bg='#121212'
+      py='5'
+    color="white"
+    fontFamily="Clash Grotesk"
+    className="mobile-header"
+    justifyContent='space-between'
+    display='flex'
+    pos='fixed'
+    mb='10'
+  >
+
+<Flex  alignItems="center" mx="8" justifyContent="space-between" >
+        <Image src={Logo} />
         
+      </Flex>
+     
         <Box
           display={{ base: "none", md: "flex" }}
           alignItems="center"
@@ -237,9 +208,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
           />
         </Box>
 
-        <Image src={Logo} width="75px" display={{ base: "flex", md: "none" }} />
+       
 
-        <HStack spacing={{ base: "0", md: "6" }}  >
+        <HStack spacing={{ base: "0", md: "6" }}>
           <IconButton
             size="lg"
             variant="ghost"
@@ -288,7 +259,6 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <MenuItem>Log out</MenuItem>
               </MenuList>
             </Menu>
-           
           </Flex>
 
           <IconButton
@@ -300,9 +270,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
             icon={<FiMenu color="white" />}
           />
         </HStack>
-       
-      </Flex>
-    
+     
     </Container>
   );
 };
@@ -311,7 +279,7 @@ const SidebarWithHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box >
+    <Box>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -332,7 +300,6 @@ const SidebarWithHeader = () => {
       <Box ml={{ base: 0, md: "25%" }} px="0">
         {/* Content */}
       </Box>
-     
     </Box>
   );
 };

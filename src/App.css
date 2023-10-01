@@ -67,8 +67,9 @@ Button:focus{
 .mobile-header2 {
   position: absolute;
   top: 0;
-  right: 37.5%;
-  left: 12.5%;
+  right: 0px;
+  left: 0px;
+  width: 75%;
   background-color: black; /* Set the background color as needed */
   z-index: 1000; /* Adjust the z-index as needed to ensure it's above other content */
   /* Add any other styles you want for the sticky header */

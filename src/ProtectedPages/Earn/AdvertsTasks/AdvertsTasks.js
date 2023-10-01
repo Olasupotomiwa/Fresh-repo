@@ -31,7 +31,7 @@ const AdHomepage = () => {
     >
         <Goback/>
         <Box mt={0} textAlign={{base: 'center', md: 'left'}}>
-        <Heading fontWeight='400' pt={3} color='white' mt={10} fontSize={{base: '18px', md: '25px'}} fontFamily="clash grotesk">Earn</Heading>
+        <Heading fontWeight='400' pt={8} color='white' mt={20} fontSize={{base: '18px', md: '25px'}} fontFamily="clash grotesk">Earn</Heading>
       <Box>
         <Text color="#808080">
           Here you will find variety of adverts and engagement tasks. Engagement
