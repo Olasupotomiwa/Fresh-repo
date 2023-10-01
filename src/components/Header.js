@@ -268,7 +268,6 @@ const MobileNavItem = ({ label, href, subItems, onClose }) => {
   );
 };
 
-const subItemsIcon = { base: ChevronDownIcon };
 
 const MobileNav = ({ isOpen, onClose }) => {
   return (
