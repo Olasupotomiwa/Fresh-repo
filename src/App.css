@@ -202,7 +202,7 @@ ion-icon {
 .dot-spinner {
   --uib-size: 6.8rem;
   --uib-speed: .9s;
-  --uib-color: #CB29BE;
+  --uib-color: #762181;
   position: relative;
   display: flex;
   height: var(--uib-size);
