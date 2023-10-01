@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
-  Center,
   Spacer,
   Text,
   IconButton,
@@ -16,21 +15,11 @@ import {
   Button,
   chakra,
 } from "@chakra-ui/react";
-
-import { useState } from "react";
-
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import { IconProps } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
+import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { LogoJPG } from "constants/image_assets";
 
-// Define the navigation items
-type NavItem = {
-  label: string;
-  href: string;
-  subItems?: NavItem[];
-};
-const NAV_ITEMS: NavItem[] = [
+const NAV_ITEMS = [
   {
     label: "Home",
     href: "/",
@@ -63,11 +52,10 @@ const NAV_ITEMS: NavItem[] = [
   },
 ];
 
-// Desktop navigation component
 const DesktopNav = () => {
   return (
     <Stack direction="row" align="center" spacing={0} pr={0} mr="30">
-      <Center>
+      <Flex>
         {NAV_ITEMS.map((navItem, index) => (
           <Box
             key={navItem.label}
@@ -99,12 +87,11 @@ const DesktopNav = () => {
             )}
           </Box>
         ))}
-      </Center>
+      </Flex>
 
       <Spacer />
       <Spacer />
 
-      {/* Login and Sign Up buttons for desktop view */}
       <Stack
         spacing={0}
         direction="row"
@@ -145,14 +132,7 @@ const DesktopNav = () => {
   );
 };
 
-// // Desktop navigation dropdown component
-const DesktopDropdownNavItem = ({
-  label,
-  subItems,
-}: {
-  label: string;
-  subItems: NavItem[];
-}) => {
+const DesktopDropdownNavItem = ({ label, subItems }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavItemClick = () => {
@@ -202,18 +182,7 @@ const DesktopDropdownNavItem = ({
   );
 };
 
-// Mobile navigation item component
-const MobileNavItem = ({
-  label,
-  href,
-  subItems,
-  onClose,
-}: {
-  label: string;
-  href: string;
-  subItems?: NavItem[];
-  onClose: () => void;
-}) => {
+const MobileNavItem = ({ label, href, subItems, onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavItemClick = () => {
@@ -247,7 +216,7 @@ const MobileNavItem = ({
               {label}
             </Text>
             <Box
-              as={subItemsIcon.base}
+              as={ChevronDownIcon}
               ml={0.5}
               transform={isOpen ? "rotate(180deg)" : "none"}
             />
@@ -299,25 +268,14 @@ const MobileNavItem = ({
   );
 };
 
-const subItemsIcon: { [key: string]: React.ElementType<IconProps> } = {
-  base: ChevronDownIcon,
-};
+const subItemsIcon = { base: ChevronDownIcon };
 
-// Mobile navigation component
-const MobileNav = ({
-  isOpen,
-  onClose,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-}) => {
+const MobileNav = ({ isOpen, onClose }) => {
   return (
     <Stack bg="black" p={4} display={{ md: "none" }} height="100vh">
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} onClose={onClose} />
       ))}
-
-      {/* Login and Sign Up buttons for mobile view */}
       {isOpen && (
         <Stack spacing={4}>
           <Button
@@ -360,11 +318,12 @@ const MobileNav = ({
 
 const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
+  
 
   return (
     <Container
-      maxW={{ lg: "100%", xl: "85%" }}
-      bg="black"
+      maxW={{ xl: "100%", '2xl': '75%' }}
+      bg='black'
       color="white"
       fontFamily="Clash Grotesk"
       className="mobile-header"
@@ -374,10 +333,10 @@ const Header = () => {
           color="white.600"
           py={{ base: 4 }}
           align="center"
-          justify="space-around"
+          justify="space-between" // Adjusted justify property
           bg="black"
         >
-          <Flex flex={{ base: 0 }}>
+          <Flex flex={0}>
             <Box
               display={{ base: "none", md: "flex" }}
               width={{ base: "150px", md: "90px", lg: "360px" }}
@@ -388,7 +347,28 @@ const Header = () => {
             </Box>
           </Flex>
 
-          <Flex flex={{ base: 2 }}>
+          {/* Moved the IconButton outside the Flex */}
+          <IconButton
+            onClick={onToggle}
+            pr='20px'
+            pt='40px'
+            _hover={{ bg: "black", opacity: "0.9" }}
+            icon={
+              isOpen ? (
+                <CloseIcon w={3} h={3} />
+              ) : (
+                <HamburgerIcon w={5} h={5} color="white" />
+              )
+            }
+            variant="ghost"
+            aria-label="Toggle Navigation"
+            position="fixed" // Keep the icon fixed at the edge
+            top={0} // Place it at the top
+            right={0} // Push it to the right edge
+            display={{ base: "flex", md: "none" }} // Show only on mobile
+          />
+
+          <Flex flex={2}>
             <Link to="/">
               <Image
                 src={LogoJPG}
@@ -398,35 +378,9 @@ const Header = () => {
               />
             </Link>
 
-            <Flex
-              display={{ base: "none", md: "flex" }}
-              flex={{ base: 1 }}
-              ml={5}
-            >
+            <Flex display={{ base: "none", md: "flex" }} flex={1} ml={5}>
               <DesktopNav />
             </Flex>
-          </Flex>
-
-          <Flex
-            flex={{ base: 1, md: "auto" }}
-            ml={{ base: -2 }}
-            display={{ base: "flex", md: "none" }}
-            justify="flex-end"
-            align="center"
-          >
-            <IconButton
-              onClick={onToggle}
-              _hover={{ bg: "black", opacity: "0.9" }}
-              icon={
-                isOpen ? (
-                  <CloseIcon w={3} h={3} />
-                ) : (
-                  <HamburgerIcon w={5} h={5} color="white" />
-                )
-              }
-              variant="ghost"
-              aria-label="Toggle Navigation"
-            />
           </Flex>
         </Flex>
 

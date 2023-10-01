@@ -106,7 +106,7 @@ const Goback = () => {
     <Box bg="black" pr="100%">
       <IconButton
         onClick={handleGoBack}
-        left={{ base: "8px", md: "25%" }}
+        left={{ base: "8px", md: '25%', lg: "25%", '2xl': '34%' }} 
         py={5}
         pr={100}
         pos="fixed"

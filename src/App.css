@@ -58,8 +58,17 @@ Button:focus{
 
 /* CSS to make the header sticky on mobile */
 .mobile-header {
-  position: fixed;
+  position: absolute;
   top: 0;
+  background-color: black; /* Set the background color as needed */
+  z-index: 1000; /* Adjust the z-index as needed to ensure it's above other content */
+  /* Add any other styles you want for the sticky header */
+}
+.mobile-header2 {
+  position: absolute;
+  top: 0;
+  right: 37.5%;
+  left: 12.5%;
   background-color: black; /* Set the background color as needed */
   z-index: 1000; /* Adjust the z-index as needed to ensure it's above other content */
   /* Add any other styles you want for the sticky header */
@@ -324,6 +333,7 @@ Select, option, input{
   max-width: 100%;
   padding-left: 0%;
   padding-right: 0%;
+  margin: 0% auto;
  
 }
 
@@ -337,8 +347,27 @@ Select, option, input{
 @media screen and (min-width: 1536px) {
   /* 2XL Screen */
   .container {
-    max-width: 85%;
+    max-width: 75%;
   }
 }
 
+.header-container {
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: clash grotesk;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+ 
+}
 
+/* styles.css */
+.sticky-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: black; /* Add your desired background color */
+  z-index: 1000; /* Adjust the z-index as needed */
+  transition: background-color 0.3s ease; /* Optional: Add a transition effect */
+}

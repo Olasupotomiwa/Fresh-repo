@@ -1,33 +1,30 @@
-import React from "react";
-import { NavLink, useLocation, useMatch, Outlet } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
 import {
-  IconButton,
-  Avatar,
-  Image,
   Box,
-  CloseButton,
+  Container,
   Flex,
-  HStack,
-  VStack,
+  IconButton,
+  Image,
+  Input,
   useColorModeValue,
   Text,
-  Drawer,
-  DrawerContent,
-  useDisclosure,
+  VStack,
+  HStack,
   Menu,
   MenuButton,
   MenuItem,
-  Input,
   MenuList,
-  Container,
+  Avatar,
+  CloseButton,
+  Drawer,
+  DrawerContent,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FiMenu, FiBell, FiChevronDown, FiSearch } from "react-icons/fi";
+import { NavLink, useLocation, useMatch, Outlet } from "react-router-dom";
 import Logo from "../../src/assets/images/logo.png";
 
-// Update the LinkItems with route paths
 const LinkItems = [
   { name: "Home", icon: "solar:cart-4-bold", path: "/homepage" },
   { name: "Earn", icon: "healthicons:money-bag", path: "/earn" },
@@ -63,6 +60,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       w={{ base: "full", md: "inherit" }}
       pos="fixed"
       top="0"
+     
       h="full"
       pr={3}
       {...rest}
@@ -75,7 +73,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
           color="white"
         />
       </Flex>
-      <Box mt="30px" pb={20}>
+      <Box mt="30px" pb={20}  maxH="100vh">
         {LinkItems.map((link) => (
           <NavItem
             key={link.name}
@@ -152,7 +150,6 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
           {children}
         </Flex>
       </NavLink>
-      {/* If this NavItem has nested routes, render them using Outlet */}
       {match?.route?.children && <Outlet />}
     </Box>
   );
@@ -160,31 +157,62 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
 
 const MobileNav = ({ onOpen, ...rest }) => {
   const user = useSelector((state) => state.auth.user);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+     // Set the container width to 75% when the component mounts
+   const container = document.getElementById("mobile-nav-container"); 
+   container.style.width = "75%";
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navClass = isSticky ? "sticky-nav" : "";
+
+  
 
   return (
+    
     <Container
-      className="mobile-heade"
       maxW={{ base: "100%", md: "75%" }}
       ml={{ base: 0, md: "25%" }}
       px="0"
       bg={{ base: "#121212", md: "black" }}
       zIndex="1000"
+    
+      justifyContent={{ base: "space-between", md: "space-between" }}
+      id="mobile-nav-container"
+     
     >
+     
       <Flex
         px={{ base: 4, md: 4 }}
         height="20"
         alignItems="center"
         justifyContent={{ base: "space-between", md: "space-between" }}
         {...rest}
+       
       >
-        {/* Add search input with icon */}
+        
         <Box
           display={{ base: "none", md: "flex" }}
           alignItems="center"
           border="1px solid #808080"
           borderRadius="15px"
           transition="border-color 0.3s ease"
-          ml='2%'
+          ml="4%"
         >
           <IconButton
             size="lg"
@@ -203,15 +231,15 @@ const MobileNav = ({ onOpen, ...rest }) => {
             color="white"
             ml="-0"
             _focus={{
-              borderColor: "transparent", // Remove border on focus
-              boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)", // Add box shadow on focus
+              borderColor: "transparent",
+              boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)",
             }}
           />
         </Box>
 
         <Image src={Logo} width="75px" display={{ base: "flex", md: "none" }} />
 
-        <HStack spacing={{ base: "0", md: "6" }}>
+        <HStack spacing={{ base: "0", md: "6" }}  >
           <IconButton
             size="lg"
             variant="ghost"
@@ -260,6 +288,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <MenuItem>Log out</MenuItem>
               </MenuList>
             </Menu>
+           
           </Flex>
 
           <IconButton
@@ -271,7 +300,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
             icon={<FiMenu color="white" />}
           />
         </HStack>
+       
       </Flex>
+    
     </Container>
   );
 };
@@ -280,11 +311,10 @@ const SidebarWithHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box bg="#121212">
+    <Box >
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
-        overflowY="auto"
       />
       <Drawer
         isOpen={isOpen}
@@ -298,11 +328,11 @@ const SidebarWithHeader = () => {
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
-      {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: "20%" }} p="0">
+      <Box ml={{ base: 0, md: "25%" }} px="0">
         {/* Content */}
       </Box>
+     
     </Box>
   );
 };
