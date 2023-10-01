@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {Goback } from '../Earnhome'
 import ADtasks from './AdsList'
 import EngagementTasks from '../EngagementTasks/EngagementTasklist'
+import {colors} from 'components/colors'
 
 
 
@@ -31,9 +32,9 @@ const AdHomepage = () => {
     >
         <Goback/>
         <Box mt={0} textAlign={{base: 'center', md: 'left'}}>
-        <Heading fontWeight='400' pt={8} color='white' mt={20} fontSize={{base: '18px', md: '25px'}} fontFamily="clash grotesk">Earn</Heading>
+        <Heading fontWeight='400' pt={8} color='white' mt={0} fontSize={{base: '18px', md: '25px'}} fontFamily="clash grotesk">Earn</Heading>
       <Box>
-        <Text color="#808080">
+        <Text color={colors.primaryText}>
           Here you will find variety of adverts and engagement tasks. Engagement
           tasks include following people and pages, giving app reviews on the
           App Store or Google play store, suscribing to YouTube channels,
@@ -46,12 +47,12 @@ const AdHomepage = () => {
             <Button
               onClick={handleClick1}
               mr={2}
-              bg={showAdtasks ? "#CB29BE" : "#121212"}
-              color={showAdtasks ? "white" : "#808080"}
+              bg={showAdtasks ? colors.deep : colors.secondarybg}
+              color={showAdtasks ? "white" : colors.primaryText}
               fontWeight="500"
               transition="background 0.3s, color 0.3s"
               _hover={{
-                bg: "#CB29BE",
+                bg: colors.primary,
                 color: "white",
                 opacity: "0.9",
               }}
@@ -64,11 +65,11 @@ const AdHomepage = () => {
               rounded='lg'
               mr={0}
               transition="background 0.3s, color 0.3s"
-              bg={ showEngagementTasks ? "#CB29BE" : "#121212"}
-              color={ showEngagementTasks ? "white" : "#808080"}
+              bg={ showEngagementTasks ? colors.deep : colors.secondarybg}
+              color={ showEngagementTasks ? "white" : colors.primaryText}
               fontWeight="500"
               _hover={{
-                bg: "#CB29BE",
+                bg: colors.deep,
                 color: "white",
                 opacity: "0.9",
               }}

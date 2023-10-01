@@ -24,6 +24,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useFetch } from "../../../React-query-hook/hook";
 import Loader from "../../../Loader";
 import ScrollToTop from "components/scrolltop";
+import {colors} from "components/colors"
 
 
 
@@ -85,7 +86,7 @@ const IGtasks = ({
       {isLoading && (
         <Container bg="black" height="100vh">
           <Loader />
-          <Text color="white" textAlign="center">
+          <Text color="white" textAlign="center" mt={20}>
             Loading available tasks
           </Text>
         </Container>
@@ -105,7 +106,7 @@ const IGtasks = ({
             color="white"
             fontFamily="clash grotesk"
             fontSize="22px"
-            mt={20}
+            mt={0}
             py={2}
             fontWeight="600"
             textAlign={{ base: "center", md: "left" }}
@@ -113,7 +114,7 @@ const IGtasks = ({
             {customHeading || "Instagram adverts tasks"}
           </Heading>
           <Text
-            color="#808080"
+            color={colors.primaryText}
             py={4}
             textAlign={{ base: "center", md: "left" }}
           >
@@ -122,7 +123,7 @@ const IGtasks = ({
           </Text>
           {/* Display the total number of data available */}
           <Text
-            color="#ffffff"
+            color={colors.whiteText}
             textAlign={{ base: "center", md: "left" }}
             fontWeight="600"
             fontSize="20px"
@@ -137,7 +138,7 @@ const IGtasks = ({
          
           {totalDataLength === 0 ? (
            
-            <Text color="#808080" textAlign="center">
+            <Text color={colors.primaryText} textAlign="center">
               No tasks available.
             </Text>
           ) : (
@@ -162,13 +163,13 @@ const IGtasks = ({
                   <Box display="flex">
                     <Box ml={2}>
                       <Box mb={6}>
-                        <Text color="#CB29BE" fontWeight="600">
+                        <Text color={colors.primary} fontWeight="600">
                           Title
                         </Text>
-                        <Text color="#808080">Description</Text>
+                        <Text color={colors.primaryText}>Description</Text>
                       </Box>
                       <Box>
-                        <Text pr={2} color="#808080">
+                        <Text pr={2} color={colors.primaryText}>
                           {item.title}
                         </Text>
                       </Box>
@@ -179,7 +180,7 @@ const IGtasks = ({
                   <Text
                     width="auto"
                     textAlign="right"
-                    color="#CB29BE"
+                    color={colors.secondary}
                     fontWeight="500"
                     mb="-4px"
                     onClick={() => openModal(item)}
@@ -189,7 +190,7 @@ const IGtasks = ({
                   </Text>
                 </Box>
               </Box>
-              <Divider borderColor="#808080" mt={1} />
+              <Divider borderColor={colors.primaryText} mt={1} />
             </Box>
           ))
         )}
@@ -220,7 +221,7 @@ const IGtasks = ({
         <ModalContent
           bg="black"
           border="1px"
-          borderColor="#808080"
+          borderColor={colors.primaryText}
           borderRadius="25px"
           fontFamily="clash grotesk"
           p={{ base: "0", md: "6" }}
@@ -235,7 +236,7 @@ const IGtasks = ({
             Perform task
           </Heading>
           <ModalCloseButton
-            bg="#808080"
+            bg={colors.primaryText}
             rounded="full"
             position="absolute"
             top="-8px"
@@ -246,9 +247,9 @@ const IGtasks = ({
             {selectedTask && (
               <div>
                 {/* Add your modal content here */}
-                <Text color="#808080" textAlign="center" py={4}>
+                <Text color={colors.primaryText} textAlign="center" py={4}>
                   If you proceed to perform this tasks, you will have just{" "}
-                  <span style={{ color: "#CB29BE", fontWeight: "600" }}>
+                  <span style={{ color: colors.primary, fontWeight: "600" }}>
                     1 hour
                   </span>{" "}
                   to complete the task. Otherwise, it will be cancelled
@@ -258,11 +259,11 @@ const IGtasks = ({
                     as={Link}
                     to={`/earn/perform-task/${selectedTask.id}?apiEndpoint=${apiEndpoint}`}
                     color="white"
-                    bg="#CB29BE"
+                    bg={colors.primary}
                     rounded="full"
                     fontWeight="400"
                     px="60px"
-                    _hover={{ bg: "#CB29BE" }}
+                    _hover={{ bg: colors.secondary }}
                   >
                     Proceed
                   </Button>

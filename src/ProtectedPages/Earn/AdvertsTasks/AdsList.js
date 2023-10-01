@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Flex, Heading, Image, Text, Divider } from '@chakra-ui/react';
+import {colors} from 'components/colors'
 import IG from 'assets/SocialMediaLogo/IG.png';
 import Fb from "assets/SocialMediaLogo/Fb.png";
 import Tiktok from "assets/SocialMediaLogo/Tiktok.png";
@@ -105,15 +106,15 @@ function Adlist() {
               </Box>
             </Flex>
             <Box ml={10} mt={{ base: '2', md: '2', lg: '0' }}>
-              <Text fontSize="sm" color="#808080" lineHeight={1.5} textAlign="left">
+              <Text fontSize="sm" color={colors.primaryText} lineHeight={1.5} textAlign="left">
                 {content.description1}
               </Text>
-              <Text fontSize="sm" color="#808080" textAlign="left">
+              <Text fontSize="sm" color={colors.primaryText} textAlign="left">
                 {content.description2}
               </Text>
             </Box>
           </Link>
-          {index < contentArray.length - 1 && <Divider borderColor="#808080" mt={4} />}
+          {index < contentArray.length - 1 && <Divider borderColor={colors.primaryText} mt={4} />}
         </div>
       ))}
     </Box>

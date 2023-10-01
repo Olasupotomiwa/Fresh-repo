@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'; 
+import {colors} from 'components/colors'
 
 
 import {
@@ -98,19 +99,19 @@ const handleButtonClick = () => {
 ) : (
     <>
       <Box
-        bg="#121212"
+        bg={colors.secondarybg}
         width="full"
         p={4}
         mt={10}
         textDecoration="none"
         border="1px"
-        borderColor="#808080"
+        borderColor={colors.primaryText}
         borderRadius="lg"
       >
         <Text color="white" fontWeight="500">
           Disclaimer
         </Text>
-        <Text color="#808080">
+        <Text color={colors.primaryText}>
           To be eligible for our social tasks: <br />
           1. Your selected must have at least 1000 real followers <br />
           2. Your account must be an active one. Your last post must not be
@@ -122,7 +123,7 @@ const handleButtonClick = () => {
         <FormControl
           borderRadius="8px"
           borderWidth="2px"
-          borderColor="#808080"
+          borderColor={colors.primaryText}
           display="flex"
           width={{ base: "100%", md: "100%" }}
           m={{ base: "auto", md: "0" }}
@@ -130,7 +131,7 @@ const handleButtonClick = () => {
           <InputGroup variant="unstyled">
             <Input
               type="email"
-              color="#CB29BE"
+              color={colors.secondary}
               placeholder="paste profile link"
               fontSize="15px"
               pl="0.5rem"
@@ -147,11 +148,11 @@ const handleButtonClick = () => {
             fontWeight="500"
             borderWidth="1px"
             _hover={{ bg: "CB29BE", opacity: "0,9" }}
-            borderColor="#808080"
-            color={isButtonActive ? "white" : "#808080"}
+            borderColor={colors.primaryText}
+            color={isButtonActive ? "white" : colors.primaryText}
             py={6}
             outline="1px"
-            bg={isButtonActive ? "#CB29BE" : "#121212"} // Change background color
+            bg={isButtonActive ? colors.secondary : colors.secondarybg}// Change background color
             fontSize="16px"
             onClick={handleButtonClick}
             isDisabled={!isButtonActive} // Disable button when input is empty or during loading
@@ -182,25 +183,25 @@ const handleButtonClick = () => {
         <ModalContent
           bg="black"
           border="1px"
-          borderColor="#808080"
+          borderColor={colors.primaryText}
           borderRadius="25px"
           fontFamily="clash grotesk"
           p={{ base: "0", md: "6" }}
         >
           <ModalCloseButton
-            bg="#808080"
+            bg={colors.primaryText}
             rounded="full"
             position="absolute"
             top="-8px"
             right="-5px"
           />
-          <ModalBody color="#808080">
+          <ModalBody color={colors.primaryText}>
             {isLinked ? (
               <div>
             <Center>
               <iconify-icon
                 icon="solar:verified-check-bold"
-                style={{ color: "#CB29BE" }}
+                style={{ color: colors.secondary} }
                 mx="auto"
                 justifyContent="center"
                 alignItems="center"
@@ -214,7 +215,7 @@ const handleButtonClick = () => {
                 <Text textAlign='center'>
                   Your account has been linked succesfully <br /> You can now
                   carry out{" "}
-                  <span style={{ color: "#CB29BE", fontWeight: "600" }}>
+                  <span style={{ color: colors.secondary, fontWeight: "600" }}>
                     Instagram Tasks
                   </span>{" "}
                   Tasks on our platform! <br />
@@ -241,7 +242,7 @@ const handleButtonClick = () => {
                 <Text textAlign='center'>
                   Your Instagram account was not linked. <br /> If this account passess 1000 followers minimum required. Please try to
                   
-                  <span style={{ color: "#CB29BE", fontWeight: "600" }} >
+                  <span style={{ color: colors.secondary, fontWeight: "600" }} >
                   {" "} link it again
                   </span>{" "}
                  

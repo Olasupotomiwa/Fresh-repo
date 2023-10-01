@@ -5,6 +5,7 @@ import { IconButton } from "@chakra-ui/react";
 import { Box, Flex, Text, Heading, Button, Container } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import {colors} from "components/colors"
 
 const cardContent = [
   {
@@ -29,7 +30,7 @@ const Card = ({ icon, header, content, to, text }) => {
   const navigate = useNavigate();
   return (
     <Box
-      bg="#121212"
+      bg={colors.secondarybg}
       p={4}
       shadow="md"
       borderRadius="md"
@@ -54,7 +55,7 @@ const Card = ({ icon, header, content, to, text }) => {
         >
           <iconify-icon
             icon={icon}
-            style={{ color: "#808080" }}
+            style={{ color: colors.primaryText }}
             width="30"
           ></iconify-icon>
         </Box>
@@ -71,7 +72,7 @@ const Card = ({ icon, header, content, to, text }) => {
           >
             {header}
           </Heading>
-          <Text fontSize="15px" py={0} letterSpacing="0.369px" color="#808080">
+          <Text fontSize="15px" py={0} letterSpacing="0.369px" color={colors.primaryText}>
             {content}
           </Text>
         </Box>
@@ -79,14 +80,14 @@ const Card = ({ icon, header, content, to, text }) => {
       <Button
         width="full"
         rounded="full"
-        bg="#cb29be"
+        bg={colors.secondary}
         fontWeight="400"
         color="white"
         mt={8}
         mb={0}
         onClick={() => navigate(to)}
         _hover={{
-          bg: "#CB29BE",
+          bg:colors.primarybg,
           color: "white",
           opacity: "0.9",
         }}

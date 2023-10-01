@@ -38,7 +38,7 @@ const Home = () => {
         fontWeight="400"
         px={10}
         pt={20}
-        mt={10}
+       
       >
       {isLoading ? (
         <Text>Loading user data...</Text>

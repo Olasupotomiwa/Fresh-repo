@@ -73,7 +73,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
           color="white"
         />
       </Flex>
-      <Box mt="30px" pb={20} maxH="100vh">
+      <Box mt="30px" pb={20} maxH="100vh" overflowY='auto'>
         {LinkItems.map((link) => (
           <NavItem
             key={link.name}
@@ -120,7 +120,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
           p="0"
           mr="10"
           my="1"
-          bg={isActive() ? "#CB29BE" : "inherit"}
+          bg={isActive() ? "#762181" : "inherit"}
           color={isActive() ? "white" : "inherit"}
           fontFamily="clash grotesk"
           borderRadius="lg"
@@ -130,7 +130,7 @@ const NavItem = ({ icon, children, path, onClose, ...rest }) => {
           role="group"
           cursor="pointer"
           _hover={{
-            bg: "#CB29BE",
+            bg: "#762181",
             color: "white",
           }}
           {...rest}
