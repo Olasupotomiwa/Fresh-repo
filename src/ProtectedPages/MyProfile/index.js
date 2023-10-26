@@ -14,7 +14,7 @@ const Referral = () => {
       fontFamily="clash grotesk"
     >
       <Box
-        width={{ base: "full", md: "60%" }}
+        width={{ base: "full", md: "70%" }}
         mx="auto"
         px={{ base: "1", md: "10" }}
         py={3}

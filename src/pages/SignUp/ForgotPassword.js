@@ -270,6 +270,7 @@ const ForgotPasswordPage = () => {
                 width="full"
                 fontWeight="400"
                 fontFamily="clash grotesk"
+                py='7'
               >
                 {isLoading ? (
                   <>
@@ -287,13 +288,14 @@ const ForgotPasswordPage = () => {
                 fontFamily="clash grotesk"
                 mt={5}
               >
-                Already have an account ?{" "}
+              Remember password ?{" "}
                 <Button
                   variant="unstyled"
                   style={{ color: "#CB29BE" }}
                   as={Link}
                   to="/log-in"
                   fontWeight="400"
+                 
                 >
                   Log in{" "}
                 </Button>

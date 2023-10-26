@@ -36,7 +36,7 @@ const Hero = () => {
 
         <Heading
           fontFamily="Clash Grotesk"
-          fontSize="38px"
+          fontSize="38"
           lineHeight="47px"
           fontWeight={700}
           textAlign={{ base: "center", md: "left" }}

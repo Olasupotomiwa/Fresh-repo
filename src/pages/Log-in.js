@@ -86,11 +86,11 @@ const LoginPage = () => {
         // Dispatch the loginSuccess action with mock user data
         const mockUserData = {
           id: 1,
-          username: "Trendit3",
+          username: "Trendit3 User",
           Profile_picture:
             "https://usuploads.s3.amazonaws.com/itlearn360/uploads/2018/12/dummy-profile-pic-300x300.jpg",
           Balance: "1000",
-          referral_link: "www.trendit3.com/signup/dezfoodz",
+          referral_link: "www.trendit3.com/signup/dezfoodzz",
           password: "Trendit3",
           email: "Trendit3@gmail.com",
 
@@ -271,8 +271,7 @@ const LoginPage = () => {
               color="white"
               fontFamily="clash grotesk"
               fontSize="14px"
-              data-aos="fade-up"
-              data-aos-duration="2000"
+              
             >
               Not registered ?{" "}
               <Button

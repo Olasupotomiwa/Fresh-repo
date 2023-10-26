@@ -184,6 +184,7 @@ const UploadProducts = () => {
                 fontSize="34px"
                 fontWeight="500"
                 fontFamily="clash grotesk"
+                mt={20}
               >
                 Upload product/service
               </Heading>

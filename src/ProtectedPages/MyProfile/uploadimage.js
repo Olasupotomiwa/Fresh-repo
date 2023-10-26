@@ -42,6 +42,7 @@ const UploadImage = () => {
               width="65px"
               boxSize='70px'
               borderWidth="1px"
+              objectFit='cover'
             />
           ) : (
             <Image

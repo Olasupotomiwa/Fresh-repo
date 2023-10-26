@@ -349,8 +349,8 @@ const Header = () => {
           {/* Moved the IconButton outside the Flex */}
           <IconButton
             onClick={onToggle}
-            pr='20px'
-            pt='40px'
+            m='20px'
+           
             _hover={{ bg: "black", opacity: "0.9" }}
             icon={
               isOpen ? (

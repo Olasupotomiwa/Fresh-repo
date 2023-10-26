@@ -17,7 +17,7 @@ const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     linked: persistedLinkedReducer,
-    // Add other slices here
+    // Add other slices here  
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

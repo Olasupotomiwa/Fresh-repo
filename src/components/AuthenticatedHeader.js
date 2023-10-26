@@ -1,5 +1,6 @@
 
 import { useSelector } from "react-redux";
+import { Link} from "react-router-dom";
 
 import {
   Box,
@@ -66,7 +67,9 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+      <Link to="/">
         <Image src={Logo} />
+        </Link>
         <CloseButton
           display={{ base: "flex", md: "none" }}
           onClick={onClose}
@@ -166,24 +169,24 @@ const MobileNav = ({ onOpen, ...rest }) => {
     color="white"
     fontFamily="Clash Grotesk"
     className="mobile-header"
-    justifyContent='space-between'
+    justifyContent="space-between"
     display='flex'
     pos='fixed'
     mb='10'
   >
 
-<Flex  alignItems="center" mx="8" justifyContent="space-between" >
+<Flex  alignItems="center" mx="0"  >
+<Link to="/">
         <Image src={Logo} />
-        
-      </Flex>
-     
+</Link>
         <Box
           display={{ base: "none", md: "flex" }}
           alignItems="center"
           border="1px solid #808080"
           borderRadius="15px"
           transition="border-color 0.3s ease"
-          ml="4%"
+          
+          ml={40}
         >
           <IconButton
             size="lg"
@@ -207,6 +210,12 @@ const MobileNav = ({ onOpen, ...rest }) => {
             }}
           />
         </Box>
+        
+      </Flex>
+     
+
+      <Flex  >
+       
 
        
 
@@ -220,7 +229,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
             icon={<FiBell color="white" bg="#121212" />}
           />
 
-          <Flex alignItems={"center"}>
+          <Flex alignItems={"center"} zIndex='9000' bg='black'>
             <Menu>
               <MenuButton
                 py={2}
@@ -270,7 +279,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
             icon={<FiMenu color="white" />}
           />
         </HStack>
-     
+        </Flex>
     </Container>
   );
 };

@@ -86,6 +86,7 @@ const ContactInfo = () => {
           textAlign="right"
           py={2}
           onClick={openModal}
+          cursor='pointer'
         >
           Change password
         </Text>
