@@ -67,7 +67,7 @@ const Footer = () => {
               ></iconify-icon>
             </Link>
 
-            <Link href="mailto:support@trendit3.com">
+            <Link to="mailto:support@trendit3.com">
               <iconify-icon
                 icon="fontisto:email"
                 style={{ color: "white" }}
